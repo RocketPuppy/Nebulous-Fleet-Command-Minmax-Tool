@@ -1,16 +1,29 @@
 class PointDefense {
-    constructor(name, accuracies, traverse, elevation, ammo, rof = null, reload_time = null, recycle_time = null) {
+    constructor(name, accuracies, traverse, elevation, ammo, rof = null, reload_time = null, recycle_time = null, ammo_capacity = null) {
         this.name = name;
         this.accuracies = accuracies;
         this.traverse = traverse; // deg/s
         this.elevation = elevation; // deg/s
         this.ammunition = ammo;
         this._rof = rof; // rounds/minute
+        this.reload_time = reload_time; // s
+        this.recycle_time = recycle_time; // s
+        this.ammo_capacity = ammo_capacity; // rounds
     }
 
     get rof() {
         if (this._rof !== null) {
             return this._rof;
+        } else {
+            return 60 / this.recycle_time;
+        }
+    }
+
+    get rof_sustained() {
+        if (this._rof !== null) {
+            return this._rof;
+        } else {
+            return (this.ammo_capacity - 1) * this.recycle_time + this.reload_time;
         }
     }
 }
@@ -23,22 +36,73 @@ class Accuracy {
 }
 
 class Ammo {
-    constructor(name, velocity, armor_penetration, component_damage, max_range) {
+    constructor(name, velocity, armor_penetration, component_damage, max_range, explosion = null) {
         this.name = name;
         this.velocity = velocity,   // m/s
         this.armor_penetration = armor_penetration; // cm
         this.component_damage = component_damage;   // hp
         this.max_range = max_range; // m
+        this.explosion = explosion;
     }
 }
 
 export const defender = new PointDefense(
-    "Defender",
+    "Mk20 Defender",
     [new Accuracy(1, 3)],
     100,
     100,
     [new Ammo("20mm Slug", 700, 3, 15, 1750)],
     2400
+);
+
+const flak_round = new Ammo("50mm Flak", 650, 5, 15, 2002)
+export const rebound = new PointDefense(
+    "Mk25 Rebound",
+    [new Accuracy(1, 35)],
+    80,
+    80,
+    [flak_round],
+    null,
+    3,
+    0.3,
+    15
+);
+
+export const stonewall = new PointDefense(
+    "Mk29 Stonewall",
+    [new Accuracy(1, 52)],
+    30,
+    30,
+    [flak_round],
+    null,
+    0.25,
+    0.25,
+    100
+);
+
+const aurora_bursts = 5;
+export const aurora = new PointDefense(
+    "Mk90 Aurora",
+    [new Accuracy(1.5, 1), new Accuracy(3, 1)],
+    100,
+    100,
+    [new Ammo("Aurora Laser", Infinity, 3, 40/aurora_bursts, 3000)],
+    null,
+    3.4,
+    1.8/aurora_bursts,
+    aurora_bursts
+);
+
+export const sarissa = new PointDefense(
+    "Mk95 Sarissa",
+    [new Accuracy(3, 5), new Accuracy(6, 10)],
+    30,
+    30,
+    [new Ammo("15mm Sandshot", 2500, 1, 65, 6250)],
+    null,
+    8,
+    1,
+    1
 );
 
 class Missile {
@@ -123,8 +187,13 @@ const s3h_atlatl_sprint = new Missile(
 );
 
 export const point_defense = {
-    defender
-}
+    defender,
+    rebound,
+    stonewall,
+    aurora,
+    sarissa
+};
+
 export const missiles = {
     s1_balestra,
     s2_tempest,

@@ -49,9 +49,8 @@ const final_shot_distance_travelled = (weapon, ammo, missile, range, shots) => {
     return intercept_range;
 };
 
-function do_graph(chosen_missile) {
-    const chosen_pd = point_defense.defender;
-    const chosen_ammo = point_defense.defender.ammunition[0];
+function do_graph(chosen_missile, chosen_pd) {
+    const chosen_ammo = chosen_pd.ammunition[0];
     const interval = 10; //m
     const data = {};
     const shots = shots_to_kill(chosen_missile, chosen_ammo);
@@ -76,21 +75,31 @@ function do_graph(chosen_missile) {
 }
 
 function inputs() {
-    const missile_form = document.getElementById("missile-selector");
-    const missile_in = missile_form.elements.namedItem("missile"); // html select
+    const form = document.getElementById("inputs-form");
+    const missile_in = form.elements.namedItem("missile"); // html select
+    const pdt_in = form.elements.namedItem("pdt"); // html select
     for(const missile of Object.values(missiles)) {
         if(missile.name !== null && missile.name !== undefined) {
             const o = new Option(missile.name, missile.name);
             missile_in.add(o);
         }
     }
+    for(const pdt of Object.values(point_defense)) {
+        if(pdt.name !== null && pdt.name !== undefined) {
+            const o = new Option(pdt.name, pdt.name);
+            pdt_in.add(o);
+        }
+    }
     missile_in.selectedIndex = 0;
-    missile_form.onsubmit = (e) => {
+    pdt_in.selectedIndex = 0;
+    form.onsubmit = (e) => {
         e.stopPropagation();
         e.preventDefault();
-        const name = missile_in.value;
-        const missile = Object.values(missiles).find((m) => m.name === name);
-        do_graph(missile);
+        const missile_name = missile_in.value;
+        const missile = Object.values(missiles).find((m) => m.name === missile_name);
+        const pdt_name = pdt_in.value;
+        const pdt = Object.values(point_defense).find((t) => t.name === pdt_name);
+        do_graph(missile, pdt);
     }
 }
 inputs();
