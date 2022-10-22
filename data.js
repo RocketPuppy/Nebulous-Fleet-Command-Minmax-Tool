@@ -106,10 +106,10 @@ export const sarissa = new PointDefense(
 );
 
 class Missile {
-    constructor(name, acceleration, turn_accleration, max_speed, health, collider) {
+    constructor(name, acceleration, turn_acceleration, max_speed, health, collider) {
         this.name = name;
         this.acceleration = acceleration;   // G
-        this.turn_accleration = turn_accleration;   // G
+        this.turn_acceleration = turn_acceleration;   // G
         this.max_speed = max_speed; // m/s
         this.health = health;   // hp
         this.collider = collider;

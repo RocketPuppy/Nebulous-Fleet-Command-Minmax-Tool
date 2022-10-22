@@ -74,6 +74,29 @@ function do_graph(chosen_missile, chosen_pd) {
     );
 }
 
+function populate_inputs(missile, pdt) {
+    const missile_form = document.getElementById("missile-form");
+    const acceleration = missile_form.elements.namedItem("acceleration");
+    const turn_acceleration = missile_form.elements.namedItem("turn-acceleration");
+    const max_speed = missile_form.elements.namedItem("max-speed");
+    const health = missile_form.elements.namedItem("health");
+
+    acceleration.value = Math.round(missile.acceleration * 10)/10;
+    turn_acceleration.value = Math.round(missile.turn_acceleration * 10)/10;
+    max_speed.value = Math.round(missile.max_speed);
+    health.value = Math.round(missile.health);
+
+    missile_form.onsubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        missile.acceleration = acceleration.value;
+        missile.turn_acceleration = turn_acceleration.value;
+        missile.max_speed = max_speed.value;
+        missile.health = health.value;
+        do_graph(missile, pdt);
+    }
+}
+
 function inputs() {
     const form = document.getElementById("inputs-form");
     const missile_in = form.elements.namedItem("missile"); // html select
@@ -99,7 +122,9 @@ function inputs() {
         const missile = Object.values(missiles).find((m) => m.name === missile_name);
         const pdt_name = pdt_in.value;
         const pdt = Object.values(point_defense).find((t) => t.name === pdt_name);
+        populate_inputs(missile, pdt);
         do_graph(missile, pdt);
     }
 }
+
 inputs();
