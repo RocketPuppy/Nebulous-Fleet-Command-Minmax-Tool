@@ -1,3 +1,9 @@
+function regraph_listener(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.regraph();
+}
+
 export function populate_inputs(missile, pdt, grapher) {
     const missile_form = document.getElementById("missile-form");
     const acceleration = missile_form.elements.namedItem("acceleration");
@@ -23,16 +29,10 @@ export function populate_inputs(missile, pdt, grapher) {
         grapher(missile, pdt);
     };
 
-    missile_form.onsubmit = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        regraph();
-    };
-    pdt_form.onsubmit = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        regraph();
-    };
+    missile_form.removeEventListener("submit", regraph_listener);
+    pdt_form.removeEventListener("submit", regraph_listener);
+    missile_form.addEventListener("submit", regraph_listener.bind({ regraph }));
+    pdt_form.addEventListener("submit", regraph_listener.bind({ regraph }));
 }
 
 export function inputs(missiles, point_defenses, grapher) {
