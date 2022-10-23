@@ -1,30 +1,19 @@
 import { missiles, point_defense } from "./data.js";
 
-const shots_to_kill = (missile, ammo) => {
-    return Math.ceil(missile.health / ammo.component_damage);
-};
-
 const final_shot_distance_travelled = (weapon, ammo, missile, range, shots) => {
-    const speed = missile.max_speed;
-    const rof = weapon.rof;
-    const ammo_velocity = ammo.velocity;
-
-    // rounds / minute * 1 minute / 60 seconds
-    const rof_per_second = rof / 60;
     // starting range - range travelled while firing shots to kill - range travelled while last round is travelling
     // rounds / second * 1 / rounds (invert)
-    const time_to_fire = 1/(rof_per_second * 1 / shots);
-    const travelled_during_firing = time_to_fire * speed;
+    const travelled_during_firing = missile.distance_travelled(weapon.seconds_to_fire(shots));
     const range_after_firing = range - travelled_during_firing;
     // missile travels while round is travelling
     // m -- | ---------- r
     // m ---------- | -- r
     // relative_v = v_m + v_r
     // t = range / relative_v
-    const relative_velocity = ammo_velocity + speed;
+    const relative_velocity = missile.closing_velocity(ammo);
     const time_to_intercept = range_after_firing / relative_velocity;
-    const intercept = time_to_intercept * speed;
-    const intercept_range = range_after_firing - (time_to_intercept * speed);
+    const intercept = missile.distance_travelled(time_to_intercept);
+    const intercept_range = range_after_firing - missile.distance_travelled(time_to_intercept);
     if (range % 100 == 0) {
         const sample = {
             weapon,
@@ -32,11 +21,11 @@ const final_shot_distance_travelled = (weapon, ammo, missile, range, shots) => {
             missile,
             range,
             shots,
-            speed,
-            rof,
-            ammo_velocity,
-            rof_per_second,
-            time_to_fire,
+            speed: missile.max_speed,
+            rof: weapon.rof,
+            ammo_velocity: ammo.velocity,
+            rof_per_second: weapon.rof_per_second,
+            time_to_fire: weapon.seconds_to_fire(shots),
             travelled_during_firing,
             range_after_firing,
             intercept,
@@ -50,14 +39,11 @@ const final_shot_distance_travelled = (weapon, ammo, missile, range, shots) => {
 };
 
 function do_graph(chosen_missile, chosen_pd) {
-    const chosen_ammo = chosen_pd.ammunition[0];
+    const chosen_ammo = chosen_pd.primary_ammo;
     const interval = 10; //m
     const data = {};
-    const shots = shots_to_kill(chosen_missile, chosen_ammo);
-    for(var range = chosen_ammo.max_range; range >= 0; range -= interval) {
-        if (range < 0) {
-            break;
-        }
+    const shots = chosen_ammo.shots_to_kill(chosen_missile);
+    for(const range of chosen_ammo.ranges(interval)) {
         const y = final_shot_distance_travelled(chosen_pd, chosen_ammo, chosen_missile, range, shots);
         data[y] = range;
     }

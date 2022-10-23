@@ -11,6 +11,10 @@ class PointDefense {
         this.ammo_capacity = ammo_capacity; // rounds
     }
 
+    seconds_to_fire(shots) {
+        return 1/(this.rof_per_second * 1 / shots)
+    }
+
     get rof() {
         if (this._rof !== null) {
             return this._rof;
@@ -19,12 +23,24 @@ class PointDefense {
         }
     }
 
+    get rof_per_second() {
+        return this.rof / 60;
+    }
+    
     get rof_sustained() {
         if (this._rof !== null) {
             return this._rof;
         } else {
             return (this.ammo_capacity - 1) * this.recycle_time + this.reload_time;
         }
+    }
+
+    get rof_sustained_per_seconds() {
+        return this.rof_sustained / 60;
+    }
+
+    get primary_ammo() {
+        return this.ammunition[0];
     }
 }
 
@@ -43,6 +59,20 @@ class Ammo {
         this.component_damage = component_damage;   // hp
         this.max_range = max_range; // m
         this.explosion = explosion;
+    }
+
+    shots_to_kill(missile) {
+        return Math.ceil(missile.health / this.component_damage);
+    }
+
+    *ranges(interval) {
+        for(var i = this.max_range; i >= 0; i -= interval) {
+            if (i < 0 ) {
+                break;
+            }
+            yield i;
+        }
+        yield 0;
     }
 }
 
@@ -113,6 +143,14 @@ class Missile {
         this.max_speed = max_speed; // m/s
         this.health = health;   // hp
         this.collider = collider;
+    }
+
+    distance_travelled(seconds) {
+        return seconds * this.max_speed;
+    }
+
+    closing_velocity(ammo) {
+        return ammo.velocity + this.max_speed;
     }
 }
 
