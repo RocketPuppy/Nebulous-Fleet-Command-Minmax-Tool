@@ -1,5 +1,5 @@
 class PointDefense {
-    constructor(name, accuracies, traverse, elevation, ammo, rof = null, reload_time = null, recycle_time = null, ammo_capacity = null) {
+    constructor(name, accuracies, traverse, elevation, ammo, rof = null, reload_time = 0, recycle_time = 0, ammo_capacity = 1) {
         this.name = name;
         this.accuracies = accuracies;
         this.traverse = traverse; // deg/s
@@ -9,6 +9,7 @@ class PointDefense {
         this.reload_time = reload_time; // s
         this.recycle_time = recycle_time; // s
         this.ammo_capacity = ammo_capacity; // rounds
+        this.use_burst_rof = false;
     }
 
     seconds_to_fire(shots) {
@@ -16,6 +17,14 @@ class PointDefense {
     }
 
     get rof() {
+        if (this.use_burst_rof) {
+            return this.rof_burst_per_minute;
+        } else {
+            return this.rof_sustained_per_minute;
+        }
+    }
+
+    get rof_burst_per_minute() {
         if (this._rof !== null) {
             return this._rof;
         } else {
@@ -27,16 +36,16 @@ class PointDefense {
         return this.rof / 60;
     }
     
-    get rof_sustained() {
-        if (this._rof !== null) {
-            return this._rof;
-        } else {
-            return (this.ammo_capacity - 1) * this.recycle_time + this.reload_time;
-        }
+    get rof_sustained_per_minute() {
+        return this.rof_sustained_per_seconds * 60;
     }
 
     get rof_sustained_per_seconds() {
-        return this.rof_sustained / 60;
+        if (this._rof !== null) {
+            return this._rof / 60;
+        } else {
+            return this.ammo_capacity / ((this.ammo_capacity - 1) * this.recycle_time + this.reload_time);
+        }
     }
 
     get primary_ammo() {

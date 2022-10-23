@@ -10,15 +10,29 @@ export function populate_inputs(missile, pdt, grapher) {
     max_speed.value = Math.round(missile.max_speed);
     health.value = Math.round(missile.health);
 
+    const pdt_form = document.getElementById("pdt-form");
+    const rof_switch = pdt_form.elements.namedItem("rof-switch");
+    rof_switch.checked = pdt.use_burst_rof;
+
+    const regraph = () => {
+        missile.acceleration = parseFloat(acceleration.value);
+        missile.turn_acceleration = parseFloat(turn_acceleration.value);
+        missile.max_speed = parseInt(max_speed.value, 10);
+        missile.health = parseInt(health.value, 10);
+        pdt.use_burst_rof = rof_switch.checked;
+        grapher(missile, pdt);
+    };
+
     missile_form.onsubmit = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        missile.acceleration = acceleration.value;
-        missile.turn_acceleration = turn_acceleration.value;
-        missile.max_speed = max_speed.value;
-        missile.health = health.value;
-        grapher(missile, pdt);
-    }
+        regraph();
+    };
+    pdt_form.onsubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        regraph();
+    };
 }
 
 export function inputs(missiles, point_defenses, grapher) {
