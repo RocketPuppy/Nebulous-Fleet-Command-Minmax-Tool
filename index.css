@@ -6,7 +6,7 @@
     right: 20px;
 }
 
-#inputs {
+.inputs {
     position: relative;
     width: 100%;
     display: flex;
@@ -40,4 +40,8 @@
     align-content: center;
     gap: 2%;
     bottom: 0;
+}
+
+.hidden {
+    display: none;
 }
