@@ -36,6 +36,10 @@ function missile_form(key, missile) {
     health_label.textContent = "Health";
     health_label.appendChild(health_input);
 
+    const header = document.createElement("h2");
+    header.textContent = missile.name;
+
+    form.appendChild(header);
     form.appendChild(accel_label);
     form.appendChild(turn_accel_label);
     form.appendChild(speed_label);
@@ -62,6 +66,10 @@ function pdt_form(key, pdt) {
     rof_label.textContent = "Use Burst Fire Rate";
     rof_label.appendChild(rof_input);
 
+    const header = document.createElement("h2");
+    header.textContent = pdt.name;
+
+    form.appendChild(header);
     form.appendChild(rof_label);
 
     rof_input.checked = pdt.use_burst_rof;
@@ -69,7 +77,7 @@ function pdt_form(key, pdt) {
     return form;
 }
 
-export function populate_inputs(missile, pdt) {
+export function populate_inputs(missiles, pdts) {
     const missile_input_container = document.getElementById("missile-inputs");
     
     // clear inputs
@@ -77,7 +85,9 @@ export function populate_inputs(missile, pdt) {
         missile_input_container.removeChild(missile_input_container.firstChild);
     }
 
-    missile_input_container.appendChild(missile_form(missile.name, missile));
+    missiles.forEach((missile) => {
+        missile_input_container.appendChild(missile_form(missile.name, missile));
+    });
 
     const pdt_input_container = document.getElementById("pdt-inputs");
 
@@ -86,7 +96,9 @@ export function populate_inputs(missile, pdt) {
         pdt_input_container.removeChild(pdt_input_container.firstChild);
     }
 
-    pdt_input_container.appendChild(pdt_form(pdt.name, pdt));
+    pdts.forEach((pdt) => {
+        pdt_input_container.appendChild(pdt_form(pdt.name, pdt));
+    });
 }
 
 export function inputs(missiles, point_defenses, grapher) {
@@ -142,11 +154,11 @@ export function inputs(missiles, point_defenses, grapher) {
         missile_db.select(selected_missiles);
         pdt_db.select(selected_pdt);
 
-        const missile = missile_db.first_selected;
-        const pdt = pdt_db.first_selected;
+        const missiles = missile_db.selected;
+        const pdts = pdt_db.selected;
 
-        populate_inputs(missile, pdt);
-        grapher(missile, pdt);
+        populate_inputs(missiles, pdts);
+        grapher(missiles, pdts);
     }
 
     graph_form.elements.namedItem("reset").onclick = (e) => {

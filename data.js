@@ -313,7 +313,18 @@ export class SelectionDB {
     }
 
     get has_customization() {
-        return !!this.customizations[this.first_selected_original.name];
+        return this.selected_original.findIndex((i) => !!this.customizations[i.name]) !== -1;
+    }
+
+    get selected() {
+        if(this.has_customization) {
+            return this.selected_original.map((i) => Object.assign(i, this.customizations[i.name]));
+        }
+        return this.selected_original;
+    }
+
+    get selected_original() {
+        return this.items.filter((i) => this.selected_items.includes(i.name)).map((i) => i.clone());
     }
 
     get first_selected() {
