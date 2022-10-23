@@ -12,7 +12,7 @@ function missile_form(key, missile) {
     accel_input.name = "acceleration";
     const accel_label = document.createElement("label");
     accel_label.textContent = "Acceleration (G)";
-    accel_label.appendChild(accel_input);
+    accel_label.for = accel_input.name;
 
     const turn_accel_input = document.createElement("input");
     turn_accel_input.type = "number";
@@ -20,30 +20,46 @@ function missile_form(key, missile) {
     turn_accel_input.name = "turn-acceleration";
     const turn_accel_label = document.createElement("label");
     turn_accel_label.textContent = "Turn Acceleration (G)";
-    turn_accel_label.appendChild(turn_accel_input);
+    turn_accel_label.for = turn_accel_input.name;
 
     const speed_input = document.createElement("input");
     speed_input.type = "number";
     speed_input.name = "max-speed";
     const speed_label = document.createElement("label");
     speed_label.textContent = "Maximum Velocity (m/s)";
-    speed_label.appendChild(speed_input);
+    speed_label.for = speed_input.name;
 
     const health_input = document.createElement("input");
     health_input.type = "number";
     health_input.name = "health";
     const health_label = document.createElement("label");
     health_label.textContent = "Health";
-    health_label.appendChild(health_input);
+    health_label.for = health_label.name;
 
     const header = document.createElement("h2");
     header.textContent = missile.name;
 
     form.appendChild(header);
-    form.appendChild(accel_label);
-    form.appendChild(turn_accel_label);
-    form.appendChild(speed_label);
-    form.appendChild(health_label);
+    var div = document.createElement("div");
+    div.classList.add("control-group");
+    div.appendChild(accel_label);
+    div.appendChild(accel_input);
+    form.appendChild(div);
+    div = document.createElement("div");
+    div.classList.add("control-group");
+    div.appendChild(turn_accel_label);
+    div.appendChild(turn_accel_input);
+    form.appendChild(div);
+    div = document.createElement("div");
+    div.classList.add("control-group");
+    div.appendChild(speed_label);
+    div.appendChild(speed_input);
+    form.appendChild(div);
+    div = document.createElement("div");
+    div.classList.add("control-group");
+    div.appendChild(health_label);
+    div.appendChild(health_input);
+    form.appendChild(div);
 
     accel_input.value = Math.round(missile.acceleration * 10)/10;
     turn_accel_input.value = Math.round(missile.turn_acceleration * 10)/10;
@@ -64,13 +80,17 @@ function pdt_form(key, pdt) {
     rof_input.name = "rof-switch";
     const rof_label = document.createElement("label");
     rof_label.textContent = "Use Burst Fire Rate";
-    rof_label.appendChild(rof_input);
+    rof_label.for = rof_input.name;
 
     const header = document.createElement("h2");
     header.textContent = pdt.name;
 
     form.appendChild(header);
-    form.appendChild(rof_label);
+    var div = document.createElement("div");
+    div.classList.add("control-group");
+    div.appendChild(rof_label);
+    div.appendChild(rof_input);
+    form.appendChild(div);
 
     rof_input.checked = pdt.use_burst_rof;
 

@@ -9,21 +9,22 @@
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
-        <div class="inputs">
-            <form id="graph-inputs" action="#">
-                <div id="inputs-form" class="inputs-form" action="#">
-                    <select multiple name="missile"></select>
-                    <select multiple name="pdt"></select>
-                    <button type="submit">Graph!</button>
-                    <button name="reset">Reset</button>
-                </div>
-            </form>
-        </div>
+        <h1>Missiles vs. PD</h1>
+        <form id="graph-inputs" action="#" class="inputs-form">
+            <div class="control-group">
+                <label>Select Missiles</label><select multiple name="missile"></select>
+            </div>
+            <div class="control-group">
+                <label>Select Point Defense</label><select multiple name="pdt"></select>
+            </div>
+            <div class="buttons control-group">
+                <button type="submit">Graph!</button>
+                <button name="reset">Reset</button>
+            </div>
+        </form>
         <div id="missile-inputs" class="inputs">
-
         </div>
         <div id="pdt-inputs" class="inputs">
-
         </div>
         <div id="outputs">
             <div id="graph"></div>
