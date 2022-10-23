@@ -137,10 +137,10 @@ export const aurora = new PointDefense(
     [new Accuracy(1.5, 1), new Accuracy(3, 1)],
     100,
     100,
-    [new Ammo("Aurora Laser", Infinity, 3, 40/aurora_bursts, 3000)],
+    [new Ammo("Aurora Laser", Infinity, 3, 8, 3000)],
     null,
     3.4,
-    1.8/aurora_bursts,
+    1.0/aurora_bursts,
     aurora_bursts
 );
 
