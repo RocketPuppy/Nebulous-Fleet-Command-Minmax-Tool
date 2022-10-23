@@ -51,12 +51,20 @@ class PointDefense {
     get primary_ammo() {
         return this.ammunition[0];
     }
+
+    clone() {
+        return new PointDefense(this.name, this.accuracies.map((a) => a.clone()), this.traverse, this.elevation, this.ammunition.map((a) => a.clone()), this._rof, this.reload_time, this.recycle_time, this.ammo_capacity);
+    }
 }
 
 class Accuracy {
     constructor(distance, spread) {
         this.distance = distance; //km
         this.spread = spread;  // m
+    }
+
+    clone() {
+        return new Accuracy(this.distance, this.spread);
     }
 }
 
@@ -82,6 +90,10 @@ class Ammo {
             yield i;
         }
         yield 0;
+    }
+
+    clone() {
+        return new Ammo(this.name, this.velocity, this.armor_penetration, this.component_damage, this.max_range, this.explosion);
     }
 }
 
@@ -161,12 +173,20 @@ class Missile {
     closing_velocity(ammo) {
         return ammo.velocity + this.max_speed;
     }
+
+    clone() {
+        return new Missile(this.name, this.acceleration, this.turn_acceleration, this.max_speed, this.health, this.collider.clone());
+    }
 }
 
 class Collider {
     constructor(height, radius) {
         this.height = height;   // unity unit
         this.radius = radius;   // unity unit
+    }
+
+    clone() {
+        return new Collider(this.height, this.radius);
     }
 }
 
@@ -258,3 +278,52 @@ export const missiles = {
         cruise: s3h_atlatl_cruise
     }
 };
+
+export class SelectionDB {
+    constructor(items) {
+        this.items = items;
+        this.customizations = {};
+        this.selected_items = null;
+    }
+
+    is_selected(item_name) {
+        if (this.selected_items === null) {
+            return false;
+        }
+        return this.selected_items.includes(item_name);
+    }
+
+    select(item_names) {
+        this.selected_items = item_names
+    }
+
+    customize(item_name, customization) {
+        this.customizations[item_name] = customization;
+    }
+
+    reset_selected() {
+        this.selected_items.forEach((name) => {
+            this.reset(name);
+        });
+        this.selected_items = null;
+    }
+
+    reset(item_name) {
+        this.customizations[item_name] = null;
+    }
+
+    get has_customization() {
+        return !!this.customizations[this.first_selected_original.name];
+    }
+
+    get first_selected() {
+        if (this.has_customization) {
+            return Object.assign(this.first_selected_original, this.customizations[this.first_selected_original.name]);
+        }
+        return this.first_selected_original;
+    }
+
+    get first_selected_original() {
+        return this.items.find((i) => this.selected_items.includes(i.name)).clone();
+    }
+}

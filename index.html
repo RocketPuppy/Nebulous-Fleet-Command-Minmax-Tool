@@ -9,24 +9,23 @@
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
-        <div id="inputs">
-            <form id="inputs-form" class="inputs-form" action="#">
+        <form id="inputs" action="#">
+            <div id="inputs-form" class="inputs-form" action="#">
                 <select name="missile"></select>
                 <select name="pdt"></select>
                 <button type="submit">Graph!</button>
-            </form>
-            <form id="missile-form" class="inputs-form" action="#">
+                <button name="reset">Reset</button>
+            </div>
+            <div id="missile-form" class="inputs-form" action="#">
                 <label for="acceleration">Acceleration (G): </label><input name="acceleration" type="number" step="0.1" />
                 <label for="turn-acceleration">Turn Acceleration (G): </label><input name="turn-acceleration" type="number" step="0.1" />
                 <label for="max-speed">Maximum Velocity (m/s): </label><input name="max-speed" type="number" />
                 <label for="health">Health: </label><input name="health" type="number" />
-                <button type="submit">Update Missile Stats</button>
-            </form>
-            <form id="pdt-form" class="inputs-form" action="#">
+            </div>
+            <div id="pdt-form" class="inputs-form" action="#">
                 <label for="rof-switch">Use Burst Fire Rate</label><input type="checkbox" name="rof-switch" />
-                <button type="submit">Update PDT Options</button>
-            </form>
-        </div>
+            </div>
+        </form>
         <div id="outputs">
             <div id="graph"></div>
         </div>
