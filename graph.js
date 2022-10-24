@@ -1,4 +1,4 @@
-import { final_shot_distance_travelled } from "./stats.js";
+import { intercept_range } from "./stats.js";
 
 function do_graph_internal(chosen_missile, chosen_pd) {
     const chosen_ammo = chosen_pd.primary_ammo;
@@ -7,7 +7,7 @@ function do_graph_internal(chosen_missile, chosen_pd) {
     const ys = [];
     const shots = chosen_ammo.shots_to_kill(chosen_missile);
     for(const range of chosen_ammo.ranges(interval)) {
-        const y = final_shot_distance_travelled(chosen_pd, chosen_ammo, chosen_missile, range, shots);
+        const y = intercept_range(chosen_pd, chosen_ammo, chosen_missile, range, shots);
         xs.push(range);
         ys.push(y);
     }

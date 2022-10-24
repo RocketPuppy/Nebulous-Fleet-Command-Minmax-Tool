@@ -1,4 +1,4 @@
-export function final_shot_distance_travelled(weapon, ammo, missile, range, shots) {
+export function intercept_range(weapon, ammo, missile, range, shots) {
     // starting range - range travelled while firing shots to kill - range travelled while last round is travelling
     // rounds / second * 1 / rounds (invert)
     const travelled_during_firing = missile.distance_travelled(weapon.seconds_to_fire(shots));
