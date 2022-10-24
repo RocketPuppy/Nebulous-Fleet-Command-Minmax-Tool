@@ -8,6 +8,11 @@ function do_graph_internal(chosen_missile, chosen_pd) {
     const shots = chosen_ammo.shots_to_kill(chosen_missile);
     for(const range of chosen_ammo.ranges(interval)) {
         const y = intercept_range(chosen_pd, chosen_ammo, chosen_missile, range, shots);
+        if (y < 0) {
+          xs.push(range);
+          ys.push(y);
+          break;
+        }
         xs.push(range);
         ys.push(y);
     }
