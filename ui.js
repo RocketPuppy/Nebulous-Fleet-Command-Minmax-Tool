@@ -69,7 +69,7 @@ function missile_form(key, missile) {
     return form;
 }
 
-function pdt_form(key, pdt) {
+function pdt_form(key, pdt, missiles) {
     const form = document.createElement("form");
     form.action = "#";
     form.id = key;
@@ -91,6 +91,18 @@ function pdt_form(key, pdt) {
     div.appendChild(rof_label);
     div.appendChild(rof_input);
     form.appendChild(div);
+    
+    for (const missile of missiles) {
+        const shots_input = document.createElement("span");
+        shots_input.textContent = pdt.primary_ammo.shots_to_kill(missile).toString();
+        const shots_label = document.createElement("label");
+        shots_label.textContent = "Shots to Kill (" + missile.name + ")";
+        const div = document.createElement("div");
+        div.classList.add("control-group");
+        div.appendChild(shots_label);
+        div.appendChild(shots_input);
+        form.appendChild(div);
+    }
 
     rof_input.checked = pdt.use_burst_rof;
 
@@ -117,7 +129,7 @@ export function populate_inputs(missiles, pdts) {
     }
 
     pdts.forEach((pdt) => {
-        pdt_input_container.appendChild(pdt_form(pdt.name, pdt));
+        pdt_input_container.appendChild(pdt_form(pdt.name, pdt, missiles));
     });
 }
 
