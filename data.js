@@ -279,11 +279,27 @@ export const missiles = {
     }
 };
 
-export class SelectionDB {
-    constructor(items) {
-        this.items = items;
+export class CustomizationDB {
+    constructor(templates) {
         this.customizations = {};
-        this.selected_items = null;
+        this.templates = null;
+        this.items = {};
+    }
+
+    new_item(item_name) {
+
+    }
+
+    customize(key, customization) {
+
+    }
+
+    fetch() {
+
+    }
+
+    reset() {
+
     }
 
     is_selected(item_name) {
