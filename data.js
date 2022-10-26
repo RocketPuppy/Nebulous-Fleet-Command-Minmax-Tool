@@ -185,7 +185,7 @@ class Missile {
         return ammo.velocity + this.max_speed;
     }
 
-    maneuver_distance(seconds, starting_orthogonal_velocity = this.max_speed, accel_percent = 1) {
+    maneuver_distance(seconds, starting_orthogonal_velocity = 0, accel_percent = 1) {
         if (accel_percent === null || accel_percent === undefined) {
             accel_percent = 1;
         }

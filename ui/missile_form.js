@@ -52,6 +52,15 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     const maneuvering_strength_label = document.createElement("label");
     maneuvering_strength_label.innerHTML = "Maneuvering Strength<br/>None to Full";
     maneuvering_strength_label.for = maneuvering_strength_input.name;
+    const orthogonal_speed_input = document.createElement("input");
+    orthogonal_speed_input.type = "range";
+    orthogonal_speed_input.name = "orthoganal-speed-percent";
+    orthogonal_speed_input.min = 0;
+    orthogonal_speed_input.max = 1;
+    orthogonal_speed_input.step = 0.01;
+    const orthogonal_speed_label = document.createElement("label");
+    orthogonal_speed_label.innerHTML = "Initial Transverse Velocity<br/>None to Max";
+    orthogonal_speed_label.for = orthogonal_speed_input.name;
 
     const submit = document.createElement("input");
     submit.type = "submit";
@@ -99,6 +108,11 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     form.appendChild(div);
     div = document.createElement("div");
     div.classList.add("control-group");
+    div.appendChild(orthogonal_speed_label);
+    div.appendChild(orthogonal_speed_input);
+    form.appendChild(div);
+    div = document.createElement("div");
+    div.classList.add("control-group");
     div.appendChild(submit);
     div.appendChild(remove);
     form.appendChild(div);
@@ -109,6 +123,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     health_input.value = Math.round(missile.health);
     cross_section_input.value = missile.cross_section_percent === null || missile.cross_section_percent === undefined ? 1 : Math.round(missile.cross_section_percent * 10) / 10;
     maneuvering_strength_input.value = missile.maneuvering_strength === null || missile.maneuvering_strength === undefined ? 1 : Math.round(missile.maneuvering_strength * 10) / 10;
+    orthogonal_speed_input.value = missile.orthogonal_speed === null || missile.orthogonal_speed === undefined ? 0 : Math.round(missile.orthogonal_speed * 10) / 10;
 
     form.onsubmit = (e) => {
         e.preventDefault();
@@ -121,6 +136,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
             health: parseInt(health_input.value, 10),
             cross_section_percent: parseFloat(cross_section_input.value),
             maneuvering_strength: parseFloat(maneuvering_strength_input.value),
+            orthogonal_speed: parseFloat(orthogonal_speed_input.value),
         });
         graph_form.dispatchEvent(new SubmitEvent("submit"));
     };
