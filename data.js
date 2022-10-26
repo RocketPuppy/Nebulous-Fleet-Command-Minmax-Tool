@@ -17,6 +17,9 @@ class PointDefense {
     }
 
     seconds_to_fire(shots) {
+        if (shots - 1 <= 0) {
+            return 0;
+        }
         return 1/(this.rof_per_second * 1 / shots)
     }
 
