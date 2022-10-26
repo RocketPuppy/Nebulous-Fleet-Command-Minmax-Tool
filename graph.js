@@ -8,8 +8,8 @@ function do_graph_internal(chosen_missile, missile_index, chosen_pd, pd_index, s
         const y = stat(chosen_pd, chosen_ammo, chosen_missile, range, shots);
         if (y < 0) {
           xs.push(range);
-          ys.push(y);
-          break;
+          ys.push(0);
+          continue;
         }
         xs.push(range);
         ys.push(y);
