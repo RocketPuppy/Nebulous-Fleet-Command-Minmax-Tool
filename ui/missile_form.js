@@ -39,7 +39,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     cross_section_input.name = "cross-section-percent";
     cross_section_input.min = 0;
     cross_section_input.max = 1;
-    cross_section_input.step = 0.1;
+    cross_section_input.step = 0.01;
     const cross_section_label = document.createElement("label");
     cross_section_label.innerHTML = "Approach Angle<br/>Head-on to Side-on";
     cross_section_label.for = cross_section_input.name;
@@ -48,7 +48,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     maneuvering_strength_input.name = "maneuver-strength-percent";
     maneuvering_strength_input.min = 0;
     maneuvering_strength_input.max = 1;
-    maneuvering_strength_input.step = 0.1;
+    maneuvering_strength_input.step = 0.01;
     const maneuvering_strength_label = document.createElement("label");
     maneuvering_strength_label.innerHTML = "Maneuvering Strength<br/>None to Full";
     maneuvering_strength_label.for = maneuvering_strength_input.name;
