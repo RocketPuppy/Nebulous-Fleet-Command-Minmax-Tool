@@ -47,7 +47,7 @@ export function shot_hit_chance(weapon, ammo, missile, range, shots) {
     // area of circle
     const accuracy_circle = Math.PI * radius_at_range * radius_at_range;
     // area that missile could maneuver to given acceleration and time on target (make this configurable)
-    const maneuver_radius = missile.maneuver_distance(time_to_intercept);
+    const maneuver_radius = missile.maneuver_distance(time_to_intercept, missile.max_speed, missile.maneuvering_strength);
     const maneuver_circle = Math.PI * maneuver_radius * maneuver_radius;
     // cross sectional area of missile (head-on or side-on) (estimated as a circle of some square footage)
     const cross_section_circle = missile.cross_section_area(missile.cross_section_percent);

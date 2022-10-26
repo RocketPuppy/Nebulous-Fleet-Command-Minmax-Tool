@@ -186,6 +186,9 @@ class Missile {
     }
 
     maneuver_distance(seconds, starting_orthogonal_velocity = this.max_speed, accel_percent = 1) {
+        if (accel_percent === null || accel_percent === undefined) {
+            accel_percent = 1;
+        }
         const accel = this.turn_acceleration * accel_percent;
         // time to turn orthogonal to vector, assuming max speed is time to zero speed + time to increase it again given turn accel
         const time_to_ortho = (this.max_speed - starting_orthogonal_velocity) / accel * 2;
