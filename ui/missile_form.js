@@ -34,6 +34,16 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     health_label.textContent = "Health";
     health_label.for = health_label.name;
 
+    const cross_section_input = document.createElement("input");
+    cross_section_input.type = "range";
+    cross_section_input.name = "cross-section-percent";
+    cross_section_input.min = 0;
+    cross_section_input.max = 1;
+    cross_section_input.step = 0.1;
+    const cross_section_label = document.createElement("label");
+    cross_section_label.innerHTML = "Approach Angle<br/>Head-on to Side-on";
+    cross_section_label.for = cross_section_input.name;
+
     const submit = document.createElement("input");
     submit.type = "submit";
     submit.value = "Update Missile";
@@ -70,6 +80,11 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     form.appendChild(div);
     div = document.createElement("div");
     div.classList.add("control-group");
+    div.appendChild(cross_section_label);
+    div.appendChild(cross_section_input);
+    form.appendChild(div);
+    div = document.createElement("div");
+    div.classList.add("control-group");
     div.appendChild(submit);
     div.appendChild(remove);
     form.appendChild(div);
@@ -78,6 +93,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     turn_accel_input.value = Math.round(missile.turn_acceleration * 10)/10;
     speed_input.value = Math.round(missile.max_speed);
     health_input.value = Math.round(missile.health);
+    cross_section_input.value = missile.cross_section_percent === null || missile.cross_section_percent === undefined ? 1 : Math.round(missile.cross_section_percent * 10) / 10;
 
     form.onsubmit = (e) => {
         e.preventDefault();
@@ -88,6 +104,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
             turn_acceleration: parseFloat(turn_accel_input.value),
             max_speed: parseInt(speed_input.value, 10),
             health: parseInt(health_input.value, 10),
+            cross_section_percent: parseFloat(cross_section_input.value),
         });
         graph_form.dispatchEvent(new SubmitEvent("submit"));
     };

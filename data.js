@@ -200,6 +200,9 @@ class Missile {
     }
 
     cross_section_area(percent = 1) {
+        if (percent === null || percent === undefined) {
+            percent = 1;
+        }
         const head = this.collider.head_on_cross_section;
         const side = this.collider.side_on_cross_section;
         return (side - head) * percent + head;

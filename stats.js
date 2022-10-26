@@ -50,7 +50,7 @@ export function shot_hit_chance(weapon, ammo, missile, range, shots) {
     const maneuver_radius = missile.maneuver_distance(time_to_intercept);
     const maneuver_circle = Math.PI * maneuver_radius * maneuver_radius;
     // cross sectional area of missile (head-on or side-on) (estimated as a circle of some square footage)
-    const cross_section_circle = missile.cross_section_area();
+    const cross_section_circle = missile.cross_section_area(missile.cross_section_percent);
     // hit probability on missile is percentage of missile cross-section vs. angular diameter
     const base_hit_probability = cross_section_circle / accuracy_circle;
     // incorporating maneuverability
