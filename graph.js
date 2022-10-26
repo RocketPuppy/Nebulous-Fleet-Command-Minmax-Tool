@@ -16,7 +16,6 @@ function do_graph_internal(chosen_missile, chosen_pd) {
         xs.push(range);
         ys.push(y);
     }
-    const graph = document.getElementById('graph');
 
     return {
       x: xs,
@@ -35,6 +34,7 @@ export function do_graph(missiles, pdts) {
         data.push(d);
       }
     }
+    const graph = document.getElementById('graph');
     Plotly.newPlot( graph, data,
     {
       margin: { t: 0 },
