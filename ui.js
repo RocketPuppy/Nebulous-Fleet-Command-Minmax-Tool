@@ -1,6 +1,7 @@
 import { CustomizationDB } from "./data.js";
 import missile_form from "./ui/missile_form.js";
 import pdt_form from "./ui/pdt_form.js";
+import * as stats from "./stats.js";
 
 export function populate_inputs(missile_db, pdt_db, graph_form) {
     const missile_input_container = document.getElementById("missile-inputs");
@@ -43,6 +44,7 @@ export function inputs(missiles, point_defenses, grapher) {
 
     const add_missile_btn = graph_form.elements.namedItem("add-missile");
     const add_pdt_btn = graph_form.elements.namedItem("add-pdt");
+    const add_stat_btn = graph_form.elements.namedItem("add-stat");
 
     const missile_db = new CustomizationDB(CustomizationDB.make_templates(Object.values(missiles)));
     const pdt_db = new CustomizationDB(CustomizationDB.make_templates(Object.values(point_defenses)));
@@ -62,9 +64,17 @@ export function inputs(missiles, point_defenses, grapher) {
         pdt_db.new_item(pdt_in.value);
         graph_form.dispatchEvent(new SubmitEvent("submit"));
     };
+    add_stat_btn.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const stats_in = graph_form.elements.namedItem("stat"); //html select
+        selected_stat = stats_in.value;
+        graph_form.dispatchEvent(new SubmitEvent("submit"));
+    }
 
     const missile_in = graph_form.elements.namedItem("missile"); // html select
     const pdt_in = graph_form.elements.namedItem("pdt"); // html select
+    const stats_in = graph_form.elements.namedItem("stat"); //html select
     for(const missile of Object.values(missiles)) {
         if(missile.name !== null && missile.name !== undefined) {
             const o = new Option(missile.name, missile.name);
@@ -77,8 +87,17 @@ export function inputs(missiles, point_defenses, grapher) {
             pdt_in.add(o);
         }
     }
+    for (const stat in stats) {
+        if (Object.hasOwnProperty.call(stats, stat)) {
+            const s = stats[stat];
+            const o = new Option(s.human_name, stat);
+            stats_in.add(o);
+        }
+    }
     missile_in.selectedIndex = 0;
     pdt_in.selectedIndex = 0;
+    stats_in.selectedIndex = 0;
+    var selected_stat = stats_in.value;
 
     graph_form.onsubmit = (e) => {
         e.stopPropagation();
@@ -90,7 +109,7 @@ export function inputs(missiles, point_defenses, grapher) {
         populate_inputs(missile_db, pdt_db, graph_form);
 
         if (missiles.length !== 0 && pdts.length !== 0) {
-            grapher(missiles, pdts);
+            grapher(missiles, pdts, stats[selected_stat]);
         } else {
             const graph = document.getElementById('graph');
             Plotly.purge(graph);

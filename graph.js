@@ -1,13 +1,11 @@
-import { intercept_range } from "./stats.js";
-
-function do_graph_internal(chosen_missile, missile_index, chosen_pd, pd_index) {
+function do_graph_internal(chosen_missile, missile_index, chosen_pd, pd_index, stat) {
     const chosen_ammo = chosen_pd.primary_ammo;
     const interval = 10; //m
     const xs = [];
     const ys = [];
     const shots = chosen_ammo.shots_to_kill(chosen_missile);
     for(const range of chosen_ammo.ranges(interval)) {
-        const y = intercept_range(chosen_pd, chosen_ammo, chosen_missile, range, shots);
+        const y = stat(chosen_pd, chosen_ammo, chosen_missile, range, shots);
         if (y < 0) {
           xs.push(range);
           ys.push(y);
@@ -33,7 +31,7 @@ function do_graph_internal(chosen_missile, missile_index, chosen_pd, pd_index) {
 
 }
 
-export function do_graph(missiles, pdts) {
+export function do_graph(missiles, pdts, stat) {
     const data = [];
     missiles.forEach((missile, missile_index) => {
       pdts.forEach((pdt, pdt_index) => {
@@ -47,7 +45,7 @@ export function do_graph(missiles, pdts) {
         } else {
           pdt_index++;
         }
-        const d = do_graph_internal(missile, missile_index.toString(), pdt, pdt_index.toString());
+        const d = do_graph_internal(missile, missile_index.toString(), pdt, pdt_index.toString(), stat);
         console.log("Data:", d);
         data.push(d);
       });
@@ -61,7 +59,7 @@ export function do_graph(missiles, pdts) {
     {
       margin: { t: 0 },
       xaxis: { title: "Encounter Range (m)" },
-      yaxis: { title: "Kill Range (m)" },
+      yaxis: { title: stat.y_label },
     }
   );
 }

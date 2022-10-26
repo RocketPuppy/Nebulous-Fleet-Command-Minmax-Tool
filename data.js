@@ -12,6 +12,10 @@ class PointDefense {
         this.use_burst_rof = false;
     }
 
+    get angular_diameter() {
+        return this.accuracies.concat().sort((a, b) => a.range - b.range).reverse()[0].angular_diameter;
+    }
+
     seconds_to_fire(shots) {
         return 1/(this.rof_per_second * 1 / shots)
     }
@@ -65,6 +69,10 @@ class Accuracy {
 
     clone() {
         return new Accuracy(this.distance, this.spread);
+    }
+
+    get angular_diameter() {
+        return 2.0 * Math.atan(this.spread / (2.0 * this.distance * 1000));
     }
 }
 
@@ -174,6 +182,26 @@ class Missile {
         return ammo.velocity + this.max_speed;
     }
 
+    maneuver_distance(seconds, starting_orthogonal_velocity = this.max_speed, accel_percent = 1) {
+        const accel = this.turn_acceleration * accel_percent;
+        // time to turn orthogonal to vector, assuming max speed is time to zero speed + time to increase it again given turn accel
+        const time_to_ortho = (this.max_speed - starting_orthogonal_velocity) / accel * 2;
+        if (seconds >= time_to_ortho) {
+            // divided in half because the missile will need to cover half the ground in a direction parallel to its current vector
+            const distance_during_ortho = (1/2 * accel * time_to_ortho * time_to_ortho)/2;
+            return distance_during_ortho + (seconds - time_to_ortho) * this.max_speed;
+        } else {
+            const distance = (1/2 * accel * seconds * seconds)/2
+            return distance;
+        }
+    }
+
+    cross_section_area(percent = 1) {
+        const head = this.collider.head_on_cross_section;
+        const side = this.collider.side_on_cross_section;
+        return (side - head) * percent + head;
+    }
+
     clone() {
         return new Missile(this.name, this.acceleration, this.turn_acceleration, this.max_speed, this.health, this.collider.clone());
     }
@@ -181,12 +209,21 @@ class Missile {
 
 class Collider {
     constructor(height, radius) {
-        this.height = height;   // unity unit
-        this.radius = radius;   // unity unit
+        this.height = height;   // meters
+        this.radius = radius;   // meters
     }
 
     clone() {
         return new Collider(this.height, this.radius);
+    }
+
+    get head_on_cross_section() {
+        return Math.PI * this.radius * this.radius;
+    }
+
+    get side_on_cross_section() {
+        const capsule = Math.PI * this.radius * this.radius;
+        return this.height * this.radius * 2 + capsule;
     }
 }
 
@@ -196,7 +233,7 @@ const s1_balestra = new Missile(
     6,
     350,
     10,
-    new Collider(0.51, 0.05)
+    new Collider(5.1, 0.5)
 )
 
 const s2_tempest = new Missile(
@@ -205,7 +242,7 @@ const s2_tempest = new Missile(
     3.5,
     220,
     30,
-    new Collider( 0.64, 0.03)
+    new Collider( 6.4, 0.3)
 );
 
 const s2h_cyclone_cruise = new Missile(
@@ -214,7 +251,7 @@ const s2h_cyclone_cruise = new Missile(
     1,
     300,
     20,
-    new Collider(0.64, 0.04)
+    new Collider(6.4, 0.4)
 );
 
 const s2h_cyclone_sprint = new Missile(
@@ -223,7 +260,7 @@ const s2h_cyclone_sprint = new Missile(
     6,
     500,
     20,
-    new Collider(0.64, 0.04)
+    new Collider(6.4, 0.4)
 )
 
 const s3_pilum = new Missile(
@@ -232,7 +269,7 @@ const s3_pilum = new Missile(
     3.5,
     150,
     110,
-    new Collider(1.087418, 0.09)
+    new Collider(10.87418, 0.9)
 );
 
 const s3h_atlatl_cruise = new Missile(
@@ -241,7 +278,7 @@ const s3h_atlatl_cruise = new Missile(
     1.3,
     150,
     60,
-    new Collider(1.03, 0.08)
+    new Collider(10.3, 0.8)
 );
 
 const s3h_atlatl_sprint = new Missile(
@@ -250,7 +287,7 @@ const s3h_atlatl_sprint = new Missile(
     9.8,
     1000,
     60,
-    new Collider(1.03, 0.08)
+    new Collider(10.3, 0.8)
 );
 
 export const point_defense = {
