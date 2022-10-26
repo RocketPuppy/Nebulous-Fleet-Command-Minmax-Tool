@@ -16,6 +16,13 @@ export function time_to_kill(weapon, ammo, missile, range, shots) {
 time_to_kill.y_label = "Time (s)";
 time_to_kill.human_name = "Time to Kill - Ideal Conditions";
 
+export function time_to_kill_adjusted(weapon, ammo, missile, range, shots) {
+    const adjusted_shots = shots / shot_hit_chance(weapon, ammo, missile, range, 1);
+    return time_to_kill(weapon, ammo, missile, range, adjusted_shots);
+}
+time_to_kill_adjusted.y_label = "Time (s)";
+time_to_kill_adjusted.human_name = "Time to Kill";
+
 export function intercept_range_ideal(weapon, ammo, missile, range, shots) {
     const time_to_intercept = time_to_kill(weapon, ammo, missile, range, shots);
     const intercept_range = missile.distance_travelled(time_to_intercept);
@@ -23,6 +30,13 @@ export function intercept_range_ideal(weapon, ammo, missile, range, shots) {
 }
 intercept_range_ideal.y_label = "Kill Range (m)";
 intercept_range_ideal.human_name = "Kill Range - Ideal conditions";
+
+export function intercept_range(weapon, ammo, missile, range, shots) {
+    const adjusted_shots = shots / shot_hit_chance(weapon, ammo, missile, range, 1);
+    return intercept_range_ideal(weapon, ammo, missile, range, adjusted_shots);
+}
+intercept_range.y_label = "Kill Range (m)";
+intercept_range.human_name = "Kill Range";
 
 // hit chance for a single shot at a given range
 export function shot_hit_chance(weapon, ammo, missile, range, shots) {
