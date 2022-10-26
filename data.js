@@ -279,62 +279,56 @@ export const missiles = {
     }
 };
 
-export class SelectionDB {
-    constructor(items) {
-        this.items = items;
+export class CustomizationDB {
+    static make_templates(named_objects) {
+        const ret = {};
+        for (const o of named_objects) {
+            ret[o.name] = o;
+        }
+        return ret;
+    }
+
+    constructor(templates) {
         this.customizations = {};
-        this.selected_items = null;
+        this.templates = templates;
+        this.items = {};
     }
 
-    is_selected(item_name) {
-        if (this.selected_items === null) {
-            return false;
+    new_item(item_name) {
+        const new_id = crypto.randomUUID();
+        this.items[new_id] = this.templates[item_name].clone();
+        this.customize(new_id, { id: new_id });
+    }
+
+    remove(key) {
+        delete this.items[key];
+        delete this.customizations[key];
+    }
+
+    customize(key, customization) {
+        if (this.customizations.hasOwnProperty(key)) {
+            Object.assign(this.customizations[key], customization);
+        } else {
+            this.customizations[key] = customization;
         }
-        return this.selected_items.includes(item_name);
     }
 
-    select(item_names) {
-        this.selected_items = item_names
+    fetch_all() {
+        return Object.keys(this.items).map(this.fetch, this);
     }
 
-    customize(item_name, customization) {
-        this.customizations[item_name] = customization;
-    }
-
-    reset_selected() {
-        this.selected_items.forEach((name) => {
-            this.reset(name);
-        });
-        this.selected_items = null;
-    }
-
-    reset(item_name) {
-        this.customizations[item_name] = null;
-    }
-
-    get has_customization() {
-        return this.selected_original.findIndex((i) => !!this.customizations[i.name]) !== -1;
-    }
-
-    get selected() {
-        if(this.has_customization) {
-            return this.selected_original.map((i) => Object.assign(i, this.customizations[i.name]));
+    fetch(key) {
+        if (this.customizations.hasOwnProperty(key) && this.items.hasOwnProperty(key)) {
+            return Object.assign(this.items[key].clone(), this.customizations[key]);
         }
-        return this.selected_original;
-    }
-
-    get selected_original() {
-        return this.items.filter((i) => this.selected_items.includes(i.name)).map((i) => i.clone());
-    }
-
-    get first_selected() {
-        if (this.has_customization) {
-            return Object.assign(this.first_selected_original, this.customizations[this.first_selected_original.name]);
+        if (this.items.hasOwnProperty(key)) {
+            return this.items[key].clone();
         }
-        return this.first_selected_original;
+        return null;
     }
 
-    get first_selected_original() {
-        return this.items.find((i) => this.selected_items.includes(i.name)).clone();
+    reset() {
+        this.items = {};
+        this.customizations = {};
     }
 }

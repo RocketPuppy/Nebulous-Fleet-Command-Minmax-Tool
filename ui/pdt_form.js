@@ -1,4 +1,4 @@
-export default function pdt_form(key, pdt, missiles) {
+export default function pdt_form(pdt_db, graph_form, key, pdt, missiles) {
     const form = document.createElement("form");
     form.action = "#";
     form.id = key;
@@ -10,6 +10,13 @@ export default function pdt_form(key, pdt, missiles) {
     const rof_label = document.createElement("label");
     rof_label.textContent = "Use Burst Fire Rate";
     rof_label.for = rof_input.name;
+
+    const submit_input = document.createElement("input");
+    submit_input.type = "submit";
+    submit_input.value = "Update PD";
+
+    const remove = document.createElement("button");
+    remove.textContent = "Remove PD";
 
     const header = document.createElement("h2");
     header.textContent = pdt.name;
@@ -33,7 +40,29 @@ export default function pdt_form(key, pdt, missiles) {
         form.appendChild(div);
     }
 
+    div = document.createElement("div");
+    div.classList.add("control-group");
+    div.appendChild(submit_input);
+    div.appendChild(remove);
+    form.appendChild(div);
+
     rof_input.checked = pdt.use_burst_rof;
+
+    form.onsubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        pdt_db.customize(key, { use_burst_rof: rof_input.checked });
+        graph_form.dispatchEvent(new SubmitEvent("submit"));
+    };
+
+    remove.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        pdt_db.remove(key);
+        graph_form.dispatchEvent(new SubmitEvent("submit"));
+    }
 
     return form;
 }

@@ -1,4 +1,4 @@
-export default function missile_form(key, missile) {
+export default function missile_form(missile_db, graph_form, key, missile) {
     const form = document.createElement("form");
     form.action = "#";
     form.id = key;
@@ -34,6 +34,13 @@ export default function missile_form(key, missile) {
     health_label.textContent = "Health";
     health_label.for = health_label.name;
 
+    const submit = document.createElement("input");
+    submit.type = "submit";
+    submit.value = "Update Missile";
+
+    const remove = document.createElement("button");
+    remove.textContent = "Remove Missile";
+
     const header = document.createElement("h2");
     header.textContent = missile.name;
 
@@ -58,11 +65,37 @@ export default function missile_form(key, missile) {
     div.appendChild(health_label);
     div.appendChild(health_input);
     form.appendChild(div);
+    div = document.createElement("div");
+    div.classList.add("control-group");
+    div.appendChild(submit);
+    div.appendChild(remove);
+    form.appendChild(div);
 
     accel_input.value = Math.round(missile.acceleration * 10)/10;
     turn_accel_input.value = Math.round(missile.turn_acceleration * 10)/10;
     speed_input.value = Math.round(missile.max_speed);
     health_input.value = Math.round(missile.health);
+
+    form.onsubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        missile_db.customize(key, {
+            acceleration: parseFloat(accel_input.value),
+            turn_acceleration: parseFloat(turn_accel_input.value),
+            max_speed: parseInt(speed_input.value, 10),
+            health: parseInt(health_input.value, 10),
+        });
+        graph_form.dispatchEvent(new SubmitEvent("submit"));
+    };
+
+    remove.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        missile_db.remove(key);
+        graph_form.dispatchEvent(new SubmitEvent("submit"));
+    }
 
     return form;
 }

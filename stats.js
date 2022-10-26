@@ -34,4 +34,4 @@ export function intercept_range(weapon, ammo, missile, range, shots) {
         console.log("Sample: ", sample);
     }
     return intercept_range;
-};
+}

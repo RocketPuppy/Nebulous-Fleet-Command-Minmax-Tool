@@ -41,7 +41,7 @@ h1 {
 
 #graph-inputs.inputs-form {
     align-items: center;
-    height: 100px;
+    /* height: 100px; */
     justify-content: center;
 }
 
@@ -77,4 +77,8 @@ h1 {
 .control-group label {
     margin-bottom: 0.2em;
     text-decoration: underline;
+}
+
+.control-group input, .control-group select {
+    margin-bottom: 0.2em;
 }
