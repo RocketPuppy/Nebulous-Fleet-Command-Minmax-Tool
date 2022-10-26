@@ -19,7 +19,7 @@ time_to_kill.human_name = "Time to Kill - Ideal Conditions";
 export function intercept_range_ideal(weapon, ammo, missile, range, shots) {
     const time_to_intercept = time_to_kill(weapon, ammo, missile, range, shots);
     const intercept_range = missile.distance_travelled(time_to_intercept);
-    return intercept_range;
+    return range - intercept_range;
 }
 intercept_range_ideal.y_label = "Kill Range (m)";
 intercept_range_ideal.human_name = "Kill Range - Ideal conditions";
