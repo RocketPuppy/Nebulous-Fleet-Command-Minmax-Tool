@@ -1,4 +1,4 @@
-export default function missile_form(missile_db, graph_form, key, missile) {
+export default function missile_form(missile_db, graph_form, key, missile, index) {
     const form = document.createElement("form");
     form.action = "#";
     form.id = key;
@@ -43,6 +43,9 @@ export default function missile_form(missile_db, graph_form, key, missile) {
 
     const header = document.createElement("h2");
     header.textContent = missile.name;
+    if (index !== "") {
+        header.textContent = header.textContent + "(" + index + ")";
+    }
 
     form.appendChild(header);
     var div = document.createElement("div");

@@ -1,4 +1,4 @@
-export default function pdt_form(pdt_db, graph_form, key, pdt, missiles) {
+export default function pdt_form(pdt_db, graph_form, key, pdt, missiles, index) {
     const form = document.createElement("form");
     form.action = "#";
     form.id = key;
@@ -20,6 +20,9 @@ export default function pdt_form(pdt_db, graph_form, key, pdt, missiles) {
 
     const header = document.createElement("h2");
     header.textContent = pdt.name;
+    if (index !== "") {
+        header.textContent = header.textContent + "(" + index + ")";
+    }
 
     form.appendChild(header);
     var div = document.createElement("div");

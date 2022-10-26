@@ -12,8 +12,13 @@ export function populate_inputs(missile_db, pdt_db, graph_form) {
         missile_input_container.removeChild(missile_input_container.firstChild);
     }
 
-    missiles.forEach((missile) => {
-        missile_input_container.appendChild(missile_form(missile_db, graph_form, missile.id, missile));
+    missiles.forEach((missile, index) => {
+        if(missiles.length === 1) {
+            index = "";
+        } else {
+            index++;
+        }
+        missile_input_container.appendChild(missile_form(missile_db, graph_form, missile.id, missile, index.toString()));
     });
 
     const pdt_input_container = document.getElementById("pdt-inputs");
@@ -23,8 +28,13 @@ export function populate_inputs(missile_db, pdt_db, graph_form) {
         pdt_input_container.removeChild(pdt_input_container.firstChild);
     }
 
-    pdts.forEach((pdt) => {
-        pdt_input_container.appendChild(pdt_form(pdt_db, graph_form, pdt.id, pdt, missiles));
+    pdts.forEach((pdt, index) => {
+        if(pdts.length === 1) {
+            index = "";
+        } else {
+            index++;
+        }
+        pdt_input_container.appendChild(pdt_form(pdt_db, graph_form, pdt.id, pdt, missiles, index.toString()));
     });
 }
 

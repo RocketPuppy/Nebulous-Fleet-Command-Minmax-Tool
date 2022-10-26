@@ -314,7 +314,7 @@ export class CustomizationDB {
     }
 
     fetch_all() {
-        return Object.keys(this.items).map(this.fetch, this);
+        return Object.keys(this.items).sort().map(this.fetch, this);
     }
 
     fetch(key) {
