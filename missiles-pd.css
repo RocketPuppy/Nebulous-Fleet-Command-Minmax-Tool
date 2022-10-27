@@ -7,12 +7,15 @@ h1 {
     width: 100%;
 }
 
+.full-width {
+    width: 100%;
+}
+
 #graph {
-    position: absolute;
+    position: relative;
     top: 20px;
     bottom: 20px;
-    left: 20px;
-    right: 20px;
+    width: 100%;
 }
 
 .inputs {
@@ -55,7 +58,6 @@ h1 {
     align-items: baseline;
     align-content: center;
     gap: 2%;
-    bottom: 0;
 }
 
 .hidden {
@@ -81,4 +83,16 @@ h1 {
 
 .control-group input, .control-group select {
     margin-bottom: 0.2em;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+body > * {
+    width: 60rem;
 }

@@ -10,29 +10,59 @@
     </head>
     <body>
         <h1>Missiles vs. PD</h1>
-        <form id="graph-inputs" action="#" class="inputs-form">
-            <div class="control-group">
-                <label>Select Missiles</label><select name="missile"></select>
-                <input name="add-missile" type="button" value="Add Missile"/>
+        <div class="full-width">
+            <form id="graph-inputs" action="#" class="inputs-form">
+                <div class="control-group">
+                    <label>Select Missiles</label><select name="missile"></select>
+                    <input name="add-missile" type="button" value="Add Missile"/>
+                </div>
+                <div class="control-group">
+                    <label>Select Point Defense</label><select name="pdt"></select>
+                    <input name="add-pdt" type="button" value="Add Point Defense"/>
+                </div>
+                <div class="control-group">
+                    <label>Select Statistic</label><select multiple name="stat"></select>
+                    <input name="add-stat" type="button" value="Select Statistics" />
+                </div>
+                <div class="buttons control-group">
+                    <button type="button" name="reset">Reset</button>
+                </div>
+            </form>
+            <div id="missile-inputs" class="inputs">
             </div>
-            <div class="control-group">
-                <label>Select Point Defense</label><select name="pdt"></select>
-                <input name="add-pdt" type="button" value="Add Point Defense"/>
+            <div id="pdt-inputs" class="inputs">
             </div>
-            <div class="control-group">
-                <label>Select Statistic</label><select multiple name="stat"></select>
-                <input name="add-stat" type="button" value="Select Statistics" />
+            <div id="outputs">
+                <div id="graph"></div>
             </div>
-            <div class="buttons control-group">
-                <button type="button" name="reset">Reset</button>
-            </div>
-        </form>
-        <div id="missile-inputs" class="inputs">
         </div>
-        <div id="pdt-inputs" class="inputs">
-        </div>
-        <div id="outputs">
-            <div id="graph"></div>
+        <div>
+            <h2>How Do I Use This?</h2>
+            <p>
+                Simple!
+                Add a missile and a point defense weapon from the dropdowns above.
+                You'll see two forms show up along with a graph.
+                In the forms you can change various missile parameters like acceleration, maximum speed, and health.
+                You can also tweak the encounter and evasion conditions to simulate anything from head-on, maximum evasive maneuvering to side-on, no evasion conditions.
+                In the point defense forms you can see how many hits the weapon needs to kill each missile.
+                You can also toggle the simulation to use the burst fire rate, which for Aurora's acts as battleshort toggle and for the other weapons is most effective in simulating instant first-shots.
+                See the Sarissa vs. an Atlatl for an example of what this does.
+            </p>
+            <p>
+                You can choose multiple statistics to graph from the menu above.
+                For the statistics with normal and an "ideal conditions" version, the ideal statistic assumes perfect shot accuracy.
+                All other statistics incorporate the hit probability calculation into their calculations.
+            </p>
+            <p>
+                The graph provides some facilities for zooming and panning.
+                You can also export the graph as an image for sharing with others.
+                You can hit the Reset button to remove all your missiles and point defense options and start again.
+            </p>
+            <h2>What Doesn't This Have?</h2>
+            <ul>
+                <li>Traverse or elevation tracking. All point defense turrets are assumed capable of tracking their targets. This is in general a safe assumption until missiles close to approximately 30% of the weapon's range. And of course that figure assumes the missile is pushing 100% of its maximum velocity transverse to the weapon which is rarely the case.</li>
+                <li>Input validation to ensure values match possible game values. You'll need to exercise some interpretation to ensure your input data is valid.</li>
+            </ul>
         </div>
     </body>
 </html>
