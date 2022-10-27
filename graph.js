@@ -50,10 +50,6 @@ export function do_graph(missiles, pdts, stat) {
         data.push(d);
       });
     });
-    for (const missile of missiles) {
-      for (const pdt of pdts) {
-      }
-    }
     const graph = document.getElementById('graph');
     Plotly.newPlot( graph, data,
     {
