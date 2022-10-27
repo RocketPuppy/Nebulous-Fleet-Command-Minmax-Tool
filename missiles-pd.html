@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script src="plotly-2.14.0.min.js"></script>
+        <script type="module" defer src="missiles-pd.js"></script>
+        <script type="module" defer src="data.js"></script>
+        <script type="module" defer src="stats.js"></script>
+        <script type="module" defer src="ui.js"></script>
+        <script type="module" defer src="graph.js"></script>
+        <link rel="stylesheet" href="missiles-pd.css" />
+    </head>
+    <body>
+        <h1>Missiles vs. PD</h1>
+        <form id="graph-inputs" action="#" class="inputs-form">
+            <div class="control-group">
+                <label>Select Missiles</label><select name="missile"></select>
+                <input name="add-missile" type="button" value="Add Missile"/>
+            </div>
+            <div class="control-group">
+                <label>Select Point Defense</label><select name="pdt"></select>
+                <input name="add-pdt" type="button" value="Add Point Defense"/>
+            </div>
+            <div class="control-group">
+                <label>Select Statistic</label><select multiple name="stat"></select>
+                <input name="add-stat" type="button" value="Select Statistics" />
+            </div>
+            <div class="buttons control-group">
+                <button type="button" name="reset">Reset</button>
+            </div>
+        </form>
+        <div id="missile-inputs" class="inputs">
+        </div>
+        <div id="pdt-inputs" class="inputs">
+        </div>
+        <div id="outputs">
+            <div id="graph"></div>
+        </div>
+    </body>
+</html>
