@@ -67,8 +67,6 @@ export function inputs(missiles, point_defenses, grapher) {
     add_stat_btn.onclick = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const stats_in = graph_form.elements.namedItem("stat"); //html select
-        selected_stat = stats_in.value;
         graph_form.dispatchEvent(new SubmitEvent("submit"));
     }
 
@@ -97,7 +95,12 @@ export function inputs(missiles, point_defenses, grapher) {
     missile_in.selectedIndex = 0;
     pdt_in.selectedIndex = 0;
     stats_in.selectedIndex = 0;
-    var selected_stat = stats_in.value;
+
+    var selected_stats = []
+    for(var i=0; i < stats_in.selectedOptions.length; i++) {
+        const o = stats_in.selectedOptions.item(i);
+        selected_stats.push(o.value);
+    }
 
     graph_form.onsubmit = (e) => {
         e.stopPropagation();
@@ -107,9 +110,14 @@ export function inputs(missiles, point_defenses, grapher) {
         const pdts = pdt_db.fetch_all();
 
         populate_inputs(missile_db, pdt_db, graph_form);
-
+        selected_stats = []
+        for(var i=0; i < stats_in.selectedOptions.length; i++) {
+            const o = stats_in.selectedOptions.item(i);
+            selected_stats.push(o.value);
+        }
+        const stat_fns = selected_stats.map((s) => stats[s]);
         if (missiles.length !== 0 && pdts.length !== 0) {
-            grapher(missiles, pdts, stats[selected_stat]);
+            grapher(missiles, pdts, stat_fns);
         } else {
             const graph = document.getElementById('graph');
             Plotly.purge(graph);
