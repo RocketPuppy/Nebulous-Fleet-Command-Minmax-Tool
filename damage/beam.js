@@ -27,7 +27,6 @@ function make_trace(fpa_count, range) {
     name: `Range ${range}m, ${fpa_count} FPA`,
     type: 'scatter',
     hovertext: fpa_count + " FPA",
-    legendgroup: range.toString(),
   };
 }
 
@@ -45,6 +44,7 @@ function make_dt_trace(dt, range) {
     x,
     y,
     showlegend: false,
+    name: "Damage Thresholds",
     legendgroup: "Damage Thresholds",
     mode: "lines",
     hovertext: "DT " + dt,
@@ -55,32 +55,49 @@ function make_dt_trace(dt, range) {
   return data;
 }
 
-function do_graph() {
+export function do_graph(range) {
     const data = [];
-    damageThresholds.forEach((dt) => {
-      data.push(make_dt_trace(dt, 5000));
-      data.push(make_dt_trace(dt, 6000));
+    damageThresholds.forEach((dt, i) => {
+      const trace = make_dt_trace(dt, range);
+      if (i === 0) {
+        trace.showlegend = true;
+      }
+      data.push(trace);
     });
     for (var i = 0; i <= 8; i++) {
-      data.push(make_trace(i, 5000));
-      data.push(make_trace(i, 6000));
+      data.push(make_trace(i, range));
     }
 
     const graph = document.getElementById('beam-graph');
     const layout = {
       margin: { t: 0 },
       showlegend: true,
+      legend: { orientation: 'h' },
       xaxis: { title: "Range (m)" },
       yaxis: { title: "Damage" },
-      // legend: {
-      //   x: 0,
-      //   xanchor: 'left',
-      //   y: -0.4,
-      //   yanchor: 'top'
-      // },
       autosize: true
     };
     Plotly.newPlot( graph, data, layout, { responsive: true });
 }
 
-do_graph()
+export function beam_inputs() {
+    const spinalForm = document.getElementById("show-spinal");
+    const turretForm = document.getElementById("show-turret");
+
+    spinalForm.onsubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        do_graph(6000);
+    };
+
+    turretForm.onsubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        do_graph(5000);
+    };
+}
+
+do_graph(5000)
+beam_inputs();
