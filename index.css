@@ -9,3 +9,34 @@ body {
 body > * {
     width: 60rem;
 }
+
+h1, h2 {
+    display: block;
+    text-align: center;
+}
+
+body > nav {
+    float: left;
+    margin: 2em;
+    border: solid 1px gray;
+    position: absolute;
+    display: inline;
+    width: fit-content;
+    left: 0;
+}
+
+nav > a {
+    padding: 2em;
+}
+
+h1 {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
