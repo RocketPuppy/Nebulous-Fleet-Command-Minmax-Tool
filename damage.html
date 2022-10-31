@@ -10,6 +10,15 @@
         <nav><a href="/">Home</a></nav>
         <h1>Damage Mechanics</h1>
         <h2><a href="#beam">Beam Damage</a></h2>
+        <p>
+            This chart will help inform you of the ranges you need to be within to destroy the selected component mounted on the selected hull.
+            The chart shows you the damage curves of either the spinal beam or the beam turret over their respective ranges.
+            A curve for each possible number of Focused Particle Accelerators is shown.
+            The grey horizontal lines are the damage thresholds of the selected components.
+            The value on the X-axis where the grey line intersects the damage curve indicates the range you need to be within to destroy a component with that damage threshold.
+            The default configuration shows an Active Cooled Amplifiers component mounted on a Sprinter hull attacked by a spinal beam cannon.
+            The grey line is at 10 on the Y-axis, and so the component can be destroyed at any range with any number of Focused Particle Accelerators.
+        </p>
         <div class='full-width'>
             <form id="beam-form" action="#" class="inputs-form">
                 <div class="control-group">
@@ -27,9 +36,6 @@
                 </div>
             </form>
             <div id="beam-graph"></div>
-        </div>
-        <div>
-            <h2>How Do I Use This?</h2>
         </div>
     </body>
 </html>
