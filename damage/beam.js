@@ -1,4 +1,6 @@
 import beamCurve from "./beam-curve.js";
+import hullStats from "./hull-stats.js";
+import componentStats from "./component-stats.js";
 
 const base_damage = 60;
 const base_pen = 36;
@@ -13,12 +15,12 @@ function fpa_modifier(count) {
   return sum + 1;
 }
 
-function make_trace(fpa_count, range) {
+function make_trace(fpa_count, range, damageResistance) {
   const x = [];
   const y = [];
   const data = beamCurve.forEach((c) => {
     x.push(range * c[0]);
-    y.push(fpa_modifier(fpa_count) * base_damage * 0.6 * c[1]);
+    y.push(fpa_modifier(fpa_count) * base_damage * ((100 - damageResistance)/100) * c[1]);
   });
 
   return {
@@ -29,8 +31,6 @@ function make_trace(fpa_count, range) {
     hovertext: fpa_count + " FPA",
   };
 }
-
-const damageThresholds = [10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80];
 
 function make_dt_trace(dt, range) {
   const x = [];
@@ -55,8 +55,10 @@ function make_dt_trace(dt, range) {
   return data;
 }
 
-export function do_graph(range) {
+export function do_graph(range, hull, components) {
     const data = [];
+    var filterState = {};
+    const damageThresholds = components.map((component) => component.damageThreshold).filter((dt) => !filterState[dt] && (filterState[dt] = true));
     damageThresholds.forEach((dt, i) => {
       const trace = make_dt_trace(dt, range);
       if (i === 0) {
@@ -65,14 +67,14 @@ export function do_graph(range) {
       data.push(trace);
     });
     for (var i = 0; i <= 8; i++) {
-      data.push(make_trace(i, range));
+      data.push(make_trace(i, range, hull.damageResistance));
     }
 
     const graph = document.getElementById('beam-graph');
     const layout = {
       margin: { t: 0 },
       showlegend: true,
-      legend: { orientation: 'h' },
+      legend: { orientation: 'h', y: -0.2 },
       xaxis: { title: "Range (m)" },
       yaxis: { title: "Damage" },
       autosize: true
@@ -81,23 +83,42 @@ export function do_graph(range) {
 }
 
 export function beam_inputs() {
-    const spinalForm = document.getElementById("show-spinal");
-    const turretForm = document.getElementById("show-turret");
+    const beamForm = document.getElementById("beam-form");
 
-    spinalForm.onsubmit = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+    const hullInput = beamForm.elements.namedItem("select-hull");
+    const componentsInput = beamForm.elements.namedItem("select-components");
+    const rangeInput = beamForm.elements.namedItem("select-range");
 
-        do_graph(6000);
+    for (const hull of hullStats) {
+      const o = new Option(hull.name, hull.name);
+      hullInput.add(o);
+    }
+    hullInput.selectedIndex = 0;
+
+    const sortedComponentNames = componentStats.map((c) => c.name).sort(); 
+    for (const name of sortedComponentNames) {
+      const o = new Option(name, name);
+      componentsInput.add(o);
+    }
+    componentsInput.selectedIndex = 0;
+
+    beamForm.onsubmit = (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+
+      const selectedHull = hullStats.find((hull) => hull.name === hullInput.value);
+      const selectedRange = parseInt(rangeInput.value, 10);
+      var selectedComponents = []
+      for(var i=0; i < componentsInput.selectedOptions.length; i++) {
+          const o = componentsInput.selectedOptions.item(i);
+          const component = componentStats.find((component) => component.name === o.value);
+          selectedComponents.push(component);
+      }
+
+      do_graph(selectedRange, selectedHull, selectedComponents);
     };
 
-    turretForm.onsubmit = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        do_graph(5000);
-    };
+    beamForm.dispatchEvent(new SubmitEvent("submit"));
 }
 
-do_graph(5000)
 beam_inputs();
