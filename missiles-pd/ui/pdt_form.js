@@ -56,7 +56,7 @@ export default function pdt_form(pdt_db, graph_form, key, pdt, missiles, index) 
         e.stopPropagation();
 
         pdt_db.customize(key, { use_burst_rof: rof_input.checked });
-        graph_form.dispatchEvent(new SubmitEvent("submit"));
+        graph_form.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
     };
 
     remove.onclick = (e) => {
@@ -64,7 +64,7 @@ export default function pdt_form(pdt_db, graph_form, key, pdt, missiles, index) 
         e.stopPropagation();
 
         pdt_db.remove(key);
-        graph_form.dispatchEvent(new SubmitEvent("submit"));
+        graph_form.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
     }
 
     return form;

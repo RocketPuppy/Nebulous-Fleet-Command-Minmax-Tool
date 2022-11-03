@@ -54,7 +54,7 @@ export function inputs(missiles, point_defenses, grapher) {
         e.stopPropagation();
         const missile_in = graph_form.elements.namedItem("missile"); // html select
         missile_db.new_item(missile_in.value);
-        graph_form.dispatchEvent(new SubmitEvent("submit"));
+        graph_form.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
     };
 
     add_pdt_btn.onclick = (e) => {
@@ -62,12 +62,12 @@ export function inputs(missiles, point_defenses, grapher) {
         e.stopPropagation();
         const pdt_in = graph_form.elements.namedItem("pdt"); // html select
         pdt_db.new_item(pdt_in.value);
-        graph_form.dispatchEvent(new SubmitEvent("submit"));
+        graph_form.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
     };
     add_stat_btn.onclick = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        graph_form.dispatchEvent(new SubmitEvent("submit"));
+        graph_form.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
     }
 
     const missile_in = graph_form.elements.namedItem("missile"); // html select
@@ -131,6 +131,6 @@ export function inputs(missiles, point_defenses, grapher) {
         missile_db.reset();
         pdt_db.reset();
 
-        graph_form.dispatchEvent(new SubmitEvent("submit"));
+        graph_form.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
     }
 }

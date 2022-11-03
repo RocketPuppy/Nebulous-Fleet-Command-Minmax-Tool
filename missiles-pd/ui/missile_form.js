@@ -138,7 +138,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
             maneuvering_strength: parseFloat(maneuvering_strength_input.value),
             orthogonal_speed: parseFloat(orthogonal_speed_input.value),
         });
-        graph_form.dispatchEvent(new SubmitEvent("submit"));
+        graph_form.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
     };
 
     remove.onclick = (e) => {
@@ -146,7 +146,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
         e.stopPropagation();
 
         missile_db.remove(key);
-        graph_form.dispatchEvent(new SubmitEvent("submit"));
+        graph_form.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
     }
 
     return form;

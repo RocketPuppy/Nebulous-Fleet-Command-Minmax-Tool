@@ -118,7 +118,7 @@ export function beam_inputs() {
       do_graph(selectedRange, selectedHull, selectedComponents);
     };
 
-    beamForm.dispatchEvent(new SubmitEvent("submit"));
+    beamForm.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
 }
 
 beam_inputs();
