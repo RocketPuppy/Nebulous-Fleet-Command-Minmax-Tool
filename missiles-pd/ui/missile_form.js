@@ -8,7 +8,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     accel_input.type = "number";
     accel_input.step = "0.1";
     accel_input.name = "acceleration";
-    const accel_label = document.createElement("label");
+    const accel_label = document.createElement("legend");
     accel_label.textContent = "Acceleration (G)";
     accel_label.for = accel_input.name;
 
@@ -16,21 +16,21 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     turn_accel_input.type = "number";
     turn_accel_input.step = "0.1";
     turn_accel_input.name = "turn-acceleration";
-    const turn_accel_label = document.createElement("label");
+    const turn_accel_label = document.createElement("legend");
     turn_accel_label.textContent = "Turn Acceleration (G)";
     turn_accel_label.for = turn_accel_input.name;
 
     const speed_input = document.createElement("input");
     speed_input.type = "number";
     speed_input.name = "max-speed";
-    const speed_label = document.createElement("label");
+    const speed_label = document.createElement("legend");
     speed_label.textContent = "Maximum Velocity (m/s)";
     speed_label.for = speed_input.name;
 
     const health_input = document.createElement("input");
     health_input.type = "number";
     health_input.name = "health";
-    const health_label = document.createElement("label");
+    const health_label = document.createElement("legend");
     health_label.textContent = "Health";
     health_label.for = health_label.name;
 
@@ -40,7 +40,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     cross_section_input.min = 0;
     cross_section_input.max = 1;
     cross_section_input.step = 0.01;
-    const cross_section_label = document.createElement("label");
+    const cross_section_label = document.createElement("legend");
     cross_section_label.innerHTML = "Approach Angle<br/>Head-on to Side-on";
     cross_section_label.for = cross_section_input.name;
     const maneuvering_strength_input = document.createElement("input");
@@ -49,7 +49,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     maneuvering_strength_input.min = 0;
     maneuvering_strength_input.max = 1;
     maneuvering_strength_input.step = 0.01;
-    const maneuvering_strength_label = document.createElement("label");
+    const maneuvering_strength_label = document.createElement("legend");
     maneuvering_strength_label.innerHTML = "Maneuvering Strength<br/>None to Full";
     maneuvering_strength_label.for = maneuvering_strength_input.name;
     const orthogonal_speed_input = document.createElement("input");
@@ -58,7 +58,7 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     orthogonal_speed_input.min = 0;
     orthogonal_speed_input.max = 1;
     orthogonal_speed_input.step = 0.01;
-    const orthogonal_speed_label = document.createElement("label");
+    const orthogonal_speed_label = document.createElement("legend");
     orthogonal_speed_label.innerHTML = "Initial Transverse Velocity<br/>None to Max";
     orthogonal_speed_label.for = orthogonal_speed_input.name;
 
@@ -76,42 +76,42 @@ export default function missile_form(missile_db, graph_form, key, missile, index
     }
 
     form.appendChild(header);
+    var fieldset = document.createElement("fieldset");
+    fieldset.classList.add("control-group");
+    fieldset.appendChild(accel_label);
+    fieldset.appendChild(accel_input);
+    form.appendChild(fieldset);
+    fieldset = document.createElement("fieldset");
+    fieldset.classList.add("control-group");
+    fieldset.appendChild(turn_accel_label);
+    fieldset.appendChild(turn_accel_input);
+    form.appendChild(fieldset);
+    fieldset = document.createElement("fieldset");
+    fieldset.classList.add("control-group");
+    fieldset.appendChild(speed_label);
+    fieldset.appendChild(speed_input);
+    form.appendChild(fieldset);
+    fieldset = document.createElement("fieldset");
+    fieldset.classList.add("control-group");
+    fieldset.appendChild(health_label);
+    fieldset.appendChild(health_input);
+    form.appendChild(fieldset);
+    fieldset = document.createElement("fieldset");
+    fieldset.classList.add("control-group");
+    fieldset.appendChild(cross_section_label);
+    fieldset.appendChild(cross_section_input);
+    form.appendChild(fieldset);
+    fieldset = document.createElement("fieldset");
+    fieldset.classList.add("control-group");
+    fieldset.appendChild(maneuvering_strength_label);
+    fieldset.appendChild(maneuvering_strength_input);
+    form.appendChild(fieldset);
+    fieldset = document.createElement("fieldset");
+    fieldset.classList.add("control-group");
+    fieldset.appendChild(orthogonal_speed_label);
+    fieldset.appendChild(orthogonal_speed_input);
+    form.appendChild(fieldset);
     var div = document.createElement("div");
-    div.classList.add("control-group");
-    div.appendChild(accel_label);
-    div.appendChild(accel_input);
-    form.appendChild(div);
-    div = document.createElement("div");
-    div.classList.add("control-group");
-    div.appendChild(turn_accel_label);
-    div.appendChild(turn_accel_input);
-    form.appendChild(div);
-    div = document.createElement("div");
-    div.classList.add("control-group");
-    div.appendChild(speed_label);
-    div.appendChild(speed_input);
-    form.appendChild(div);
-    div = document.createElement("div");
-    div.classList.add("control-group");
-    div.appendChild(health_label);
-    div.appendChild(health_input);
-    form.appendChild(div);
-    div = document.createElement("div");
-    div.classList.add("control-group");
-    div.appendChild(cross_section_label);
-    div.appendChild(cross_section_input);
-    form.appendChild(div);
-    div = document.createElement("div");
-    div.classList.add("control-group");
-    div.appendChild(maneuvering_strength_label);
-    div.appendChild(maneuvering_strength_input);
-    form.appendChild(div);
-    div = document.createElement("div");
-    div.classList.add("control-group");
-    div.appendChild(orthogonal_speed_label);
-    div.appendChild(orthogonal_speed_input);
-    form.appendChild(div);
-    div = document.createElement("div");
     div.classList.add("control-group");
     div.appendChild(submit);
     div.appendChild(remove);

@@ -21,16 +21,17 @@
         </p>
         <div class='full-width'>
             <form id="beam-form" action="#" class="inputs-form">
-                <div class="control-group">
-                    <label>Select Hull</label><select name="select-hull"></select>
-                </div>
-                <div class="control-group">
-                    <label>Select Components</label><select multiple name="select-components"></select>
-                </div>
-                <div class="control-group">
+                <fieldset class="control-group">
+                    <legend>Select Hull</legend><select name="select-hull"></select>
+                </fieldset>
+                <fieldset class="control-group">
+                    <legend>Select Components</legend><select multiple name="select-components"></select>
+                </fieldset>
+                <fieldset class="control-group">
+                    <legend>Select Beam Type</legend>
                     <label>Spinal Beam<input name="select-range" type="radio" value="6000" checked /></label>
                     <label>Beam Turret<input name="select-range" type="radio" value="5000" /></label>
-                </div>
+                </fieldset>
                 <div class="buttons control-group">
                     <input type="submit" value="Update Graph" />
                 </div>
