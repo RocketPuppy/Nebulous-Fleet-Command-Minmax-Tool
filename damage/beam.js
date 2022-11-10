@@ -1,5 +1,5 @@
 import beamCurve from "./beam-curve.js";
-import hullStats from "./hull-stats.js";
+import hullStats from "../hull-stats.js";
 import componentStats from "./component-stats.js";
 
 const base_damage = 60;
