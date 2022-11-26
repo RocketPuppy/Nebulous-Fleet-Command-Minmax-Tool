@@ -10,7 +10,7 @@
 #drag-target > p {
   text-align: center;
   font-size: 2em;
-  padding: 4em;
+  padding: 0 4em;
 }
 
 .dragging {
