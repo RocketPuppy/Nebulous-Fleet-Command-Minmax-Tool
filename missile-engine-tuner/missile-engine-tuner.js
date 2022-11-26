@@ -186,10 +186,22 @@ function makeEngineFields(missile, speedEl, burnEl, maneuverEl, valueCB) {
     const halfdelta = delta / 2;
     if (holdBurn) {
       const newManeuver = maneuver - delta;
-      maneuverI.value = newManeuver.toFixed(5);
+      if (newManeuver >= 0) {
+        maneuverI.value = newManeuver.toFixed(5);
+      } else {
+        maneuverI.value = 0;
+        speedI.value = (speed - delta).toFixed(5);
+        speedI.dispatchEvent(new InputEvent("change"));
+      }
     } else if (holdManeuver) {
       const newBurn = burn - delta;
-      burnI.value = newBurn.toFixed(5);
+      if (newBurn >= 0) {
+        burnI.value = newBurn.toFixed(5);
+      } else {
+        burnI.value = 0;
+        speedI.value = (speed - delta).toFixed(5);
+        speedI.dispatchEvent(new InputEvent("change"));
+      }
     } else {
       const newBurn = burn - halfdelta;
       const newManeuver = maneuver - halfdelta;
@@ -221,10 +233,22 @@ function makeEngineFields(missile, speedEl, burnEl, maneuverEl, valueCB) {
     const halfdelta = delta / 2;
     if (holdSpeed) {
       const newManeuver = maneuver - delta;
-      maneuverI.value = newManeuver.toFixed(5);
+      if (newManeuver >= 0) {
+        maneuverI.value = newManeuver.toFixed(5);
+      } else {
+        maneuverI.value = 0;
+        burnI.value = (burn - delta).toFixed(5);
+        burnI.dispatchEvent(new InputEvent("change"));
+      }
     } else if (holdManeuver) {
       const newSpeed = speed - delta;
-      speedI.value = newSpeed.toFixed(5);
+      if (newSpeed >= 0) {
+        speedI.value = newSpeed.toFixed(5);
+      } else {
+        speedI.value = 0;
+        burnI.value = (burn - delta).toFixed(5);
+        burnI.dispatchEvent(new InputEvent("change"));
+      }
     } else {
       const newSpeed = speed - halfdelta;
       const newManeuver = maneuver - halfdelta;
@@ -256,10 +280,22 @@ function makeEngineFields(missile, speedEl, burnEl, maneuverEl, valueCB) {
     const halfdelta = delta / 2;
     if (holdSpeed) {
       const newBurn = burn - delta;
-      burnI.value = newBurn.toFixed(5);
+      if (newBurn >= 0) {
+        burnI.value = newBurn.toFixed(5);
+      } else {
+        burnI.value = 0;
+        maneuverI.value = (maneuver - delta).toFixed(5);
+        maneuverI.dispatchEvent(new InputEvent("change"));
+      }
     } else if (holdBurn) {
       const newSpeed = speed - delta;
-      speedI.value = newSpeed.toFixed(5);
+      if (newSpeed >= 0) {
+        speedI.value = newSpeed.toFixed(5);
+      } else {
+        speedI.value = 0;
+        maneuverI.value = (maneuver - delta).toFixed(5);
+        maneuverI.dispatchEvent(new InputEvent("change"));
+      }
     } else {
       const newSpeed = speed - halfdelta;
       const newBurn = burn - halfdelta;
