@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="missile-engine-tuner/missile-engine-tuner.css" />
+        <script type="module" defer src="missile-engine-tuner/missile-engine-tuner.js"></script>
+    </head>
+    <body>
+        <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
+        <h1>Missile Engine Tuner</h1>
+        <p>
+          Use this tool to precisely tune your missile engine performance.
+          First, upload a missile template.
+          The tool will show you the current performance values for your missile engine.
+          You can then adjust the values by moving the sliders or entering numbers directly.
+          You can hold a value constant so you can adjust the other two values without changing the held value.
+          Sprint stages will be shown as Engine 1.
+          Cruise stages will be shown as Engine 2.
+
+          Press Download to download the missile file.
+          You can overwrite your old template with it (make a backup if you are concerned about losing it).
+
+          Turn acceleration is not done yet.
+          Some values might be slightly off from their in game values.
+        </p>
+        <div class='full-width'>
+          <div class='inputs-form'>
+            <fieldset class="control-group">
+              <legend>Select Missile</legend>
+              <input type="file" id="missile-file" multiple accept=".missile" />
+              <div id='drag-target'><p>Drag and Drop Files to Load</p></div>
+            </fieldset>
+          </div>
+          <div class="inputs-form" id="engines-container">
+          </div>
+        </div>
+    </body>
+</html>
