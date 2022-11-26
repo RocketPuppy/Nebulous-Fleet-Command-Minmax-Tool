@@ -30,11 +30,17 @@ function makeMissileDownload() {
   return download;
 }
 
-function makeEngineDiv(index) {
+function makeMissileRemove() {
+  const remove = document.createElement("button");
+  remove.type = "button";
+  remove.textContent = "Remove Missile";
+  return remove;
+}
+
+function makeEngineDiv() {
   const div = document.createElement("div");
   div.classList.add("engine");
   div.classList.add("inputs-form");
-  div.dataset["nodeIndex"] = index;
   return div;
 }
 
@@ -65,10 +71,11 @@ function linkSlider(input, slider) {
   }
 }
 
-function makeEngineFields(missile, speedEl, burnEl, maneuverEl, valueCB) {
+function makeEngineFields(missile, speedEl, burnEl, maneuverEl, sizeEl, warheadSizeEl, valueCB) {
   const speed = parseFloat(speedEl.textContent);
   const burn = parseFloat(burnEl.textContent);
   const maneuver = parseFloat(maneuverEl.textContent);
+  const currentSize = parseInt(sizeEl.textContent, 10);
 
   const speedF = document.createElement("fieldset");
   speedF.classList.add("control-group");
@@ -323,17 +330,64 @@ function makeEngineFields(missile, speedEl, burnEl, maneuverEl, valueCB) {
   maneuverI.addEventListener("input", maneuverHandler);
   maneuverR.addEventListener("input", maneuverHandler);
 
+  let sizeF = null;
+  let sizeI = null;
+  let sizeR = null;
+  if (missile.selectableEngineSize()) {
+    const min = missile.engineSocketBounds.min;
+    const max = missile.engineSocketBounds.max;
+
+    sizeF = document.createElement("fieldset");
+    sizeF.classList.add("control-group");
+    const sizeL = document.createElement("legend");
+    sizeL.textContent = "Engine Size";
+    sizeI = document.createElement("input");
+    sizeI.type = "number";
+    sizeI.name = "size";
+    sizeI.max = max;
+    sizeI.min = min;
+    sizeI.step = 1;
+    sizeI.value = currentSize;
+    sizeR = document.createElement("input");
+    sizeR.type = "range";
+    sizeR.max = max;
+    sizeR.min = min;
+    sizeR.step = 1;
+    sizeR.value = currentSize;
+    linkSlider(sizeI, sizeR);
+
+    sizeF.appendChild(sizeL);
+    sizeF.appendChild(sizeI);
+    sizeF.appendChild(sizeR);
+  }
+
   const updateCallback = (e) => {
     speedEl.textContent = speedI.value;
     burnEl.textContent = burnI.value;
     maneuverEl.textContent = maneuverI.value;
+    let size = parseInt(sizeEl.textContent, 10);
+    if (sizeI !== null && warheadSizeEl != null) {
+      const warheadSize = parseInt(warheadSizeEl.textContent, 10);
+      const newSize = parseInt(sizeI.value, 10);
+      const oldSize = size;
+      const newWarheadSize = warheadSize + (oldSize - newSize)
+      sizeEl.textContent = sizeI.value;
+      warheadSizeEl.textContent = newWarheadSize.toString();
+      size = newSize;
+    } else if (sizeI !== null) {
+      sizeI.value = size;
+    }
 
-    valueCB({ speed: parseFloat(speedI.value), burn: parseFloat(burnI.value), maneuver: parseFloat(maneuverI.value) });
+    valueCB({ speed: parseFloat(speedI.value), burn: parseFloat(burnI.value), maneuver: parseFloat(maneuverI.value), size: size });
   };
   speedI.addEventListener("change", updateCallback);
   burnI.addEventListener("change", updateCallback);
   maneuverI.addEventListener("change", updateCallback);
-  return [speedF, maneuverF, burnF];
+  if (sizeI !== null) {
+    sizeI.addEventListener("input", updateCallback);
+    sizeR.addEventListener("input", updateCallback);
+  }
+  return [speedF, maneuverF, burnF, sizeF];
 }
 
 function makeEngineOutputs(missile) {
@@ -374,14 +428,10 @@ function makeEngineOutputs(missile) {
   turnAccelerationF.appendChild(turnAccelerationP);
   turnAccelerationP.textContent = "TODO";
 
-  const outputCB = (engineType, size) => ({ speed, burn, maneuver }) => {
-    var myMissile = missile;
-    if (engineType === 'sprint') {
-      myMissile = missile.sprintStage;
-    }
-    const acceleration = myMissile.acceleration(maneuver);
-    const topSpeed = myMissile.topSpeed(speed);
-    const maxRange = myMissile.maxRange(size, speed, burn, maneuver);
+  const outputCB = ({ speed, burn, maneuver, size }) => {
+    const acceleration = missile.acceleration(maneuver);
+    const topSpeed = missile.topSpeed(speed);
+    const maxRange = missile.maxRange(size, speed, burn, maneuver);
 
     rangeP.textContent = Intl.NumberFormat(undefined, { style: 'unit', unit: 'meter', maximumFractionDigits: 0 }).format(maxRange);
     speedP.textContent = Intl.NumberFormat(undefined, { style: 'unit', unit: 'meter-per-second', maximumFractionDigits: 2 }).format(topSpeed);
@@ -395,7 +445,48 @@ function makeEngineOutputs(missile) {
   return [outputDiv, outputCB];
 }
 
-function makeEngineUI(doc, filename) {
+const heiKey = "Stock/HE Impact";
+const hekpKey = "Stock/HE Kinetic Penetrator";
+const fragKey = "Stock/Blast Fragmentation";
+const fragElKey = "Stock/Blast Fragmentation EL";
+
+function makeEngineUI(header, missile, doc, resolver) {
+  const engineSocket = doc.evaluate(`//MissileTemplate/Sockets/MissileSocket[position()=${missile.engineSocketIndex}]`, doc, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+  const engine = doc.evaluate(".//InstalledComponent", engineSocket, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+  let warheadSocket = null;
+  if (missile.warheadSocketIndex !== null) {
+    warheadSocket = doc.evaluate(`//MissileTemplate/Sockets/MissileSocket[position()=${missile.warheadSocketIndex}]`, doc, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+  }
+
+  const sizeEl = doc.evaluate(".//../Size", engine, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+  const speedEl = doc.evaluate(".//A", engine, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+  const durationEl = doc.evaluate(".//B", engine, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+  const maneuverabilityEl = doc.evaluate(".//C", engine, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+  let warheadSizeEl = null;
+  if (warheadSocket !== null) {
+    warheadSizeEl = doc.evaluate(".//Size", warheadSocket, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+  }
+
+  const engineDiv = makeEngineDiv();
+  const engineHeader = makeEngineHeader(header);
+  const [outputs, outputCB] = makeEngineOutputs(missile);
+  const [speedF, maneuverF, burnF, sizeF] = makeEngineFields(missile, speedEl, durationEl, maneuverabilityEl, sizeEl, warheadSizeEl, outputCB);
+
+  engineDiv.appendChild(engineHeader);
+  engineDiv.appendChild(speedF);
+  engineDiv.appendChild(burnF);
+  engineDiv.appendChild(maneuverF);
+
+  outputCB({ speed: parseFloat(speedEl.textContent), burn: parseFloat(durationEl.textContent), maneuver: parseFloat(maneuverabilityEl.textContent), size: parseInt(sizeEl.textContent, 10) });
+
+  if (sizeF !== null) {
+    engineDiv.appendChild(sizeF);
+  }
+
+  return [engineDiv, outputs];
+}
+
+function makeMissileUI(doc, filename) {
   const resolver = doc.createNSResolver(doc);
   const designation = doc.evaluate("//MissileTemplate/Designation/text()", doc, resolver, XPathResult.STRING_TYPE).stringValue;
   const shortname = doc.evaluate("//MissileTemplate/Nickname/text()", doc, resolver, XPathResult.STRING_TYPE).stringValue;
@@ -406,46 +497,29 @@ function makeEngineUI(doc, filename) {
     throw "Unknown Missile Type";
   }
 
-  const engines = doc.evaluate("//MissileTemplate/Sockets/MissileSocket/InstalledComponent[@xsi:type='MissileEngineSettings']", doc, resolver, XPathResult.ORDERED_NODE_ITERATOR_TYPE);
-  const engineCount = doc.evaluate("count(//MissileTemplate/Sockets/MissileSocket/InstalledComponent[@xsi:type='MissileEngineSettings'])", doc, resolver, XPathResult.NUMBER_TYPE).numberValue;
-
-  var i = 1;
   const enginesContainer = document.getElementById("engines-container");
   const missileForm = makeMissileForm();
   const missileHeader = makeMissileHeader(`${designation} ${shortname}`);
   const missileDownload = makeMissileDownload();
+  const missileRemove = makeMissileRemove();
   missileForm.appendChild(missileHeader);
   missileForm.appendChild(missileDownload);
+  missileForm.appendChild(missileRemove);
 
-  var engine;
-  while(engine = engines.iterateNext()) {
-    const size = doc.evaluate(".//../Size", engine, resolver, XPathResult.NUMBER_TYPE).numberValue;
-    const speedEl = doc.evaluate(".//A", engine, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
-    const durationEl = doc.evaluate(".//B", engine, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
-    const maneuverabilityEl = doc.evaluate(".//C", engine, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+  if (missile.sprintStage != null) {
+    const [sprintDiv, sprintOutputs] = makeEngineUI("Sprint Stage", missile.sprintStage, doc, resolver);
 
-    const engineDiv = makeEngineDiv(i);
-    const engineHeader = makeEngineHeader(`Engine ${i}`);
-    const [outputs, outputCB] = makeEngineOutputs(missile);
-    var filledOutputCB;
-    if (i === 1 && engineCount > 1) {
-      filledOutputCB = outputCB('sprint', size);
-    } else {
-      filledOutputCB = outputCB('cruise', size);
-    }
-    const [speedF, maneuverF, burnF] = makeEngineFields(missile, speedEl, durationEl, maneuverabilityEl, filledOutputCB);
-
-    filledOutputCB({ speed: parseFloat(speedEl.textContent), burn: parseFloat(durationEl.textContent), maneuver: parseFloat(maneuverabilityEl.textContent) });
-    engineDiv.appendChild(engineHeader);
-    engineDiv.appendChild(speedF);
-    engineDiv.appendChild(burnF);
-    engineDiv.appendChild(maneuverF);
-
-    missileForm.appendChild(engineDiv);
-    missileForm.appendChild(outputs);
-    i++;
+    missileForm.appendChild(sprintDiv);
+    missileForm.appendChild(sprintOutputs);
   }
+
+  const [cruiseDiv, cruiseOutputs] = makeEngineUI("Cruise Stage", missile, doc, resolver);
+  missileForm.appendChild(cruiseDiv);
+  missileForm.appendChild(cruiseOutputs);
+
   missileForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     const xmlstr = new XMLSerializer().serializeToString(doc);
     const blob = new Blob([xmlstr], { type: "application/xml" });
     const url = URL.createObjectURL(blob);
@@ -458,13 +532,20 @@ function makeEngineUI(doc, filename) {
     URL.revokeObjectURL(url);
     document.body.removeChild(a);
 
+    enginesContainer.removeChild(missileForm);
+  });
+
+  missileRemove.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    enginesContainer.removeChild(missileForm);
   });
   enginesContainer.appendChild(missileForm);
 }
 
 function handleFileUpload(file) {
   file.text().then(handleFileContent).catch(alert).then((doc) => {
-    makeEngineUI(doc, file.name);
+    makeMissileUI(doc, file.name);
   }).catch(alert);
 }
 
