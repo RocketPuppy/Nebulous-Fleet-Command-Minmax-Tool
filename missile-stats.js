@@ -1,14 +1,16 @@
 class Missile {
-  constructor({ name, scalingFactor, sprintStage, speedBounds, engineSocketBounds, maneuverBounds, flightTimeBounds, warheadSocketIndex, engineSocketIndex }) {
+  constructor({ name, scalingFactor, sprintStage, speedBounds, engineSocketBounds, flightTimeBounds, thrustBounds, thrustAngleBounds, warheadSocketIndex, engineSocketIndex, mass }) {
     this.name = name;
     this.scalingFactor = scalingFactor;
     this.sprintStage = sprintStage;
     this.speedBounds = speedBounds;
     this.engineSocketBounds = engineSocketBounds;
-    this.maneuverBounds = maneuverBounds;
     this.flightTimeBounds = flightTimeBounds;
+    this.thrustBounds = thrustBounds;
+    this.thrustAngleBounds = thrustAngleBounds;
     this.warheadSocketIndex = warheadSocketIndex;
     this.engineSocketIndex = engineSocketIndex;
+    this.mass = mass;
   }
 
   selectWarhead(warhead, size) {
@@ -28,8 +30,12 @@ class Missile {
     return this.scalingFactor * this.size;
   }
 
+  thrust(thrustDial) {
+    return this.thrustBounds.lerp(thrustDial);
+  }
+
   acceleration(thrustDial) {
-    return this.maneuverBounds.lerp(thrustDial);
+    return this.thrust(thrustDial) / this.mass;
   }
 
   topSpeed(speedDial) {
@@ -40,10 +46,18 @@ class Missile {
     return this.engineSocketBounds.min !== this.engineSocketBounds.max;
   }
 
+  flightTime(burnDial) {
+    return this.flightTimeBounds.lerp(burnDial);
+  }
+
+  maxOffAngleThrust(thrustDial) {
+    return this.thrustAngleBounds.lerp(thrustDial);
+  }
+
   maxRange(engineSize, speedDial, burnDial, thrustDial) {
-    const flightTime = this.flightTimeBounds.lerp(burnDial) * engineSize;
+    const flightTime = this.flightTime(burnDial) * engineSize;
     const speed = this.topSpeed(speedDial);
-    const acceleration = this.acceleration(thrustDial) * 9.82; // convert from G
+    const acceleration = this.acceleration(thrustDial);
 
     const accelerationTime = speed/acceleration;
 
@@ -56,6 +70,44 @@ class Missile {
       return accelerationDistance + flightDistance;
     }
   }
+
+  maxTurnAcceleration(speedDial, thrustDial) { // in G
+    const speed = this.topSpeed(speedDial);
+    const acceleration = this.acceleration(thrustDial);
+    const start = scaleVector([0, 0, 1], speed);
+    const intoTurn = Quaternion.fromAxisAngle([0, 1, 0], this.maxOffAngleThrust(thrustDial) * Math.PI / 180).rotateVector([0, 0, 1]);
+    const turnThrust = scaleVector(intoTurn, acceleration);
+    const end = scaleVector(normalizeVector(addVector(start, turnThrust)), speed);
+    
+    const toVector = vectorTo(start, end);
+    const toMag = magVector(toVector);
+    return toMag / 9.8;
+  }
+}
+
+function vectorTo(start, end) {
+  return subVector(end, start);
+}
+
+function subVector(v1, v2) {
+  return [v1[0] - v2[0], v1[1] - v2[1], v1[2] - v2[2]];
+}
+
+function addVector(v1, v2) {
+  return [v1[0] + v2[0], v1[1] + v2[1], v1[2] + v2[2]];
+}
+
+function magVector(v) {
+  return Math.sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+}
+
+function scaleVector(v, s) {
+  return [v[0] * s, v[1] * s, v[2] * s];
+}
+
+function normalizeVector(v) {
+  const mag = magVector(v);
+  return [v[0] / mag, v[1] / mag, v[2] / mag];
 }
 
 class Bounds {
@@ -94,10 +146,12 @@ export const s2hsprint = new Missile({
   scalingFactor: 0.8,
   speedBounds: new Bounds(500, 1000),
   engineSocketBounds: new Bounds(1, 6),
-  maneuverBounds: new Bounds(102.0, 204.1),
   flightTimeBounds: new Bounds(0.75, 2.5),
+  thrustBounds: new Bounds(500, 1000),
+  thrustAngleBounds: new Bounds(25, 45),
   warheadSocketIndex: 4,
   engineSocketIndex: 5,
+  mass: 0.5,
 });
 
 export const s3hsprint = new Missile({
@@ -105,10 +159,12 @@ export const s3hsprint = new Missile({
   scalingFactor: 1.8,
   speedBounds: new Bounds(550, 1000),
   engineSocketBounds: new Bounds(1, 9),
-  maneuverBounds: new Bounds(14.3, 30.6),
   flightTimeBounds: new Bounds(0.85, 2.75),
+  thrustBounds: new Bounds(1500, 2500),
+  thrustAngleBounds: new Bounds(30, 60),
   warheadSocketIndex: 5,
   engineSocketIndex: 6,
+  mass: 2,
 });
 
 export const s2h = new Missile({
@@ -117,10 +173,12 @@ export const s2h = new Missile({
   sprintStage: s2hsprint,
   speedBounds: new Bounds(150, 350),
   engineSocketBounds: new Bounds(1,1),
-  maneuverBounds: new Bounds(8.2, 16.3),
-  flightTimeBounds: new Bounds(37.81, 129.06),
+  flightTimeBounds: new Bounds(40, 130),
+  thrustBounds: new Bounds(40, 80),
+  thrustAngleBounds: new Bounds(8, 20),
   warheadSocketIndex: null,
   engineSocketIndex: 6,
+  mass: 0.5,
 });
 
 export const s3h = new Missile({
@@ -129,10 +187,12 @@ export const s3h = new Missile({
   sprintStage: s3hsprint,
   speedBounds: new Bounds(100, 200),
   engineSocketBounds: new Bounds(1, 1),
-  maneuverBounds: new Bounds(6.1, 9.2),
-  flightTimeBounds: new Bounds(78.335, 249.17),
+  flightTimeBounds: new Bounds(80, 250),
+  thrustBounds: new Bounds(120, 180),
+  thrustAngleBounds: new Bounds(8, 30),
   warheadSocketIndex: null,
   engineSocketIndex: 7,
+  mass: 2,
 });
 
 export const s1 = new Missile({
@@ -140,10 +200,12 @@ export const s1 = new Missile({
   scalingFactor: 0.33,
   speedBounds: new Bounds(250, 400),
   engineSocketBounds: new Bounds(1, 3),
-  maneuverBounds: new Bounds(35.7, 76.5),
   flightTimeBounds: new Bounds(2, 8),
+  thrustBounds: new Bounds(70, 150),
+  thrustAngleBounds: new Bounds(15, 40),
   warheadSocketIndex: 3,
   engineSocketIndex: 4,
+  mass: 0.2,
 });
 
 export const s2 = new Missile({
@@ -151,10 +213,12 @@ export const s2 = new Missile({
   scalingFactor: 1,
   speedBounds: new Bounds(150, 350),
   engineSocketBounds: new Bounds(1, 6),
-  maneuverBounds: new Bounds(14.3, 30.6),
   flightTimeBounds: new Bounds(4, 20),
+  thrustBounds: new Bounds(70, 150),
+  thrustAngleBounds: new Bounds(12, 30),
   warheadSocketIndex: 4,
   engineSocketIndex: 5,
+  mass: 0.5,
 });
 
 export const s3 = new Missile({
@@ -162,10 +226,12 @@ export const s3 = new Missile({
   scalingFactor: 3,
   speedBounds: new Bounds(125, 200),
   engineSocketBounds: new Bounds(1, 9),
-  maneuverBounds: new Bounds(6.1, 9.2),
+  thrustBounds: new Bounds(120, 180),
   flightTimeBounds: new Bounds(3, 17),
+  thrustAngleBounds: new Bounds(8, 30),
   warheadSocketIndex: 4,
   engineSocketIndex: 5,
+  mass: 2,
 });
 
 export const missilesByBodyKey = {

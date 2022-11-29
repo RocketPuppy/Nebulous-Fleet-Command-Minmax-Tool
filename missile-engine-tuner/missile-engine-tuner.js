@@ -426,16 +426,17 @@ function makeEngineOutputs(missile) {
   const turnAccelerationP = document.createElement("p");
   turnAccelerationF.appendChild(turnAccelerationL);
   turnAccelerationF.appendChild(turnAccelerationP);
-  turnAccelerationP.textContent = "TODO";
 
   const outputCB = ({ speed, burn, maneuver, size }) => {
-    const acceleration = missile.acceleration(maneuver);
+    const acceleration = missile.acceleration(maneuver) / 9.8;
     const topSpeed = missile.topSpeed(speed);
     const maxRange = missile.maxRange(size, speed, burn, maneuver);
+    const turnAcceleration = missile.maxTurnAcceleration(speed, maneuver);
 
     rangeP.textContent = Intl.NumberFormat(undefined, { style: 'unit', unit: 'meter', maximumFractionDigits: 0 }).format(maxRange);
-    speedP.textContent = Intl.NumberFormat(undefined, { style: 'unit', unit: 'meter-per-second', maximumFractionDigits: 2 }).format(topSpeed);
-    accelerationP.textContent = Intl.NumberFormat(undefined, { style: 'decimal', maximumFractionDigits: 2 }).format(acceleration) + " G";
+    speedP.textContent = Intl.NumberFormat(undefined, { style: 'unit', unit: 'meter-per-second', maximumFractionDigits: 0 }).format(topSpeed);
+    accelerationP.textContent = Intl.NumberFormat(undefined, { style: 'decimal', maximumFractionDigits: 1 }).format(acceleration) + " G";
+    turnAccelerationP.textContent = Intl.NumberFormat(undefined, { style: 'decimal', maximumFractionDigits: 1 }).format(turnAcceleration) + " G";
   };
 
   outputDiv.appendChild(rangeF);
