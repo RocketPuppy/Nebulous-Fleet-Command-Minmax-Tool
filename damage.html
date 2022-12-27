@@ -4,6 +4,8 @@
         <script src="plotly-2.14.0.min.js"></script>
         <script type="module" defer src="damage/beam-curve.js"></script>
         <script type="module" defer src="damage/beam.js"></script>
+        <script type="module" defer src="damage/armor-penetration.js"></script>
+        <script type="module" defer src="damage/damage.js"></script>
         <script type="module" defer src="hull-stats.js"></script>
         <link rel="stylesheet" href="damage/damage.css" />
         <link rel="stylesheet" href="index.css" />
@@ -11,6 +13,85 @@
     <body>
         <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
         <h1>Damage Mechanics</h1>
+        <h2>Weapon Builder</h2>
+
+        <div class="sidebar">
+          <details>
+            <summary>Missile Builder</summary>
+            <form action="#" id="missile-builder" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Missile Body</legend>
+                <select name="missile-body-select" required></select>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Warhead and Size</legend>
+                <select name="missile-warhead-select" required></select>
+                <input type="number" name="missile-warhead-size" min="1" max="8" step="1" required />
+                <input type="range" name="missile-warhead-size-slider" min="1" max="8" step="1" required />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Terminal Speed</legend>
+                <input type="number" name="missile-terminal-speed" min="150" max="1000" step="1" required />
+                <input type="range" name="missile-terminal-speed-slider" min="150" max="1000" step="1" required />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Use Weapon</legend>
+                <button type="submit" >Submit</button>
+              </fieldset>
+            </form>
+            <div class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Armor Penetration</legend>
+                <p id="missile-armor-penetration-out" />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Component Damage</legend>
+                <p id="missile-component-damage-out" />
+              </fieldset>
+            </div>
+          </details>
+
+          <details>
+            <summary>Gun Builder</summary>
+            <form action="#" id="gun-builder" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Caliber</legend>
+                <select name="gun-caliber"></select>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Ammunition</legend>
+                <select name="gun-ammo"></select>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Use Weapon</legend>
+                <button type="submit" >Submit</button>
+              </fieldset>
+            </form>
+          </details>
+          <details>
+            <summary>Beam Builder</summary>
+            <form action="#" id="beam-builder" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Focused Particle Accelerators</legend>
+                <input type="number" min="0" max="8" step="1" />
+              </fieldset>
+              <fieldset class="control-group">
+                  <legend>Select Beam Type</legend>
+                  <label>Spinal Beam<input name="beam-max-range" type="radio" value="6000" checked /></label>
+                  <label>Beam Turret<input name="beam-max-range" type="radio" value="5000" /></label>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Range</legend>
+                <input type="number" name="beam-range" min="0" max="6000" step="1" />
+                <input type="range" name="beam-range-slider" min="0" max="6000" step="1" />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Use Weapon</legend>
+                <button type="submit" >Submit</button>
+              </fieldset>
+            </form>
+          </details>
+        </div>
         <h2><a href="#beam">Beam Damage</a></h2>
         <p>
             This chart will help inform you of the ranges you need to be within to destroy the selected component mounted on the selected hull.
@@ -39,6 +120,107 @@
                 </div>
             </form>
             <div id="beam-graph"></div>
+        </div>
+        <h2><a href="#armor">Armor Penetration</a></h2>
+        <p>
+            Use this visualizer to explore different weapon penetration depths against various armor angles.
+            First, use the weapon builder to select a weapon.
+            Then, use the form below to select a hull and armor angle to visualize.
+            The red arrow symbolizes the penetration into the armor, visualized by the black bar.
+            If the arrow goes out the right side of the armor then it will penetrate at that angle.
+        </p>
+        <p>
+            Note: HE Impact missiles do not care about armor angling for determining penetration.
+            It is visualized here as a curiosity and no more.
+        </p>
+        <div class="full-width" id="armor-container">
+            <div id="armor-form" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Armor Width</legend>
+                <select id="armor-width"></select>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Armor Angle</legend>
+                <input type="range" id="armor-angle" min="0" max="90" step="1"/>
+              </fieldset>
+            </div>
+            <svg
+              width="1000"
+              height="500"
+              viewBox="0 0 1000 500"
+              version="1.1"
+              id="armor-visualization"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:svg="http://www.w3.org/2000/svg">
+              <defs
+                 id="defs2">
+                <marker
+                   style="overflow:visible;"
+                   id="Arrow2Send"
+                   refX="0.0"
+                   refY="0.0"
+                   orient="auto">
+                  <path
+                     transform="scale(0.3) rotate(180) translate(-2.3,0)"
+                     d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+                     style="stroke:context-stroke;fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+                     id="path2184" />
+                </marker>
+              </defs>
+              <g
+                 id="armor-group"
+                 transform="translate(500, 250)">
+                <path
+                   id="armor"
+                   style="overflow:visible;stroke-width:0.749991;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:2.99997, 0.749991;paint-order:stroke fill markers"
+                   d="m -26,-100 h 52 v 200 h -52 z" />
+                <g
+                   id="penetrator">
+                  <path
+                     style="color:#000000;fill:#f00000;fill-rule:evenodd;-inkscape-stroke:none"
+                     d="M -26,-2.4140625 V 2.4433594 H 19.175781 V -2.4140625 Z"
+                     id="path2631" />
+                  <g
+                     id="g2621">
+                    <g
+                       id="path2623">
+                      <path
+                         style="color:#000000;fill:#f00000;fill-rule:evenodd;stroke-width:0.910798;stroke-linejoin:round;-inkscape-stroke:none"
+                         d="M 9.8226982,-5.8645038 25.744729,-0.00956978 9.8226974,5.8453629 c 2.5436746,-3.4567499 2.5290176,-8.1861837 8e-7,-11.7098667 z"
+                         id="path2627" />
+                      <path
+                         style="color:#000000;fill:#f00000;fill-rule:evenodd;stroke-linejoin:round;-inkscape-stroke:none"
+                         d="M 9.9804688,-6.2910156 A 0.45544455,0.45544455 0 0 0 9.453125,-5.5996094 c 2.416949,3.3675385 2.427608,7.8794151 0.00195,11.1757813 A 0.45544455,0.45544455 0 0 0 9.9804688,6.2734375 L 25.902344,0.41796875 a 0.45544455,0.45544455 0 0 0 0,-0.85546875 z M 10.742188,-5.0429687 24.425781,-0.00976563 10.75,5.0195312 c 1.758555,-3.1297914 1.749085,-6.8941437 -0.0078,-10.0624999 z"
+                         id="path2629" />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g
+                 id="scale"
+                 transform="translate(8.064065,2.6284605)">
+                <path
+                   style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.1419;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                   d="m 20.310927,27.252003 v 2.500496 l 10,-4.96e-4 v -2.5"
+                   id="path392" />
+                <path
+                   d="m 12.04922,22.644977 c 0.42969,0 0.85937,0 1.28906,0 0,-1.483073 0,-2.966146 0,-4.449219 -0.46745,0.09375 -0.9349,0.1875 -1.40235,0.28125 0.0646,-0.278161 -0.1915,-0.818741 0.26884,-0.77297 0.63215,-0.136809 1.26349,-0.281797 1.91476,-0.22703 0,1.722656 0,3.445313 0,5.167969 0.42969,0 0.85937,0 1.28906,0 -0.0353,0.295726 0.16254,0.824656 -0.32911,0.664062 -1.01009,0 -2.02017,0 -3.03026,0 0,-0.221354 0,-0.442708 0,-0.664062 z"
+                   id="path1258"
+                   style="font-size:8px;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;stroke-width:1px" />
+                <path
+                   d="m 18.68984,17.996539 c -1.03966,0.03263 -1.19544,1.297482 -1.2179,2.111023 0.015,0.888585 -0.0669,2.079458 0.80317,2.605713 1.022,0.439388 1.62758,-0.76732 1.61115,-1.623245 0.0383,-0.95927 0.13135,-2.088104 -0.55036,-2.858505 -0.17407,-0.159867 -0.41175,-0.237903 -0.64606,-0.234986 z m 0,-0.625 c 1.1167,-0.06996 1.84753,1.013779 1.94257,2.018799 0.13698,1.260987 0.18718,2.850841 -0.89856,3.729859 -0.94319,0.657688 -2.42046,0.216754 -2.76959,-0.903443 -0.41192,-1.233286 -0.42845,-2.664272 0.10473,-3.863525 0.29361,-0.61346 0.94014,-1.007819 1.62085,-0.98169 z"
+                   id="path1255"
+                   style="font-size:8px;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;stroke-width:1px" />
+                <path
+                   d="m 27.93984,19.773883 c 0.42538,-1.016919 2.0572,-1.34487 2.66901,-0.339356 0.45852,0.907199 0.22698,1.955186 0.28412,2.934287 -0.0404,0.291296 0.0785,0.741865 -0.0549,0.940225 -0.29655,-0.03576 -0.82761,0.162997 -0.66781,-0.32911 -0.0348,-0.981663 0.0823,-1.978851 -0.087,-2.947562 -0.32015,-1.005896 -1.89491,-0.587608 -1.97681,0.36145 -0.0941,0.966218 -0.0239,1.943982 -0.0456,2.915222 -0.26636,-0.06594 -0.85994,0.195333 -0.72265,-0.274258 -0.0351,-1.000536 0.0828,-2.016671 -0.087,-3.004245 -0.32534,-1.005227 -1.89304,-0.582712 -1.97681,0.365661 -0.0942,0.965391 -0.0238,1.942402 -0.0456,2.912842 -0.26636,-0.06594 -0.85994,0.195333 -0.72265,-0.274258 0,-1.366914 0,-2.733828 0,-4.100742 0.26636,0.06594 0.85994,-0.195333 0.72265,0.274258 -0.13725,0.974163 0.8433,-0.875787 1.52313,-0.375942 0.557,0.01351 1.02666,0.421534 1.18781,0.941528 z"
+                   id="path1252"
+                   style="font-size:8px;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;stroke-width:1px" />
+                <path
+                   d="m 35.73281,19.773883 c 0.42538,-1.016918 2.0572,-1.344872 2.669,-0.339356 0.45852,0.907203 0.22698,1.955186 0.28412,2.934287 -0.0404,0.291296 0.0785,0.741865 -0.0548,0.940225 -0.29655,-0.03576 -0.8276,0.162996 -0.6678,-0.32911 -0.0348,-0.981663 0.0823,-1.978851 -0.087,-2.947562 -0.32015,-1.005895 -1.89491,-0.587609 -1.97681,0.36145 -0.0941,0.966218 -0.0239,1.943982 -0.0456,2.915222 -0.26636,-0.06594 -0.85994,0.195333 -0.72265,-0.274258 -0.0351,-1.000536 0.0829,-2.016671 -0.087,-3.004245 -0.32534,-1.005226 -1.89304,-0.582713 -1.97681,0.365661 -0.0942,0.965391 -0.0238,1.942402 -0.0456,2.912842 -0.26636,-0.06594 -0.85994,0.195333 -0.72265,-0.274258 0,-1.366914 0,-2.733828 0,-4.100742 0.26636,0.06594 0.85994,-0.195333 0.72265,0.274258 -0.13725,0.974164 0.8433,-0.875786 1.52313,-0.375942 0.557,0.01351 1.02666,0.421532 1.18781,0.941528 z"
+                   id="path1249"
+                   style="font-size:8px;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;stroke-width:1px" />
+              </g>
+            </svg>
         </div>
     </body>
 </html>

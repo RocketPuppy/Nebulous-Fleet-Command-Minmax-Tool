@@ -1,3 +1,5 @@
+import warheads from "./warhead-stats.js";
+
 class Missile {
   constructor({ name, scalingFactor, sprintStage, speedBounds, engineSocketBounds, flightTimeBounds, thrustBounds, thrustAngleBounds, warheadSocketIndex, engineSocketIndex, mass }) {
     this.name = name;
@@ -11,23 +13,26 @@ class Missile {
     this.warheadSocketIndex = warheadSocketIndex;
     this.engineSocketIndex = engineSocketIndex;
     this.mass = mass;
+    this.warheadBounds = new Bounds(1, 8);
+    this.selectWarhead(warheads.hei, 3);
   }
 
-  selectWarhead(warhead, size) {
+  selectWarhead(warhead, warheadSize, warheadSpeed) {
     this.warhead = warhead;
-    this.size = size;
+    this.warheadSize = warheadSize;
+    this.warheadSpeed = warheadSpeed;
   }
 
   get armorPenetration() {
-    return this.warhead.armorPenetration(this.weightedSize);
+    return this.warhead.armorPenetration(this.weightedWarheadSize, this.warheadSpeed);
   }
 
   get componentDamage() {
-    return this.warhead.componentDamage(this.weightedSize);
+    return this.warhead.componentDamage(this.weightedWarheadSize);
   }
 
-  get weightedSize() {
-    return this.scalingFactor * this.size;
+  get weightedWarheadSize() {
+    return this.scalingFactor * this.warheadSize;
   }
 
   thrust(thrustDial) {
