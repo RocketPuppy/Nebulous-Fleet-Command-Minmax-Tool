@@ -2,11 +2,12 @@ import beamCurve from "./beam-curve.js";
 import hullStats from "../hull-stats.js";
 import componentStats from "./component-stats.js";
 
-const base_damage = 60;
-const base_pen = 36;
+export const base_damage = 60;
+export const base_pen = 36;
+export const period = 0.2;
 const fpa_boost = 0.25;
 
-function fpa_modifier(count) {
+export function fpa_modifier(count) {
   // IF(module_count=0, 0, SUM(MAP(MAKEARRAY(module_count,1,LAMBDA(row, col, row-1)), LAMBDA(iter, base_modifier * EXP(-POW(iter / 3.5, 2))))))
   var sum = 0;
   for(var i = 1; i <= count; i++) {

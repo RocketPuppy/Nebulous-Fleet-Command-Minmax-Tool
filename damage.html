@@ -4,6 +4,8 @@
         <script src="plotly-2.14.0.min.js"></script>
         <script type="module" defer src="damage/beam-curve.js"></script>
         <script type="module" defer src="damage/beam.js"></script>
+        <script type="module" defer src="damage/armor-penetration.js"></script>
+        <script type="module" defer src="damage/damage.js"></script>
         <script type="module" defer src="hull-stats.js"></script>
         <link rel="stylesheet" href="damage/damage.css" />
         <link rel="stylesheet" href="index.css" />
@@ -11,6 +13,110 @@
     <body>
         <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
         <h1>Damage Mechanics</h1>
+        <h2>Weapon Builder</h2>
+
+        <div id="weapon-builder">
+          <details>
+            <summary>Missile Builder</summary>
+            <form action="#" id="missile-builder" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Missile Body</legend>
+                <select name="missile-body-select" required></select>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Warhead and Size</legend>
+                <select name="missile-warhead-select" required></select>
+                <input type="number" name="missile-warhead-size" min="1" max="8" step="1" required />
+                <input type="range" name="missile-warhead-size-slider" min="1" max="8" step="1" required />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Terminal Speed</legend>
+                <input type="number" name="missile-terminal-speed" min="150" max="1000" step="1" required />
+                <input type="range" name="missile-terminal-speed-slider" min="150" max="1000" step="1" required />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Use Weapon</legend>
+                <button type="submit" >Submit</button>
+              </fieldset>
+            </form>
+            <div class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Armor Penetration</legend>
+                <p id="missile-armor-penetration-out" />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Component Damage</legend>
+                <p id="missile-component-damage-out" />
+              </fieldset>
+            </div>
+          </details>
+
+          <details>
+            <summary>Gun Builder</summary>
+            <form action="#" id="gun-builder" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Caliber</legend>
+                <select name="gun-caliber"></select>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Ammunition</legend>
+                <select name="gun-ammo"></select>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Use Weapon</legend>
+                <button type="submit" >Submit</button>
+              </fieldset>
+            </form>
+            <div class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Armor Penetration</legend>
+                <p id="gun-armor-penetration-out" />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Component Damage</legend>
+                <p id="gun-component-damage-out" />
+              </fieldset>
+            </div>
+          </details>
+          <details>
+            <summary>Beam Builder</summary>
+            <form action="#" id="beam-builder" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Focused Particle Accelerators</legend>
+                <input name="beam-fpa" type="number" min="0" max="8" step="1" value="0" />
+              </fieldset>
+              <fieldset class="control-group">
+                  <legend>Select Beam Type</legend>
+                  <label>Spinal Beam<input name="beam-max-range" type="radio" value="6000" checked /></label>
+                  <label>Beam Turret<input name="beam-max-range" type="radio" value="5000" /></label>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Range</legend>
+                <input type="number" name="beam-range" min="0" max="6000" step="1" />
+                <input type="range" name="beam-range-slider" min="0" max="6000" step="1" />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Seconds on Target</legend>
+                <input type="number" name="beam-time" min="0.2" max="600" step="0.2" value="0.2" />
+                <input type="range" name="beam-time-slider" min="0.2" max="600" step="0.2" value="0.2" />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Use Weapon</legend>
+                <button type="submit" >Submit</button>
+              </fieldset>
+            </form>
+            <div class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Armor Penetration</legend>
+                <p id="beam-armor-penetration-out" />
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Component Damage</legend>
+                <p id="beam-component-damage-out" />
+              </fieldset>
+            </div>
+          </details>
+        </div>
         <h2><a href="#beam">Beam Damage</a></h2>
         <p>
             This chart will help inform you of the ranges you need to be within to destroy the selected component mounted on the selected hull.
@@ -39,6 +145,131 @@
                 </div>
             </form>
             <div id="beam-graph"></div>
+        </div>
+        <h2><a href="#armor">Armor Penetration</a></h2>
+        <p>
+            Use this visualizer to explore different weapon penetration depths against various armor angles.
+            First, use the weapon builder to select a weapon.
+            Then, use the form below to select a hull and armor angle to visualize.
+            The arrow symbolizes the penetration into the armor, visualized by the black bar.
+            If the arrow is red, then the round failed to penetrate.
+            If the arrow is blue, then the round penetrated the armor.
+            If the arrow is yellow, then the round had just enough penetration to breach the armor but did not penetrate into the hull.
+        </p>
+        <p>
+            Note: HE Impact missiles do not care about armor angling for determining penetration.
+            It is visualized here as a curiosity and no more.
+        </p>
+        <div class="full-width" id="armor-container">
+            <div id="armor-weapon-select" class="weapon-select-warning">
+              <a href="#weapon-builder">Select a weapon</a> before using this tool.
+            </div>
+            <div id="armor-weapon-selected" class="weapon-selected hidden">
+              <h4>Selected Weapon</h4>
+              <h5 class="weapon-selected-name"></h5>
+              <div class="inputs-form">
+                <fieldset class="control-group">
+                  <legend>Armor Penetration</legend>
+                  <p class="weapon-selected-penetration" />
+                </fieldset>
+                <fieldset class="control-group">
+                  <legend>Component Damage</legend>
+                  <p class="weapon-selected-damage" />
+                </fieldset>
+              </div>
+            </div>
+            <div id="armor-form" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Armor Width</legend>
+                <select id="armor-width"></select>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Armor Angle</legend>
+                <input type="range" id="armor-angle-slider" min="0" max="90" step="1"/>
+                <input type="number" id="armor-angle" min="0" max="90" step="1" />
+              </fieldset>
+            </div>
+            <svg
+              width="1000"
+              height="500"
+              viewBox="0 0 1000 500"
+              version="1.1"
+              id="armor-visualization"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:svg="http://www.w3.org/2000/svg">
+              <defs
+                 id="defs2">
+                <marker
+                   style="overflow:visible;"
+                   id="Arrow2Send"
+                   refX="0.0"
+                   refY="0.0"
+                   orient="auto">
+                  <path
+                     transform="scale(0.3) rotate(180) translate(-2.3,0)"
+                     d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+                     style="stroke:context-stroke;fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+                     id="path2184" />
+                </marker>
+              </defs>
+              <g
+                 id="armor-group"
+                 transform="translate(500, 250)">
+                <path
+                   id="armor"
+                   style="overflow:visible;stroke-width:0.749991;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:2.99997, 0.749991;paint-order:stroke fill markers"
+                   d="m -26,-100 h 52 v 200 h -52 z" />
+                <g
+                   id="penetrator">
+                  <path
+                     style="color:#000000;fill:#f00000;fill-rule:evenodd;-inkscape-stroke:none"
+                     d="M -26,-2.4140625 V 2.4433594 H 19.175781 V -2.4140625 Z"
+                     id="path2631" />
+                  <g
+                     id="g2621">
+                    <g
+                       id="path2623">
+                      <path
+                         style="color:#000000;fill:#f00000;fill-rule:evenodd;stroke-width:0.910798;stroke-linejoin:round;-inkscape-stroke:none"
+                         d="M 9.8226982,-5.8645038 25.744729,-0.00956978 9.8226974,5.8453629 c 2.5436746,-3.4567499 2.5290176,-8.1861837 8e-7,-11.7098667 z"
+                         id="path2627" />
+                      <path
+                         style="color:#000000;fill:#f00000;fill-rule:evenodd;stroke-linejoin:round;-inkscape-stroke:none"
+                         d="M 9.9804688,-6.2910156 A 0.45544455,0.45544455 0 0 0 9.453125,-5.5996094 c 2.416949,3.3675385 2.427608,7.8794151 0.00195,11.1757813 A 0.45544455,0.45544455 0 0 0 9.9804688,6.2734375 L 25.902344,0.41796875 a 0.45544455,0.45544455 0 0 0 0,-0.85546875 z M 10.742188,-5.0429687 24.425781,-0.00976563 10.75,5.0195312 c 1.758555,-3.1297914 1.749085,-6.8941437 -0.0078,-10.0624999 z"
+                         id="path2629" />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g
+                 id="scale"
+                 transform="translate(8.064065,2.6284605)">
+                <g
+                   id="g20939">
+                  <g
+                     aria-label="10 cm"
+                     id="text4012"
+                     style="font-size:13.3333px;line-height:13.2389px;letter-spacing:0px;word-spacing:0px;stroke-width:1px">
+                    <path
+                       d="M 6.0368871,22.189146 H 8.1853192 V 14.7738 l -2.3372337,0.468749 v -1.197914 l 2.3242129,-0.468749 h 1.3151008 v 8.61326 h 2.1484318 v 1.106768 H 6.0368871 Z"
+                       id="path20882" />
+                    <path
+                       d="m 17.104567,14.441769 q -1.015622,0 -1.529944,1.002602 -0.507811,0.996091 -0.507811,3.001295 0,1.998692 0.507811,3.001294 0.514322,0.996091 1.529944,0.996091 1.022133,0 1.529944,-0.996091 0.514322,-1.002602 0.514322,-3.001294 0,-2.005204 -0.514322,-3.001295 -0.507811,-1.002602 -1.529944,-1.002602 z m 0,-1.041664 q 1.634111,0 2.493484,1.29557 0.865883,1.289059 0.865883,3.749991 0,2.45442 -0.865883,3.74999 -0.859373,1.289059 -2.493484,1.289059 -1.63411,0 -2.499993,-1.289059 -0.859373,-1.29557 -0.859373,-3.74999 0,-2.460932 0.859373,-3.749991 0.865883,-1.29557 2.499993,-1.29557 z"
+                       id="path20884" />
+                    <path
+                       d="m 32.091508,16.284213 v 1.119789 q -0.507812,-0.279948 -1.022133,-0.416666 -0.507811,-0.143229 -1.028643,-0.143229 -1.165362,0 -1.809892,0.742186 -0.644529,0.735675 -0.644529,2.070307 0,1.334632 0.644529,2.076818 0.64453,0.735675 1.809892,0.735675 0.520832,0 1.028643,-0.136719 0.514321,-0.143228 1.022133,-0.423176 v 1.106768 q -0.501301,0.234375 -1.041664,0.351562 -0.533853,0.117187 -1.13932,0.117187 -1.647132,0 -2.617181,-1.035153 -0.97005,-1.035154 -0.97005,-2.792962 0,-1.78385 0.97656,-2.805983 0.983071,-1.022132 2.688795,-1.022132 0.553384,0 1.080727,0.117187 0.527342,0.110677 1.022133,0.338541 z"
+                       id="path20886" />
+                    <path
+                       d="m 39.851905,17.404002 q 0.449218,-0.80729 1.074217,-1.191404 0.624998,-0.384113 1.47135,-0.384113 1.13932,0 1.757808,0.800779 0.618488,0.794269 0.618488,2.265619 v 4.401031 h -1.204424 v -4.361968 q 0,-1.048175 -0.371093,-1.555986 -0.371093,-0.507811 -1.132809,-0.507811 -0.930988,0 -1.471351,0.618488 -0.540363,0.618488 -0.540363,1.686193 v 4.121084 h -1.204424 v -4.361968 q 0,-1.054685 -0.371093,-1.555986 -0.371093,-0.507811 -1.14583,-0.507811 -0.917967,0 -1.45833,0.624998 -0.540363,0.618488 -0.540363,1.679683 v 4.121084 h -1.204424 v -7.291649 h 1.204424 v 1.13281 q 0.410155,-0.670571 0.98307,-0.989581 0.572915,-0.319009 1.360674,-0.319009 0.794269,0 1.347653,0.403644 0.559894,0.403645 0.82682,1.171873 z"
+                       id="path20888" />
+                  </g>
+                  <path
+                     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.1419;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                     d="m 20.310927,27.252003 v 2.500496 l 10,-4.96e-4 v -2.5"
+                     id="path392" />
+                </g>
+              </g>
+            </svg>
         </div>
     </body>
 </html>
