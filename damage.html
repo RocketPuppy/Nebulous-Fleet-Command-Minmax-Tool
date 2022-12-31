@@ -157,6 +157,11 @@
             If the arrow is yellow, then the round had just enough penetration to breach the armor but did not penetrate into the hull.
         </p>
         <p>
+            The effect of sloped armor has a maximum value of 2.5 times the armor thickness.
+            For this tool, that is achieved by limiting the maximum slope to 66 degrees (though it's actually somewhere between 66 and 67 degrees).
+            However, in game you will find that weapons impacting armor at greater than 66 degrees will behave as if the armor was sloped at 66 degrees.
+        </p>
+        <p>
             Note: HE Impact missiles do not care about armor angling for determining penetration.
             It is visualized here as a curiosity and no more.
         </p>
@@ -185,8 +190,8 @@
               </fieldset>
               <fieldset class="control-group">
                 <legend>Armor Angle</legend>
-                <input type="range" id="armor-angle-slider" min="0" max="90" step="1"/>
-                <input type="number" id="armor-angle" min="0" max="90" step="1" />
+                <input type="range" id="armor-angle-slider" min="0" max="66" step="1"/>
+                <input type="number" id="armor-angle" min="0" max="66" step="1" />
               </fieldset>
             </div>
             <svg
