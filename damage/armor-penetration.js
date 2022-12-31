@@ -96,6 +96,11 @@ function updatePenetrator(penetration, effectiveArmor) {
   }
 }
 
+function updateEffectiveArmor(effectiveArmor) {
+  const effectiveArmorInput = document.getElementById("armor-effective");
+  effectiveArmorInput.textContent = effectiveArmor.toFixed(2);
+}
+
 export function refreshArmorPen() {
   const angle = armorAngleInput.value;
   const selectedHull = hullStats.find((hull) => hull.name === hullInput.value);
@@ -103,6 +108,7 @@ export function refreshArmorPen() {
   const effectiveArmor = selectedHull.armor / Math.cos(angle * Math.PI/180)
   const penetration = getWeapon() ? getWeapon().armorPenetration : 0;
 
+  updateEffectiveArmor(effectiveArmor);
   updateArmor(selectedHull.armor, angle);
   updatePenetrator(penetration, effectiveArmor);
 }
