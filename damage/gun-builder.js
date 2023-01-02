@@ -2,6 +2,11 @@ import gunstats from "../gun-stats.js";
 
 const { calibers, ammo } = gunstats;
 
+export const cannon120 = "cannon120";
+export const cannon250 = "cannon250";
+export const cannon450 = "cannon450";
+export const railgun = "railgun";
+
 export function setupGunBuilder(weaponSelectedCB) {
   const form = document.getElementById("gun-builder");
   const caliberSelect = form.elements.namedItem("gun-caliber");
@@ -42,6 +47,21 @@ export function setupGunBuilder(weaponSelectedCB) {
     armorPenOutput.textContent = selectedAmmo.armorPenetration.toFixed(2);
     componentDamageOutput.textContent = selectedAmmo.componentDamage.toFixed(2);
 
-    weaponSelectedCB(selectedAmmo);
+    switch(selectedAmmo.caliber.name) {
+      case "120mm":
+        weaponSelectedCB(cannon120, selectedAmmo);
+        break;
+      case "250mm":
+        weaponSelectedCB(cannon250, selectedAmmo);
+        break;
+      case "450mm":
+        weaponSelectedCB(cannon450, selectedAmmo);
+        break;
+      case "300mm":
+        weaponSelectedCB(railgun, selectedAmmo);
+        break;
+      default:
+        break;
+    }
   });
 }

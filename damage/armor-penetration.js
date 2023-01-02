@@ -1,5 +1,8 @@
 import hullStats from "../hull-stats.js";
-import { getWeapon } from "./damage.js";
+import { missilehekp, missileheimpact } from "./missile-builder.js";
+import { cannon120, cannon250, cannon450, railgun } from "./gun-builder.js";
+import { beam } from "./beam-builder.js";
+import { getWeapon, getWeaponType } from "./damage.js";
 
 function linkSlider(input, slider) {
   input.addEventListener("input", (e) => {
@@ -101,6 +104,38 @@ function updateEffectiveArmor(effectiveArmor) {
   effectiveArmorInput.textContent = effectiveArmor.toFixed(2);
 }
 
+function showWeapon(weaponType) {
+    const weapons = armorVis.querySelectorAll(".weapon");
+    weapons.forEach((e) => {
+      e.classList.add("hidden");
+    });
+    switch(weaponType) {
+      case missilehekp:
+        armorVis.getElementById("missile-hekp").classList.remove("hidden");
+        break;
+      case missileheimpact:
+        armorVis.getElementById("missile-heimpact").classList.remove("hidden");
+        break;
+      case cannon120:
+        armorVis.getElementById("cannon-120").classList.remove("hidden");
+        break;
+      case cannon250:
+        armorVis.getElementById("cannon-250").classList.remove("hidden");
+        break;
+      case cannon450:
+        armorVis.getElementById("cannon-450").classList.remove("hidden");
+        break;
+      case railgun:
+        armorVis.getElementById("railgun").classList.remove("hidden");
+        break;
+      case beam:
+        armorVis.getElementById("beam").classList.remove("hidden");
+        break;
+      default:
+        break;
+    }
+}
+
 export function refreshArmorPen() {
   const angle = armorAngleInput.value;
   const selectedHull = hullStats.find((hull) => hull.name === hullInput.value);
@@ -111,6 +146,7 @@ export function refreshArmorPen() {
   updateEffectiveArmor(effectiveArmor);
   updateArmor(selectedHull.armor, angle);
   updatePenetrator(penetration, effectiveArmor);
+  showWeapon(getWeaponType());
 }
 
 armorAngleInput.addEventListener("input", function(e) {

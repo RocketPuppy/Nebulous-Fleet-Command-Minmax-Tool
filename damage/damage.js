@@ -4,13 +4,19 @@ import { setupBeamBuilder } from "./beam-builder.js";
 import { refreshArmorPen } from "./armor-penetration.js";
 
 let selectedWeapon = null;
+let selectedWeaponType = null;
 
 export function getWeapon() {
     return selectedWeapon;
 }
 
-function selectWeapon(weapon) {
+export function getWeaponType() {
+    return selectedWeaponType;
+}
+
+function selectWeapon(type, weapon) {
     selectedWeapon = weapon;
+    selectedWeaponType = type;
     refreshArmorPen();
     hideWeaponSelectWarnings();
     fillWeaponSelected(weapon);

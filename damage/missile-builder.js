@@ -1,6 +1,9 @@
 import missileStats from "../missile-stats.js";
 import warheadStats from "../warhead-stats.js";
 
+export const missilehekp = "missilehekp";
+export const missileheimpact = "missileheimpact";
+
 function linkSlider(input, slider) {
   input.addEventListener("input", (e) => {
     slider.value = input.value;
@@ -77,6 +80,10 @@ export function setupMissileBuilder(weaponSelectedCB) {
     armorPenOutput.textContent = missile.armorPenetration.toFixed(2);
     componentDamageOutput.textContent = missile.componentDamage.toFixed(2);
 
-    weaponSelectedCB(missile);
+    if (warhead.name === "HE Impact") {
+      weaponSelectedCB(missileheimpact, missile);
+    } else if (warhead.name === "HEKP") {
+      weaponSelectedCB(missilehekp, missile);
+    }
   });
 }

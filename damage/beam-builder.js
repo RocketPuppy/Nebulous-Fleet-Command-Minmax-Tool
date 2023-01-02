@@ -1,6 +1,8 @@
 import { base_damage, base_pen, period, fpa_modifier } from "./beam.js";
 import beamCurve from "./beam-curve.js";
 
+export const beam = "beam";
+
 export function interpolate_beam_curve(range, maxRange, value) {
   const p = parseFloat((range/maxRange).toFixed(2));
   const mod = beamCurve.find((x) => x[0] === p)[1];
@@ -68,6 +70,6 @@ export function setupBeamBuilder(weaponSelectedCB) {
 
     const name = maxRange === 5000 ? "Beam - Turret" : "Beam - Spinal";
 
-    weaponSelectedCB({ name, armorPenetration, componentDamage });
+    weaponSelectedCB(beam, { name, armorPenetration, componentDamage });
   });
 }
