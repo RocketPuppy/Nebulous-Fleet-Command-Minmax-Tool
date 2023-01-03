@@ -70,6 +70,6 @@ export function setupBeamBuilder(weaponSelectedCB) {
 
     const name = maxRange === 5000 ? "Beam - Turret" : "Beam - Spinal";
 
-    weaponSelectedCB(beam, { name, armorPenetration, componentDamage });
+    weaponSelectedCB(beam, { name, armorPenetration, componentDamage, maxRange, range, fpas });
   });
 }

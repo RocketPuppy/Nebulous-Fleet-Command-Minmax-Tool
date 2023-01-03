@@ -124,27 +124,44 @@
             A curve for each possible number of Focused Particle Accelerators is shown.
             The grey horizontal lines are the damage thresholds of the selected components.
             The value on the X-axis where the grey line intersects the damage curve indicates the range you need to be within to destroy a component with that damage threshold.
-            The default configuration shows an Active Cooled Amplifiers component mounted on a Sprinter hull attacked by a spinal beam cannon.
+            The default configuration shows an Active Cooled Amplifiers component mounted on a Sprinter hull.
             The grey line is at 10 on the Y-axis, and so the component can be destroyed at any range with any number of Focused Particle Accelerators.
         </p>
+        <p>
+            Change the beam type (spinal or turret) by using the weapon builder.
+        </p>
         <div class='full-width'>
-            <form id="beam-form" action="#" class="inputs-form">
+            <div id="beam-weapon-selected" class="weapon-selected hidden">
+              <div class="inputs-form">
+                <fieldset class="control-group">
+                  <legend>Beam Range</legend>
+                  <p id="beam-damage-max-range-output"></p>
+                </fieldset>
+                <fieldset class="control-group">
+                  <legend>Armor Penetration</legend>
+                  <p class="weapon-selected-penetration" />
+                </fieldset>
+                <fieldset class="control-group">
+                  <legend>Component Damage</legend>
+                  <p class="weapon-selected-damage" />
+                </fieldset>
+              </div>
+            </div>
+            <form id="beam-form" action="#" class="inputs-form hidden">
                 <fieldset class="control-group">
                     <legend>Select Hull</legend><select name="select-hull"></select>
                 </fieldset>
                 <fieldset class="control-group">
                     <legend>Select Components</legend><select multiple name="select-components"></select>
                 </fieldset>
-                <fieldset class="control-group">
-                    <legend>Select Beam Type</legend>
-                    <label>Spinal Beam<input name="select-range" type="radio" value="6000" checked /></label>
-                    <label>Beam Turret<input name="select-range" type="radio" value="5000" /></label>
-                </fieldset>
                 <div class="buttons control-group">
                     <input type="submit" value="Update Graph" />
                 </div>
             </form>
-            <div id="beam-graph"></div>
+            <div id="beam-graph" class="hidden"></div>
+        </div>
+        <div id="beam-weapon-select" class="weapon-select-warning">
+          <a href="#weapon-builder">Select a beam</a> before using this tool.
         </div>
         <h2><a href="#armor">Armor Penetration</a></h2>
         <p>

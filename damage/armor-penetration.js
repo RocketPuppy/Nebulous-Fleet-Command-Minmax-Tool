@@ -19,6 +19,7 @@ function linkSlider(input, slider) {
   }
 }
 
+const hullInput = document.getElementById("armor-width");
 const armorVis = document.getElementById("armor-visualization");
 const armor = armorVis.getElementById("armor");
 const penetrator = armorVis.getElementById("penetrator");
@@ -149,22 +150,23 @@ export function refreshArmorPen() {
   showWeapon(getWeaponType());
 }
 
-armorAngleInput.addEventListener("input", function(e) {
-  refreshArmorPen();
-});
-armorAngleSlider.addEventListener("input", function(e) {
-  refreshArmorPen();
-});
+export function setupArmorPen() {
+  armorAngleInput.addEventListener("input", function(e) {
+    refreshArmorPen();
+  });
+  armorAngleSlider.addEventListener("input", function(e) {
+    refreshArmorPen();
+  });
 
-const hullInput = document.getElementById("armor-width");
-for (const hull of hullStats) {
-  const o = new Option(hull.name, hull.name);
-  hullInput.add(o);
+  for (const hull of hullStats) {
+    const o = new Option(hull.name, hull.name);
+    hullInput.add(o);
+  }
+  hullInput.selectedIndex = 0;
+
+  hullInput.addEventListener("change", function(e) {
+    refreshArmorPen();
+  });
+
+  armorAngleInput.dispatchEvent(new InputEvent("input"));
 }
-hullInput.selectedIndex = 0;
-
-hullInput.addEventListener("change", function(e) {
-  refreshArmorPen();
-});
-
-armorAngleInput.dispatchEvent(new InputEvent("input"));

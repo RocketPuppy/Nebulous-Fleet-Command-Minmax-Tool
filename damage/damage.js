@@ -1,7 +1,8 @@
 import { setupMissileBuilder } from "./missile-builder.js";
 import { setupGunBuilder } from "./gun-builder.js";
 import { setupBeamBuilder } from "./beam-builder.js";
-import { refreshArmorPen } from "./armor-penetration.js";
+import { refreshArmorPen, setupArmorPen } from "./armor-penetration.js";
+import { setupBeam } from "./beam.js";
 
 let selectedWeapon = null;
 let selectedWeaponType = null;
@@ -20,6 +21,7 @@ function selectWeapon(type, weapon) {
     refreshArmorPen();
     hideWeaponSelectWarnings();
     fillWeaponSelected(weapon);
+    beamWeaponSelected();
 }
 
 function hideWeaponSelectWarnings() {
@@ -37,12 +39,21 @@ function fillWeaponSelected(weapon) {
     const pen = n.querySelector(".weapon-selected-penetration");
     const damage = n.querySelector(".weapon-selected-damage");
 
-    name.textContent = weapon.name;
+    if (name) {
+      name.textContent = weapon.name;
+    }
     pen.textContent = weapon.armorPenetration.toFixed(2);
     damage.textContent = weapon.componentDamage.toFixed(2);
   });
 }
 
-setupMissileBuilder(selectWeapon);
-setupGunBuilder(selectWeapon);
-setupBeamBuilder(selectWeapon);
+let beamWeaponSelected = null;
+function setup() {
+  setupMissileBuilder(selectWeapon);
+  setupGunBuilder(selectWeapon);
+  setupBeamBuilder(selectWeapon);
+  beamWeaponSelected = setupBeam();
+  setupArmorPen();
+}
+
+document.addEventListener("DOMContentLoaded", setup);

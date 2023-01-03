@@ -1,6 +1,8 @@
 import beamCurve from "./beam-curve.js";
 import hullStats from "../hull-stats.js";
 import componentStats from "./component-stats.js";
+import { getWeapon, getWeaponType } from "./damage.js";
+import { beam } from "./beam-builder.js";
 
 export const base_damage = 60;
 export const base_pen = 36;
@@ -83,12 +85,11 @@ export function do_graph(range, hull, components) {
     Plotly.newPlot( graph, data, layout, { responsive: true });
 }
 
-export function beam_inputs() {
+export function setupBeam() {
     const beamForm = document.getElementById("beam-form");
 
     const hullInput = beamForm.elements.namedItem("select-hull");
     const componentsInput = beamForm.elements.namedItem("select-components");
-    const rangeInput = beamForm.elements.namedItem("select-range");
 
     for (const hull of hullStats) {
       const o = new Option(hull.name, hull.name);
@@ -107,8 +108,15 @@ export function beam_inputs() {
       e.stopPropagation();
       e.preventDefault();
 
+      const weapon = getWeapon();
+      const weaponType = getWeaponType();
+
+      if (weaponType !== beam) {
+        return;
+      }
+
       const selectedHull = hullStats.find((hull) => hull.name === hullInput.value);
-      const selectedRange = parseInt(rangeInput.value, 10);
+      const selectedRange = weapon.maxRange;
       var selectedComponents = []
       for(var i=0; i < componentsInput.selectedOptions.length; i++) {
           const o = componentsInput.selectedOptions.item(i);
@@ -120,6 +128,32 @@ export function beam_inputs() {
     };
 
     beamForm.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
+
+    return function () {
+      refresh()
+      beamForm.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
+      if (getWeapon().maxRange) {
+        const maxRangeOutput = document.getElementById("beam-damage-max-range-output");
+        maxRangeOutput.textContent = getWeapon().maxRange;
+      } else {
+        const maxRangeOutput = document.getElementById("beam-damage-max-range-output");
+        maxRangeOutput.textContent = "";
+      }
+    };
 }
 
-beam_inputs();
+function refresh() {
+  const selectedWeapon = getWeapon();
+  const selectedWeaponType = getWeaponType();
+
+  if (selectedWeaponType === beam) {
+    document.getElementById("beam-weapon-select").classList.add("hidden");
+    document.getElementById("beam-form").classList.remove("hidden");
+    document.getElementById("beam-graph").classList.remove("hidden");
+  } else {
+    document.getElementById("beam-weapon-select").classList.remove("hidden");
+    document.getElementById("beam-form").classList.add("hidden");
+    document.getElementById("beam-graph").classList.add("hidden");
+    document.getElementById("beam-weapon-selected").classList.add("hidden");
+  }
+}
