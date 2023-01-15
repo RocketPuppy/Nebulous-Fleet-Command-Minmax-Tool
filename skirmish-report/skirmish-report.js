@@ -45,7 +45,7 @@ function handleFileUpload(file) {
         const resolver = xmlDoc.createNSResolver(xmlDoc);
         parseSeconds(xmlDoc.evaluate("//GameDuration", xmlDoc, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue);
         parseSecondsMultiple(xmlDoc.evaluate("//EliminatedTimestamp", xmlDoc, resolver, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE));
-        parseSecondsMultiple(xmlDoc.evaluate("//WasDefangedTimestamp", xmlDoc, resolver, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE));
+        parseSecondsMultiple(xmlDoc.evaluate("//DefangedTimestamp", xmlDoc, resolver, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE));
         const fragment = xsltProcessor.transformToFragment(xmlDoc, document);
         skirmishFrame.textContent = '';
         skirmishFrame.appendChild(fragment);
