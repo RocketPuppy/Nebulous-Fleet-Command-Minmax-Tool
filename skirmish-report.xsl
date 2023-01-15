@@ -96,10 +96,10 @@
             <xsl:value-of select="ShipName"></xsl:value-of>
         </h4>
         <xsl:choose>
-            <xsl:when test="WasDefanged = 'true'"><h5 class="elimination defanged">No Offensive Ability</h5></xsl:when>
+            <xsl:when test="Eliminated = 'Destroyed'"><h5 class="elimination destroyed">Destroyed</h5></xsl:when>
             <xsl:when test="Eliminated = 'Evacuated'"><h5 class="elimination evacuated">Evacuated</h5></xsl:when>
             <xsl:when test="Eliminated = 'Retired'"><h5 class="elimination retired">Withdrawn</h5></xsl:when>
-            <xsl:when test="Eliminated = 'Destroyed'"><h5 class="elimination destroyed">Destroyed</h5></xsl:when>
+            <xsl:when test="WasDefanged = 'true'"><h5 class="elimination defanged">No Offensive Ability</h5></xsl:when>
         </xsl:choose>
         <dl>
             <dt>Crew Status</dt>
