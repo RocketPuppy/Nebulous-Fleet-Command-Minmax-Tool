@@ -10,35 +10,39 @@ import Ship from "./ship.js";
 4. When do you need to start moving?
 */
 
-function start_moving_before(gun_range, gun, ship) {
+function start_moving_before(gun_range, gun, ship, margin) {
     const bullet_time = gun.travel_time(gun_range);
-    const needed_displacement = ship.minimum_dimension * 0.75; // aiming at center-mass plus 25% margin
+    const needed_displacement = ship.minimum_dimension * (0.5 * margin); // aiming at center-mass plus 25% margin
     const time_to_move = Math.sqrt(2 * needed_displacement / ship.acceleration);
     const start_moving_before = bullet_time - time_to_move;
     return start_moving_before;
     
 }
 
-function make_trace(gun, ship) {
+const margins = [1, 1.25, 1.5];
+function make_trace(gun, ship, margin) {
     const x = [];
     const y = [];
     for(const range of gun.ranges(100)) {
         x.push(range);
-        y.push(start_moving_before(range, gun, ship));
+        y.push(start_moving_before(range, gun, ship, margin));
     }
     return {
         x,
         y,
-        name: `${ship.hull.name} vs. ${gun.ammo.name}`,
+        name: `${ship.hull.name} vs. ${gun.ammo.name} (${(margin - 1)*100}% margin)`,
         type: 'scatter'
     };
 }
+
 function do_graph(hull, thrust, mass, topSpeed, ammos) {
     const ship = new Ship(hull, thrust, mass, topSpeed);
-    const data = ammos.map((ammo) => {
+    const data = ammos.flatMap((ammo) => {
         const gun = new Gun(ammo);
 
-        return make_trace(gun, ship);
+        return margins.map((margin) => {
+          return make_trace(gun, ship, margin);
+        });
     });
     
     const graph = document.getElementById('dodge-graph');
