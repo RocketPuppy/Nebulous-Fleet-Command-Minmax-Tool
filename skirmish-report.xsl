@@ -61,17 +61,26 @@
                 </span>
                 <div class="colors">
                     <xsl:attribute name="style">
+                            background:
                         <xsl:apply-templates select="Colors/BaseColor"></xsl:apply-templates>
                     </xsl:attribute>
-                    <xsl:value-of select="Colors/FleetPrefix"></xsl:value-of>
+                    <span class="fleet-prefix">
+                        <xsl:attribute name="style">
+                                color:
+                            <xsl:apply-templates select="Colors/StripeColor"></xsl:apply-templates>
+                        </xsl:attribute>
+                        <xsl:value-of select="Colors/FleetPrefix"></xsl:value-of>
+                    </span>
                     <div class="stripe1">
                         <xsl:attribute name="style">
+                            background:
                             <xsl:apply-templates select="Colors/StripeColor"></xsl:apply-templates>
                         </xsl:attribute>
                         &#x00A0;
                     </div>
                     <div class="stripe2">
                         <xsl:attribute name="style">
+                            background:
                             <xsl:apply-templates select="Colors/StripeColor"></xsl:apply-templates>
                         </xsl:attribute>
                         &#x00A0;
@@ -84,7 +93,7 @@
         </div>
     </xsl:template>
     <xsl:template match="BaseColor|StripeColor">
-        background: rgba(
+        rgba(
          <xsl:value-of select="format-number(r, '0.000%')"></xsl:value-of>,
          <xsl:value-of select="format-number(g, '0.000%')"></xsl:value-of>,
          <xsl:value-of select="format-number(b, '0.000%')"></xsl:value-of>

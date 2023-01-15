@@ -97,7 +97,6 @@
 .stripe1 {
     width: 10px;
     display: inline-block;
-    margin: 0 5px;
 }
 
 .stripe2 {
@@ -115,4 +114,9 @@ h3 {
 h4 {
     text-align: center;
     border-bottom: 2px solid white;
+}
+
+.fleet-prefix {
+    margin: 0;
+    padding: 0;
 }
