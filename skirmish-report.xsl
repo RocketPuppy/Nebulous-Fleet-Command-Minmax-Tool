@@ -14,7 +14,9 @@
             </head>
             <body>
                 <xsl:apply-templates select="LocalPlayerWon"></xsl:apply-templates>
-                <xsl:apply-templates select="Teams"></xsl:apply-templates>
+                <div id="report">
+                    <xsl:apply-templates select="Teams"></xsl:apply-templates>
+                </div>
             </body>
         </html>
     </xsl:template>
@@ -27,13 +29,14 @@
                     <xsl:otherwise>Defeat</xsl:otherwise>
                 </xsl:choose>
             </span>
+            <span class="divider" />
             <span class="battle-time">
                 <xsl:value-of select="//GameDuration"/>
             </span>
         </h1>
     </xsl:template>
     <xsl:template match="Teams">
-        <div class="teams">
+        <div id="teams">
             <xsl:apply-templates select="TeamReportOfShipBattleReport"></xsl:apply-templates>
         </div>
     </xsl:template>
@@ -57,23 +60,21 @@
                     <xsl:value-of select="PlayerName"></xsl:value-of>
                 </span>
                 <div class="colors">
-                    <span class="fleet-prefix">
-                        <xsl:value-of select="Colors/FleetPrefix"></xsl:value-of>
-                    </span>
-                    <div class="background">
-                        <xsl:attribute name="style">
-                            <xsl:apply-templates select="Colors/BaseColor"></xsl:apply-templates>
-                        </xsl:attribute>
-                    </div>
+                    <xsl:attribute name="style">
+                        <xsl:apply-templates select="Colors/BaseColor"></xsl:apply-templates>
+                    </xsl:attribute>
+                    <xsl:value-of select="Colors/FleetPrefix"></xsl:value-of>
                     <div class="stripe1">
                         <xsl:attribute name="style">
                             <xsl:apply-templates select="Colors/StripeColor"></xsl:apply-templates>
                         </xsl:attribute>
+                        &#x00A0;
                     </div>
                     <div class="stripe2">
                         <xsl:attribute name="style">
                             <xsl:apply-templates select="Colors/StripeColor"></xsl:apply-templates>
                         </xsl:attribute>
+                        &#x00A0;
                     </div>
                 </div>
             </h3>
