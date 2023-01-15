@@ -120,3 +120,8 @@ h4 {
     margin: 0;
     padding: 0;
 }
+
+.elimination {
+    color: darkred;
+    margin: 0;
+}
