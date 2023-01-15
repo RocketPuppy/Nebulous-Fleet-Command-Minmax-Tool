@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module" defer src="skirmish-report/skirmish-report.js"></script>
+        <link rel="stylesheet" href="skirmish-report/skirmish-report.css" />
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
+        <h1>Skirmish Report</h1>
+        <p>
+            You can use this tool to view your exported skirmish reports.
+        </p>
+        <div class='full-width'>
+            <div class='inputs-form'>
+              <fieldset class="control-group">
+                <legend>Select Report</legend>
+                <input type="file" id="report-file" accept=".xml" disabled />
+                <div id='drag-target' class="disabled"><p>Drag and Drop Files to Load</p></div>
+              </fieldset>
+            </div>
+            <hr />
+            <div id="report-frame">
+            </div>
+          </div>
+    </body>
+</html>
