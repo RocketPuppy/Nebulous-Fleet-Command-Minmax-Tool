@@ -106,53 +106,58 @@
                 <xsl:text> &#x2010; </xsl:text>
                 <xsl:value-of select="ShipName"></xsl:value-of>
             </h4>
-            <div class="stats">
-                <xsl:choose>
-                    <xsl:when test="Eliminated = 'Destroyed'">
-                        <h5 class="elimination destroyed">
-                            Destroyed at
-                            <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
-                        </h5>
-                    </xsl:when>
-                    <xsl:when test="Eliminated = 'Evacuated'">
-                        <h5 class="elimination evacuated">
-                            Evacuated at
-                            <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
-                        </h5>
-                    </xsl:when>
-                    <xsl:when test="Eliminated = 'Retired'">
-                        <h5 class="elimination retired">
-                            Withdrawn at
-                            <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
-                        </h5>
-                    </xsl:when>
-                    <xsl:when test="WasDefanged = 'true'">
-                        <h5 class="elimination defanged">
-                            No Offensive Ability at
-                            <span class="timestamp"><xsl:value-of select="DefangedTimestamp"></xsl:value-of></span>
-                        </h5>
-                    </xsl:when>
-                </xsl:choose>
-                <dl>
-                    <dt>Crew Status</dt>
-                    <dd>
-                        <xsl:value-of select="FinalCrew"></xsl:value-of>
-                        /
-                        <xsl:value-of select="OriginalCrew"></xsl:value-of>
-                    </dd>
-                    <dt>Damage Received</dt>
-                    <dd>
-                        <xsl:value-of select="format-number(TotalDamageReceived, '###,###')"></xsl:value-of>
-                    </dd>
-                    <dt>Damage Repaired</dt>
-                    <dd>
-                        <xsl:value-of select="format-number(TotalDamageRepaired, '###,###')"></xsl:value-of>
-                    </dd>
-                    <dt>Damage Dealt</dt>
-                    <dd>
-                        <xsl:value-of select="format-number(TotalDamageDealt, '###,###')"></xsl:value-of>
-                    </dd>
-                </dl>
+            <div class="details">
+                <div class="dc-board">
+
+                </div>
+                <div class="stats">
+                    <xsl:choose>
+                        <xsl:when test="Eliminated = 'Destroyed'">
+                            <h5 class="elimination destroyed">
+                                Destroyed at
+                                <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
+                            </h5>
+                        </xsl:when>
+                        <xsl:when test="Eliminated = 'Evacuated'">
+                            <h5 class="elimination evacuated">
+                                Evacuated at
+                                <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
+                            </h5>
+                        </xsl:when>
+                        <xsl:when test="Eliminated = 'Retired'">
+                            <h5 class="elimination retired">
+                                Withdrawn at
+                                <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
+                            </h5>
+                        </xsl:when>
+                        <xsl:when test="WasDefanged = 'true'">
+                            <h5 class="elimination defanged">
+                                No Offensive Ability at
+                                <span class="timestamp"><xsl:value-of select="DefangedTimestamp"></xsl:value-of></span>
+                            </h5>
+                        </xsl:when>
+                    </xsl:choose>
+                    <dl>
+                        <dt>Crew Status</dt>
+                        <dd>
+                            <xsl:value-of select="FinalCrew"></xsl:value-of>
+                            /
+                            <xsl:value-of select="OriginalCrew"></xsl:value-of>
+                        </dd>
+                        <dt>Damage Received</dt>
+                        <dd>
+                            <xsl:value-of select="format-number(TotalDamageReceived, '###,###')"></xsl:value-of>
+                        </dd>
+                        <dt>Damage Repaired</dt>
+                        <dd>
+                            <xsl:value-of select="format-number(TotalDamageRepaired, '###,###')"></xsl:value-of>
+                        </dd>
+                        <dt>Damage Dealt</dt>
+                        <dd>
+                            <xsl:value-of select="format-number(TotalDamageDealt, '###,###')"></xsl:value-of>
+                        </dd>
+                    </dl>
+                </div>
             </div>
         </div>
     </xsl:template>
