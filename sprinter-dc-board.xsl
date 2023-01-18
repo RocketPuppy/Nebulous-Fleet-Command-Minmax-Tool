@@ -31,11 +31,11 @@
       <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 206.68781,-7.6539444 5.41473,0.7562837 V 12.990055 l -5.25738,1.332621" id="path5324-9" />
       <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 85.979568,-45.318981 4.07212,-3.321706 6.108665,-0.05766 1.438037,1.273718 h 7.59198 l 2.38815,1.059743 h 9.96544 l 10.11503,0.686525 v 1.714444 h -10.71267 l -1.54889,0.894258 H 95.933314" id="path5359-3" />
     </g>
-    <g id="sockets" style="fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-dasharray:none;stroke-opacity:1"><xsl:apply-templates select="$parts" /></g>
+    <g id="sockets" style="fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-dasharray:none;stroke-opacity:1"><xsl:apply-templates select="$parts" mode="sprinter-dc-board" /></g>
   </g>
 </svg>
   </xsl:template>
-  <xsl:template match="PartDamage">
+  <xsl:template match="PartDamage" mode="sprinter-dc-board">
     <xsl:variable name="percent" select="HealthPercent" />
     <xsl:choose>
       <xsl:when test="Key = 'FRpYZgxM70ekIrPsBN5b2g'">

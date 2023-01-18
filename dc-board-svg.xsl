@@ -41,12 +41,14 @@
             <xsl:apply-templates select="@*" />
             <xsl:element name="xsl:apply-templates">
                 <xsl:attribute name="select"><xsl:text>$parts</xsl:text></xsl:attribute>
+                <xsl:attribute name="mode"><xsl:value-of select="//svg:svg/@class" /></xsl:attribute>
             </xsl:element>
         </xsl:copy>
     </xsl:template>
     <xsl:template match="svg:g[@id='sockets']" mode="template">
         <xsl:element name="xsl:template">
             <xsl:attribute name="match">PartDamage</xsl:attribute>
+            <xsl:attribute name="mode"><xsl:value-of select="//svg:svg/@class" /></xsl:attribute>
             <xsl:element name="xsl:variable">
                 <xsl:attribute name="name">percent</xsl:attribute>
                 <xsl:attribute name="select">HealthPercent</xsl:attribute>
