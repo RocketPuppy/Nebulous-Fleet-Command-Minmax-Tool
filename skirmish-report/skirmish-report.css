@@ -67,14 +67,32 @@
     margin: 2px;
 }
 
+.divider-large {
+    background-color: orangered;
+    width: 6px;
+    margin: 0;
+}
+
 #report {
     border: 4px solid grey;
     background: black;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.ship.details {
+    flex-basis: 50%;
+    flex-grow: 1;
+    flex-shrink: 0;
 }
 
 #teams {
     display: flex;
     flex-direction: row;
+    flex-basis: 50%;
+    flex-shrink: 1;
+    flex-grow: 0;
 }
 
 .team {
@@ -127,6 +145,18 @@ h4 {
     text-align: center;
 }
 
+.ship {
+    border: 6px solid black;
+}
+
+.ship.selected {
+    border: 6px solid orangered;
+}
+
+.ship:not(.selected) {
+    cursor: pointer;
+}
+
 .ship .stats {
     padding: 1em;
     flex-basis: 50%;
@@ -134,7 +164,7 @@ h4 {
     flex-grow: 0;
 }
 
-.ship .details {
+.ship .summary {
     display: flex;
     flex-direction: row;
 }
@@ -150,7 +180,7 @@ h4 {
     text-align: right;
     flex-basis: 50%;
     flex-shrink: 0;
-    flex-grow: 1;
+    flex-grow: 2;
     display: inline;
 }
 
@@ -162,6 +192,58 @@ h4 {
     flex-grow: 1;
 }
 
+.ship .summary .stat, .ship .summary .stat + dd {
+    display: none;
+}
+
+.ship .summary .stat.crew-status, .ship .summary .stat.crew-status + dd {
+    order: 1;
+    display: inline;
+}
+.ship .summary .stat.damage-received, .ship .summary .stat.damage-received + dd {
+    order: 2;
+    display: inline;
+}
+.ship .summary .stat.damage-repaired, .ship .summary .stat.damage-repaired + dd {
+    order: 3;
+    display: inline;
+}
+.ship .summary .stat.damage-dealt, .ship .summary .stat.damage-dealt + dd {
+    order: 4;
+    display: inline;
+}
+
+
+.ship.details .summary .stat.crew-status, .ship.details .summary .stat.crew-status + dd {
+    order: 1;
+    display: inline;
+}
+.ship.details .summary .stat.damage-received, .ship.details .summary .stat.damage-received + dd {
+    order: 3;
+    display: inline;
+}
+.ship.details .summary .stat.damage-repaired, .ship.details .summary .stat.damage-repaired + dd {
+    order: 4;
+    display: inline;
+}
+.ship.details .summary .stat.damage-dealt, .ship.details .summary .stat.damage-dealt + dd {
+    order: 2;
+    display: inline;
+}
+
 .stats dt::after {
     content: ':';
+}
+
+.dc-board {
+    flex-basis: 50%;
+}
+
+.dc-board svg {
+    width: 100%;
+    height: auto;
+}
+
+.dc-board .sockets rect {
+    display: none;
 }

@@ -49,6 +49,7 @@ function handleFileUpload(file) {
         const fragment = xsltProcessor.transformToFragment(xmlDoc, document);
         skirmishFrame.textContent = '';
         skirmishFrame.appendChild(fragment);
+        reportUi(fragment);
     }).catch(alert);
 }
 
@@ -100,4 +101,27 @@ function ui() {
     });
 
     dragTarget.classList.remove("disabled");
+}
+
+function reportUi() {
+    const ships = document.querySelectorAll(".ship:not(.details)");
+
+    ships.forEach((ship) => {
+        ship.addEventListener("click", (e) => {
+            ships.forEach((s) => s.classList.remove("selected"));
+            ship.classList.add("selected");
+
+            const details = document.querySelectorAll(".ship.details");
+            details.forEach((d) => {
+                if (d.dataset.shipId === ship.dataset.shipId) {
+                    d.classList.remove("hidden");
+                } else {
+                    d.classList.add("hidden");
+                }
+            });
+
+        });
+    });
+    
+    ships.item(0).dispatchEvent(new Event("click"));
 }

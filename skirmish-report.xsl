@@ -5,6 +5,7 @@
     version="2.0"
     exclude-result-prefixes="xs">
     <xsl:output method="xml" omit-xml-declaration="yes" indent="yes"/>
+    <xsl:include href="./sprinter-dc-board.xsl" />
     <xsl:template match="/">
         <xsl:apply-templates select="FullAfterActionReport"/>
     </xsl:template>
@@ -15,6 +16,8 @@
             <body>
                 <xsl:apply-templates select="LocalPlayerWon"></xsl:apply-templates>
                 <div id="report">
+                    <xsl:apply-templates select="//Ships/ShipBattleReport" mode="details"></xsl:apply-templates>
+                    <div class='divider-large'></div>
                     <xsl:apply-templates select="Teams"></xsl:apply-templates>
                 </div>
             </body>
@@ -101,153 +104,112 @@
     </xsl:template>
     <xsl:template match="ShipBattleReport">
         <div class="ship">
+            <xsl:attribute name="data-ship-id">
+                <xsl:value-of select="../../AccountId"></xsl:value-of>-<xsl:value-of select="position()"></xsl:value-of>
+            </xsl:attribute>
             <h4>
                 <xsl:value-of select="HullString"></xsl:value-of>
                 <xsl:text> &#x2010; </xsl:text>
                 <xsl:value-of select="ShipName"></xsl:value-of>
             </h4>
-            <div class="details">
+            <div class="summary">
                 <div class="dc-board">
-
+                    <xsl:choose>
+                        <xsl:when test="./HullKey = 'Stock/Sprinter Corvette'">
+                            <xsl:call-template name="sprinter-dc-board">
+                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <img src="dc-board-todo.png" width="100%" height="100%"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </div>
                 <div class="stats">
-                    <xsl:choose>
-                        <xsl:when test="Eliminated = 'Destroyed'">
-                            <h5 class="elimination destroyed">
-                                Destroyed at
-                                <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
-                            </h5>
-                        </xsl:when>
-                        <xsl:when test="Eliminated = 'Evacuated'">
-                            <h5 class="elimination evacuated">
-                                Evacuated at
-                                <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
-                            </h5>
-                        </xsl:when>
-                        <xsl:when test="Eliminated = 'Retired'">
-                            <h5 class="elimination retired">
-                                Withdrawn at
-                                <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
-                            </h5>
-                        </xsl:when>
-                        <xsl:when test="WasDefanged = 'true'">
-                            <h5 class="elimination defanged">
-                                No Offensive Ability at
-                                <span class="timestamp"><xsl:value-of select="DefangedTimestamp"></xsl:value-of></span>
-                            </h5>
-                        </xsl:when>
-                    </xsl:choose>
-                    <dl>
-                        <dt>Crew Status</dt>
-                        <dd>
-                            <xsl:value-of select="FinalCrew"></xsl:value-of>
-                            /
-                            <xsl:value-of select="OriginalCrew"></xsl:value-of>
-                        </dd>
-                        <dt>Damage Received</dt>
-                        <dd>
-                            <xsl:value-of select="format-number(TotalDamageReceived, '###,###')"></xsl:value-of>
-                        </dd>
-                        <dt>Damage Repaired</dt>
-                        <dd>
-                            <xsl:value-of select="format-number(TotalDamageRepaired, '###,###')"></xsl:value-of>
-                        </dd>
-                        <dt>Damage Dealt</dt>
-                        <dd>
-                            <xsl:value-of select="format-number(TotalDamageDealt, '###,###')"></xsl:value-of>
-                        </dd>
-                    </dl>
+                    <xsl:apply-templates select="." mode="elimination-status"></xsl:apply-templates>
+                    <xsl:apply-templates select="." mode="basic-stats"></xsl:apply-templates>
                 </div>
             </div>
         </div>
     </xsl:template>
-    <!--
-    <xsl:template name="millis">
-        <xsl:param name="millis" as="xs:integer"/>
-        <xsl:choose>
-            <xsl:when test="$millis &gt; 1000">
-                <xsl:value-of select="format-number($millis div 1000, '0.0')"/>
-                <xsl:text>s</xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="format-number($millis, '#')"/>
-                <xsl:text>ms</xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    <xsl:template match="version">
-        <span>
-            <xsl:value-of select="name"/>
-        </span>
-        <span>
-            <xsl:call-template name="millis">
-                <xsl:with-param name="millis" select="/page/millis"/>
-            </xsl:call-template>
-        </span>
-    </xsl:template>
-    <xsl:template match="identity">
-        <span>
-            <img class="photo" src="{photo}" alt="{name}"/>
-        </span>
-        <span class="name">
-            <xsl:value-of select="name"/>
-        </span>
-        <span>
-            <i>
-                <xsl:attribute name="class">
-                    <xsl:text>auth fa </xsl:text>
-                    <xsl:choose>
-                        <xsl:when test="starts-with(urn, 'urn:facebook:')">
-                            <xsl:text>fa-facebook-square</xsl:text>
-                        </xsl:when>
-                        <xsl:when test="starts-with(urn, 'urn:google:')">
-                            <xsl:text>fa-google-plus-square</xsl:text>
-                        </xsl:when>
-                        <xsl:when test="starts-with(urn, 'urn:github:')">
-                            <xsl:text>fa-github-square</xsl:text>
-                        </xsl:when>
-                    </xsl:choose>
-                </xsl:attribute>
-                <xsl:comment>icon</xsl:comment>
-            </i>
-        </span>
-        <span>
-            <a href="{/page/links/link[@rel='rexsl:logout']/@href}">
-                <i class="fa fa-sign-out"><xsl:comment>logout</xsl:comment></i>
-            </a>
-        </span>
-    </xsl:template>
-    <xsl:template match="flash">
-        <div>
-            <xsl:attribute name="class">
-                <xsl:text>alert </xsl:text>
-                <xsl:choose>
-                    <xsl:when test="level = 'INFO'">
-                        <xsl:text>alert-success</xsl:text>
-                    </xsl:when>
-                    <xsl:when test="level = 'WARNING'">
-                        <xsl:text>alert-warning</xsl:text>
-                    </xsl:when>
-                    <xsl:when test="level = 'SEVERE'">
-                        <xsl:text>alert-danger</xsl:text>
-                    </xsl:when>
-                </xsl:choose>
+    <xsl:template match="ShipBattleReport" mode="details">
+        <div class="ship details hidden">
+            <xsl:attribute name="data-ship-id">
+                <xsl:value-of select="../../AccountId"></xsl:value-of>-<xsl:value-of select="count(../ShipBattleReport[. = current()]/preceding-sibling::*)+1"></xsl:value-of>
             </xsl:attribute>
-            <xsl:value-of select="message"/>
+            <div class="summary">
+                <div class="dc-board">
+                    <xsl:choose>
+                        <xsl:when test="./HullKey = 'Stock/Sprinter Corvette'">
+                            <xsl:call-template name="sprinter-dc-board">
+                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <img src="dc-board-todo.png" width="100%" height="100%"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </div>
+                <div class="stats">
+                    <h2>
+                        [<xsl:value-of select="HullString"></xsl:value-of>]
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="ShipName"></xsl:value-of>
+                    </h2>
+                    <xsl:apply-templates select="." mode="elimination-status"></xsl:apply-templates>
+                    <xsl:apply-templates select="." mode="basic-stats"></xsl:apply-templates>
+                </div>
+            </div>
         </div>
     </xsl:template>
-    <xsl:template name="buttons">
-        <a href="{/page/links/link[@rel='rexsl:facebook']/@href}">
-            <i class="fa fa-facebook-square"><xsl:comment>facebook</xsl:comment></i>
-        </a>
-        <xsl:text> </xsl:text>
-        <a href="{/page/links/link[@rel='rexsl:google']/@href}">
-            <i class="fa fa-google-plus-square"><xsl:comment>google-plus</xsl:comment></i>
-        </a>
-        <xsl:text> </xsl:text>
-        <a href="{/page/links/link[@rel='rexsl:github']/@href}">
-            <i class="fa fa-github-square"><xsl:comment>github</xsl:comment></i>
-        </a>
+    <xsl:template match="ShipBattleReport" mode="elimination-status">
+        <xsl:choose>
+            <xsl:when test="Eliminated = 'Destroyed'">
+                <h5 class="elimination destroyed">
+                    Destroyed at
+                    <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
+                </h5>
+            </xsl:when>
+            <xsl:when test="Eliminated = 'Evacuated'">
+                <h5 class="elimination evacuated">
+                    Evacuated at
+                    <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
+                </h5>
+            </xsl:when>
+            <xsl:when test="Eliminated = 'Retired'">
+                <h5 class="elimination retired">
+                    Withdrawn at
+                    <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
+                </h5>
+            </xsl:when>
+            <xsl:when test="WasDefanged = 'true'">
+                <h5 class="elimination defanged">
+                    No Offensive Ability at
+                    <span class="timestamp"><xsl:value-of select="DefangedTimestamp"></xsl:value-of></span>
+                </h5>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
-    -->
+    <xsl:template match="ShipBattleReport" mode="basic-stats">
+        <dl>
+            <dt class="stat status">Crew Status</dt>
+            <dd>
+                <xsl:value-of select="FinalCrew"></xsl:value-of>
+                /
+                <xsl:value-of select="OriginalCrew"></xsl:value-of>
+            </dd>
+            <dt class="stat damage-received">Damage Received</dt>
+            <dd>
+                <xsl:value-of select="format-number(TotalDamageReceived, '###,###')"></xsl:value-of>
+            </dd>
+            <dt class="stat damage-repaired">Damage Repaired</dt>
+            <dd>
+                <xsl:value-of select="format-number(TotalDamageRepaired, '###,###')"></xsl:value-of>
+            </dd>
+            <dt class="stat damage-dealt">Damage Dealt</dt>
+            <dd>
+                <xsl:value-of select="format-number(TotalDamageDealt, '###,###')"></xsl:value-of>
+            </dd>
+        </dl>
+    </xsl:template>
 </xsl:stylesheet>
