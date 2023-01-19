@@ -6,6 +6,7 @@
     exclude-result-prefixes="xs">
     <xsl:output method="xml" omit-xml-declaration="yes" indent="yes"/>
     <xsl:include href="./sprinter-dc-board.xsl" />
+    <xsl:include href="./raines-dc-board.xsl" />
     <xsl:include href="./axford-dc-board.xsl" />
     <xsl:template match="/">
         <xsl:apply-templates select="FullAfterActionReport"/>
@@ -121,6 +122,11 @@
                                 <xsl:with-param name="parts" select="PartStatus/PartDamage" />
                             </xsl:call-template>
                         </xsl:when>
+                        <xsl:when test="./HullKey = 'Stock/Raines Frigate'">
+                            <xsl:call-template name="raines-dc-board">
+                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                            </xsl:call-template>
+                        </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Axford Heavy Cruiser'">
                             <xsl:call-template name="axford-dc-board">
                                 <xsl:with-param name="parts" select="PartStatus/PartDamage" />
@@ -148,6 +154,11 @@
                     <xsl:choose>
                         <xsl:when test="./HullKey = 'Stock/Sprinter Corvette'">
                             <xsl:call-template name="sprinter-dc-board">
+                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="./HullKey = 'Stock/Raines Frigate'">
+                            <xsl:call-template name="raines-dc-board">
                                 <xsl:with-param name="parts" select="PartStatus/PartDamage" />
                             </xsl:call-template>
                         </xsl:when>
