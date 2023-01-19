@@ -40,6 +40,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.360919;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.360919;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -51,6 +54,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.360919;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.360919;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -62,6 +68,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.360915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.360915;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -73,6 +82,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.459532;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.459532;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -84,6 +96,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.459532;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.459532;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -95,6 +110,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -106,6 +124,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -117,6 +138,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -128,6 +152,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -139,6 +166,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -150,6 +180,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -161,6 +194,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -172,6 +208,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.528075;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -183,6 +222,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.709028;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.709028;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -194,6 +236,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -205,6 +250,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -216,6 +264,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.568593;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.568593;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -227,6 +278,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.568593;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.568593;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -238,6 +292,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -249,6 +306,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -260,6 +320,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.597736;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.597736;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -271,6 +334,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.408177;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.408177;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -282,6 +348,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.408177;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.408177;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -293,6 +362,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.460261;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.460261;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -304,6 +376,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.460261;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.460261;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -315,6 +390,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.44091;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.44091;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -326,6 +404,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.440914;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.440914;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -337,6 +418,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.566455;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.566455;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -348,6 +432,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.566455;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.566455;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -359,6 +446,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.541977;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.541977;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -370,6 +460,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.439036;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.439036;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -381,6 +474,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -392,6 +488,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -403,6 +502,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -414,6 +516,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -425,6 +530,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -436,6 +544,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.321093;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.321093;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -447,6 +558,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.321093;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.321093;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -458,6 +572,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.319604;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.319604;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -469,6 +586,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.319604;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.319604;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -480,6 +600,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -491,6 +614,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -502,6 +628,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -513,6 +642,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -524,6 +656,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.443168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.443168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -535,6 +670,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.443168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.443168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -546,6 +684,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.394269;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.394269;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -557,6 +698,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -568,6 +712,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -579,6 +726,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -590,6 +740,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -601,6 +754,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -612,6 +768,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -623,6 +782,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -634,6 +796,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -645,6 +810,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.384923;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -656,6 +824,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -667,6 +838,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -678,6 +852,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.293534;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.293534;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -689,6 +866,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.293534;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.293534;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -700,6 +880,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.293534;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.293534;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -711,6 +894,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -722,6 +908,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
@@ -733,6 +922,9 @@
               <xsl:when test="IsDestroyed = 'false'">
                 <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.622045;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.622045;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>

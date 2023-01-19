@@ -74,6 +74,11 @@
                                 <xsl:attribute name="select">concat('<xsl:value-of select="@style" />', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')</xsl:attribute>
                             </xsl:element>
                         </xsl:element>
+                        <xsl:element name="xsl:otherwise">
+                            <xsl:element name="xsl:text">
+                                <xsl:value-of select="@style"/>
+                            </xsl:element>
+                        </xsl:element>
                     </xsl:element>
                 </xsl:element>
             </xsl:copy>
