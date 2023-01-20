@@ -150,9 +150,6 @@
                                 <xsl:with-param name="parts" select="PartStatus/PartDamage" />
                             </xsl:call-template>
                         </xsl:when>
-                        <xsl:otherwise>
-                            <img src="dc-board-todo.png" width="100%" height="100%"/>
-                        </xsl:otherwise>
                     </xsl:choose>
                 </div>
                 <div class="stats">
@@ -200,9 +197,6 @@
                                 <xsl:with-param name="parts" select="PartStatus/PartDamage" />
                             </xsl:call-template>
                         </xsl:when>
-                        <xsl:otherwise>
-                            <img src="dc-board-todo.png" width="100%" height="100%"/>
-                        </xsl:otherwise>
                     </xsl:choose>
                 </div>
                 <div class="stats">
