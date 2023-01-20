@@ -2,6 +2,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     version="2.0"
     exclude-result-prefixes="xs">
     <xsl:output method="xml" omit-xml-declaration="yes" indent="yes"/>
@@ -241,11 +242,9 @@
     </xsl:template>
     <xsl:template match="ShipBattleReport" mode="basic-stats">
         <dl>
-            <dt class="stat status">Crew&#x00A0;Status</dt>
+            <dt class="stat crew-status">Crew&#x00A0;Status</dt>
             <dd>
-                <xsl:value-of select="FinalCrew"></xsl:value-of>
-                /
-                <xsl:value-of select="OriginalCrew"></xsl:value-of>
+                <xsl:value-of select="FinalCrew"></xsl:value-of>&#x00A0;/&#x00A0;<xsl:value-of select="OriginalCrew"></xsl:value-of>
             </dd>
             <dt class="stat damage-received">Damage&#x00A0;Received</dt>
             <dd>
@@ -258,6 +257,29 @@
             <dt class="stat damage-dealt">Damage&#x00A0;Dealt</dt>
             <dd>
                 <xsl:value-of select="format-number(TotalDamageDealt, '###,###')"></xsl:value-of>
+            </dd>
+            <dt class="stat combat-power">Combat&#x00A0;Power</dt>
+            <dd>
+                <xsl:value-of select="format-number(OriginalPointCost, '###,###')"></xsl:value-of>
+            </dd>
+            <dt class="stat distance-travelled">Distance&#x00A0;Travelled</dt>
+            <dd>
+                <xsl:value-of select="format-number(TotalDistanceTravelled div 100, '###,###.##')"></xsl:value-of>
+                <xsl:text>&#x00A0;km</xsl:text>
+            </dd>
+            <xsl:choose>
+                <xsl:when test="AmmoPercentageExpended[@xsi:nil='true']">
+                </xsl:when>
+                <xsl:otherwise>
+                    <dt class="stat ammo-spent">Combat&#x00A0;Load&#x00A0;Expended</dt>
+                    <dd>
+                        <xsl:value-of select="format-number(AmmoPercentageExpended, '###%')"></xsl:value-of>
+                    </dd>
+                </xsl:otherwise>
+            </xsl:choose>
+            <dt class="stat time-in-contact">Time&#x00A0;In&#x00A0;Contact</dt>
+            <dd>
+                <xsl:value-of select="TotalTimeInContact"></xsl:value-of>
             </dd>
         </dl>
     </xsl:template>

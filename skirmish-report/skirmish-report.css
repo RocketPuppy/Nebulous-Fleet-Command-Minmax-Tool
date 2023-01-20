@@ -214,21 +214,79 @@ h4 {
 }
 
 
-.ship.details .summary .stat.crew-status, .ship.details .summary .stat.crew-status + dd {
-    order: 1;
-    display: inline;
+.ship.details .summary {
+    gap: 3%;
 }
-.ship.details .summary .stat.damage-received, .ship.details .summary .stat.damage-received + dd {
+.ship.details .summary .stat, .ship.details .summary .stat + dd {
+    flex-basis: 30%;
+    display: block;
+    text-align: left;
+}
+
+.ship.details .summary .stat {
+    font-size: small;
+    margin-top: 0.5em;
+    margin-right: 0;
+}
+.ship.details .summary .stat + dd {
+    font-size: xx-large;
+}
+.ship.details .stats dt::after {
+    content: unset;
+}
+.ship.details .stats {
+    flex-basis: 60%;
+}
+
+.ship.details .summary .stat.crew-status {
     order: 3;
-    display: inline;
 }
-.ship.details .summary .stat.damage-repaired, .ship.details .summary .stat.damage-repaired + dd {
+.ship.details .summary .stat.crew-status + dd {
+    order: 6;
+}
+.ship.details .summary .stat.damage-received {
+    order: 8;
+}
+.ship.details .summary .stat.damage-received + dd {
+    order: 11;
+}
+.ship.details .summary .stat.damage-repaired {
+    order: 9;
+}
+.ship.details .summary .stat.damage-repaired + dd {
+    order: 12;
+}
+.ship.details .summary .stat.damage-dealt {
+    order: 7;
+}
+.ship.details .summary .stat.damage-dealt + dd {
+    order: 10;
+}
+.ship.details .summary .stat.combat-power {
+    order: 1;
+}
+.ship.details .summary .stat.combat-power + dd {
     order: 4;
-    display: inline;
 }
-.ship.details .summary .stat.damage-dealt, .ship.details .summary .stat.damage-dealt + dd {
+.ship.details .summary .stat.distance-travelled {
     order: 2;
-    display: inline;
+}
+.ship.details .summary .stat.distance-travelled + dd {
+    order: 5;
+}
+.ship.details .summary .stat.ammo-spent {
+    order: 13;
+}
+.ship.details .summary .stat.ammo-spent + dd {
+    order: 16;
+}
+.ship.details .summary .stat.time-in-contact {
+    order: 14;
+    flex-basis: 63%;
+}
+.ship.details .summary .stat.time-in-contact + dd {
+    order: 17;
+    flex-basis: 63%;
 }
 
 .stats dt::after {
