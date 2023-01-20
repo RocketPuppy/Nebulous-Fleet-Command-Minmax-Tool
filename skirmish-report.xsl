@@ -10,6 +10,7 @@
     <xsl:include href="./keystone-dc-board.xsl" />
     <xsl:include href="./vauxhall-dc-board.xsl" />
     <xsl:include href="./axford-dc-board.xsl" />
+    <xsl:include href="./solomon-dc-board.xsl" />
     <xsl:template match="/">
         <xsl:apply-templates select="FullAfterActionReport"/>
     </xsl:template>
@@ -144,6 +145,11 @@
                                 <xsl:with-param name="parts" select="PartStatus/PartDamage" />
                             </xsl:call-template>
                         </xsl:when>
+                        <xsl:when test="./HullKey = 'Stock/Solomon Battleship'">
+                            <xsl:call-template name="solomon-dc-board">
+                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                            </xsl:call-template>
+                        </xsl:when>
                         <xsl:otherwise>
                             <img src="dc-board-todo.png" width="100%" height="100%"/>
                         </xsl:otherwise>
@@ -186,6 +192,11 @@
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Axford Heavy Cruiser'">
                             <xsl:call-template name="axford-dc-board">
+                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="./HullKey = 'Stock/Solomon Battleship'">
+                            <xsl:call-template name="solomon-dc-board">
                                 <xsl:with-param name="parts" select="PartStatus/PartDamage" />
                             </xsl:call-template>
                         </xsl:when>
