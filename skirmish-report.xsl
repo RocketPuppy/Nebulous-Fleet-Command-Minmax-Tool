@@ -215,25 +215,25 @@
         <xsl:choose>
             <xsl:when test="Eliminated = 'Destroyed'">
                 <h5 class="elimination destroyed">
-                    Destroyed at
+                    Destroyed&#x00A0;at
                     <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
                 </h5>
             </xsl:when>
             <xsl:when test="Eliminated = 'Evacuated'">
                 <h5 class="elimination evacuated">
-                    Evacuated at
+                    Evacuated&#x00A0;at
                     <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
                 </h5>
             </xsl:when>
             <xsl:when test="Eliminated = 'Retired'">
                 <h5 class="elimination retired">
-                    Withdrawn at
+                    Withdrawn&#x00A0;at
                     <span class="timestamp"><xsl:value-of select="EliminatedTimestamp"></xsl:value-of></span>
                 </h5>
             </xsl:when>
             <xsl:when test="WasDefanged = 'true'">
                 <h5 class="elimination defanged">
-                    No Offensive Ability at
+                    No&#x00A0;Offensive&#x00A0;Ability&#x00A0;at
                     <span class="timestamp"><xsl:value-of select="DefangedTimestamp"></xsl:value-of></span>
                 </h5>
             </xsl:when>
@@ -241,21 +241,21 @@
     </xsl:template>
     <xsl:template match="ShipBattleReport" mode="basic-stats">
         <dl>
-            <dt class="stat status">Crew Status</dt>
+            <dt class="stat status">Crew&#x00A0;Status</dt>
             <dd>
                 <xsl:value-of select="FinalCrew"></xsl:value-of>
                 /
                 <xsl:value-of select="OriginalCrew"></xsl:value-of>
             </dd>
-            <dt class="stat damage-received">Damage Received</dt>
+            <dt class="stat damage-received">Damage&#x00A0;Received</dt>
             <dd>
                 <xsl:value-of select="format-number(TotalDamageReceived, '###,###')"></xsl:value-of>
             </dd>
-            <dt class="stat damage-repaired">Damage Repaired</dt>
+            <dt class="stat damage-repaired">Damage&#x00A0;Repaired</dt>
             <dd>
                 <xsl:value-of select="format-number(TotalDamageRepaired, '###,###')"></xsl:value-of>
             </dd>
-            <dt class="stat damage-dealt">Damage Dealt</dt>
+            <dt class="stat damage-dealt">Damage&#x00A0;Dealt</dt>
             <dd>
                 <xsl:value-of select="format-number(TotalDamageDealt, '###,###')"></xsl:value-of>
             </dd>
