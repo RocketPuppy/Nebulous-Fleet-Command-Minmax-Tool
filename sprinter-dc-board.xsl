@@ -5,8 +5,7 @@
     <xsl:param name="parts" />
     <svg width="91.877907mm" height="46.37804mm" viewBox="0 0 91.877907 46.37804" version="1.1" id="svg8299" xml:space="preserve" class="sprinter-dc-board" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
   <defs id="defs8296" />
-  <g id="layer1" transform="matrix(1.9234055,0,0,1.9234055,-125.45565,-179.5821)">
-    <g id="frame" transform="matrix(0.17631035,0,0,0.17799554,74.810912,105.70273)" style="stroke:#888888;stroke-opacity:1">
+  <g id="frame" transform="matrix(0.3391163,0,0,0.3423576,18.43607,23.727112)" style="stroke:#888888;stroke-opacity:1">
       <path style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#888888;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m -49.761938,-31.826155 v 67.24243 l 1.518266,1.518267 h 3.034411 l 13.114525,-5.527554 1.275654,1.426869 h 2.585067 v -62.114458 h -2.769164 l -1.3726,1.406435 -12.667816,-5.366287 h -3.33416 z" id="path3703-8" />
       <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m -27.295123,-12.129652 v -22.201361 l 1.524322,-1.524322 h 59.556513 l 2.466377,2.466379 v 21.647544 z" id="path3850-4" />
       <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.818577;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m -27.295123,22.520578 v 19.882289 l 1.524323,1.365097 h 59.556513 l 2.466377,-2.20875 V 22.172892 Z" id="path3850-2-5" />
@@ -30,9 +29,7 @@
       <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 207.04426,15.572789 -72.96978,3.96557 -48.928527,-1.27668" id="path5322-6" />
       <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 206.68781,-7.6539444 5.41473,0.7562837 V 12.990055 l -5.25738,1.332621" id="path5324-9" />
       <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 85.979568,-45.318981 4.07212,-3.321706 6.108665,-0.05766 1.438037,1.273718 h 7.59198 l 2.38815,1.059743 h 9.96544 l 10.11503,0.686525 v 1.714444 h -10.71267 l -1.54889,0.894258 H 95.933314" id="path5359-3" />
-    </g>
-    <g id="sockets" style="fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-dasharray:none;stroke-opacity:1"><xsl:apply-templates select="$parts" mode="sprinter-dc-board" /></g>
-  </g>
+    </g><g id="sockets" style="fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-dasharray:none;stroke-opacity:1" transform="matrix(1.9234055,0,0,1.9234055,-125.45565,-179.5821)"><xsl:apply-templates select="$parts" mode="sprinter-dc-board" /></g>
 </svg>
   </xsl:template>
   <xsl:template match="PartDamage" mode="sprinter-dc-board">
@@ -53,35 +50,35 @@
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'wP_4X2eKYEObd6DK-3Qqfw'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262093;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-wP_4X2eKYEObd6DK-3Qqfw" width="0.82972091" height="1.7525632" x="71.165085" y="99.747169" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.113001;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-wP_4X2eKYEObd6DK-3Qqfw" width="0.51991117" height="0.51991117" x="71.176514" y="99.747169" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262093;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.113001;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262093;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.113001;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'tfuLH92VQUGhhyuljW7KmA'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262092;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-tfuLH92VQUGhhyuljW7KmA" width="0.82972085" height="1.7525636" x="72.738022" y="99.747177" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.113001;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-tfuLH92VQUGhhyuljW7KmA" width="0.51991117" height="0.51991117" x="71.912674" y="99.747177" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262092;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.113001;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262092;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.113001;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = '4EHx4mQhNUi-WuuQtQF5fA'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-4EHx4mQhNUi-WuuQtQF5fA" width="8.0811024" height="7.7795105" x="70.720917" y="102.11373" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-4EHx4mQhNUi-WuuQtQF5fA" width="8.0811024" height="7.7795105" x="70.720917" y="102.66396" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
@@ -95,28 +92,28 @@
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'ImKaOFEIl02Zm_M4CUnyqw'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.256118;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-ImKaOFEIl02Zm_M4CUnyqw" width="0.83569568" height="1.7993683" x="71.176514" y="111.0816" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.108589;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-ImKaOFEIl02Zm_M4CUnyqw" width="0.51991117" height="0.51991117" x="71.176514" y="112.36105" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.256118;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.108589;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.256118;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.108589;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'COYwHAN5QEm_yuusA80hIw'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.256118;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-COYwHAN5QEm_yuusA80hIw" width="0.83569568" height="1.7993683" x="72.875633" y="111.0816" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.108589;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-COYwHAN5QEm_yuusA80hIw" width="0.51991117" height="0.51991117" x="71.912674" y="112.36105" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.256118;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.108589;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.256118;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.108589;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
@@ -137,42 +134,42 @@
         </rect>
       </xsl:when>
       <xsl:when test="Key = '4WpJyiOKVEqCwR99l47MkA'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-4WpJyiOKVEqCwR99l47MkA" width="3.1686885" height="3.7128179" x="81.787003" y="101.36352" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.438011;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-4WpJyiOKVEqCwR99l47MkA" width="3.6393781" height="3.6393781" x="81.787003" y="101.36352" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.438011;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.438011;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'NK7pFm5nxkOJJFr5yj0IQw'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.281438;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-NK7pFm5nxkOJJFr5yj0IQw" width="0.75838447" height="1.7056626" x="82.091072" y="106.35661" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.128653;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-NK7pFm5nxkOJJFr5yj0IQw" width="0.51991117" height="0.51991117" x="82.209496" y="106.90685" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.281438;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.128653;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.281438;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.128653;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
-      <xsl:when test="Key = '72LsgTCIEOOtT4PJZnpsw'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.28143;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-72LsgTCIEOOtT4PJZnpsw" width="0.75839245" height="1.7055482" x="83.232216" y="106.35661" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+      <xsl:when test="Key = '-72LsgTCIEOOtT4PJZnpsw'">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.128653;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket--72LsgTCIEOOtT4PJZnpsw" width="0.51991117" height="0.51991117" x="82.9571" y="106.90685" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.28143;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.128653;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.28143;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.128653;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
@@ -207,28 +204,28 @@
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'IUdNSVZm2Eu9n3F5HnSAng'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.287018;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-IUdNSVZm2Eu9n3F5HnSAng" width="1.3766975" height="3.0992076" x="86.062225" y="105.8302" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.244987;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-IUdNSVZm2Eu9n3F5HnSAng" width="2.5995557" height="1.1957957" x="86.259598" y="106.10532" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.287018;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.244987;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.287018;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.244987;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'ZxY9ONYz80SiLNSObvjNzQ'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.287018;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-ZxY9ONYz80SiLNSObvjNzQ" width="1.3766975" height="3.0992076" x="87.779655" y="105.8302" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.244987;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-ZxY9ONYz80SiLNSObvjNzQ" width="2.5995557" height="1.1957957" x="86.259598" y="107.48707" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.287018;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.244987;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.287018;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.244987;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
@@ -263,28 +260,28 @@
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'TSPPW9ECe06-MGzR1i0WvQ'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.28261;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-TSPPW9ECe06-MGzR1i0WvQ" width="1.1731415" height="3.0770776" x="91.310371" y="105.64362" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262938;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-TSPPW9ECe06-MGzR1i0WvQ" width="1.7676979" height="1.7676979" x="90.485023" y="105.91875" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.28261;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262938;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.28261;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262938;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'MBOvGazj6UWpt2OOy44s7w'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.28261;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-MBOvGazj6UWpt2OOy44s7w" width="1.1731415" height="3.0770776" x="92.881104" y="105.64362" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262937;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-MBOvGazj6UWpt2OOy44s7w" width="1.7676979" height="1.7676979" x="92.409821" y="105.91875" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.28261;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262937;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.28261;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.262937;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
@@ -361,84 +358,84 @@
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'rr7WOoDvpUyzMNqh5RlE_Q'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.281264;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-rr7WOoDvpUyzMNqh5RlE_Q" width="0.91453087" height="2.5454924" x="109.79752" y="105.2659" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.0958425;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-rr7WOoDvpUyzMNqh5RlE_Q" width="0.51991117" height="0.51991117" x="110.34776" y="106.47488" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.281264;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.0958425;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.281264;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.0958425;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'IJ4cGM-GtUO1YPvfIRhUFQ'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.281262;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-IJ4cGM-GtUO1YPvfIRhUFQ" width="0.91453338" height="2.5454407" x="108.54957" y="105.2659" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.0958425;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-IJ4cGM-GtUO1YPvfIRhUFQ" width="0.51991117" height="0.51991117" x="109.65002" y="106.47488" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.281262;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.0958425;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.281262;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.0958425;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'NCQn4_XouUKKDpW7U8V40A'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189936;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-NCQn4_XouUKKDpW7U8V40A" width="0.9018777" height="1.1770774" x="109.75549" y="103.25148" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.095843;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-NCQn4_XouUKKDpW7U8V40A" width="0.51991117" height="0.51991117" x="110.30573" y="103.25148" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189936;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.095843;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189936;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.095843;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'OGn5sHiB1Ua_MflTskiTWw'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189936;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-OGn5sHiB1Ua_MflTskiTWw" width="0.9018777" height="1.1770774" x="108.5597" y="103.25148" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.095843;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-OGn5sHiB1Ua_MflTskiTWw" width="0.51991117" height="0.51991117" x="109.66018" y="103.25148" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189936;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.095843;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189936;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.095843;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = 'XOSb8Ds-d0mctCUYok8m4w'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189924;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-XOSb8Ds-d0mctCUYok8m4w" width="0.90188897" height="1.1769217" x="109.77368" y="108.50637" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.0958427;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-XOSb8Ds-d0mctCUYok8m4w" width="0.51991117" height="0.51991117" x="110.3634" y="109.0566" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189924;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.0958427;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189924;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.0958427;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
         </rect>
       </xsl:when>
       <xsl:when test="Key = '0wH0Fc8WHEK4duJ77Wg5wg'">
-        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189936;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-0wH0Fc8WHEK4duJ77Wg5wg" width="0.90187734" height="1.1770775" x="108.57796" y="108.50636" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <rect style="color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.095843;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="socket-0wH0Fc8WHEK4duJ77Wg5wg" width="0.51991117" height="0.51991117" x="109.7179" y="109.05659" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
           <xsl:attribute name="style">
             <xsl:choose>
               <xsl:when test="IsDestroyed = 'false'">
-                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189936;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
+                <xsl:value-of select="concat('color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.095843;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.189936;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
+                <xsl:text>color:#000000;overflow:visible;fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.095843;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
