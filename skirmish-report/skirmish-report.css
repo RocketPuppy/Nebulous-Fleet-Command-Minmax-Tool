@@ -237,6 +237,7 @@ h4 {
 
 .dc-board {
     flex-basis: 50%;
+    align-self: center;
 }
 
 .dc-board svg {
