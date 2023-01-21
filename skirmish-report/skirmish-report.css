@@ -179,16 +179,16 @@ h4 {
     flex-wrap: wrap;
 }
 
-.stats dt {
-    margin-right: 0.5em;
+.stat dt {
     text-align: right;
-    flex-basis: 50%;
-    flex-shrink: 0;
-    flex-grow: 2;
+    margin-right: 0.5em;
     display: inline;
+    flex-basis: 50%;
+    flex-shrink: 1;
+    flex-grow: 2;
 }
 
-.stats dd {
+.stat dd {
     display: inline;
     flex-shrink: 1;
     flex-basis: 20%;
@@ -196,25 +196,29 @@ h4 {
     flex-grow: 1;
 }
 
-.ship .summary .stat, .ship .summary .stat + dd {
+.ship .summary .stat {
     display: none;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    font-size: medium;
 }
 
-.ship .summary .stat.crew-status, .ship .summary .stat.crew-status + dd {
+.ship .summary .stat.crew-status {
     order: 1;
-    display: inline;
+    display: flex;
 }
-.ship .summary .stat.damage-received, .ship .summary .stat.damage-received + dd {
+.ship .summary .stat.damage-received {
     order: 2;
-    display: inline;
+    display: flex;
 }
-.ship .summary .stat.damage-repaired, .ship .summary .stat.damage-repaired + dd {
+.ship .summary .stat.damage-repaired {
     order: 3;
-    display: inline;
+    display: flex;
 }
-.ship .summary .stat.damage-dealt, .ship .summary .stat.damage-dealt + dd {
+.ship .summary .stat.damage-dealt {
     order: 4;
-    display: inline;
+    display: flex;
 }
 
 
@@ -223,18 +227,25 @@ h4 {
     flex-wrap: wrap;
     justify-content: flex-end;
 }
-.ship.details .summary .stat, .ship.details .summary .stat + dd {
-    flex-basis: 30%;
-    display: block;
-    text-align: left;
+
+.ship.details .summary .stats dl.basic-stats {
+    gap: 3%;
+    justify-content: space-between;
 }
 
 .ship.details .summary .stat {
+    flex-basis: 30%;
+    display: block;
+}
+
+.ship.details .summary .stat dt {
     font-size: small;
     margin-top: 0.5em;
     margin-right: 0;
+    display: block;
+    text-align: left;
 }
-.ship.details .summary .stat + dd {
+.ship.details .summary .stat dd {
     font-size: xx-large;
 }
 .ship.details .stats dt::after {
@@ -249,52 +260,26 @@ h4 {
 .ship.details .summary .stat.crew-status {
     order: 3;
 }
-.ship.details .summary .stat.crew-status + dd {
-    order: 6;
-}
 .ship.details .summary .stat.damage-received {
     order: 8;
-}
-.ship.details .summary .stat.damage-received + dd {
-    order: 11;
 }
 .ship.details .summary .stat.damage-repaired {
     order: 9;
 }
-.ship.details .summary .stat.damage-repaired + dd {
-    order: 12;
-}
 .ship.details .summary .stat.damage-dealt {
     order: 7;
-}
-.ship.details .summary .stat.damage-dealt + dd {
-    order: 10;
 }
 .ship.details .summary .stat.combat-power {
     order: 1;
 }
-.ship.details .summary .stat.combat-power + dd {
-    order: 4;
-}
 .ship.details .summary .stat.distance-travelled {
     order: 2;
-}
-.ship.details .summary .stat.distance-travelled + dd {
-    order: 5;
 }
 .ship.details .summary .stat.ammo-spent {
     order: 13;
 }
-.ship.details .summary .stat.ammo-spent + dd {
-    order: 16;
-}
 .ship.details .summary .stat.time-in-contact {
     order: 14;
-    flex-basis: 63%;
-}
-.ship.details .summary .stat.time-in-contact + dd {
-    order: 17;
-    flex-basis: 63%;
 }
 
 .stats dt::after {
@@ -329,9 +314,14 @@ h4 {
 }
 
 .ship.details .summary .efficiency-ratings .stat {
-    display: inline;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100px;
     flex-basis: 100px;
+}
+.ship.details .summary .efficiency-ratings .stat dt {
+    flex-basis: unset;
     text-align: center;
     margin-bottom: 0.75em;
 }
@@ -346,36 +336,21 @@ h4 {
     text-align: center;
     font-weight: bolder;
     font-size: xx-large;
-    display: inline;
+    display: block;
 }
 
 .ship.details .summary .efficiency-ratings .stat.anti-ship {
     order: 1;
 }
-.ship.details .summary .efficiency-ratings .stat.anti-ship + dd {
-    order: 6;
-}
 .ship.details .summary .efficiency-ratings .stat.missile {
     order: 2;
-}
-.ship.details .summary .efficiency-ratings .stat.missile + dd {
-    order: 7;
 }
 .ship.details .summary .efficiency-ratings .stat.sensors {
     order: 3;
 }
-.ship.details .summary .efficiency-ratings .stat.sensors + dd {
-    order: 8;
-}
 .ship.details .summary .efficiency-ratings .stat.missile-defense {
     order: 4;
 }
-.ship.details .summary .efficiency-ratings .stat.missile-defense + dd {
-    order: 9;
-}
 .ship.details .summary .efficiency-ratings .stat.engineering {
     order: 5;
-}
-.ship.details .summary .efficiency-ratings .stat.engineering + dd {
-    order: 10;
 }

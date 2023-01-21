@@ -244,98 +244,124 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="ShipBattleReport" mode="basic-stats">
-        <dl>
-            <dt class="stat crew-status">Crew&#x00A0;Status</dt>
-            <dd>
-                <xsl:value-of select="FinalCrew"></xsl:value-of>&#x00A0;/&#x00A0;<xsl:value-of select="OriginalCrew"></xsl:value-of>
-            </dd>
-            <dt class="stat damage-received">Damage&#x00A0;Received</dt>
-            <dd>
-                <xsl:value-of select="format-number(TotalDamageReceived, '###,###')"></xsl:value-of>
-            </dd>
-            <dt class="stat damage-repaired">Damage&#x00A0;Repaired</dt>
-            <dd>
-                <xsl:value-of select="format-number(TotalDamageRepaired, '###,###')"></xsl:value-of>
-            </dd>
-            <dt class="stat damage-dealt">Damage&#x00A0;Dealt</dt>
-            <dd>
-                <xsl:value-of select="format-number(TotalDamageDealt, '###,###')"></xsl:value-of>
-            </dd>
-            <dt class="stat combat-power">Combat&#x00A0;Power</dt>
-            <dd>
-                <xsl:value-of select="format-number(OriginalPointCost, '###,###')"></xsl:value-of>
-            </dd>
-            <dt class="stat distance-travelled">Distance&#x00A0;Travelled</dt>
-            <dd>
-                <xsl:value-of select="format-number(TotalDistanceTravelled div 100, '###,###.##')"></xsl:value-of>
-                <xsl:text>&#x00A0;km</xsl:text>
-            </dd>
+        <dl class="basic-stats">
+            <div class="stat crew-status">
+                <dt>Crew&#x00A0;Status</dt>
+                <dd>
+                    <xsl:value-of select="FinalCrew"></xsl:value-of>&#x00A0;/&#x00A0;<xsl:value-of
+                        select="OriginalCrew"></xsl:value-of>
+                </dd>
+            </div>
+            <div class="stat damage-received">
+                <dt>Damage&#x00A0;Received</dt>
+                <dd>
+                    <xsl:value-of select="format-number(TotalDamageReceived, '###,###')"></xsl:value-of>
+                </dd>
+            </div>
+            <div class="stat damage-repaired">
+                <dt>Damage&#x00A0;Repaired</dt>
+                <dd>
+                    <xsl:value-of select="format-number(TotalDamageRepaired, '###,###')"></xsl:value-of>
+                </dd>
+            </div>
+            <div class="stat damage-dealt">
+                <dt>Damage&#x00A0;Dealt</dt>
+                <dd>
+                    <xsl:value-of select="format-number(TotalDamageDealt, '###,###')"></xsl:value-of>
+                </dd>
+            </div>
+            <div class="stat combat-power">
+                <dt>Combat&#x00A0;Power</dt>
+                <dd>
+                    <xsl:value-of select="format-number(OriginalPointCost, '###,###')"></xsl:value-of>
+                </dd>
+            </div>
+            <div class="stat distance-travelled">
+                <dt>Distance&#x00A0;Travelled</dt>
+                <dd>
+                    <xsl:value-of
+                        select="format-number(TotalDistanceTravelled div 100, '###,###.##')"></xsl:value-of>
+                    <xsl:text>&#x00A0;km</xsl:text>
+                </dd>
+            </div>
             <xsl:choose>
                 <xsl:when test="AmmoPercentageExpended[@xsi:nil='true']">
                 </xsl:when>
                 <xsl:otherwise>
-                    <dt class="stat ammo-spent">Combat&#x00A0;Load&#x00A0;Expended</dt>
-                    <dd>
-                        <xsl:value-of select="format-number(AmmoPercentageExpended, '###%')"></xsl:value-of>
-                    </dd>
+                    <div class="stat ammo-spent">
+                        <dt>Combat&#x00A0;Load&#x00A0;Expended</dt>
+                        <dd>
+                            <xsl:value-of select="format-number(AmmoPercentageExpended, '###%')"></xsl:value-of>
+                        </dd>
+                    </div>
                 </xsl:otherwise>
             </xsl:choose>
-            <dt class="stat time-in-contact">Time&#x00A0;In&#x00A0;Contact</dt>
-            <dd>
-                <xsl:value-of select="TotalTimeInContact"></xsl:value-of>
-            </dd>
+            <div class="stat time-in-contact">
+                <dt>Time&#x00A0;In&#x00A0;Contact</dt>
+                <dd>
+                    <xsl:value-of select="TotalTimeInContact"></xsl:value-of>
+                </dd>
+            </div>
         </dl>
     </xsl:template>
     <xsl:template match="ShipBattleReport" mode="efficiency-ratings">
         <h4>Overall Efficiency Ratings</h4>
         <dl class="efficiency-ratings">
-            <dt class="stat anti-ship">
-                Anti-Ship Warfare
-            </dt>
-            <xsl:call-template name="efficiency-rating-gauge">
-                <xsl:with-param name="section" select="AntiShip" />
-            </xsl:call-template>
-            <dt class="stat missile">
-                Missile Warfare
-            </dt>
-            <xsl:call-template name="efficiency-rating-gauge">
-                <xsl:with-param name="section" select="Strike" />
-            </xsl:call-template>
-            <dt class="stat sensors">
-                Sensor Warfare
-            </dt>
-            <xsl:call-template name="efficiency-rating-gauge">
-                <xsl:with-param name="section" select="Sensors" />
-            </xsl:call-template>
-            <dt class="stat missile-defense">
-                Missile Defense
-            </dt>
-            <xsl:call-template name="efficiency-rating-gauge">
-                <xsl:with-param name="section" select="Defenses" />
-            </xsl:call-template>
-            <dt class="stat engineering">
-                Engineering
-            </dt>
-            <xsl:call-template name="efficiency-rating-gauge">
-                <xsl:with-param name="section" select="Engineering" />
-            </xsl:call-template>
+            <div class="stat anti-ship">
+                <dt>
+                    Anti-Ship Warfare
+                </dt>
+                <xsl:call-template name="efficiency-rating-gauge">
+                    <xsl:with-param name="section" select="AntiShip" />
+                </xsl:call-template>
+            </div>
+            <div class="stat missile">
+                <dt>
+                    Missile Warfare
+                </dt>
+                <xsl:call-template name="efficiency-rating-gauge">
+                    <xsl:with-param name="section" select="Strike" />
+                </xsl:call-template>
+            </div>
+            <div class="stat sensors">
+                <dt>
+                    Sensor Warfare
+                </dt>
+                <xsl:call-template name="efficiency-rating-gauge">
+                    <xsl:with-param name="section" select="Sensors" />
+                </xsl:call-template>
+            </div>
+            <div class="stat missile-defense">
+                <dt>
+                    Missile Defense
+                </dt>
+                <xsl:call-template name="efficiency-rating-gauge">
+                    <xsl:with-param name="section" select="Defenses" />
+                </xsl:call-template>
+            </div>
+            <div class="stat engineering">
+                <dt>
+                    Engineering
+                </dt>
+                <xsl:call-template name="efficiency-rating-gauge">
+                    <xsl:with-param name="section" select="Engineering" />
+                </xsl:call-template>
+            </div>
         </dl>
     </xsl:template>
     <xsl:template name="efficiency-rating-gauge">
         <xsl:param name="section" />
         <dd class="rating">
             <xsl:attribute name="style">
-                background: radial-gradient(
-                    circle at center, black 39px, gray 39px 40px, transparent 40px
-                ), conic-gradient(
-                    from 180deg, <xsl:call-template name='efficiency-color'><xsl:with-param name="efficiency" select="$section/Rating" /></xsl:call-template>
+                background: radial-gradient( circle at center, black 39px, gray 39px 40px,
+                transparent 40px ), conic-gradient( from 180deg, <xsl:call-template name='efficiency-color'><xsl:with-param name="efficiency" select="$section/Rating" />
+                </xsl:call-template>
                     <xsl:text> </xsl:text><xsl:value-of select="$section/Efficiency * 360" />deg,
-                    transparent <xsl:value-of select="$section/Efficiency * 360" />deg 360deg
-                );
-                color: <xsl:call-template name='efficiency-color'><xsl:with-param name="efficiency" select="$section/Rating" /></xsl:call-template>;
-            </xsl:attribute>
+                transparent <xsl:value-of select="$section/Efficiency * 360" />deg 360deg ); color: <xsl:call-template name='efficiency-color'><xsl:with-param name="efficiency" select="$section/Rating" />
+                </xsl:call-template>; </xsl:attribute>
             <xsl:choose>
-                <xsl:when test="$section/Rating = 'Excellent'">EX</xsl:when>
+                <xsl:when test="$section/Rating = 'Excellent'">
+                    EX</xsl:when>
                 <xsl:when test="$section/Rating = 'Good'">GD</xsl:when>
                 <xsl:when test="$section/Rating = 'Fair'">FR</xsl:when>
                 <xsl:when test="$section/Rating = 'Poor'">PO</xsl:when>
@@ -347,12 +373,14 @@
     <xsl:template name='efficiency-color'>
         <xsl:param name='efficiency' />
         <xsl:choose>
-            <xsl:when test="$efficiency = 'Excellent'">cyan</xsl:when>
+            <xsl:when test="$efficiency = 'Excellent'">
+                cyan</xsl:when>
             <xsl:when test="$efficiency = 'Good'">hsl(120, 100%, 50%)</xsl:when>
             <xsl:when test="$efficiency = 'Fair'">yellow</xsl:when>
             <xsl:when test="$efficiency = 'Poor'">orange</xsl:when>
             <xsl:when test="$efficiency = 'Terrible'">red</xsl:when>
-            <xsl:when test="$efficiency = 'NotApplicable'">gray</xsl:when>
+            <xsl:when test="$efficiency = 'NotApplicable'">
+                gray</xsl:when>
         </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
