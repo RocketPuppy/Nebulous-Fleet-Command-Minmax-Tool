@@ -377,7 +377,7 @@
                 cyan</xsl:when>
             <xsl:when test="$efficiency = 'Good'">hsl(120, 100%, 50%)</xsl:when>
             <xsl:when test="$efficiency = 'Fair'">yellow</xsl:when>
-            <xsl:when test="$efficiency = 'Poor'">orange</xsl:when>
+            <xsl:when test="$efficiency = 'Poor'">orangered</xsl:when>
             <xsl:when test="$efficiency = 'Terrible'">red</xsl:when>
             <xsl:when test="$efficiency = 'NotApplicable'">
                 gray</xsl:when>
