@@ -353,3 +353,16 @@ h4 {
 .ship.details .summary .efficiency-ratings .stat.engineering {
     order: 5;
 }
+
+.ship.details > div + div {
+    border-top: solid 6px orangered;
+    margin: 0 6px;
+}
+
+.ship.details .engagement-history h2 {
+    text-align: left;
+}
+
+.ship.details .engagement-history .engagement {
+    margin: 2px 0;
+}

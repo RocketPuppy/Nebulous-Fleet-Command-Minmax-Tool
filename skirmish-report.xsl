@@ -213,6 +213,7 @@
                     <xsl:apply-templates select="." mode="efficiency-ratings" />
                 </div>
             </div>
+            <xsl:apply-templates select="EngagementHistory" />
         </div>
     </xsl:template>
     <xsl:template match="ShipBattleReport" mode="elimination-status">
@@ -382,5 +383,23 @@
             <xsl:when test="$efficiency = 'NotApplicable'">
                 gray</xsl:when>
         </xsl:choose>
+    </xsl:template>
+    <xsl:template match="EngagementHistory[EnemyEngagement]">
+        <div class="engagement-history">
+            <h2>Enemy Ships Engaged</h2>
+            <xsl:apply-templates select="EnemyEngagement" />
+        </div>
+    </xsl:template>
+    <xsl:template match="EnemyEngagement">
+        <p class="engagement">
+            <xsl:value-of select="normalize-space(Name)" /> - Last TN <xsl:value-of select="TN/@ID"/>
+            <xsl:choose>
+                <xsl:when test="EndingStatus = 'NotEliminated'"></xsl:when>
+                <xsl:when test="EndingStatus = 'Destroyed'"> - DESTROYED</xsl:when>
+                <xsl:when test="EndingStatus = 'Withdrew'"> - WITHDREW</xsl:when>
+                <xsl:when test="EndingStatus = 'Retired'"> - RETIRED</xsl:when>
+                <xsl:when test="EndingStatus = 'Evacuated'"> - EVACUATED</xsl:when>
+            </xsl:choose>
+        </p>
     </xsl:template>
 </xsl:stylesheet>
