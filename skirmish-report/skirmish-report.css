@@ -230,7 +230,6 @@ h4 {
 
 .ship.details .summary .stats dl.basic-stats {
     gap: 3%;
-    justify-content: space-between;
 }
 
 .ship.details .summary .stat {
