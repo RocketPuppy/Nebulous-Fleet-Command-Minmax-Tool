@@ -209,6 +209,9 @@
                     <xsl:apply-templates select="." mode="elimination-status"></xsl:apply-templates>
                     <xsl:apply-templates select="." mode="basic-stats"></xsl:apply-templates>
                 </div>
+                <div class="stats">
+                    <xsl:apply-templates select="." mode="efficiency-ratings" />
+                </div>
             </div>
         </div>
     </xsl:template>
@@ -282,5 +285,74 @@
                 <xsl:value-of select="TotalTimeInContact"></xsl:value-of>
             </dd>
         </dl>
+    </xsl:template>
+    <xsl:template match="ShipBattleReport" mode="efficiency-ratings">
+        <h4>Overall Efficiency Ratings</h4>
+        <dl class="efficiency-ratings">
+            <dt class="stat anti-ship">
+                Anti-Ship Warfare
+            </dt>
+            <xsl:call-template name="efficiency-rating-gauge">
+                <xsl:with-param name="section" select="AntiShip" />
+            </xsl:call-template>
+            <dt class="stat missile">
+                Missile Warfare
+            </dt>
+            <xsl:call-template name="efficiency-rating-gauge">
+                <xsl:with-param name="section" select="Strike" />
+            </xsl:call-template>
+            <dt class="stat sensors">
+                Sensor Warfare
+            </dt>
+            <xsl:call-template name="efficiency-rating-gauge">
+                <xsl:with-param name="section" select="Sensors" />
+            </xsl:call-template>
+            <dt class="stat missile-defense">
+                Missile Defense
+            </dt>
+            <xsl:call-template name="efficiency-rating-gauge">
+                <xsl:with-param name="section" select="Defenses" />
+            </xsl:call-template>
+            <dt class="stat engineering">
+                Engineering
+            </dt>
+            <xsl:call-template name="efficiency-rating-gauge">
+                <xsl:with-param name="section" select="Engineering" />
+            </xsl:call-template>
+        </dl>
+    </xsl:template>
+    <xsl:template name="efficiency-rating-gauge">
+        <xsl:param name="section" />
+        <dd class="rating">
+            <xsl:attribute name="style">
+                background: radial-gradient(
+                    circle at center, black 39px, gray 39px 40px, transparent 40px
+                ), conic-gradient(
+                    from 180deg, <xsl:call-template name='efficiency-color'><xsl:with-param name="efficiency" select="$section/Rating" /></xsl:call-template>
+                    <xsl:text> </xsl:text><xsl:value-of select="$section/Efficiency * 360" />deg,
+                    transparent <xsl:value-of select="$section/Efficiency * 360" />deg 360deg
+                );
+                color: <xsl:call-template name='efficiency-color'><xsl:with-param name="efficiency" select="$section/Rating" /></xsl:call-template>;
+            </xsl:attribute>
+            <xsl:choose>
+                <xsl:when test="$section/Rating = 'Excellent'">EX</xsl:when>
+                <xsl:when test="$section/Rating = 'Good'">GD</xsl:when>
+                <xsl:when test="$section/Rating = 'Fair'">FR</xsl:when>
+                <xsl:when test="$section/Rating = 'Poor'">PO</xsl:when>
+                <xsl:when test="$section/Rating = 'Terrible'">TR</xsl:when>
+                <xsl:when test="$section/Rating = 'NotApplicable'">N/A</xsl:when>
+            </xsl:choose>
+        </dd>
+    </xsl:template>
+    <xsl:template name='efficiency-color'>
+        <xsl:param name='efficiency' />
+        <xsl:choose>
+            <xsl:when test="$efficiency = 'Excellent'">cyan</xsl:when>
+            <xsl:when test="$efficiency = 'Good'">hsl(120, 100%, 50%)</xsl:when>
+            <xsl:when test="$efficiency = 'Fair'">yellow</xsl:when>
+            <xsl:when test="$efficiency = 'Poor'">orange</xsl:when>
+            <xsl:when test="$efficiency = 'Terrible'">red</xsl:when>
+            <xsl:when test="$efficiency = 'NotApplicable'">gray</xsl:when>
+        </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
