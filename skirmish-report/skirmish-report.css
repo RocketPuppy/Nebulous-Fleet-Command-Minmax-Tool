@@ -357,6 +357,7 @@ h4 {
 .ship.details > div + div {
     border-top: solid 6px orangered;
     margin: 0 6px;
+    margin-bottom: 1em;
 }
 
 .ship.details .engagement-history h2 {
@@ -365,4 +366,99 @@ h4 {
 
 .ship.details .engagement-history .engagement {
     margin: 2px 0;
+}
+
+.ship.details .breakdown h2 {
+    text-align: left;
+}
+
+.ship.details .breakdown .stats {
+    max-width: 50%;
+    padding: 0;
+}
+
+
+.ship.details .breakdown .stats dt::after {
+    content: ':';
+}
+
+.ship.details .engineering.breakdown .stats h5 {
+    font-size: medium;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.ship.details .breakdown .stats dl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 0;
+}
+
+.ship.details .breakdown .stats dl * {
+    margin: 0;
+}
+
+.ship.details .breakdown .stats dl dt {
+    text-align: left;
+    flex-shrink: 1;
+}
+.ship.details .breakdown .stats dl dd {
+    text-align: center;
+    flex-grow: 1;
+    margin-left: 0.5em;
+    margin-right: 1em;
+}
+
+.ship.details .breakdown .stats .own-line {
+    flex-basis: 100%;
+    display: flex;
+}
+
+.ship.details .breakdown .stats dl .own-line dd {
+    flex-basis: 40%;
+    text-align: left;
+}
+
+.own-line dt {
+    flex-basis: 60%;
+    text-align: left;
+}
+
+.breakdown .weapons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.breakdown .weapon-report {
+    flex-basis: 50%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.breakdown .weapon-report h3 {
+    font-weight: normal;
+    font-size: larger;
+    background: none;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.breakdown .weapons .weapon-report .stats {
+    max-width: 100%;
+}
+.breakdown .weapons .weapon-report .stats dl {
+    justify-content: flex-start;
+}
+.breakdown .weapons .weapon-report .stats dl dd {
+    flex-grow: 0;
+    text-align: left;
+}
+
+.breakdown .weapon-report .weapon-image {
+    float: left;
+    width: 80px;
+    height: 80px;
 }

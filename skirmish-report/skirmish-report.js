@@ -24,29 +24,8 @@ function handleFileContent(content) {
     return doc;
 }
 
-function parseSeconds(el) {
-    const duration = parseInt(el.textContent, 10);
-    const minutes = Math.floor(duration / 60);
-    let seconds = duration % 60;
-    seconds = `0${seconds}`.slice(-2);
-    const newDuration = `${minutes}:${seconds}`;
-    el.textContent = newDuration
-}
-
-function parseSecondsMultiple(nodeSnapshot) {
-    for (let i = 0; i < nodeSnapshot.snapshotLength; i++) {
-        const el = nodeSnapshot.snapshotItem(i);
-        parseSeconds(el);
-    }
-}
-
 function handleFileUpload(file) {
     file.text().then(handleFileContent).catch(alert).then((xmlDoc) => {
-        const resolver = xmlDoc.createNSResolver(xmlDoc);
-        parseSeconds(xmlDoc.evaluate("//GameDuration", xmlDoc, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue);
-        parseSecondsMultiple(xmlDoc.evaluate("//EliminatedTimestamp", xmlDoc, resolver, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE));
-        parseSecondsMultiple(xmlDoc.evaluate("//DefangedTimestamp", xmlDoc, resolver, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE));
-        parseSecondsMultiple(xmlDoc.evaluate("//TotalTimeInContact", xmlDoc, resolver, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE));
         const fragment = xsltProcessor.transformToFragment(xmlDoc, document);
         skirmishFrame.textContent = '';
         skirmishFrame.appendChild(fragment);
