@@ -430,10 +430,11 @@ h4 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .breakdown .weapon-report {
-    flex-basis: 50%;
+    flex-basis: 46%;
     flex-grow: 0;
     flex-shrink: 0;
 }
@@ -452,6 +453,18 @@ h4 {
 .breakdown .weapons .weapon-report .stats dl {
     justify-content: flex-start;
 }
+.breakdown .weapons .weapon-report .stats .half-line {
+    flex-basis: 50%;
+    display: flex;
+}
+.breakdown .weapons .weapon-report .stats .own-line dt {
+    flex-basis: 50%;
+}
+.breakdown .weapons .weapon-report .stats .own-line dd {
+    flex-basis: 50%;
+    margin-left: 0;
+    margin-right: 0;
+}
 .breakdown .weapons .weapon-report .stats dl dd {
     flex-grow: 0;
     text-align: left;
@@ -461,4 +474,61 @@ h4 {
     float: left;
     width: 80px;
     height: 80px;
+}
+
+.unused {
+    color: yellow;
+    text-align: center;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.stats dl {
+    font-size: smaller;
+}
+
+.sensor.stats dl, .engineering .stats dl {
+    font-size: medium;
+}
+
+.missile .configuration {
+    text-align: right;
+    font-size: smaller;
+}
+
+.missile-hits dl {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.missile-hits dl * {
+    display: inline;
+}
+.missile-hits dt {
+    background-size: contain;
+    color: transparent;
+    width: 20px;
+    height: 20px;
+    margin-left: 2em;
+}
+.missile-hits dd {
+    margin: 0;
+    margin-left: 5px;
+}
+
+.missile-hits .hits {
+    background-image: url(/missile-hits-icon.svg);
+}
+.missile-hits .misses {
+    background-image: url(/missile-misses-icon.svg);
+}
+.missile-hits .softkill {
+    background-image: url(/missile-softkill-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.missile-hits .hardkill {
+    background-image: url(/missile-hardkill-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }

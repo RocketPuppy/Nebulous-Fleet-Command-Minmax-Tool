@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="5.4340911mm"
+   height="5.5426722mm"
+   viewBox="0 0 5.4340911 5.5426722"
+   version="1.1"
+   id="svg11431"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="missile-misses-icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview11433"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.74564394"
+     inkscape:cx="-69.067818"
+     inkscape:cy="143.50013"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs11428" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-93.089406,-110.77705)">
+    <g
+       id="g9914"
+       transform="translate(1.4221351,11.340663)">
+      <path
+         style="fill:#dbfd50;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 94.775232,101.17184 0.59068,0.59067 1.73545,-0.55409 -1.77204,-1.772032 z"
+         id="path5650"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#dbfd50;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 93.402724,101.76251 0.590677,-0.59067 -0.554087,-1.735451 -1.77204,1.772031 z"
+         id="path5650-9"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#dbfd50;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 95.365912,102.65294 -0.59068,0.59067 0.55409,1.73545 1.77204,-1.77203 z"
+         id="path5650-7"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#dbfd50;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 93.993403,103.24361 -0.59068,-0.59067 -1.735452,0.55409 1.772042,1.77203 z"
+         id="path5650-1"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+  </g>
+</svg>

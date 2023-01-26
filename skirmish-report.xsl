@@ -474,6 +474,9 @@
                     <xsl:call-template name="efficiency-label-long"><xsl:with-param name='efficiency' select='Rating' /></xsl:call-template>
                 </span>
             </h2>
+            <div class="anti-ship weapons">
+                <xsl:apply-templates select="Weapons/WeaponReport" />
+            </div>
         </div>
     </xsl:template>
     <xsl:template match="Strike">
@@ -487,6 +490,9 @@
                     <xsl:call-template name="efficiency-label-long"><xsl:with-param name='efficiency' select='Rating' /></xsl:call-template>
                 </span>
             </h2>
+            <div class="missile-warfare weapons">
+                <xsl:apply-templates select="Missiles/OffensiveMissileReport" />
+            </div>
         </div>
     </xsl:template>
     <xsl:template match="Sensors">
@@ -581,6 +587,11 @@
                     <xsl:call-template name="efficiency-label-long"><xsl:with-param name='efficiency' select='Rating' /></xsl:call-template>
                 </span>
             </h2>
+            <div class="point-defense weapons">
+                <xsl:apply-templates select="MissileReports/DefensiveMissileReport" />
+                <xsl:apply-templates select="WeaponReports/DefensiveWeaponReport" />
+                <xsl:apply-templates select="DecoyReports/DecoyReport" />
+            </div>
         </div>
     </xsl:template>
     <xsl:template match="Engineering">
@@ -694,6 +705,197 @@
             </div>
         </div>
     </xsl:template>
+    <xsl:template match="DefensiveWeaponReport">
+        <xsl:variable name="aurora">Stock/Mk90 'Aurora' PDT</xsl:variable>
+        <xsl:variable name="defender">Stock/Mk20 'Defender' PDT</xsl:variable>
+        <xsl:variable name="stonewall">Stock/Mk29 'Stonewall' PDT</xsl:variable>
+        <xsl:variable name="rebound">Stock/Mk25 'Rebound' PDT</xsl:variable>
+        <xsl:variable name="sarissa">Stock/Mk95 'Sarissa' PDT</xsl:variable>
+        <xsl:variable name="mk61">Stock/Mk61 Cannon</xsl:variable>
+        <div class="weapon-report">
+            <xsl:call-template name="weapon-image">
+                <xsl:with-param name="name" select="Weapon/WeaponKey" />
+            </xsl:call-template>
+            <h3>
+                <xsl:if test="WeaponCount > 1">
+                    <xsl:value-of select="WeaponCount" />
+                    <xsl:text>x </xsl:text>
+                </xsl:if>
+                <xsl:value-of select="Weapon/Name" />
+            </h3>
+            <div class="stats">
+                <dl>
+                    <div class="half-line">
+                        <dt>Tgts Assigned</dt>
+                        <dd><xsl:value-of select="Weapon/TargetsAssigned" /></dd>
+                    </div>
+                    <div class="half-line">
+                        <dt>Destroyed</dt>
+                        <dd>
+                            <xsl:value-of select="Weapon/TargetsDestroyed" />
+                            <xsl:choose>
+                                <xsl:when test="Weapon/TargetsDestroyed > 0">
+                                    <xsl:text> (</xsl:text>
+                                    <xsl:value-of select="format-number(Weapon/TargetsDestroyed div Weapon/TargetsAssigned, '###%')" />)
+                                </xsl:when>
+                            </xsl:choose>
+                        </dd>
+                    </div>
+                    <xsl:choose>
+                        <xsl:when test="Weapon/WeaponKey = $aurora">
+                            <xsl:call-template name="pd-stats-energy">
+                                <xsl:with-param name="pd" select="Weapon" />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="Weapon/WeaponKey = $defender">
+                            <xsl:call-template name="pd-stats-bullets">
+                                <xsl:with-param name="pd" select="Weapon" />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="Weapon/WeaponKey = $stonewall">
+                            <xsl:call-template name="pd-stats-bullets">
+                                <xsl:with-param name="pd" select="Weapon" />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="Weapon/WeaponKey = $rebound">
+                            <xsl:call-template name="pd-stats-bullets">
+                                <xsl:with-param name="pd" select="Weapon" />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="Weapon/WeaponKey = $sarissa">
+                            <xsl:call-template name="pd-stats-bullets">
+                                <xsl:with-param name="pd" select="Weapon" />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="Weapon/WeaponKey = $mk61">
+                            <xsl:call-template name="pd-stats-bullets">
+                                <xsl:with-param name="pd" select="Weapon" />
+                            </xsl:call-template>
+                        </xsl:when>
+                    </xsl:choose>
+                </dl>
+            </div>
+        </div>
+    </xsl:template>
+    <xsl:template match="DefensiveMissileReport">
+        <div class="weapon-report">
+            <xsl:call-template name="weapon-image">
+                <xsl:with-param name="name" select="MissileKey" />
+            </xsl:call-template>
+            <h3>
+                <xsl:value-of select="MissileName" />
+            </h3>
+            <div class="stats">
+                <dl>
+                    <div class="half-line">
+                        <dt>Tgts Assigned</dt>
+                        <dd><xsl:value-of select="TotalTargets" /></dd>
+                    </div>
+                    <div class="half-line">
+                        <dt>Expended</dt>
+                        <dd>
+                            <xsl:value-of select="TotalExpended" />/<xsl:value-of select="TotalCarried" />
+                            (<xsl:value-of select="format-number(TotalExpended div TotalCarried, '###%')" />)
+                        </dd>
+                    </div>
+                    <div class="own-line">
+                        <dt>Interceptions</dt>
+                        <dd>
+                            <xsl:value-of select="TotalInterceptions" />
+                            <xsl:if test="TotalTargets > 0">
+                                (<xsl:value-of select="format-number(TotalInterceptions div TotalTargets, '###%')" />)
+                            </xsl:if>
+                        </dd>
+                    </div>
+                    <div class="own-line">
+                        <dt>Successes</dt>
+                        <dd>
+                            <xsl:value-of select="TotalSuccesses" />
+                            <xsl:if test="TotalTargets > 0">
+                                (<xsl:value-of select="format-number(TotalSuccesses div TotalTargets, '###%')" />)
+                            </xsl:if>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </xsl:template>
+    <xsl:template match="DecoyReport">
+        <div class="weapon-report">
+            <xsl:call-template name="weapon-image">
+                <xsl:with-param name="name" select="MissileKey" />
+            </xsl:call-template>
+            <h3>
+                <xsl:value-of select="MissileName" />
+            </h3>
+            <div class="stats">
+                <dl>
+                    <div class="own-line">
+                        <dt>Carried</dt>
+                        <dd><xsl:value-of select="TotalCarried" /></dd>
+                    </div>
+                    <div class="own-line">
+                        <dt>Expended</dt>
+                        <dd>
+                            <xsl:value-of select="TotalExpended" />
+                            (<xsl:value-of select="format-number(TotalExpended div TotalCarried, '###%')" />)
+                        </dd>
+                    </div>
+                    <div class="own-line">
+                        <dt>Threats Seduced</dt>
+                        <dd>
+                            <xsl:value-of select="TotalSeductions" />
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </xsl:template>
+    <xsl:template name="pd-stats-energy">
+        <xsl:param name="pd" />
+        <div class="own-line">
+            <dt>Total Firing Time</dt>
+            <dd>
+                <xsl:call-template name="timestamp-from-seconds">
+                    <xsl:with-param name="seconds" select="$pd/ShotsFired * $pd/ShotDuration" />
+                </xsl:call-template>
+            </dd>
+        </div>
+        <div class="own-line">
+            <dt>BSHRT Time</dt>
+            <dd>
+                <xsl:call-template name="timestamp-from-seconds">
+                    <xsl:with-param name="seconds" select="$pd/ShotsFiredOverTimeLimit * $pd/ShotDuration" />
+                </xsl:call-template>
+                <xsl:if test="$pd/ShotsFired > 0">
+                    (<xsl:value-of select="format-number($pd/ShotsFiredOverTimeLimit div $pd/ShotsFired, '###%')" />)
+                </xsl:if>
+            </dd>
+        </div>
+    </xsl:template>
+    <xsl:template name="pd-stats-bullets">
+        <xsl:param name="pd" />
+        <div class="own-line">
+            <dt>Rnds Carried</dt>
+            <dd><xsl:value-of select="$pd/RoundsCarried" /></dd>
+        </div>
+        <div class="own-line">
+            <dt>Expended</dt>
+            <dd>
+                <xsl:value-of select="$pd/ShotsFired" />
+                <xsl:text>&#x00A0;(</xsl:text>
+                <xsl:value-of select="format-number($pd/ShotsFired div $pd/RoundsCarried, '###%')" />
+                <xsl:choose>
+                    <xsl:when test="$pd/TargetsDestroyed > 0">
+                        <xsl:text>) (avg.&#x00A0;</xsl:text>
+                        <xsl:value-of select="ceiling($pd/ShotsFired div $pd/TargetsDestroyed)" />
+                        <xsl:text>&#x00A0;rnds/kill)</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>)</xsl:otherwise>
+                </xsl:choose>
+            </dd>
+        </div>
+    </xsl:template>
     <xsl:template match="WeaponReport[@xsi:type='ContinuousWeaponReport']" mode="ewar">
         <div class="weapon-report continuous">
             <xsl:call-template name="weapon-image">
@@ -708,29 +910,202 @@
                             <xsl:with-param name="seconds" select="ShotsFired * ShotDuration" />
                         </xsl:call-template>
                     </dd>
-                    <dt>BSHRT Time</dt>
-                    <dd>
-                        <xsl:call-template name="timestamp-from-seconds">
-                            <xsl:with-param name="seconds" select="ShotsFiredOverTimeLimit * ShotDuration" />
-                        </xsl:call-template>
-                        <xsl:text> (</xsl:text>
-                        <xsl:value-of select="format-number(ShotsFiredOverTimeLimit div ShotsFired, '###%')" />
-                        <xsl:text>)</xsl:text>
-                    </dd>
+                    <xsl:if test="ShotsFired > 0">
+                        <dt>BSHRT Time</dt>
+                        <dd>
+                            <xsl:call-template name="timestamp-from-seconds">
+                                <xsl:with-param name="seconds" select="ShotsFiredOverTimeLimit * ShotDuration" />
+                            </xsl:call-template>
+                            <xsl:text> (</xsl:text>
+                            <xsl:value-of select="format-number(ShotsFiredOverTimeLimit div ShotsFired, '###%')" />
+                            <xsl:text>)</xsl:text>
+                        </dd>
+                    </xsl:if>
+                </dl>
+                <xsl:if test="ShotsFired = 0">
+                    <p class="unused">&#x2013; UNUSED &#x2013;</p>
+                </xsl:if>
+            </div>
+        </div>
+    </xsl:template>
+    <xsl:template match="WeaponReport[@xsi:type='DiscreteWeaponReport']">
+        <div class="weapon-report discrete">
+            <xsl:call-template name="weapon-image">
+                <xsl:with-param name="name" select="WeaponKey" />
+            </xsl:call-template>
+            <h3><xsl:value-of select="Name" /></h3>
+            <div class='stats'>
+                <dl>
+                    <div class="half-line">
+                        <dt>Carried</dt>
+                        <dd><xsl:value-of select="format-number(RoundsCarried, '###,###')" /></dd>
+                    </div>
+                    <div class="half-line">
+                        <dt>Expended</dt>
+                        <dd>
+                            <xsl:value-of select="format-number(ShotsFired, '###,###')"/>
+                            (<xsl:value-of select="format-number(ShotsFired div RoundsCarried, '###%')" />)
+                        </dd>
+                    </div>
+                    <xsl:choose>
+                        <xsl:when test="ShotsFired > 0">
+                            <div class="half-line">
+                                <dt>Hits</dt>
+                                <dd><xsl:value-of select="format-number(HitCount, '###,###')" /></dd>
+                            </div>
+                            <div class="half-line">
+                                <dt>Accuracy</dt>
+                                <dd><xsl:value-of select="format-number(HitCount div ShotsFired, '###%')" /></dd>
+                            </div>
+                            <div class="half-line">
+                                <dt>Dmg Potential</dt>
+                                <dd><xsl:value-of select="format-number(RoundsCarried * MaxDamagePerShot, '###,###,###')" /></dd>
+                            </div>
+                            <div class="half-line">
+                                <dt>Actual Dmg</dt>
+                                <dd>
+                                    <xsl:value-of select="format-number(TotalDamageDone, '###,###,###')" />
+                                    (<xsl:value-of select="format-number(TotalDamageDone div (RoundsCarried * MaxDamagePerShot), '###%')" />)
+                                </dd>
+                            </div>
+                        </xsl:when>
+                    </xsl:choose>
+                </dl>
+                <xsl:if test="ShotsFired = 0">
+                    <p class="unused">&#x2013; UNUSED &#x2013;</p>
+                </xsl:if>
+            </div>
+        </div>
+    </xsl:template>
+    <xsl:template match="WeaponReport[@xsi:type='ContinuousWeaponReport']">
+        <div class="weapon-report continuous">
+            <xsl:call-template name="weapon-image">
+                <xsl:with-param name="name" select="WeaponKey" />
+            </xsl:call-template>
+            <h3><xsl:value-of select="Name" /></h3>
+            <div class='stats'>
+                <dl>
+                    <div class="half-line">
+                        <dt>Firing Time</dt>
+                        <dd>
+                            <xsl:call-template name="timestamp-from-seconds">
+                                <xsl:with-param name="seconds" select="ShotsFired * ShotDuration" />
+                            </xsl:call-template>
+                        </dd>
+                    </div>
+                    <xsl:if test="ShotsFired > 0">
+                        <div class="half-line">
+                            <dt>BSHRT Time</dt>
+                            <dd>
+                                <xsl:call-template name="timestamp-from-seconds">
+                                    <xsl:with-param name="seconds" select="ShotsFiredOverTimeLimit * ShotDuration" />
+                                </xsl:call-template>
+                                <xsl:text> (</xsl:text>
+                                <xsl:value-of select="format-number(ShotsFiredOverTimeLimit div ShotsFired, '###%')" />
+                                <xsl:text>)</xsl:text>
+                            </dd>
+                        </div>
+                        <div class="own-line">
+                            <dt>Time on Tgt</dt>
+                            <dd>
+                                <xsl:call-template name="timestamp-from-seconds">
+                                    <xsl:with-param name="seconds" select="HitCount * ShotDuration" />
+                                </xsl:call-template>
+                                (<xsl:value-of select="format-number(HitCount div ShotsFired, '###%')" />)
+                            </dd>
+                        </div>
+                        <div class="half-line">
+                            <dt>Dmg Potential</dt>
+                            <dd><xsl:value-of select="format-number(ShotsFired * MaxDamagePerShot, '###,###,###')" /></dd>
+                        </div>
+                        <div class="half-line">
+                            <dt>Actual Dmg</dt>
+                            <dd><xsl:value-of select="format-number(TotalDamageDone, '###,###,###')" /></dd>
+                        </div>
+                    </xsl:if>
+                </dl>
+                <xsl:if test="ShotsFired = 0">
+                    <p class="unused">&#x2013; UNUSED &#x2013;</p>
+                </xsl:if>
+            </div>
+        </div>
+    </xsl:template>
+    <xsl:template match="OffensiveMissileReport">
+        <xsl:variable name="desc">
+            <p>
+            <xsl:value-of select="MissileDesc" disable-output-escaping="yes" />
+            </p>
+        </xsl:variable>
+        <div class="weapon-report missile">
+            <xsl:call-template name="weapon-image">
+                <xsl:with-param name="name" select="MissileKey" />
+            </xsl:call-template>
+            <h3><xsl:value-of select="MissileName" /></h3>
+            <p class="configuration">
+                <xsl:call-template name="missile-desc">
+                    <xsl:with-param name="desc" select="$desc" />
+                </xsl:call-template>
+            </p>
+            <div class="stats">
+                <dl>
+                    <div class='half-line'>
+                        <dt>Carried</dt>
+                        <dd><xsl:value-of select="TotalCarried" /></dd>
+                    </div>
+                    <div class='half-line'>
+                        <dt>Expended</dt>
+                        <dd>
+                            <xsl:value-of select="TotalExpended" />
+                            (<xsl:value-of select="format-number(TotalExpended div TotalCarried, '###%')" />)
+                        </dd>
+                    </div>
+                    <div class='half-line'>
+                        <dt>Dmg Potential</dt>
+                        <dd><xsl:value-of select="format-number(IndividualDamagePotential * TotalCarried, '###,###,###')" /></dd>
+                    </div>
+                    <div class='half-line'>
+                        <dt>Actual Dmg</dt>
+                        <dd>
+                            <xsl:value-of select="format-number(TotalDamageDone, '###,###,###')" />
+                            (<xsl:value-of select="format-number(TotalDamageDone div (IndividualDamagePotential * TotalCarried), '###%')" />)
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+            <div class="missile-hits">
+                <dl>
+                    <dt class="hits">Hits</dt>
+                    <dd><xsl:value-of select="Hits" /></dd>
+                    <dt class="misses">Misses</dt>
+                    <dd><xsl:value-of select="Misses" /></dd>
+                    <dt class="softkill">Soft-kills</dt>
+                    <dd><xsl:value-of select="Softkills" /></dd>
+                    <dt class="hardkill">Hard-kills</dt>
+                    <dd><xsl:value-of select="Hardkills" /></dd>
                 </dl>
             </div>
         </div>
     </xsl:template>
     <xsl:template name="weapon-image">
         <xsl:param name="name"/>
-        <xsl:variable name="e90">
-            <xsl:text>Stock/E90 'Blanket' Jammer</xsl:text>
-        </xsl:variable>
+        <xsl:variable name="e90">Stock/E90 'Blanket' Jammer</xsl:variable>
+        <xsl:variable name="aurora">Stock/Mk90 'Aurora' PDT</xsl:variable>
+        <xsl:variable name="defender">Stock/Mk20 'Defender' PDT</xsl:variable>
+        <xsl:variable name="stonewall">Stock/Mk29 'Stonewall' PDT</xsl:variable>
+        <xsl:variable name="rebound">Stock/Mk25 'Rebound' PDT</xsl:variable>
+        <xsl:variable name="sarissa">Stock/Mk95 'Sarissa' PDT</xsl:variable>
+        <xsl:variable name="mk61">Stock/Mk61 Cannon</xsl:variable>
         <img class="weapon-image">
             <xsl:attribute name="src">
                 <xsl:choose>
                     <xsl:when test="$name = $e90">e90.svg</xsl:when>
-                    <xsl:otherwise><xsl:value-of select="$e90" /></xsl:otherwise>
+                    <xsl:when test="$name = $mk61">mk61.svg</xsl:when>
+                    <xsl:when test="$name = $aurora">aurora.svg</xsl:when>
+                    <xsl:when test="$name = $defender">defender.svg</xsl:when>
+                    <xsl:when test="$name = $stonewall">stonewall.svg</xsl:when>
+                    <xsl:when test="$name = $rebound">rebound.svg</xsl:when>
+                    <xsl:when test="$name = $sarissa">sarissa.svg</xsl:when>
+                    <xsl:otherwise></xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
         </img>
@@ -752,5 +1127,64 @@
             <xsl:when test="$minutes != 0">:<xsl:value-of select="format-number($seconds-parsed, '00')" /></xsl:when>
             <xsl:otherwise><xsl:value-of select="format-number($seconds-parsed, '00')" /></xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    <xsl:template name="missile-desc">
+        <xsl:param name="desc" />
+        <xsl:variable name="before-color">
+            <xsl:call-template name="missile-desc-before-color">
+                <xsl:with-param name="desc" select='$desc' />
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:variable name="rest-with-color">
+            <xsl:value-of select="substring($desc, string-length($before-color))" />
+        </xsl:variable>
+        <xsl:variable name="rest">
+            <xsl:call-template name="missile-desc-after-color">
+                <xsl:with-param name="desc" select="$desc" />
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:variable name="color">
+            <xsl:call-template name="color">
+                <xsl:with-param name="color" select="$rest-with-color" />
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:value-of select="translate($before-color, '-', '&#x2013;')" />
+        <span>
+            <xsl:attribute name="style">
+                color: <xsl:value-of select='$color' />;
+            </xsl:attribute>
+            <xsl:call-template name="in-color">
+                <xsl:with-param name="desc" select="$rest-with-color" />
+            </xsl:call-template>
+        </span>
+        <xsl:choose>
+            <xsl:when test="string-length($desc) > string-length($rest)">
+                <xsl:choose>
+                    <xsl:when test="string-length($rest) > 0">
+                        <xsl:call-template name="missile-desc">
+                            <xsl:with-param name="desc" select="$rest" />
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:otherwise><xsl:value-of select="translate($desc, '-', '&#x2013;')" /></xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
+            <xsl:otherwise><xsl:value-of select="translate($rest, '-', '&#x2013;')" /></xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    <xsl:template name="missile-desc-before-color">
+        <xsl:param name="desc" />
+        <xsl:value-of select="substring-before($desc, '&lt;color')" />
+    </xsl:template>
+    <xsl:template name="missile-desc-after-color">
+        <xsl:param name="desc" />
+        <xsl:value-of select="substring-after($desc, '&lt;/color&gt;')" />
+    </xsl:template>
+    <xsl:template name="color">
+        <xsl:param name="color"/>
+        <xsl:value-of select="substring-before(substring-after($color, '='), '&gt;')" />
+    </xsl:template>
+    <xsl:template name="in-color">
+        <xsl:param name="desc" />
+        <xsl:value-of select="substring-before(substring-after($desc, '&gt;'), '&lt;')" />
     </xsl:template>
 </xsl:stylesheet>
