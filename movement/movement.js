@@ -65,6 +65,7 @@ export function movement_inputs() {
     const topSpeedInput = shipForm.elements.namedItem("top-speed");
     const massInput = shipForm.elements.namedItem("mass");
     const ammoInput = shipForm.elements.namedItem("select-ammo");
+    const flankInput = shipForm.elements.namedItem("flank");
 
     for (const hull of hullStats) {
       const o = new Option(hull.name, hull.name);
@@ -83,9 +84,10 @@ export function movement_inputs() {
       e.stopPropagation();
       e.preventDefault();
 
+      const flankMult = flankInput.checked ? 1.5 : 1;
       const selectedHull = hullStats.find((hull) => hull.name === hullInput.value);
-      const topSpeed = parseFloat(topSpeedInput.value);
-      const thrust = parseFloat(thrustInput.value) * 1000000; // convert from MN
+      const topSpeed = flankMult * parseFloat(topSpeedInput.value);
+      const thrust = flankMult * parseFloat(thrustInput.value) * 1000000; // convert from MN
       const mass = parseFloat(massInput.value) * 1000;  // convert from Tonnes
       var selectedAmmo = []
       for(var i=0; i < ammoInput.selectedOptions.length; i++) {

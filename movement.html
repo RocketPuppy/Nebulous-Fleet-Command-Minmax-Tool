@@ -16,14 +16,15 @@
         <p>
             This chart will help inform you when you need to start dodging and by how much when you are taking incoming cannon fire.
             Input your ship stats and select ammunition you want to compare against.
+            You can also view the chart if you are flanking.
             The chart will show you the time you have to initiate a dodge along the shortest axis of the hull on the Y-axis, compared against the range at which the round is fired at.
             The dodge should be directly perpendicular to the shot direction.
             Where the line crosses the X-axis is the point at which you will be hit, so try to stay outside of that range.
-            Remember setting your throttle to Flank increases both your thrust and your max speed by 50% (multiply the base value by 1.5).
         </p>
         <p>
             This chart assumes the gunnery is aiming perfectly at your center of mass.
-            It gives a buffer of 25% to the dodge distance.
+            It displays three lines.
+            One with a 0% distance margin, one with a 25% distance margin, and one with a 50% distance margin.
         </p>
         <div class='full-width'>
             <form id="ship-form" action="#" class="inputs-form">
@@ -41,6 +42,9 @@
                 </fieldset>
                 <fieldset class="control-group">
                     <legend>Input Mass (Tonne)</legend><input type="number" name="mass" />
+                </fieldset>
+                <fieldset class="control-group">
+                    <legend>Flank</legend><input type="checkbox" name="flank" />
                 </fieldset>
                 <div class="buttons control-group">
                     <input type="submit" value="Update Graph" />
