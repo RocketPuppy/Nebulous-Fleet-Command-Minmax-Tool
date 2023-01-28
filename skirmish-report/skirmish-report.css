@@ -532,3 +532,9 @@ h4 {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.anti-ship .weapon-image,
+.missile-warfare .weapon-image,
+.missile-defense .weapon-image {
+    transform: rotate(-45deg);
+}

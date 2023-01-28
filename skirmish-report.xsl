@@ -1089,22 +1089,56 @@
     <xsl:template name="weapon-image">
         <xsl:param name="name"/>
         <xsl:variable name="e90">Stock/E90 'Blanket' Jammer</xsl:variable>
-        <xsl:variable name="aurora">Stock/Mk90 'Aurora' PDT</xsl:variable>
-        <xsl:variable name="defender">Stock/Mk20 'Defender' PDT</xsl:variable>
-        <xsl:variable name="stonewall">Stock/Mk29 'Stonewall' PDT</xsl:variable>
-        <xsl:variable name="rebound">Stock/Mk25 'Rebound' PDT</xsl:variable>
-        <xsl:variable name="sarissa">Stock/Mk95 'Sarissa' PDT</xsl:variable>
+        <xsl:variable name="e70">Stock/E70 'Interruption' Jammer</xsl:variable>
+        <xsl:variable name="e71">Stock/E71 'Hangup' Jammer</xsl:variable>
+        <xsl:variable name="e55">Stock/E55 'Spotlight' Illuminator</xsl:variable>
+        <xsl:variable name="e57">Stock/E57 'Floodlight' Illuminator</xsl:variable>
+        <xsl:variable name="mk90">Stock/Mk90 'Aurora' PDT</xsl:variable>
+        <xsl:variable name="mk20">Stock/Mk20 'Defender' PDT</xsl:variable>
+        <xsl:variable name="mk29">Stock/Mk29 'Stonewall' PDT</xsl:variable>
+        <xsl:variable name="mk25">Stock/Mk25 'Rebound' PDT</xsl:variable>
+        <xsl:variable name="mk95">Stock/Mk95 'Sarissa' PDT</xsl:variable>
         <xsl:variable name="mk61">Stock/Mk61 Cannon</xsl:variable>
+        <xsl:variable name="mk62">Stock/Mk62 Cannon</xsl:variable>
+        <xsl:variable name="mk64">Stock/Mk64 Cannon</xsl:variable>
+        <xsl:variable name="mk66">Stock/Mk66 Cannon</xsl:variable>
+        <xsl:variable name="mk81">Stock/Mk81 Railgun</xsl:variable>
+        <xsl:variable name="mk82">Stock/Mk82 Railgun</xsl:variable>
+        <xsl:variable name="sgm1">Stock/SGM-1 Body</xsl:variable>
+        <xsl:variable name="ea12">Stock/EA12 Chaff Decoy</xsl:variable>
+        <xsl:variable name="ea20">Stock/EA20 Flare Decoy</xsl:variable>
+        <xsl:variable name="ea99">Stock/EA99 Active Decoy</xsl:variable>
+        <xsl:variable name="sgmh3">Stock/SGM-H-3 Body</xsl:variable>
+        <xsl:variable name="sgm3">Stock/SGT-3 Body</xsl:variable>
+        <xsl:variable name="sgm2">Stock/SGM-2 Body</xsl:variable>
+        <xsl:variable name="sgmh2">Stock/SGM-H-2 Body</xsl:variable>
         <img class="weapon-image">
             <xsl:attribute name="src">
                 <xsl:choose>
                     <xsl:when test="$name = $e90">e90.svg</xsl:when>
+                    <xsl:when test="$name = $e70">e70.svg</xsl:when>
+                    <xsl:when test="$name = $e71">e71.svg</xsl:when>
+                    <xsl:when test="$name = $e55">e55.svg</xsl:when>
+                    <xsl:when test="$name = $e57">e57.svg</xsl:when>
                     <xsl:when test="$name = $mk61">mk61.svg</xsl:when>
-                    <xsl:when test="$name = $aurora">aurora.svg</xsl:when>
-                    <xsl:when test="$name = $defender">defender.svg</xsl:when>
-                    <xsl:when test="$name = $stonewall">stonewall.svg</xsl:when>
-                    <xsl:when test="$name = $rebound">rebound.svg</xsl:when>
-                    <xsl:when test="$name = $sarissa">sarissa.svg</xsl:when>
+                    <xsl:when test="$name = $mk62">mk62.svg</xsl:when>
+                    <xsl:when test="$name = $mk90">mk90.svg</xsl:when>
+                    <xsl:when test="$name = $mk20">mk20.svg</xsl:when>
+                    <xsl:when test="$name = $mk29">mk29.svg</xsl:when>
+                    <xsl:when test="$name = $mk25">mk25.svg</xsl:when>
+                    <xsl:when test="$name = $mk95">mk95.svg</xsl:when>
+                    <xsl:when test="$name = $mk64">mk64.svg</xsl:when>
+                    <xsl:when test="$name = $mk66">mk66.svg</xsl:when>
+                    <xsl:when test="$name = $mk81">mk81.svg</xsl:when>
+                    <xsl:when test="$name = $mk82">mk82.svg</xsl:when>
+                    <xsl:when test="$name = $sgm1">sgm1.svg</xsl:when>
+                    <xsl:when test="$name = $ea12">ea12.svg</xsl:when>
+                    <xsl:when test="$name = $ea20">ea20.svg</xsl:when>
+                    <xsl:when test="$name = $ea99">ea99.svg</xsl:when>
+                    <xsl:when test="$name = $sgmh3">sgm-h-3.svg</xsl:when>
+                    <xsl:when test="$name = $sgm3">sgm3.svg</xsl:when>
+                    <xsl:when test="$name = $sgm2">sgm2.svg</xsl:when>
+                    <xsl:when test="$name = $sgmh2">sgm-h-2.svg</xsl:when>
                     <xsl:otherwise></xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
