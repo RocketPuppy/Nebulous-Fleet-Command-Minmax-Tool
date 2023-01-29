@@ -1112,6 +1112,10 @@
         <xsl:variable name="sgm3">Stock/SGT-3 Body</xsl:variable>
         <xsl:variable name="sgm2">Stock/SGM-2 Body</xsl:variable>
         <xsl:variable name="sgmh2">Stock/SGM-H-2 Body</xsl:variable>
+        <xsl:variable name="mk68">Stock/Mk68 Cannon</xsl:variable>
+        <xsl:variable name="mk610">Stock/Mk610 Beam Turret</xsl:variable>
+        <xsl:variable name="mk600">Stock/Mk600 Beam Cannon</xsl:variable>
+        <xsl:variable name="mk550">Stock/Mk550 Mass Driver</xsl:variable>
         <img class="weapon-image">
             <xsl:attribute name="src">
                 <xsl:choose>
@@ -1139,7 +1143,18 @@
                     <xsl:when test="$name = $sgm3">sgm3.svg</xsl:when>
                     <xsl:when test="$name = $sgm2">sgm2.svg</xsl:when>
                     <xsl:when test="$name = $sgmh2">sgm-h-2.svg</xsl:when>
+                    <xsl:when test="$name = $mk68">mk68.svg</xsl:when>
+                    <xsl:when test="$name = $mk610">mk610.svg</xsl:when>
+                    <xsl:when test="$name = $mk600">mk600.svg</xsl:when>
+                    <xsl:when test="$name = $mk550">mk550.svg</xsl:when>
                     <xsl:otherwise></xsl:otherwise>
+                </xsl:choose>
+            </xsl:attribute>
+            <xsl:attribute name="class">
+                <xsl:choose>
+                    <xsl:when test="$name=$mk600">weapon-image straight</xsl:when>
+                    <xsl:when test="$name=$mk550">weapon-image straight</xsl:when>
+                    <xsl:otherwise>weapon-image</xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
         </img>
