@@ -35,7 +35,7 @@ function make_trace(gun, ship, margin) {
     };
 }
 
-function do_graph(hull, thrust, mass, topSpeed, ammos) {
+function do_graph(graphEl, hull, thrust, mass, topSpeed, ammos) {
     const ship = new Ship(hull, thrust, mass, topSpeed);
     const data = ammos.flatMap((ammo) => {
         const gun = new Gun(ammo);
@@ -45,7 +45,6 @@ function do_graph(hull, thrust, mass, topSpeed, ammos) {
         });
     });
     
-    const graph = document.getElementById('dodge-graph');
     const layout = {
       margin: { t: 0 },
       showlegend: true,
@@ -54,7 +53,7 @@ function do_graph(hull, thrust, mass, topSpeed, ammos) {
       yaxis: { title: "Seconds to Move" },
       autosize: true
     };
-    Plotly.newPlot( graph, data, layout, { responsive: true });
+    Plotly.newPlot( graphEl, data, layout, { responsive: true });
 }
 
 export function movement_inputs() {
@@ -96,7 +95,8 @@ export function movement_inputs() {
           selectedAmmo.push(ammo);
       }
 
-      do_graph(selectedHull, thrust, mass, topSpeed, selectedAmmo);
+      const graphEl = document.getElementById('dodge-graph');
+      do_graph(graphEl, selectedHull, thrust, mass, topSpeed, selectedAmmo);
     };
 
     shipForm.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
