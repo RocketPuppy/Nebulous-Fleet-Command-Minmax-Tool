@@ -247,6 +247,16 @@
             </xsl:when>
             <xsl:when test="Eliminated = 'Retired'">
                 <h5 class="elimination retired">
+                    Surrendered&#x00A0;at
+                    <span class="timestamp">
+                        <xsl:call-template name="timestamp-from-seconds">
+                            <xsl:with-param name="seconds" select="EliminatedTimestamp" />
+                        </xsl:call-template>
+                    </span>
+                </h5>
+            </xsl:when>
+            <xsl:when test="Eliminated = 'Withdrew'">
+                <h5 class="elimination withdrew">
                     Withdrawn&#x00A0;at
                     <span class="timestamp">
                         <xsl:call-template name="timestamp-from-seconds">
