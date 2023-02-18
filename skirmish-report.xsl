@@ -227,7 +227,7 @@
         <xsl:choose>
             <xsl:when test="Eliminated = 'Destroyed'">
                 <h5 class="elimination destroyed">
-                    Destroyed&#x00A0;at
+                    Eliminated&#x00A0;at
                     <span class="timestamp">
                         <xsl:call-template name="timestamp-from-seconds">
                             <xsl:with-param name="seconds" select="EliminatedTimestamp" />
