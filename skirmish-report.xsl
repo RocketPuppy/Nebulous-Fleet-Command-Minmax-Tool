@@ -1171,9 +1171,10 @@
     </xsl:template>
     <xsl:template name="timestamp-from-seconds">
         <xsl:param name="seconds" />
-        <xsl:variable name="hours" select="floor($seconds div 3600)" />
-        <xsl:variable name="minutes" select="floor($seconds div 60)" />
-        <xsl:variable name="seconds-parsed" select="floor($seconds mod 60)" />
+        <xsl:variable name="abs-seconds" select="number(concat(substring(string($seconds), 1, number($seconds >= 0) * string-length(string($seconds))), substring(string($seconds * -1), 1, number(not($seconds >= 0)) * string-length(string($seconds * -1)))))" />
+        <xsl:variable name="hours" select="floor($abs-seconds div 3600)" />
+        <xsl:variable name="minutes" select="floor($abs-seconds div 60)" />
+        <xsl:variable name="seconds-parsed" select="floor($abs-seconds mod 60)" />
         <xsl:if test="$hours != 0">
             <xsl:value-of select="$hours" />
         </xsl:if>
