@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module" defer src="skirmish-report-stats/skirmish-report-stats.js"></script>
+        <link rel="stylesheet" href="skirmish-report-stats/skirmish-report-stats.css" />
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
+        <h1>Skirmish Report Stats</h1>
+        <p>
+            You can use this tool to view stats about your exported skirmish reports.
+        </p>
+        <div class='full-width'>
+            <div class='inputs-form'>
+              <fieldset class="control-group">
+                <legend>Select Reports</legend>
+                <input type="file" id="report-file" accept=".xml" multiple />
+                <div id='drag-target' class="disabled"><p>Drag and Drop Files to Load</p></div>
+              </fieldset>
+            </div>
+            <hr />
+            <div id="stats">
+                <table>
+                    <thead>
+                        <tr id="stat-head">
+                            <th>Report</th>
+                            <th>Winning Team</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stat-table">
+                    </tbody>
+                </table>
+            </div>
+          </div>
+    </body>
+</html>
