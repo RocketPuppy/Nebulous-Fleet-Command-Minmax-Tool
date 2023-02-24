@@ -33,6 +33,21 @@ const ansHullKeys = [
     "Stock/Solomon Battleship",
 ];
 
+const englishHullNames = {
+    "Stock/Shuttle": "Shuttle",
+    "Stock/Tugboat": "Tugboat",
+    "Stock/Bulk Feeder": "Cargo Feeder",
+    "Stock/Container Hauler": "Container Lineship",
+    "Stock/Bulk Hauler": "Bulk Lineship",
+    "Stock/Ocello Cruiser": "Ocello",
+    "Stock/Sprinter Corvette": "Sprinter",
+    "Stock/Raines Frigate": "Raines",
+    "Stock/Keystone Destroyer": "Keystone",
+	"Stock/Vauxhall Light Cruiser": "Vauxhall",
+    "Stock/Axford Heavy Cruiser": "Axford",
+    "Stock/Solomon Battleship": "Solomon"
+}
+
 /*
 * Players
 * Who won
@@ -68,7 +83,20 @@ function statReportName(docname) {
 
 function statWinningTeam(_, doc) {
     const resolver = doc.createNSResolver(doc);
-    return doc.evaluate("//WinningTeam", doc, resolver, XPathResult.STRING_TYPE).stringValue;
+    const winningTeam = doc.evaluate("//WinningTeam", doc, resolver, XPathResult.STRING_TYPE).stringValue;
+    const teamReports = doc.evaluate("//TeamReportOfShipBattleReport", doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+    let report = teamReports.iterateNext();
+    while(report) {
+        const teamId = doc.evaluate(".//TeamID", report, resolver, XPathResult.STRING_TYPE).stringValue;
+        if (teamId === winningTeam && isANS(doc, report)) {
+            return "ANS";
+        }
+        if (teamId === winningTeam && isOSP(doc, report)) {
+            return "OSP";
+        }
+        report = teamReports.iterateNext();
+    }
+    return "Unknown";
 }
 
 function statPlayers(selectFn) {
@@ -118,13 +146,48 @@ function statCombatPower(selectFn) {
         return "";
     }
 }
+
+function statCommonHull(selectFn, useLeast) {
+    return (_, doc) => {
+        const resolver = doc.createNSResolver(doc);
+        const teamReports = doc.evaluate("//TeamReportOfShipBattleReport", doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+        let report = teamReports.iterateNext();
+        while(report) {
+            if (selectFn(doc, report)) {
+                let hulls = doc.evaluate(".//HullKey", report, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                let hull = hulls.iterateNext();
+                let hullCounts = {};
+                while(hull) {
+                    if (hullCounts[hull.textContent] === undefined) {
+                        hullCounts[hull.textContent] = 0;
+                    } else {
+                        hullCounts[hull.textContent] += 1;
+                    }
+                    hull = hulls.iterateNext();
+                }
+                if (useLeast) {
+                    return englishHullNames[Object.entries(hullCounts).sort(([_, a], [__, b]) => a - b)[0][0]];
+                } else {
+                    return englishHullNames[Object.entries(hullCounts).sort(([_, a], [__, b]) => b - a)[0][0]];
+                }
+            }
+            report = teamReports.iterateNext();
+        }
+        return "";
+    }
+}
+
 const statCols = {
     "Report": statReportName,
     "Winning Team": statWinningTeam,
     "ANS Players": statPlayers(isANS),
     "ANS Combat Power": statCombatPower(isANS),
+    "ANS Common Hull": statCommonHull(isANS),
+    "ANS Rare Hull": statCommonHull(isANS, true),
     "OSP Players": statPlayers(isOSP),
-    "OSP Combat Power": statCombatPower(isANS)
+    "OSP Combat Power": statCombatPower(isOSP),
+    "OSP Common Hull": statCommonHull(isOSP),
+    "OSP Rare Hull": statCommonHull(isOSP, true),
 };
 
 function renderRowStats(docs) {
