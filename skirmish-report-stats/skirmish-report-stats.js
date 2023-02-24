@@ -177,6 +177,64 @@ function statCommonHull(selectFn, useLeast) {
     }
 }
 
+function statBroughtHulls(selectFn) {
+    return (_, doc) => {
+        const resolver = doc.createNSResolver(doc);
+        const teamReports = doc.evaluate("//TeamReportOfShipBattleReport", doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+        let report = teamReports.iterateNext();
+        while(report) {
+            if (selectFn(doc, report)) {
+                let hulls = doc.evaluate(".//HullKey", report, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                let hull = hulls.iterateNext();
+                let hullCounts = {};
+                while(hull) {
+                    if (hullCounts[hull.textContent] === undefined) {
+                        hullCounts[hull.textContent] = 0;
+                    } else {
+                        hullCounts[hull.textContent] += 1;
+                    }
+                    hull = hulls.iterateNext();
+                }
+                return Object.keys(hullCounts).map((s) => englishHullNames[s]).join(", ");
+            }
+            report = teamReports.iterateNext();
+        }
+        return "";
+    }
+}
+
+function statMissingHulls(selectFn, hullList) {
+    return (_, doc) => {
+        const resolver = doc.createNSResolver(doc);
+        const teamReports = doc.evaluate("//TeamReportOfShipBattleReport", doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+        let report = teamReports.iterateNext();
+        while(report) {
+            if (selectFn(doc, report)) {
+                let hulls = doc.evaluate(".//HullKey", report, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                let hull = hulls.iterateNext();
+                let hullCounts = {};
+                while(hull) {
+                    if (hullCounts[hull.textContent] === undefined) {
+                        hullCounts[hull.textContent] = 0;
+                    } else {
+                        hullCounts[hull.textContent] += 1;
+                    }
+                    hull = hulls.iterateNext();
+                }
+                let missing = [];
+                hullList.forEach((hull) => {
+                    if (hullCounts[hull] === undefined) {
+                        missing.push(hull);
+                    }
+                });
+                return missing.map((s) => englishHullNames[s]).join(", ");
+            }
+            report = teamReports.iterateNext();
+        }
+        return "";
+    }
+}
+
 const statCols = {
     "Report": statReportName,
     "Winning Team": statWinningTeam,
@@ -184,10 +242,14 @@ const statCols = {
     "ANS Combat Power": statCombatPower(isANS),
     "ANS Common Hull": statCommonHull(isANS),
     "ANS Rare Hull": statCommonHull(isANS, true),
+    "ANS Brought Hulls": statBroughtHulls(isANS),
+    "ANS Missing Hulls": statMissingHulls(isANS, ansHullKeys),
     "OSP Players": statPlayers(isOSP),
     "OSP Combat Power": statCombatPower(isOSP),
     "OSP Common Hull": statCommonHull(isOSP),
     "OSP Rare Hull": statCommonHull(isOSP, true),
+    "OSP Brought Hulls": statBroughtHulls(isOSP),
+    "OSP Missing Hulls": statMissingHulls(isOSP, ospHullKeys),
 };
 
 function renderRowStats(docs) {
