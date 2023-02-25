@@ -357,7 +357,7 @@ function median(nums) {
     if (nums.length === 0) {
         return ["N/A"];
     }
-    const sorted = nums.sort();
+    const sorted = nums.sort((a, b) => a - b);
     const length = nums.length;
     const halfLength = Math.floor(length/2);
     if (length % 2 === 0) {
