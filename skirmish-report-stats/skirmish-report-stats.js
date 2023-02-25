@@ -54,6 +54,16 @@ const englishHullNames = {
 * Points values brought (to offset point inequality bias if that ever happens)
 - Map
 - Ranks of participating players and what team they were on (to offset rank bias)
+
+Aggregate Stats
+Across all Wins
+- Median hull counts
+- Median weapon counts
+- Median radar counts
+Across all losses
+- Median hull counts
+- Median weapon counts
+- Median radar counts
 */
 function handleFileUpload(file) {
     return file.text().then(handleFileContent).catch(alert).then((doc) => [file.name, doc]);
@@ -79,6 +89,16 @@ const isOSP = isFaction(ospHullKeys);
 
 function statReportName(docname) {
     return docname;
+}
+
+function getFactionFromReport(doc, report) {
+    if (isANS(doc, report)) {
+        return "ANS";
+    }
+    if (isOSP(doc, report)) {
+        return "OSP";
+    }
+    return "Unknown";
 }
 
 function statWinningTeam(_, doc) {
@@ -189,13 +209,18 @@ function statBroughtHulls(selectFn) {
                 let hullCounts = {};
                 while(hull) {
                     if (hullCounts[hull.textContent] === undefined) {
-                        hullCounts[hull.textContent] = 0;
+                        hullCounts[hull.textContent] = 1;
                     } else {
                         hullCounts[hull.textContent] += 1;
                     }
                     hull = hulls.iterateNext();
                 }
-                return Object.keys(hullCounts).map((s) => englishHullNames[s]).join(", ");
+                return [...ansHullKeys, ...ospHullKeys].flatMap((hull) => {
+                    if (hullCounts[hull] !== undefined) {
+                        return [`${englishHullNames[hull]}: ${hullCounts[hull]}`];
+                    }
+                    return [];
+                }).join(", ");
             }
             report = teamReports.iterateNext();
         }
@@ -227,7 +252,12 @@ function statMissingHulls(selectFn, hullList) {
                         missing.push(hull);
                     }
                 });
-                return missing.map((s) => englishHullNames[s]).join(", ");
+                return [...ansHullKeys, ...ospHullKeys].flatMap((hull) => {
+                    if (missing.includes(hull)) {
+                        return [englishHullNames[hull]];
+                    }
+                    return [];
+                }).join(", ");
             }
             report = teamReports.iterateNext();
         }
@@ -253,8 +283,8 @@ const statCols = {
 };
 
 function renderRowStats(docs) {
-    const statHead = document.getElementById("stat-head");
-    const statTable = document.getElementById("stat-table");
+    const statHead = document.querySelector("#stats .stat-head");
+    const statTable = document.querySelector("#stats .stat-table");
     statHead.innerHTML = "";
     statTable.innerHTML = "";
 
@@ -278,6 +308,138 @@ function renderRowStats(docs) {
     });
 }
 
+const aggStatCols = {
+    "ANS Wins": [isANS, true, ansHullKeys],
+    "ANS Losses": [isANS, false, ansHullKeys],
+    "OSP Wins": [isOSP, true, ospHullKeys],
+    "OSP Losses": [isOSP, false, ospHullKeys],
+};
+
+const aggStatRows = {
+    "Total": aggTotals,
+    "Median Hull Counts": aggHulls(median),
+    "Average Hull Counts": aggHulls(average),
+    // "Median Weapon Counts": aggMedianWeps,
+    // "Median Radar Counts": aggMedianRadars
+};
+
+function renderAggStats(docs) {
+    const statHead = document.querySelector("#agg-stats .stat-head");
+    const statTable = document.querySelector("#agg-stats .stat-table");
+    statHead.innerHTML = "";
+    statTable.innerHTML = "";
+
+    const blankTh = document.createElement("th");
+    statHead.appendChild(blankTh);
+
+    Object.keys(aggStatCols).forEach((statName) => {
+        const th = document.createElement("th");
+        th.textContent = statName;
+        statHead.appendChild(th);
+    })
+    Object.entries(aggStatRows).forEach(([rowName, statFn]) => {
+        const tr = document.createElement("tr");
+        const rowCell = document.createElement("td");
+        rowCell.textContent = rowName;
+        tr.appendChild(rowCell);
+        Object.entries(aggStatCols).forEach(([_, statArgs]) => {
+            const td = document.createElement("td");
+            td.textContent = statFn(...statArgs)(docs);
+            tr.appendChild(td);
+        });
+        statTable.appendChild(tr);
+    });
+}
+
+function median(nums) {
+    if (nums.length === 0) {
+        return ["N/A"];
+    }
+    const sorted = nums.sort();
+    const length = nums.length;
+    const halfLength = Math.floor(length/2);
+    if (length % 2 === 0) {
+        //even
+        return [sorted[halfLength - 2], sorted[halfLength]];
+    } else {
+        //odd
+        return [sorted[halfLength]];
+    }
+}
+
+function average(nums) {
+    if (nums.length === 0) {
+        return ["N/A"];
+    }
+    const sum = nums.reduce((a, b) => a + b, 0);
+    const length = nums.length;
+    return [(sum/length).toFixed(1)];
+}
+
+function aggTotals(factionSelector, useWins, _) {
+    return (docs) => {
+        let total = 0;
+        docs.forEach(([_, doc]) => {
+            const resolver = doc.createNSResolver(doc);
+            const teamReports = doc.evaluate("//TeamReportOfShipBattleReport", doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+            let report = teamReports.iterateNext();
+            while(report) {
+                const didWin = getFactionFromReport(doc, report) === statWinningTeam(null, doc);
+                if (factionSelector(doc, report) && ((useWins && didWin) || (!useWins && !didWin))) {
+                    total += 1;
+                }
+                report = teamReports.iterateNext();
+            }
+        });
+        return total.toLocaleString();
+    };
+}
+
+function aggHulls(aggFn) {
+    return (factionSelector, useWins, hullList) => {
+        return (docs) => {
+            const hullCounts = {}; // hull name => array of counts
+            docs.forEach(([_, doc]) => {
+                const resolver = doc.createNSResolver(doc);
+                const teamReports = doc.evaluate("//TeamReportOfShipBattleReport", doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                let report = teamReports.iterateNext();
+                while(report) {
+                    const didWin = getFactionFromReport(doc, report) === statWinningTeam(null, doc);
+                    if (factionSelector(doc, report) && ((useWins && didWin) || (!useWins && !didWin))) {
+                        let hulls = doc.evaluate(".//HullKey", report, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                        let hull = hulls.iterateNext();
+                        const singleHullCounts = {};
+                        while(hull) {
+                            if (singleHullCounts[hull.textContent] === undefined) {
+                                singleHullCounts[hull.textContent] = 1;
+                            } else {
+                                singleHullCounts[hull.textContent] += 1;
+                            }
+                            hull = hulls.iterateNext();
+                        }
+                        hullList.forEach((hull) => {
+                            if (singleHullCounts[hull] === undefined) {
+                                singleHullCounts[hull] = 0;
+                            }
+                        });
+                        Object.entries(singleHullCounts).forEach(([hull, count]) => {
+                            if(hullCounts[hull] === undefined) {
+                                hullCounts[hull] = [count];
+                            } else {
+                                hullCounts[hull].push(count);
+                            }
+                        });
+                    }
+                    report = teamReports.iterateNext();
+                }
+            });
+            return hullList.map((hull) => {
+                return `${englishHullNames[hull]}: ${aggFn(hullCounts[hull] || []).join(", ")}`;
+            }).join("; ");
+        };
+    };
+}
+
 function ui() {
     const dragTarget = document.getElementById("drag-target");
     const fileInput = document.getElementById("report-file");
@@ -292,6 +454,7 @@ function ui() {
         }
         Promise.all(docPromises).then((docs) => {
             renderRowStats(docs);
+            renderAggStats(docs);
         });
     });
 
@@ -310,6 +473,7 @@ function ui() {
 
         Promise.all(docPromises).then((docs) => {
             renderRowStats(docs);
+            renderAggStats(docs);
         });
     });
 

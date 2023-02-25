@@ -21,7 +21,7 @@
     background-color: rgba(173, 216, 230, 150);
 }
 
-#stats > table {
+#stats > table, #agg-stats > table {
     width: 80%;
     margin: 0 auto;
     display: block;
@@ -30,12 +30,13 @@
     white-space: nowrap;
 }
 
-#stat-head th {
+.stat-head th {
     text-align: left;
-    margin-right: 1em;
+    padding-right: 1em;
     position: sticky;
 }
 
-#stats th, #stats, td {
+.stats th, #stats, td {
     padding: 0.5em 1em;
+    padding-left: 0;
 }
