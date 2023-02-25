@@ -34,12 +34,16 @@ td {
     white-space: nowrap;
 }
 
+#agg-stats > table {
+    width: min-content;
+}
+
 .stat-head th {
     text-align: left;
     padding: 0.5em 1em;
     position: sticky;
 }
 
-.stats th, #stats, td {
+.stats th, #stats, #agg-stats, td {
     padding: 0.5em 1em;
 }
