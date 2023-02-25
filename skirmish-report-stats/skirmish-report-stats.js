@@ -191,11 +191,11 @@ function statPlayers(selectFn) {
                     player = players.iterateNext();
                 }
 
-                return playersRet.join(", ");
+                return playersRet;
             }
             report = teamReports.iterateNext();
         }
-        return "";
+        return [];
     }
 }
 
@@ -269,16 +269,17 @@ function statBroughtHulls(selectFn) {
                     }
                     hull = hulls.iterateNext();
                 }
-                return [...ansHullKeys, ...ospHullKeys].flatMap((hull) => {
+                const memo = {};
+                [...ansHullKeys, ...ospHullKeys].forEach((hull) => {
                     if (hullCounts[hull] !== undefined) {
-                        return [`${englishHullNames[hull]}: ${hullCounts[hull]}`];
+                        memo[englishHullNames[hull]] = hullCounts[hull];
                     }
-                    return [];
-                }).join("<br />");
+                });
+                return memo;
             }
             report = teamReports.iterateNext();
         }
-        return "";
+        return {};
     }
 }
 
@@ -311,11 +312,11 @@ function statMissingHulls(selectFn, hullList) {
                         return [englishHullNames[hull]];
                     }
                     return [];
-                }).join(", ");
+                });
             }
             report = teamReports.iterateNext();
         }
-        return "";
+        return [];
     }
 }
 
@@ -338,13 +339,35 @@ function statWeaponCounts(selectFn) {
                     }
                     wep = weps.iterateNext();
                 }
-                return Object.entries(wepCounts).map(([wepName, count]) => {
-                    return `${wepName}: ${count.toLocaleString()}`;
-                }).sort().join("<br/>");
+                return wepCounts;
             }
             report = teamReports.iterateNext();
         }
-        return "";
+        return {};
+    };
+}
+
+function renderHtmlString(string) {
+    return string;
+}
+
+function renderHtmlArray(arr) {
+    return arr.join(", ");
+}
+
+function renderHtmlObj(doSort) {
+    return (obj) => {
+        let keys = Object.keys(obj);
+        if (doSort) {
+            keys = keys.sort();
+        }
+        return keys.map((k) => {
+            let v = obj[k];
+            if (v instanceof Number) {
+                v = v.toLocaleString();
+            }
+            return `${k}: ${v}`;
+        }).join("<br/>");
     };
 }
 
@@ -367,6 +390,39 @@ const statCols = {
     "OSP Hulls With Weapon": statWeaponCounts(isOSP),
 };
 
+const htmlRenders = {
+    "Report": renderHtmlString,
+    "Winning Team": renderHtmlString,
+    "ANS Players": renderHtmlArray,
+    "ANS Combat Power": renderHtmlString,
+    "ANS Common Hull": renderHtmlString,
+    "ANS Rare Hull": renderHtmlString,
+    "ANS Brought Hulls": renderHtmlObj(false),
+    "ANS Missing Hulls": renderHtmlArray,
+    "ANS Hulls With Weapon": renderHtmlObj(true),
+    "OSP Players": renderHtmlArray,
+    "OSP Combat Power": renderHtmlString,
+    "OSP Common Hull": renderHtmlString,
+    "OSP Rare Hull": renderHtmlString,
+    "OSP Brought Hulls": renderHtmlObj(false),
+    "OSP Missing Hulls": renderHtmlArray,
+    "OSP Hulls With Weapon": renderHtmlObj(true),
+};
+
+function collectRowStats(docs) {
+    const ret = {};
+    docs.forEach(([docname, doc]) => {
+        ret[docname] = {};
+        for (const stat in statCols) {
+            if (Object.hasOwnProperty.call(statCols, stat)) {
+                const statFn = statCols[stat];
+                ret[docname][stat] = statFn(docname, doc);
+            }
+        }
+    });
+    return ret;
+}
+
 function renderRowStats(docs) {
     const statHead = document.querySelector("#stats .stat-head");
     const statTable = document.querySelector("#stats .stat-table");
@@ -378,19 +434,22 @@ function renderRowStats(docs) {
         th.textContent = statName;
         statHead.appendChild(th);
     })
-    docs.forEach(([docname, doc]) => {
-        const tr = document.createElement("tr");
-        for (const stat in statCols) {
-            if (Object.hasOwnProperty.call(statCols, stat)) {
-                const statFn = statCols[stat];
-    
-                const td = document.createElement("td");
-                td.innerHTML = statFn(docname, doc);
-                tr.appendChild(td);
+    const stats = collectRowStats(docs);
+    for (const docname in stats) {
+        if (Object.hasOwnProperty.call(stats, docname)) {
+            const tr = document.createElement("tr");
+            const statRow = stats[docname];
+            for (const statName in statRow) {
+                if (Object.hasOwnProperty.call(statRow, statName)) {
+                    const statValue = statRow[statName];
+                    const td = document.createElement("td");
+                    td.innerHTML = htmlRenders[statName](statValue);
+                    tr.appendChild(td);
+                }
             }
+            statTable.appendChild(tr);
         }
-        statTable.appendChild(tr);
-    });
+    }
 }
 
 const aggStatCols = {
@@ -412,6 +471,31 @@ const aggStatRows = {
     "Min Hulls With Weapon": aggHullsWithWeps(min),
 };
 
+const htmlAggRenders = {
+    "Total": renderHtmlString,
+    "Median Hull Counts": renderHtmlObj(false),
+    "Average Hull Counts": renderHtmlObj(false),
+    "Max Hull Counts": renderHtmlObj(false),
+    "Min Hull Counts": renderHtmlObj(false),
+    "Median Hulls With Weapon": renderHtmlObj(true),
+    "Average Hulls With Weapon": renderHtmlObj(true),
+    "Max Hulls With Weapon": renderHtmlObj(true),
+    "Min Hulls With Weapon": renderHtmlObj(true),
+};
+
+function collectAggStats(docs) {
+    let ret = {};
+    Object.keys(aggStatRows).map((rowName) => {
+        const statFn = aggStatRows[rowName];
+        ret[rowName] = {};
+        Object.keys(aggStatCols).map((colName) => {
+            const statArgs = aggStatCols[colName];
+            ret[rowName][colName] = statFn(...statArgs)(docs);
+        });
+    });
+    return ret;
+}
+
 function renderAggStats(docs) {
     const statHead = document.querySelector("#agg-stats .stat-head");
     const statTable = document.querySelector("#agg-stats .stat-table");
@@ -426,14 +510,17 @@ function renderAggStats(docs) {
         th.textContent = statName;
         statHead.appendChild(th);
     })
-    Object.entries(aggStatRows).forEach(([rowName, statFn]) => {
+    const stats = collectAggStats(docs);
+    Object.keys(stats).forEach((statName) => {
         const tr = document.createElement("tr");
         const rowCell = document.createElement("td");
-        rowCell.textContent = rowName;
+        rowCell.textContent = statName;
         tr.appendChild(rowCell);
-        Object.entries(aggStatCols).forEach(([_, statArgs]) => {
+        const colVals = stats[statName];
+        Object.keys(colVals).forEach((colName) => {
+            const colVal = colVals[colName];
             const td = document.createElement("td");
-            td.innerHTML = statFn(...statArgs)(docs);
+            td.innerHTML = htmlAggRenders[statName](colVal);
             tr.appendChild(td);
         });
         statTable.appendChild(tr);
@@ -539,9 +626,11 @@ function aggHulls(aggFn) {
                     report = teamReports.iterateNext();
                 }
             });
-            return hullList.map((hull) => {
-                return `${englishHullNames[hull]}: ${aggFn(hullCounts[hull] || []).join(", ")}`;
-            }).join("<br />");
+            const ret = {};
+            hullList.forEach((hull) => {
+                ret[englishHullNames[hull]] = aggFn(hullCounts[hull] || []);
+            });
+            return ret;
         };
     };
 }
@@ -584,9 +673,11 @@ function aggHullsWithWeps(aggFn) {
                     report = teamReports.iterateNext();
                 }
             });
-            return Object.keys(wepCounts).sort().map((wepName) => {
-                return `${wepName}: ${aggFn(wepCounts[wepName] || []).join(", ")}`;
-            }).join("<br />");
+            const ret = {};
+            Object.keys(wepCounts).sort().forEach((wepName) => {
+                ret[wepName] = aggFn(wepCounts[wepName] || []);
+            });
+            return ret;
         };
     };
 }
