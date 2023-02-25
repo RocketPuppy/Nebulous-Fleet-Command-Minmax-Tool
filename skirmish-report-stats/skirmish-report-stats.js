@@ -48,6 +48,60 @@ const englishHullNames = {
     "Stock/Solomon Battleship": "Solomon"
 }
 
+const englishWepNames = {
+    "E55 'Spotlight' Illuminator": "Spotlight",
+    "E57 'Floodlight' Illuminator": "Floodlight",
+    "E70 'Interruption' Jammer": "Interruption",
+    "E71 'Hangup' Jammer": "Hangup",
+    "E90 'Blanket' Jammer": "Blanket",
+    "Mk550 Mass Driver - 300mm AP Rail Sabot": "Railgun",
+    "Mk600 Beam Cannon": "Beam",
+    "Mk61 Cannon - 120mm AP Shell": "120 AP",
+    "Mk61 Cannon - 120mm HE Shell": "120 HE",
+    "Mk61 Cannon - 120mm HE-RPF Shell": "120 RPF",
+    "Mk610 Beam Turret": "Beam",
+    "Mk62 Cannon - 120mm AP Shell": "120 AP",
+    "Mk62 Cannon - 120mm HE Shell": "120 HE",
+    "Mk62 Cannon - 120mm HE-RPF Shell": "120 RPF",
+    "Mk64 Cannon - 250mm AP Shell": "250 AP",
+    "Mk64 Cannon - 250mm HE Shell": "250 HE",
+    "Mk64 Cannon - 250mm HE-RPF Shell": "250 RPF",
+    "Mk65 Cannon - 250mm AP Shell": "250 AP",
+    "Mk65 Cannon - 250mm HE Shell": "250 HE",
+    "Mk65 Cannon - 250mm HE-RPF Shell": "250 RPF",
+    "Mk66 Cannon - 450mm AP Shell": "450 AP",
+    "Mk66 Cannon - 450mm HE Shell": "450 HE",
+    "Mk68 Cannon - 450mm AP Shell": "450 AP",
+    "Mk68 Cannon - 450mm HE Shell": "450 HE",
+    "Mk81 Railgun - 300mm AP Rail Sabot": "Railgun",
+
+    "C30 Cannon - 100mm AP Shell": "100 AP",
+    "C30 Cannon - 100mm Grapeshot": "100 Grapeshot",
+    "C30 Cannon - 100mm HE Shell": "100 HE",
+    "C30 Cannon - 100mm HE-HC Shell": "100 HEHC",
+    "C53 Cannon - 250mm AP Shell": "250 AP",
+    "C53 Cannon - 250mm HE Shell": "250 HE",
+    "C60 Cannon - 450mm AP Shell": "450 AP",
+    "C60 Cannon - 450mm HE Shell": "450 HE",
+    "C65 Cannon - 450mm AP Shell": "450 AP",
+    "C65 Cannon - 450mm HE Shell": "450 HE",
+    "C81 Plasma Cannon - 400mm Plasma Ampoule": "Plasma",
+    "E20 'Lighthouse' Illuminator": "Lighthouse",
+    "J15 Jammer": "OSP Blanket",
+    "J360 Jammer": "Omni-Blanket",
+    "L50 Laser Dazzler": "Dazzler",
+    "T20 Cannon - 100mm AP Shell": "100 AP",
+    "T20 Cannon - 100mm Grapeshot": "100 Grapeshot",
+    "T20 Cannon - 100mm HE Shell": "100 HE",
+    "T20 Cannon - 100mm HE-HC Shell": "100 HEHC",
+    "T30 Cannon - 100mm AP Shell": "100 AP",
+    "T30 Cannon - 100mm Grapeshot": "100 Grapeshot",
+    "T30 Cannon - 100mm HE Shell": "100 HE",
+    "T30 Cannon - 100mm HE-HC Shell": "100 HEHC",
+    "T81 Plasma Cannon - 400mm Plasma Ampoule": "Plasma",
+    "TE45 Mass Driver - 500mm Fracturing Block": "Mass Driver",
+};
+
 /*
 * Players
 * Who won
@@ -220,7 +274,7 @@ function statBroughtHulls(selectFn) {
                         return [`${englishHullNames[hull]}: ${hullCounts[hull]}`];
                     }
                     return [];
-                }).join(", ");
+                }).join("<br />");
             }
             report = teamReports.iterateNext();
         }
@@ -240,7 +294,7 @@ function statMissingHulls(selectFn, hullList) {
                 let hullCounts = {};
                 while(hull) {
                     if (hullCounts[hull.textContent] === undefined) {
-                        hullCounts[hull.textContent] = 0;
+                        hullCounts[hull.textContent] = 1;
                     } else {
                         hullCounts[hull.textContent] += 1;
                     }
@@ -265,6 +319,35 @@ function statMissingHulls(selectFn, hullList) {
     }
 }
 
+function statWeaponCounts(selectFn) {
+    return (_, doc) => {
+        const resolver = doc.createNSResolver(doc);
+        const teamReports = doc.evaluate("//TeamReportOfShipBattleReport", doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+        let report = teamReports.iterateNext();
+        while(report) {
+            if (selectFn(doc, report)) {
+                let weps = doc.evaluate(".//WeaponReport", report, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                let wep = weps.iterateNext();
+                let wepCounts = {};
+                while(wep) {
+                    let wepName = doc.evaluate(".//Name", wep, resolver, XPathResult.STRING_TYPE).stringValue;
+                    if (wepCounts[wepName] === undefined) {
+                        wepCounts[wepName] = 1;
+                    } else {
+                        wepCounts[wepName] += 1;
+                    }
+                    wep = weps.iterateNext();
+                }
+                return Object.entries(wepCounts).map(([wepName, count]) => {
+                    return `${wepName}: ${count.toLocaleString()}`;
+                }).sort().join("<br/>");
+            }
+            report = teamReports.iterateNext();
+        }
+        return "";
+    };
+}
+
 const statCols = {
     "Report": statReportName,
     "Winning Team": statWinningTeam,
@@ -274,12 +357,14 @@ const statCols = {
     "ANS Rare Hull": statCommonHull(isANS, true),
     "ANS Brought Hulls": statBroughtHulls(isANS),
     "ANS Missing Hulls": statMissingHulls(isANS, ansHullKeys),
+    "ANS Hulls With Weapon": statWeaponCounts(isANS),
     "OSP Players": statPlayers(isOSP),
     "OSP Combat Power": statCombatPower(isOSP),
     "OSP Common Hull": statCommonHull(isOSP),
     "OSP Rare Hull": statCommonHull(isOSP, true),
     "OSP Brought Hulls": statBroughtHulls(isOSP),
     "OSP Missing Hulls": statMissingHulls(isOSP, ospHullKeys),
+    "OSP Hulls With Weapon": statWeaponCounts(isOSP),
 };
 
 function renderRowStats(docs) {
@@ -300,7 +385,7 @@ function renderRowStats(docs) {
                 const statFn = statCols[stat];
     
                 const td = document.createElement("td");
-                td.textContent = statFn(docname, doc);
+                td.innerHTML = statFn(docname, doc);
                 tr.appendChild(td);
             }
         }
@@ -321,8 +406,10 @@ const aggStatRows = {
     "Average Hull Counts": aggHulls(average),
     "Max Hull Counts": aggHulls(max),
     "Min Hull Counts": aggHulls(min),
-    // "Median Weapon Counts": aggMedianWeps,
-    // "Median Radar Counts": aggMedianRadars
+    "Median Hulls With Weapon": aggHullsWithWeps(median),
+    "Average Hulls With Weapon": aggHullsWithWeps(average),
+    "Max Hulls With Weapon": aggHullsWithWeps(max),
+    "Min Hulls With Weapon": aggHullsWithWeps(min),
 };
 
 function renderAggStats(docs) {
@@ -346,7 +433,7 @@ function renderAggStats(docs) {
         tr.appendChild(rowCell);
         Object.entries(aggStatCols).forEach(([_, statArgs]) => {
             const td = document.createElement("td");
-            td.textContent = statFn(...statArgs)(docs);
+            td.innerHTML = statFn(...statArgs)(docs);
             tr.appendChild(td);
         });
         statTable.appendChild(tr);
@@ -356,6 +443,9 @@ function renderAggStats(docs) {
 function median(nums) {
     if (nums.length === 0) {
         return ["N/A"];
+    }
+    if (nums.length === 2) {
+        return nums.sort((a, b) => a - b);
     }
     const sorted = nums.sort((a, b) => a - b);
     const length = nums.length;
@@ -451,7 +541,52 @@ function aggHulls(aggFn) {
             });
             return hullList.map((hull) => {
                 return `${englishHullNames[hull]}: ${aggFn(hullCounts[hull] || []).join(", ")}`;
-            }).join("; ");
+            }).join("<br />");
+        };
+    };
+}
+
+function aggHullsWithWeps(aggFn) {
+    return (factionSelector, useWins, _) => {
+        return (docs) => {
+            const wepCounts = {}; // wep name => array of counts
+            docs.forEach(([_, doc]) => {
+                const resolver = doc.createNSResolver(doc);
+                const teamReports = doc.evaluate("//TeamReportOfShipBattleReport", doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                let report = teamReports.iterateNext();
+                while(report) {
+                    const didWin = getFactionFromReport(doc, report) === statWinningTeam(null, doc);
+                    if (factionSelector(doc, report) && ((useWins && didWin) || (!useWins && !didWin))) {
+                        let weps = doc.evaluate(".//WeaponReport", report, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                        let wep = weps.iterateNext();
+                        let singleWepCounts = {};
+                        while(wep) {
+                            let wepName = englishWepNames[doc.evaluate(".//Name", wep, resolver, XPathResult.STRING_TYPE).stringValue];
+                            if (wepName === undefined) {
+                                wepName = doc.evaluate(".//Name", wep, resolver, XPathResult.STRING_TYPE).stringValue;
+                            }
+                            if (singleWepCounts[wepName] === undefined) {
+                                singleWepCounts[wepName] = 1;
+                            } else {
+                                singleWepCounts[wepName] += 1;
+                            }
+                            wep = weps.iterateNext();
+                        }
+                        
+                        Object.entries(singleWepCounts).forEach(([wep, count]) => {
+                            if(wepCounts[wep] === undefined) {
+                                wepCounts[wep] = [count];
+                            } else {
+                                wepCounts[wep].push(count);
+                            }
+                        });
+                    }
+                    report = teamReports.iterateNext();
+                }
+            });
+            return Object.keys(wepCounts).sort().map((wepName) => {
+                return `${wepName}: ${aggFn(wepCounts[wepName] || []).join(", ")}`;
+            }).join("<br />");
         };
     };
 }
