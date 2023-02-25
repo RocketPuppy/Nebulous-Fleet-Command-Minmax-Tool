@@ -20,6 +20,10 @@
 .dragging {
     background-color: rgba(173, 216, 230, 150);
 }
+th,
+td {
+  border: 1px solid;
+}
 
 #stats > table, #agg-stats > table {
     width: 80%;
@@ -32,11 +36,10 @@
 
 .stat-head th {
     text-align: left;
-    padding-right: 1em;
+    padding: 0.5em 1em;
     position: sticky;
 }
 
 .stats th, #stats, td {
     padding: 0.5em 1em;
-    padding-left: 0;
 }
