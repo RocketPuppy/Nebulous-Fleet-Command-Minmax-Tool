@@ -351,8 +351,16 @@ function renderHtmlString(string) {
     return string;
 }
 
+function renderCsvString(string) {
+    return string;
+}
+
 function renderHtmlArray(arr) {
     return arr.join(", ");
+}
+
+function renderCsvArray(arr) {
+    return arr.join(";");
 }
 
 function renderHtmlObj(doSort) {
@@ -368,6 +376,19 @@ function renderHtmlObj(doSort) {
             }
             return `${k}: ${v}`;
         }).join("<br/>");
+    };
+}
+
+function renderCsvObj(doSort) {
+    return (obj) => {
+        let keys = Object.keys(obj);
+        if (doSort) {
+            keys = keys.sort();
+        }
+        return keys.map((k) => {
+            let v = obj[k];
+            return `${k}: ${v}`;
+        }).join(";");
     };
 }
 
@@ -407,6 +428,25 @@ const htmlRenders = {
     "OSP Brought Hulls": renderHtmlObj(false),
     "OSP Missing Hulls": renderHtmlArray,
     "OSP Hulls With Weapon": renderHtmlObj(true),
+};
+
+const csvRenders = {
+    "Report": renderCsvString,
+    "Winning Team": renderCsvString,
+    "ANS Players": renderCsvArray,
+    "ANS Combat Power": renderCsvString,
+    "ANS Common Hull": renderCsvString,
+    "ANS Rare Hull": renderCsvString,
+    "ANS Brought Hulls": renderCsvObj(false),
+    "ANS Missing Hulls": renderCsvArray,
+    "ANS Hulls With Weapon": renderCsvObj(true),
+    "OSP Players": renderCsvArray,
+    "OSP Combat Power": renderCsvString,
+    "OSP Common Hull": renderCsvString,
+    "OSP Rare Hull": renderCsvString,
+    "OSP Brought Hulls": renderCsvObj(false),
+    "OSP Missing Hulls": renderCsvArray,
+    "OSP Hulls With Weapon": renderCsvObj(true),
 };
 
 function collectRowStats(docs) {
@@ -481,6 +521,18 @@ const htmlAggRenders = {
     "Average Hulls With Weapon": renderHtmlObj(true),
     "Max Hulls With Weapon": renderHtmlObj(true),
     "Min Hulls With Weapon": renderHtmlObj(true),
+};
+
+const csvAggRenders = {
+    "Total": renderCsvString,
+    "Median Hull Counts": renderCsvObj(false),
+    "Average Hull Counts": renderCsvObj(false),
+    "Max Hull Counts": renderCsvObj(false),
+    "Min Hull Counts": renderCsvObj(false),
+    "Median Hulls With Weapon": renderCsvObj(true),
+    "Average Hulls With Weapon": renderCsvObj(true),
+    "Max Hulls With Weapon": renderCsvObj(true),
+    "Min Hulls With Weapon": renderCsvObj(true),
 };
 
 function collectAggStats(docs) {
@@ -682,9 +734,79 @@ function aggHullsWithWeps(aggFn) {
     };
 }
 
+function renderStatsCsv(stats) {
+    return Object.values(stats).map((statRow) => {
+        return Object.keys(statRow).map((statName) => {
+            const stat = statRow[statName];
+            return csvRenders[statName](stat);
+        }).join("\t");
+    });
+}
+
+function renderAggsCsv(stats) {
+    return Object.keys(aggStatCols).map((rowName) => {
+        return Object.keys(stats).map((colName) => {
+            const statRows = stats[colName];
+            return csvAggRenders[colName](statRows[rowName]);
+        }).join("\t");
+    });
+}
+
+function aggCsvHeaders(stats) {
+    return Object.keys(stats);
+}
+
+function statsCsvHeaders(stats) {
+    return Object.keys(Object.values(stats)[0]);
+}
+
+function downloadCsv(statCollector, statRenderer, headerFn, filename, docs) {
+    const separator = "\t";
+    const stats = statCollector(docs);
+    const csvHeader = headerFn(stats).map(JSON.stringify).join(separator);
+
+    const csvRows = statRenderer(stats);
+
+    const csv = [csvHeader, ...csvRows].join("\n");
+
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.style.display = 'none';
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+}
+
+function renderDownloaders(docs) {
+    const aggDownload = document.getElementById("agg-csv-download");
+    const statsDownload = document.getElementById("stats-csv-download");
+    aggDownload.classList.remove("hidden");
+    aggDownload.disabled = false;
+    statsDownload.classList.remove("hidden");
+    statsDownload.disabled = false;
+
+    aggDownload.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        downloadCsv(collectAggStats, renderAggsCsv, aggCsvHeaders, "agg-stats.csv", docs);
+    };
+    statsDownload.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        downloadCsv(collectRowStats, renderStatsCsv, statsCsvHeaders, "row-stats.csv", docs);
+    };
+}
+
 function ui() {
     const dragTarget = document.getElementById("drag-target");
     const fileInput = document.getElementById("report-file");
+
     fileInput.addEventListener("change", (e) => {
         const docPromises = [];
         if (fileInput.files) {
@@ -697,6 +819,7 @@ function ui() {
         Promise.all(docPromises).then((docs) => {
             renderRowStats(docs);
             renderAggStats(docs);
+            renderDownloaders(docs);
         });
     });
 
@@ -716,6 +839,7 @@ function ui() {
         Promise.all(docPromises).then((docs) => {
             renderRowStats(docs);
             renderAggStats(docs);
+            renderDownloaders(docs);
         });
     });
 
