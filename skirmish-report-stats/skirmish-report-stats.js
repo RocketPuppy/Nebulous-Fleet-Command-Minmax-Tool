@@ -319,6 +319,8 @@ const aggStatRows = {
     "Total": aggTotals,
     "Median Hull Counts": aggHulls(median),
     "Average Hull Counts": aggHulls(average),
+    "Max Hull Counts": aggHulls(max),
+    "Min Hull Counts": aggHulls(min),
     // "Median Weapon Counts": aggMedianWeps,
     // "Median Radar Counts": aggMedianRadars
 };
@@ -374,6 +376,20 @@ function average(nums) {
     const sum = nums.reduce((a, b) => a + b, 0);
     const length = nums.length;
     return [(sum/length).toFixed(1)];
+}
+
+function max(nums) {
+    if (nums.length === 0) {
+        return ["N/A"];
+    }
+    return [Math.max(...nums)];
+}
+
+function min(nums) {
+    if (nums.length === 0) {
+        return ["N/A"];
+    }
+    return [Math.min(...nums)];
 }
 
 function aggTotals(factionSelector, useWins, _) {
