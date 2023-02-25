@@ -745,15 +745,15 @@ function renderStatsCsv(stats) {
 
 function renderAggsCsv(stats) {
     return Object.keys(aggStatCols).map((rowName) => {
-        return Object.keys(stats).map((colName) => {
+        return [rowName, ...Object.keys(stats).map((colName) => {
             const statRows = stats[colName];
             return csvAggRenders[colName](statRows[rowName]);
-        }).join("\t");
+        })].join("\t");
     });
 }
 
 function aggCsvHeaders(stats) {
-    return Object.keys(stats);
+    return ["Report", ...Object.keys(stats)];
 }
 
 function statsCsvHeaders(stats) {
