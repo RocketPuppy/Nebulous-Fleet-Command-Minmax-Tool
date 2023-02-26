@@ -112,7 +112,8 @@ const englishWepNames = {
     "Stock/CM-4 Body": "Container Missile",
     "Stock/Decoy Container (Line Ship)": "Line Ship Decoy",
     "Stock/Mine Container": "Mine Container",
-    "Stock/S3 Mine": "Mine"
+    "Stock/S3 Mine": "Mine",
+    "Stock/Rocket Container": "Rocket Container",
 };
 
 /*
