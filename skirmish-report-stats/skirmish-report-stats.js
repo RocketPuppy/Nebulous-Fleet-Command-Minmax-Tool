@@ -100,6 +100,19 @@ const englishWepNames = {
     "T30 Cannon - 100mm HE-HC Shell": "100 HEHC",
     "T81 Plasma Cannon - 400mm Plasma Ampoule": "Plasma",
     "TE45 Mass Driver - 500mm Fracturing Block": "Mass Driver",
+    "Stock/SGM-1 Body": "S1 Balestra",
+    "Stock/SGM-2 Body": "S2 Tempest",
+    "Stock/SGM-H-2 Body": "S2H Cyclone",
+    "Stock/SGM-H-3 Body": "S3H Atlatl",
+    "Stock/SGT-3 Body": "S3 Pilum",
+    "Stock/S1 Rocket": "Rocket",
+    "Stock/S3 Sprint Mine": "Sprint Mine",
+    "Stock/Decoy Container (Clipper)": "Clipper Decoy",
+    "Stock/S3 Net Mine": "Net Mine",
+    "Stock/CM-4 Body": "Container Missile",
+    "Stock/Decoy Container (Line Ship)": "Line Ship Decoy",
+    "Stock/Mine Container": "Mine Container",
+    "Stock/S3 Mine": "Mine"
 };
 
 /*
@@ -339,6 +352,18 @@ function statWeaponCounts(selectFn) {
                     }
                     wep = weps.iterateNext();
                 }
+                let missiles = doc.evaluate(".//OffensiveMissileReport", report, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                let missile = missiles.iterateNext();
+                while(missile) {
+                    let missileType = englishWepNames[doc.evaluate(".//MissileKey", missile, resolver, XPathResult.STRING_TYPE).stringValue];
+                    let missileCount = doc.evaluate(".//TotalCarried", missile, resolver, XPathResult.NUMBER_TYPE).numberValue;
+                    if (wepCounts[missileType] === undefined) {
+                        wepCounts[missileType] = missileCount;
+                    } else {
+                        wepCounts[missileType] += missileCount;
+                    }
+                    missile = missiles.iterateNext();
+                }
                 return wepCounts;
             }
             report = teamReports.iterateNext();
@@ -373,6 +398,9 @@ function renderHtmlObj(doSort) {
             let v = obj[k];
             if (v instanceof Number) {
                 v = v.toLocaleString();
+            }
+            if (v instanceof Array) {
+                v = renderHtmlArray(v);
             }
             return `${k}: ${v}`;
         }).join("<br/>");
@@ -509,6 +537,10 @@ const aggStatRows = {
     "Average Hulls With Weapon": aggHullsWithWeps(average),
     "Max Hulls With Weapon": aggHullsWithWeps(max),
     "Min Hulls With Weapon": aggHullsWithWeps(min),
+    "Median Missile Totals": aggMissiles(median),
+    "Average Missile Totals": aggMissiles(average),
+    "Max Missile Totals": aggMissiles(max),
+    "Min Missile Totals": aggMissiles(min),
 };
 
 const htmlAggRenders = {
@@ -521,6 +553,10 @@ const htmlAggRenders = {
     "Average Hulls With Weapon": renderHtmlObj(true),
     "Max Hulls With Weapon": renderHtmlObj(true),
     "Min Hulls With Weapon": renderHtmlObj(true),
+    "Median Missile Totals": renderHtmlObj(true),
+    "Average Missile Totals": renderHtmlObj(true),
+    "Max Missile Totals": renderHtmlObj(true),
+    "Min Missile Totals": renderHtmlObj(true),
 };
 
 const csvAggRenders = {
@@ -533,6 +569,10 @@ const csvAggRenders = {
     "Average Hulls With Weapon": renderCsvObj(true),
     "Max Hulls With Weapon": renderCsvObj(true),
     "Min Hulls With Weapon": renderCsvObj(true),
+    "Median Missile Totals": renderCsvObj(true),
+    "Average Missile Totals": renderCsvObj(true),
+    "Max Missile Totals": renderCsvObj(true),
+    "Min Missile Totals": renderCsvObj(true),
 };
 
 function collectAggStats(docs) {
@@ -710,6 +750,54 @@ function aggHullsWithWeps(aggFn) {
                                 singleWepCounts[wepName] = 1;
                             } else {
                                 singleWepCounts[wepName] += 1;
+                            }
+                            wep = weps.iterateNext();
+                        }
+                        
+                        Object.entries(singleWepCounts).forEach(([wep, count]) => {
+                            if(wepCounts[wep] === undefined) {
+                                wepCounts[wep] = [count];
+                            } else {
+                                wepCounts[wep].push(count);
+                            }
+                        });
+                    }
+                    report = teamReports.iterateNext();
+                }
+            });
+            const ret = {};
+            Object.keys(wepCounts).sort().forEach((wepName) => {
+                ret[wepName] = aggFn(wepCounts[wepName] || []);
+            });
+            return ret;
+        };
+    };
+}
+
+function aggMissiles(aggFn) {
+    return (factionSelector, useWins, _) => {
+        return (docs) => {
+            const wepCounts = {}; // wep name => array of counts
+            docs.forEach(([_, doc]) => {
+                const resolver = doc.createNSResolver(doc);
+                const teamReports = doc.evaluate("//TeamReportOfShipBattleReport", doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                let report = teamReports.iterateNext();
+                while(report) {
+                    const didWin = getFactionFromReport(doc, report) === statWinningTeam(null, doc);
+                    if (factionSelector(doc, report) && ((useWins && didWin) || (!useWins && !didWin))) {
+                        let weps = doc.evaluate(".//OffensiveMissileReport", report, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+                        let wep = weps.iterateNext();
+                        let singleWepCounts = {};
+                        while(wep) {
+                            let wepName = englishWepNames[doc.evaluate(".//MissileKey", wep, resolver, XPathResult.STRING_TYPE).stringValue];
+                            let wepCount = doc.evaluate(".//TotalCarried", wep, resolver, XPathResult.NUMBER_TYPE).numberValue;
+                            if (wepName === undefined) {
+                                wepName = doc.evaluate(".//MissileKey", wep, resolver, XPathResult.STRING_TYPE).stringValue;
+                            }
+                            if (singleWepCounts[wepName] === undefined) {
+                                singleWepCounts[wepName] = wepCount;
+                            } else {
+                                singleWepCounts[wepName] += wepCount;
                             }
                             wep = weps.iterateNext();
                         }
