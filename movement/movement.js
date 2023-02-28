@@ -88,7 +88,8 @@ export function movement_inputs() {
       const topSpeed = flankMult * parseFloat(topSpeedInput.value);
       const thrust = flankMult * parseFloat(thrustInput.value) * 1000000; // convert from MN
       const mass = parseFloat(massInput.value) * 1000;  // convert from Tonnes
-      const translationThrust = thrust * selectedHull.translateThrustModifier;
+      const lateralThrust = thrust * selectedHull.lateralThrustModifier;
+      const brakingThrust = thrust * selectedHull.brakingThrustModifier;
       var selectedAmmo = []
       for(var i=0; i < ammoInput.selectedOptions.length; i++) {
           const o = ammoInput.selectedOptions.item(i);
@@ -98,8 +99,10 @@ export function movement_inputs() {
 
       let graphEl = document.getElementById('dodge-graph-main');
       do_graph(graphEl, selectedHull, thrust, mass, topSpeed, selectedAmmo);
-      graphEl = document.getElementById('dodge-graph-maneuver');
-      do_graph(graphEl, selectedHull, translationThrust, mass, topSpeed, selectedAmmo);
+      graphEl = document.getElementById('dodge-graph-lateral');
+      do_graph(graphEl, selectedHull, lateralThrust, mass, topSpeed, selectedAmmo);
+      graphEl = document.getElementById('dodge-graph-braking');
+      do_graph(graphEl, selectedHull, brakingThrust, mass, topSpeed, selectedAmmo);
     };
 
     shipForm.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
