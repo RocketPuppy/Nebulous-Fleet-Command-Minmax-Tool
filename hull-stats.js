@@ -5,4 +5,138 @@ export default [
     { "interiorDensity": 1, "damageResistance": 20, "height": 60, "length": 215, "name": "Vauxhaul", "width": 62, "armor": 30, "integrity": 5500, "crewVulnerability": 25.00, "lateralThrustModifier": 0.9, "brakingThrustModifier": 0.95 },
     { "interiorDensity": 1.2, "damageResistance": 40, "height": 75, "length": 195, "name": "Axford", "width": 70, "armor": 40, "integrity": 6500, "crewVulnerability": 25.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.85 },
     { "interiorDensity": 1.2, "damageResistance": 40, "height": 105, "length": 285, "name": "Solomon", "width": 80, "armor": 52, "integrity": 8000, "crewVulnerability": 30.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.85 },
+
+    { "interiorDensity": 0.5, "damageResistance": 0, "height": 23, "length": 68, "name": "Shuttle", "width": 36, "armor": 5, "integrity": 1000, "crewVulnerability": 60.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.8 },
+    { "interiorDensity": 0.5, "damageResistance": 0, "height": 40, "length": 87, "name": "Tugboat", "width": 53, "armor": 5, "integrity": 1000, "crewVulnerability": 60.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.8 },
+    { "interiorDensity": 0.5, "damageResistance": 20, "height": 52, "length": 128, "name": "Cargo Feeder", "width": 56, "armor": 40, "integrity": 1000, "crewVulnerability": 60.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.8 },
+    { "interiorDensity": 1.2, "damageResistance": 40, "height": 75, "length": 210, "name": "Ocello", "width": 50, "armor": 40, "integrity": 6500, "crewVulnerability": 25.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.85 },
+    { "interiorDensity": 0.25, "damageResistance": 35, "height": 115, "length": 309, "name": "Bulk Freighter", "width": 90, "armor": 20, "integrity": 3000, "crewVulnerability": 75.00, "lateralThrustModifier": 0.3, "brakingThrustModifier": 0.8 },
+    { "interiorDensity": 0.25, "damageResistance": 20, "height": 110, "length": 345, "name": "Container Liner", "width": 100, "armor": 20, "integrity": 3000, "crewVulnerability": 75.00, "lateralThrustModifier": 0.3, "brakingThrustModifier": 0.8 },
+
 ]
+
+export const bulkerSegments = {
+    bows: [
+        {
+            name: "Bulk - A - Bow",
+            key: "38e7a28f-1b06-4b73-98ee-f03d1d8a81fe",
+        },
+        {
+            name: "Bulk - B - Bow",
+            key: "29eb9c63-6c47-40f2-8f46-4ed4da8d3386",
+        },
+        {
+            name: "Bulk - C - Bow",
+            key: "c534a876-3f8a-4315-a194-5dda0f84c2b3",
+        },
+    ],
+    cores: [
+        {
+            name: "Bulk - A - Core",
+            key: "d4c9a66d-81e6-49ee-9b33-82d7a1522bbf",
+        },
+        {
+            name: "Bulk - B - Core",
+            key: "e2c11e02-b770-495e-a3c2-3dc998eac5a6",
+        },
+        {
+            name: "Bulk - C - Core",
+            key: "429f178e-e369-4f51-8054-2e01dd0abea1",
+        },
+    ],
+    sterns: [
+        {
+            name: "Bulk - A - Stern",
+            key: "78d72a9a-893c-41c6-bddd-f198dfcf77ee",
+        },
+        {
+            name: "Bulk - B - Stern",
+            key: "2f2b451c-4776-405c-9914-cad4764f1072",
+        },
+        {
+            name: "Bulk - C - Stern",
+            key: "a8bf77b9-b7e3-4498-bf91-d3e777a7f688",
+        },
+    ],
+    superstructure: [
+        {
+            name: "Superstructure 1",
+            key: "42d07c1a-156b-4057-aaca-7a2024751423",
+        },
+        {
+            name: "Superstructure 2",
+            key: "c9d04445-3558-46b4-b6fc-7dca8617d438",
+        },
+        {
+            name: "Superstructure 3",
+            key: "9ebcea74-e9c9-45b3-b616-e12e3f491024",
+        },
+        {
+            name: "Superstructure 4",
+            key: "59344a67-9e7b-43df-9f7c-505ad9a0ab87",
+        },
+    ]
+};
+
+export const containerSegments = {
+    bows: [
+        {
+            name: "Container - A - Bow",
+            key: "2d7c228c-cbd6-425e-9590-a2f8ae8d5915",
+        },
+        {
+            name: "Container - B - Bow",
+            key: "541cf476-4952-4234-a35a-5f1aa9089316",
+        },
+        {
+            name: "Container - C - Bow",
+            key: "bb034299-84c2-456f-b271-c91249cd4375",
+        },
+    ],
+    cores: [
+        {
+            name: "Container - A - Core",
+            key: "18a6bc15-58b0-479c-82c3-1722768f033d",
+        },
+        {
+            name: "Container - B - Core",
+            key: "09354e51-953c-451a-b415-3e3361812650",
+        },
+        {
+            name: "Container - C - Core",
+            key: "2c68a462-a143-4c89-aea0-df09d4786e92",
+        },
+    ],
+    sterns: [
+        {
+            name: "Container - A - Stern",
+            key: "674e0528-3e0c-48e4-8e5e-d3a559869104",
+        },
+        {
+            name: "Container - B - Stern",
+            key: "2dbd82fe-d365-4367-aef5-9bb2d3528528",
+        },
+        {
+            name: "Container - C - Stern",
+            key: "aff1eba2-048e-4477-956b-574f4d468f1d",
+        },
+    ],
+    superstructure: [
+        {
+            name: "Superstructure 1",
+            key: "42d07c1a-156b-4057-aaca-7a2024751423",
+        },
+        {
+            name: "Superstructure 2",
+            key: "c9d04445-3558-46b4-b6fc-7dca8617d438",
+        },
+        {
+            name: "Superstructure 3",
+            key: "9ebcea74-e9c9-45b3-b616-e12e3f491024",
+        },
+        {
+            name: "Superstructure 4",
+            key: "59344a67-9e7b-43df-9f7c-505ad9a0ab87",
+        },
+    ]
+};

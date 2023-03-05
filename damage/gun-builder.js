@@ -49,15 +49,18 @@ export function setupGunBuilder(weaponSelectedCB) {
 
     switch(selectedAmmo.caliber.name) {
       case "120mm":
+      case "100mm":
         weaponSelectedCB(cannon120, selectedAmmo);
         break;
       case "250mm":
         weaponSelectedCB(cannon250, selectedAmmo);
         break;
       case "450mm":
+      case "400mm":
         weaponSelectedCB(cannon450, selectedAmmo);
         break;
       case "300mm":
+      case "500mm":
         weaponSelectedCB(railgun, selectedAmmo);
         break;
       default:
