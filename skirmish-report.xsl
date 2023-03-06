@@ -1137,6 +1137,14 @@
         <xsl:variable name="mk610">Stock/Mk610 Beam Turret</xsl:variable>
         <xsl:variable name="mk600">Stock/Mk600 Beam Cannon</xsl:variable>
         <xsl:variable name="mk550">Stock/Mk550 Mass Driver</xsl:variable>
+        <xsl:variable name="e20">Stock/E20 'Lighthouse' Illuminator</xsl:variable>
+        <xsl:variable name="j360">Stock/J360 Jammer</xsl:variable>
+        <xsl:variable name="l50">Stock/L50 Laser Dazzler</xsl:variable>
+        <xsl:variable name="t81">Stock/T81 Plasma Cannon</xsl:variable>
+        <xsl:variable name="c53">Stock/C53 Cannon</xsl:variable>
+        <xsl:variable name="t20">Stock/T20 Cannon</xsl:variable>
+        <xsl:variable name="p60">Stock/P60 Laser PDT</xsl:variable>
+        <xsl:variable name="p11">Stock/P11 PDT</xsl:variable>
         <img class="weapon-image">
             <xsl:attribute name="src">
                 <xsl:choose>
@@ -1168,6 +1176,14 @@
                     <xsl:when test="$name = $mk610">mk610.svg</xsl:when>
                     <xsl:when test="$name = $mk600">mk600.svg</xsl:when>
                     <xsl:when test="$name = $mk550">mk550.svg</xsl:when>
+                    <xsl:when test="$name = $e20">e20.svg</xsl:when>
+                    <xsl:when test="$name = $j360">j360.svg</xsl:when>
+                    <xsl:when test="$name = $l50">l50.svg</xsl:when>
+                    <xsl:when test="$name = $t81">t81.svg</xsl:when>
+                    <xsl:when test="$name = $c53">c53.svg</xsl:when>
+                    <xsl:when test="$name = $t20">t20.svg</xsl:when>
+                    <xsl:when test="$name = $p60">p60.svg</xsl:when>
+                    <xsl:when test="$name = $p11">p11.svg</xsl:when>
                     <xsl:otherwise></xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
@@ -1175,6 +1191,8 @@
                 <xsl:choose>
                     <xsl:when test="$name=$mk600">weapon-image straight</xsl:when>
                     <xsl:when test="$name=$mk550">weapon-image straight</xsl:when>
+                    <xsl:when test="$name=$l50">weapon-image straight</xsl:when>
+                    <xsl:when test="$name=$c53">weapon-image straight</xsl:when>
                     <xsl:otherwise>weapon-image</xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
