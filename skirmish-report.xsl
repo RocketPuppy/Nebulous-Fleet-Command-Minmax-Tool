@@ -1178,6 +1178,7 @@
         <xsl:variable name="t20">Stock/T20 Cannon</xsl:variable>
         <xsl:variable name="p60">Stock/P60 Laser PDT</xsl:variable>
         <xsl:variable name="p11">Stock/P11 PDT</xsl:variable>
+        <xsl:variable name="c81">Stock/C81 Plasma Cannon</xsl:variable>
         <img class="weapon-image">
             <xsl:attribute name="src">
                 <xsl:choose>
@@ -1217,6 +1218,7 @@
                     <xsl:when test="$name = $t20">t20.svg</xsl:when>
                     <xsl:when test="$name = $p60">p60.svg</xsl:when>
                     <xsl:when test="$name = $p11">p11.svg</xsl:when>
+                    <xsl:when test="$name = $c81">c81.svg</xsl:when>
                     <xsl:otherwise></xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
@@ -1226,6 +1228,7 @@
                     <xsl:when test="$name=$mk550">weapon-image straight</xsl:when>
                     <xsl:when test="$name=$l50">weapon-image straight</xsl:when>
                     <xsl:when test="$name=$c53">weapon-image straight</xsl:when>
+                    <xsl:when test="$name=$c81">weapon-image straight</xsl:when>
                     <xsl:otherwise>weapon-image</xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
