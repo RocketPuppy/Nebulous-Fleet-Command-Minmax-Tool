@@ -15,6 +15,7 @@
     <xsl:include href="./shuttle-dc-board.xsl" />
     <xsl:include href="./ocello-dc-board.xsl" />
     <xsl:include href="./tug-dc-board.xsl" />
+    <xsl:include href="./cargo-feeder-dc-board.xsl" />
     <xsl:template match="/">
         <xsl:apply-templates select="FullAfterActionReport"/>
     </xsl:template>
@@ -171,6 +172,11 @@
                                 <xsl:with-param name="parts" select="PartStatus/PartDamage" />
                             </xsl:call-template>
                         </xsl:when>
+                        <xsl:when test="./HullKey = 'Stock/Bulk Feeder'">
+                            <xsl:call-template name="cargo-feeder-dc-board">
+                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                            </xsl:call-template>
+                        </xsl:when>
                     </xsl:choose>
                 </div>
                 <div class="stats">
@@ -230,6 +236,11 @@
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Tugboat'">
                             <xsl:call-template name="tug-dc-board">
+                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="./HullKey = 'Stock/Bulk Feeder'">
+                            <xsl:call-template name="cargo-feeder-dc-board">
                                 <xsl:with-param name="parts" select="PartStatus/PartDamage" />
                             </xsl:call-template>
                         </xsl:when>
