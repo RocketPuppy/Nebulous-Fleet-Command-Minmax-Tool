@@ -1,5 +1,5 @@
 export default [
-    { "interiorDensity": 0.5, "damageResistance": 0, "height": 28, "length": 80, "name": "Sprinter", "width": 37, "armor": 5, "integrity": 1000, "crewVulnerability": 60.00, "lateralThrustModifier": 0.9, "brakingThrustModifier": 0.95 },
+    { "interiorDensity": 0.5, "damageResistance": 0, "height": 28, "length": 80, "name": "Sprinter", "width": 37, "armor": 8, "integrity": 1000, "crewVulnerability": 60.00, "lateralThrustModifier": 0.9, "brakingThrustModifier": 0.95 },
     { "interiorDensity": 0.5, "damageResistance": 5, "height": 40, "length": 96, "name": "Raines", "width": 35, "armor": 15, "integrity": 3000, "crewVulnerability": 60.00, "lateralThrustModifier": 0.8, "brakingThrustModifier": 0.9 },
     { "interiorDensity": 0.5, "damageResistance": 10, "height": 45, "length": 130, "name": "Keystone", "width": 50, "armor": 22, "integrity": 4000, "crewVulnerability": 45.00, "lateralThrustModifier": 0.8, "brakingThrustModifier": 0.9 },
     { "interiorDensity": 1, "damageResistance": 20, "height": 60, "length": 215, "name": "Vauxhaul", "width": 62, "armor": 30, "integrity": 5500, "crewVulnerability": 25.00, "lateralThrustModifier": 0.9, "brakingThrustModifier": 0.95 },
@@ -9,7 +9,7 @@ export default [
     { "interiorDensity": 0.5, "damageResistance": 0, "height": 23, "length": 68, "name": "Shuttle", "width": 36, "armor": 5, "integrity": 1000, "crewVulnerability": 60.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.8 },
     { "interiorDensity": 0.5, "damageResistance": 0, "height": 40, "length": 87, "name": "Tugboat", "width": 53, "armor": 5, "integrity": 1000, "crewVulnerability": 60.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.8 },
     { "interiorDensity": 0.5, "damageResistance": 20, "height": 52, "length": 128, "name": "Cargo Feeder", "width": 56, "armor": 40, "integrity": 1000, "crewVulnerability": 60.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.8 },
-    { "interiorDensity": 1.2, "damageResistance": 40, "height": 75, "length": 210, "name": "Ocello", "width": 50, "armor": 40, "integrity": 6500, "crewVulnerability": 25.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.85 },
+    { "interiorDensity": 1.2, "damageResistance": 40, "height": 75, "length": 210, "name": "Ocello", "width": 50, "armor": 30, "integrity": 6500, "crewVulnerability": 25.00, "lateralThrustModifier": 0.75, "brakingThrustModifier": 0.85 },
     { "interiorDensity": 0.25, "damageResistance": 35, "height": 115, "length": 309, "name": "Bulk Freighter", "width": 90, "armor": 20, "integrity": 3000, "crewVulnerability": 75.00, "lateralThrustModifier": 0.3, "brakingThrustModifier": 0.8 },
     { "interiorDensity": 0.25, "damageResistance": 20, "height": 110, "length": 345, "name": "Container Liner", "width": 100, "armor": 20, "integrity": 3000, "crewVulnerability": 75.00, "lateralThrustModifier": 0.3, "brakingThrustModifier": 0.8 },
 
