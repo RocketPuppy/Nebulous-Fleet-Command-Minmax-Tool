@@ -1193,6 +1193,8 @@
         <xsl:variable name="te45">Stock/TE45 Mass Driver</xsl:variable>
         <xsl:variable name="c60">Stock/C60 Cannon</xsl:variable>
         <xsl:variable name="c65">Stock/C65 Cannon</xsl:variable>
+        <xsl:variable name="j15">Stock/J15 Jammer</xsl:variable>
+        <xsl:variable name="mk65">Stock/Mk65 Cannon</xsl:variable>
         <img class="weapon-image">
             <xsl:attribute name="src">
                 <xsl:choose>
@@ -1247,6 +1249,8 @@
                     <xsl:when test="$name = $te45">te45.svg</xsl:when>
                     <xsl:when test="$name = $c60">c60.svg</xsl:when>
                     <xsl:when test="$name = $c65">c65.svg</xsl:when>
+                    <xsl:when test="$name = $j15">j15.svg</xsl:when>
+                    <xsl:when test="$name = $mk65">mk65.svg</xsl:when>
                     <xsl:otherwise></xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
