@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" exclude-result-prefixes="xs" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" omit-xml-declaration="yes" indent="yes" />
   <xsl:template name="cargo-feeder-dc-board">
-    <xsl:param name="parts" />
+    <xsl:param name="ship-report" />
     <svg width="87.843399mm" height="45.658253mm" viewBox="0 0 87.843399 45.658253" version="1.1" id="svg8533" xml:space="preserve" class="cargo-feeder-dc-board" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
       <defs id="defs8530" />
       <g id="layer1" transform="translate(-23.043704,-15.374003)" />
@@ -18,7 +18,7 @@
         <path style="fill:none;fill-rule:evenodd;stroke:#8c8c8c;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 32.268144,37.169354 h -1.330645 l -0.443548,0.443548 -5.305726,-1.421665 h -1.391854 l -0.620376,0.358175 v 16.587684 l 0.828821,0.47852 h 0.966958 l 5.380604,-1.441728 0.452593,0.452594 h 1.507527" id="path12868" />
       </g>
       <g id="sockets" transform="translate(-23.043704,-15.374003)">
-        <xsl:apply-templates select="$parts" mode="cargo-feeder-dc-board" />
+        <xsl:apply-templates select="$ship-report/PartStatus/PartDamage" mode="cargo-feeder-dc-board" />
       </g>
     </svg>
   </xsl:template>

@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" exclude-result-prefixes="xs" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" omit-xml-declaration="yes" indent="yes" />
   <xsl:template name="solomon-dc-board">
-    <xsl:param name="parts" />
+    <xsl:param name="ship-report" />
     <svg width="90.603714mm" height="42.446186mm" viewBox="0 0 90.603714 42.446186" version="1.1" id="svg2420" xml:space="preserve" class="solomon-dc-board" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
       <defs id="defs2417" />
       <g id="frame" transform="translate(-31.780178,-42.005427)">
@@ -41,7 +41,7 @@
         <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 70.124999,73.229837 H 81.124998" id="path2652" />
       </g>
       <g id="sockets" transform="translate(-31.780178,-42.005427)">
-        <xsl:apply-templates select="$parts" mode="solomon-dc-board" />
+        <xsl:apply-templates select="$ship-report/PartStatus/PartDamage" mode="solomon-dc-board" />
       </g>
     </svg>
   </xsl:template>

@@ -18,7 +18,7 @@
             <xsl:element name="xsl:template">
                 <xsl:attribute name="name"><xsl:value-of select="@class" /></xsl:attribute>
                 <xsl:element name="xsl:param">
-                    <xsl:attribute name="name"><xsl:text>parts</xsl:text></xsl:attribute>
+                    <xsl:attribute name="name"><xsl:text>ship-report</xsl:text></xsl:attribute>
                 </xsl:element>
                 <xsl:copy>
                     <xsl:apply-templates select="@* | node()" />
@@ -40,7 +40,7 @@
         <xsl:copy>
             <xsl:apply-templates select="@*" />
             <xsl:element name="xsl:apply-templates">
-                <xsl:attribute name="select"><xsl:text>$parts</xsl:text></xsl:attribute>
+                <xsl:attribute name="select"><xsl:text>$ship-report/PartStatus/PartDamage</xsl:text></xsl:attribute>
                 <xsl:attribute name="mode"><xsl:value-of select="//svg:svg/@class" /></xsl:attribute>
             </xsl:element>
         </xsl:copy>

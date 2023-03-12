@@ -129,52 +129,52 @@
                     <xsl:choose>
                         <xsl:when test="./HullKey = 'Stock/Sprinter Corvette'">
                             <xsl:call-template name="sprinter-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Raines Frigate'">
                             <xsl:call-template name="raines-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Keystone Destroyer'">
                             <xsl:call-template name="keystone-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Vauxhall Light Cruiser'">
                             <xsl:call-template name="vauxhall-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Axford Heavy Cruiser'">
                             <xsl:call-template name="axford-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Solomon Battleship'">
                             <xsl:call-template name="solomon-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Shuttle'">
                             <xsl:call-template name="shuttle-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Ocello Cruiser'">
                             <xsl:call-template name="ocello-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Tugboat'">
                             <xsl:call-template name="tug-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Bulk Feeder'">
                             <xsl:call-template name="cargo-feeder-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                     </xsl:choose>
@@ -196,52 +196,52 @@
                     <xsl:choose>
                         <xsl:when test="./HullKey = 'Stock/Sprinter Corvette'">
                             <xsl:call-template name="sprinter-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Raines Frigate'">
                             <xsl:call-template name="raines-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Keystone Destroyer'">
                             <xsl:call-template name="keystone-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Vauxhall Light Cruiser'">
                             <xsl:call-template name="vauxhall-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Axford Heavy Cruiser'">
                             <xsl:call-template name="axford-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Solomon Battleship'">
                             <xsl:call-template name="solomon-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Shuttle'">
                             <xsl:call-template name="shuttle-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Ocello Cruiser'">
                             <xsl:call-template name="ocello-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Tugboat'">
                             <xsl:call-template name="tug-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Bulk Feeder'">
                             <xsl:call-template name="cargo-feeder-dc-board">
-                                <xsl:with-param name="parts" select="PartStatus/PartDamage" />
+                                <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
                     </xsl:choose>

@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" exclude-result-prefixes="xs" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" omit-xml-declaration="yes" indent="yes" />
   <xsl:template name="tug-dc-board">
-    <xsl:param name="parts" />
+    <xsl:param name="ship-report" />
     <svg width="81.280128mm" height="45.124878mm" viewBox="0 0 81.280128 45.124878" version="1.1" id="svg1072" xml:space="preserve" class="tug-dc-board" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
       <defs id="defs1069" />
       <g id="layer1" transform="translate(-32.769765,-11.86502)" />
@@ -28,7 +28,7 @@
         <path style="fill:none;fill-rule:evenodd;stroke:#8c8c8c;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" d="m 37.649201,30.709254 -1.228246,0.329107 -2.364497,-0.905719 h -0.842742 l -0.243951,0.243951 v 23.819719 l 0.333852,0.333851 h 0.772943 l 2.587497,-1.039532 0.940789,0.543163" id="path1393" />
       </g>
       <g id="sockets" transform="translate(-32.769765,-11.86502)" style="stroke:none">
-        <xsl:apply-templates select="$parts" mode="tug-dc-board" />
+        <xsl:apply-templates select="$ship-report/PartStatus/PartDamage" mode="tug-dc-board" />
       </g>
     </svg>
   </xsl:template>

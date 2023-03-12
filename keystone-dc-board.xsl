@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" exclude-result-prefixes="xs" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" omit-xml-declaration="yes" indent="yes" />
   <xsl:template name="keystone-dc-board">
-    <xsl:param name="parts" />
+    <xsl:param name="ship-report" />
     <svg width="91.447716mm" height="33.8871mm" viewBox="0 0 91.447716 33.8871" version="1.1" id="svg13250" xml:space="preserve" class="keystone-dc-board" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
       <defs id="defs13247" />
       <g id="frame" transform="translate(-34.96358,-45.330647)">
@@ -31,7 +31,7 @@
         <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 119.70712,53.788587 h 5.37095 l 0.40772,0.407726 V 69.90948 l -0.63511,0.635114 H 112.8933" id="path13798" />
       </g>
       <g id="sockets" transform="translate(-34.96358,-45.330647)">
-        <xsl:apply-templates select="$parts" mode="keystone-dc-board" />
+        <xsl:apply-templates select="$ship-report/PartStatus/PartDamage" mode="keystone-dc-board" />
       </g>
     </svg>
   </xsl:template>

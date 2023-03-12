@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" exclude-result-prefixes="xs" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" omit-xml-declaration="yes" indent="yes" />
   <xsl:template name="raines-dc-board">
-    <xsl:param name="parts" />
+    <xsl:param name="ship-report" />
     <svg width="90.637566mm" height="40.772682mm" viewBox="0 0 90.637566 40.772682" version="1.1" id="svg7643" xml:space="preserve" class="raines-dc-board" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
       <defs id="defs7640" />
       <g id="frame" style="fill:none" transform="translate(-65.379806,-43.783597)">
@@ -23,7 +23,7 @@
         <path style="fill:#888888;fill-opacity:1;fill-rule:evenodd;stroke:#888888;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 153.95564,65.800403 h 1.61896 l 0.31048,0.399193 v 6.409274 l -0.31048,0.443548 -1.55242,0.421373 z" id="path7954" />
       </g>
       <g id="sockets" transform="translate(-65.379806,-43.783597)">
-        <xsl:apply-templates select="$parts" mode="raines-dc-board" />
+        <xsl:apply-templates select="$ship-report/PartStatus/PartDamage" mode="raines-dc-board" />
       </g>
     </svg>
   </xsl:template>

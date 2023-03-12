@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" exclude-result-prefixes="xs" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" omit-xml-declaration="yes" indent="yes" />
   <xsl:template name="sprinter-dc-board">
-    <xsl:param name="parts" />
+    <xsl:param name="ship-report" />
     <svg width="91.877907mm" height="46.37804mm" viewBox="0 0 91.877907 46.37804" version="1.1" id="svg8299" xml:space="preserve" class="sprinter-dc-board" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
   <defs id="defs8296" />
   <g id="frame" transform="matrix(0.3391163,0,0,0.3423576,18.43607,23.727112)" style="stroke:#888888;stroke-opacity:1">
@@ -29,7 +29,7 @@
       <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 207.04426,15.572789 -72.96978,3.96557 -48.928527,-1.27668" id="path5322-6" />
       <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 206.68781,-7.6539444 5.41473,0.7562837 V 12.990055 l -5.25738,1.332621" id="path5324-9" />
       <path style="fill:none;fill-rule:evenodd;stroke:#888888;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 85.979568,-45.318981 4.07212,-3.321706 6.108665,-0.05766 1.438037,1.273718 h 7.59198 l 2.38815,1.059743 h 9.96544 l 10.11503,0.686525 v 1.714444 h -10.71267 l -1.54889,0.894258 H 95.933314" id="path5359-3" />
-    </g><g id="sockets" style="fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-dasharray:none;stroke-opacity:1" transform="matrix(1.9234055,0,0,1.9234055,-125.45565,-179.5821)"><xsl:apply-templates select="$parts" mode="sprinter-dc-board" /></g>
+    </g><g id="sockets" style="fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.412809;stroke-dasharray:none;stroke-opacity:1" transform="matrix(1.9234055,0,0,1.9234055,-125.45565,-179.5821)"><xsl:apply-templates select="$ship-report/PartStatus/PartDamage" mode="sprinter-dc-board" /></g>
 </svg>
   </xsl:template>
   <xsl:template match="PartDamage" mode="sprinter-dc-board">

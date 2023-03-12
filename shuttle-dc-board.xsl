@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" exclude-result-prefixes="xs" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" omit-xml-declaration="yes" indent="yes" />
   <xsl:template name="shuttle-dc-board">
-    <xsl:param name="parts" />
+    <xsl:param name="ship-report" />
     <svg width="89.930244mm" height="36.9007mm" viewBox="0 0 89.930244 36.9007" version="1.1" id="svg5" xml:space="preserve" class="shuttle-dc-board" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
       <defs id="defs2" />
       <g id="layer2" transform="translate(13.018548,132.79879)">
@@ -16,7 +16,7 @@
         <path style="fill:none;fill-rule:evenodd;stroke:#8c8c8c;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" d="m -4.967742,-120.04637 h -1.0423385 l -0.4879033,0.4879 -4.4798382,-1.30846 h -1.530242 l -0.310484,0.31048 v 15.30242 l 0.299395,0.2994 h 1.253024 l 4.7459679,-1.36392 0.3991935,0.3992 h 1.1532256 z" id="path5241" />
       </g>
       <g id="sockets" transform="translate(13.018548,132.79879)">
-        <xsl:apply-templates select="$parts" mode="shuttle-dc-board" />
+        <xsl:apply-templates select="$ship-report/PartStatus/PartDamage" mode="shuttle-dc-board" />
       </g>
     </svg>
   </xsl:template>

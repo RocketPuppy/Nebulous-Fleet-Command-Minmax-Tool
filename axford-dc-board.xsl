@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" exclude-result-prefixes="xs" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" omit-xml-declaration="yes" indent="yes" />
   <xsl:template name="axford-dc-board">
-    <xsl:param name="parts" />
+    <xsl:param name="ship-report" />
     <svg width="131.16342mm" height="60.323685mm" viewBox="0 0 131.16342 60.323685" version="1.1" id="svg5" class="axford-dc-board" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
   <defs id="defs2" />
   <g id="layer1" transform="translate(-324.18398,-48.622296)">
@@ -26,7 +26,7 @@
       <path style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#888888;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" d="m 332.497,73.370095 h -1.50788 l -0.37325,0.417145 -4.82478,-1.598539 h -0.4893 l -0.86781,0.540589 v 17.405892 l 0.93144,0.380275 h 0.87879 l 1.38713,-0.469357 v 6.768012 h 0.75224 l 2.05907,-0.770236 0.39668,0.3937 h 1.54594 z" id="path1524" />
       <path style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#888888;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1" d="m 453.02209,72.605875 2.07531,0.884166 v 5.90432 l -0.4064,0.437801 0.4064,0.357103 v 6.068258 l -2.01527,0.676312 z" id="path1625" />
     </g>
-    <g id="sockets" style="fill:#b9b9b9;fill-opacity:1;stroke:none"><xsl:apply-templates select="$parts" mode="axford-dc-board" /></g>
+    <g id="sockets" style="fill:#b9b9b9;fill-opacity:1;stroke:none"><xsl:apply-templates select="$ship-report/PartStatus/PartDamage" mode="axford-dc-board" /></g>
   </g>
 </svg>
   </xsl:template>

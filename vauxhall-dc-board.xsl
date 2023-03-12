@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" exclude-result-prefixes="xs" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" omit-xml-declaration="yes" indent="yes" />
   <xsl:template name="vauxhall-dc-board">
-    <xsl:param name="parts" />
+    <xsl:param name="ship-report" />
     <svg width="91.229492mm" height="26.270887mm" viewBox="0 0 91.229492 26.270887" version="1.1" id="svg263" xml:space="preserve" class="vauxhall-dc-board" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
       <defs id="defs260" />
       <g id="frame" transform="translate(-52.61248,-42.999509)">
@@ -29,7 +29,7 @@
         <path style="fill:#888888;fill-opacity:1;fill-rule:evenodd;stroke:#888888;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 142.50101,52.882056 h 1.20867 v 4.280241 l -0.39365,0.39365 h -0.8372 z" id="path696" />
       </g>
       <g id="sockets" transform="translate(-52.61248,-42.999509)">
-        <xsl:apply-templates select="$parts" mode="vauxhall-dc-board" />
+        <xsl:apply-templates select="$ship-report/PartStatus/PartDamage" mode="vauxhall-dc-board" />
       </g>
     </svg>
   </xsl:template>
