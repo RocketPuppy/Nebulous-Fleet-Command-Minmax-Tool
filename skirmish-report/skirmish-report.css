@@ -293,10 +293,7 @@ h4 {
 .dc-board svg {
     width: 100%;
     height: auto;
-}
-
-.dc-board .sockets rect {
-    display: none;
+    overflow: visible;
 }
 
 .ship.details .dc-board {
@@ -541,4 +538,12 @@ h4 {
 
 .weapon-image {
     margin-right: 0.25em;
+}
+
+.ship.details.lineship .dc-board {
+    flex-basis: 100%;
+}
+
+.ship.details.lineship .stats {
+    flex-basis: 45%;
 }

@@ -16,6 +16,7 @@
     <xsl:include href="./ocello-dc-board.xsl" />
     <xsl:include href="./tug-dc-board.xsl" />
     <xsl:include href="./cargo-feeder-dc-board.xsl" />
+    <xsl:include href="./container-freighter-dc-board.xsl" />
     <xsl:template match="/">
         <xsl:apply-templates select="FullAfterActionReport"/>
     </xsl:template>
@@ -177,6 +178,11 @@
                                 <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
+                        <xsl:when test="./HullKey = 'Stock/Container Hauler'">
+                            <xsl:call-template name="container-freighter-dc-board">
+                                <xsl:with-param name="ship-report" select="." />
+                            </xsl:call-template>
+                        </xsl:when>
                     </xsl:choose>
                 </div>
                 <div class="stats">
@@ -187,9 +193,12 @@
         </div>
     </xsl:template>
     <xsl:template match="ShipBattleReport" mode="details">
-        <div class="ship details hidden">
+        <div>
             <xsl:attribute name="data-ship-id">
                 <xsl:value-of select="../../AccountId"></xsl:value-of>-<xsl:value-of select="count(../ShipBattleReport[. = current()]/preceding-sibling::*)+1"></xsl:value-of>
+            </xsl:attribute>
+            <xsl:attribute name="class">
+                ship details hidden <xsl:if test="./HullKey = 'Stock/Container Hauler'">lineship</xsl:if>
             </xsl:attribute>
             <div class="summary">
                 <div class="dc-board">
@@ -241,6 +250,11 @@
                         </xsl:when>
                         <xsl:when test="./HullKey = 'Stock/Bulk Feeder'">
                             <xsl:call-template name="cargo-feeder-dc-board">
+                                <xsl:with-param name="ship-report" select="." />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="./HullKey = 'Stock/Container Hauler'">
+                            <xsl:call-template name="container-freighter-dc-board">
                                 <xsl:with-param name="ship-report" select="." />
                             </xsl:call-template>
                         </xsl:when>
