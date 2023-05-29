@@ -25,15 +25,15 @@
                     <xsl:element name="xsl:apply-templates">
                         <xsl:attribute name="select">$ship-report//HullConfig/PrimaryStructure/SegmentConfiguration</xsl:attribute>
                     </xsl:element>
-                    <xsl:element name="xsl:apply-templates">
+                    <!-- <xsl:element name="xsl:apply-templates">
                         <xsl:attribute name="select">$ship-report//HullConfig/SecondaryStructure/SecondaryStructureConfig</xsl:attribute>
-                    </xsl:element>
+                    </xsl:element> -->
                 </xsl:copy>
             </xsl:element>
 
             <xsl:apply-templates select="//svg:g[@id='sockets']" mode="template"/>
             <xsl:apply-templates select="//svg:g[contains(@class, 'hull')]" mode="template"/>
-            <xsl:apply-templates select="//svg:g[contains(@class, 'super')]" mode="template"/>
+            <!-- <xsl:apply-templates select="//svg:g[contains(@class, 'super')]" mode="template"/> -->
         </xsl:element>
     </xsl:template>
 
@@ -65,13 +65,39 @@
 
     <xsl:template match="svg:g[contains(@class, 'hull')]" mode="template">
         <xsl:element name="xsl:template">
-            <xsl:attribute name="match">HullConfig/PrimaryStructure/SegmentConfiguration[Key = '<xsl:value-of select="substring(./@id, 6)" />']</xsl:attribute>
+            <xsl:attribute name="match">HullConfig/PrimaryStructure/SegmentConfiguration[Key = '<xsl:value-of select="substring(@id, 6)" />']</xsl:attribute>
             <xsl:copy>
                 <xsl:apply-templates select="@*" />
-                <xsl:apply-templates select="svg:g[@class='frame']" />
-                <xsl:apply-templates select="svg:g" mode="template"/>
+                <xsl:if test="contains(@class, 'bow')">
+                    <xsl:element name="xsl:attribute">
+                        <xsl:attribute name="name">data-core</xsl:attribute>
+                        <xsl:element name="xsl:value-of">
+                            <xsl:attribute name="select">./following-sibling::node()/Key/text()</xsl:attribute>
+                        </xsl:element>
+                    </xsl:element>
+                </xsl:if>
+                <xsl:apply-templates select="node()" mode="template"/>
             </xsl:copy>
         </xsl:element>
+    </xsl:template>
+
+    <xsl:template match="svg:g[contains(@class, 'hull')]/svg:g" mode="template">
+        <xsl:copy>
+            <xsl:apply-templates select="@*" />
+            <xsl:apply-templates select="svg:g[@class='frame']" />
+            <xsl:apply-templates select="svg:g[@class='sockets']" mode="template"/>
+            <!-- <xsl:apply-templates select="svg:g[@class='super']" mode="template"/> -->
+            <xsl:for-each select="svg:g[@class='super']">
+                <xsl:element name="xsl:if">
+                    <xsl:attribute name="test">../../..//HullConfig/SecondaryStructure/SecondaryStructureConfig[Segment = <xsl:value-of select="./@data-index" />][Key = '<xsl:value-of select="./@data-hull" />']</xsl:attribute>
+                    <xsl:copy>
+                        <xsl:apply-templates select="@*" />
+                        <xsl:apply-templates select="svg:g[@class='frame']" />
+                        <xsl:apply-templates select="svg:g" mode="template" />
+                    </xsl:copy>
+                </xsl:element>
+            </xsl:for-each>
+        </xsl:copy>
     </xsl:template>
 
     <xsl:template match="svg:g[@class='sockets']"></xsl:template>
