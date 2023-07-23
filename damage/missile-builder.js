@@ -57,6 +57,8 @@ export function setupMissileBuilder(weaponSelectedCB) {
     sizeInput.max = missile.warheadBounds.max;
     sizeSlider.min = missile.warheadBounds.min;
     sizeSlider.max = missile.warheadBounds.max;
+    sizeInput.disabled = !missile.selectableWarhead;
+    sizeSlider.disabled = !missile.selectableWarhead;
 
     const currentSpeed = parseInt(terminalSpeedInput.value, 10);
     terminalSpeedInput.value = missile.speedBounds.bound(currentSpeed);
@@ -65,6 +67,10 @@ export function setupMissileBuilder(weaponSelectedCB) {
     terminalSpeedInput.max = missile.speedBounds.max;
     terminalSpeedSlider.min = missile.speedBounds.min;
     terminalSpeedSlider.max = missile.speedBounds.max;
+    terminalSpeedInput.disabled = !missile.selectableWarhead;
+    terminalSpeedSlider.disabled = !missile.selectableWarhead;
+
+    warheadSelect.disabled = !missile.selectWarhead;
   });
   bodySelect.dispatchEvent(new InputEvent("change"));
 
@@ -73,7 +79,7 @@ export function setupMissileBuilder(weaponSelectedCB) {
     e.stopPropagation();
 
     const missile = missileStats[bodySelect.value].clone();
-    const warhead = warheadStats[warheadSelect.value];
+    const warhead = missile.selectableWarhead ? warheadStats[warheadSelect.value] : missile.warhead;
     const size = parseInt(sizeInput.value, 10);
     const speed = parseInt(terminalSpeedInput.value, 10);
     missile.selectWarhead(warhead, size, speed);

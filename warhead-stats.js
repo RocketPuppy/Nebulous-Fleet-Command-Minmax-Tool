@@ -1,4 +1,4 @@
-class Warhead {
+export class Warhead {
   constructor({ name, armorPen, armorFalloff, ricochet,
     ignoreEffectiveThickness, componentDamage, componentFalloff,
     maxPenetrationDepth }) {
@@ -58,7 +58,7 @@ class HEKPFalloff {
   }
 }
 
-class NoFalloff {
+export class NoFalloff {
   calculate(damage, size) {
     return damage * size;
   }

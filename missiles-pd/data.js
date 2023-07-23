@@ -236,6 +236,26 @@ class Collider {
     }
 }
 
+class BoxCollider {
+    constructor(width, height, length) {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
+
+    clone() {
+        return new BoxCollider(this.width, this.height, this.length);
+    }
+
+    get head_on_cross_section() {
+        return this.width * this.height;;
+    }
+
+    get side_on_cross_section() {
+        return this.height * this.length;
+    }
+}
+
 const s1_balestra = new Missile(
     "SGM-1 Balestra",
     76.5,
@@ -297,6 +317,43 @@ const s3h_atlatl_sprint = new Missile(
     1000,
     60,
     new Collider(10.3, 0.8)
+);
+
+// TODO get values for these things
+const cm4_container = new Missile(
+    "CM-4 Container",
+    null,
+    null,
+    225,
+    150,
+    new BoxCollider(7.6, 7.6, 20)
+);
+
+const m30_mine = new Missile(
+    "M-30 Mattock",
+    null,
+    null,
+    250,
+    40,
+    new Collider(5.1, 1),
+);
+
+const m50_mine = new Missile(
+    "M-50 Augur",
+    null,
+    null,
+    700,
+    40,
+    new Collider(5.1, 1),
+);
+
+const r2_piranha = new Missile(
+    "R-2 Pirahna",
+    null,
+    null,
+    350,
+    15,
+    new Collider(7.7, 0.4),
 );
 
 export const point_defense = {

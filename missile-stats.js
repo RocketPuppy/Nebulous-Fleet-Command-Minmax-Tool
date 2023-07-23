@@ -1,8 +1,7 @@
-import warheads from "./warhead-stats.js";
+import warheads, { NoFalloff, Warhead } from "./warhead-stats.js";
 
 class Missile {
-  constructor({ name, scalingFactor, sprintStage, speedBounds, engineSocketBounds, flightTimeBounds, thrustBounds, thrustAngleBounds, warheadSocketIndex, engineSocketIndex, mass }) {
-    this.selectWarhead(warheads.hei, 3);
+  constructor({ name, scalingFactor, sprintStage, speedBounds, engineSocketBounds, flightTimeBounds, thrustBounds, thrustAngleBounds, warheadSocketIndex, engineSocketIndex, mass, warhead }) {
     this.name = name;
     this.scalingFactor = scalingFactor;
     this.sprintStage = sprintStage;
@@ -14,7 +13,17 @@ class Missile {
     this.warheadSocketIndex = warheadSocketIndex;
     this.engineSocketIndex = engineSocketIndex;
     this.mass = mass;
-    this.warheadBounds = new Bounds(1, 8);
+    if (warhead != null && warhead != undefined) {
+      this.warhead = warhead;
+      this.warheadSize = 1;
+      this.name = `${name} - ${warhead.name}`;
+      this.warheadBounds = new Bounds(1, 1);
+      this.selectableWarhead = false;
+    } else {
+      this.selectWarhead(warheads.hei, 3);
+      this.warheadBounds = new Bounds(1, 8);
+      this.selectableWarhead = true;
+    }
   }
 
   clone() {
@@ -248,12 +257,95 @@ export const s3 = new Missile({
   mass: 2,
 });
 
+export const cm4 = new Missile({
+  name: "CM-4 Container",
+  scalingFactor: 4,
+  speedBounds: new Bounds(125, 225),
+  engineSocketBounds: new Bounds(5, 14),
+  thrustBounds: new Bounds(25, 50),
+  flightTimeBounds: new Bounds(3, 40),
+  thrustAngleBounds: new Bounds(15, 30),
+  warheadSocketIndex: 4,
+  engineSocketIndex: 5,
+  mass: 4,
+});
+
+export const m30 = new Missile({
+  name: "M-30 Mattock",
+  scalingFactor: 1,
+  speedBounds: new Bounds(250, 250),
+  engineSocketBounds: new Bounds(1, 1),
+  thrustBounds: new Bounds(40, 40),
+  flightTimeBounds: new Bounds(15, 15),
+  thrustAngleBounds: new Bounds(10, 10),
+  warheadSocketIndex: 1,
+  engineSocketIndex: 1,
+  mass: 1,
+  warhead: new Warhead({
+    name: "HE Impact",
+    armorPen: 200,
+    armorFalloff: new NoFalloff(),
+    ricochet: false,
+    ignoreEffectiveThickness: true,
+    componentDamage: 5000,
+    componentFalloff: new NoFalloff(),
+    maxPenetrationDepth: 150,
+  }),
+});
+
+export const m50 = new Missile({
+  name: "M-50 Augur",
+  scalingFactor: 1,
+  speedBounds: new Bounds(700, 700),
+  engineSocketBounds: new Bounds(1, 1),
+  thrustBounds: new Bounds(100, 100),
+  flightTimeBounds: new Bounds(5.5, 5.5),
+  thrustAngleBounds: new Bounds(20, 20),
+  warheadSocketIndex: 1,
+  engineSocketIndex: 1,
+  mass: 1,
+  warhead: new Warhead({
+    name: "HE Impact",
+    armorPen: 200,
+    armorFalloff: new NoFalloff(),
+    ricochet: false,
+    ignoreEffectiveThickness: true,
+    componentDamage: 5000,
+    componentFalloff: new NoFalloff(),
+    maxPenetrationDepth: 150,
+  }),
+});
+
+export const r2 = new Missile({
+  name: "R-2 Piranha",
+  scalingFactor: 1,
+  speedBounds: new Bounds(350, 350),
+  engineSocketBounds: new Bounds(1, 1),
+  thrustBounds: new Bounds(50, 50),
+  flightTimeBounds: new Bounds(20, 20),
+  thrustAngleBounds: new Bounds(10, 10),
+  warheadSocketIndex: 1,
+  engineSocketIndex: 1,
+  mass: 0.3,
+  warhead: new Warhead({
+    name: "HE Impact",
+    armorPen: 38,
+    armorFalloff: new NoFalloff(),
+    ricochet: false,
+    ignoreEffectiveThickness: true,
+    componentDamage: 850,
+    componentFalloff: new NoFalloff(),
+    maxPenetrationDepth: 60,
+  }),
+});
+
 export const missilesByBodyKey = {
   "Stock/SGM-1 Body": s1,
   "Stock/SGM-H-2 Body": s2h,
   "Stock/SGM-H-3 Body": s3h,
   "Stock/SGM-2 Body": s2,
   "Stock/SGT-3 Body": s3,
+  "Stock/CM-4 Body": cm4
 };
 
 export default {
@@ -262,4 +354,8 @@ export default {
   "s2h": s2hsprint,
   "s3h": s3hsprint,
   "s3": s3,
+  "cm4": cm4,
+  "m30": m30,
+  "m50": m50,
+  "r2": r2,
 };
