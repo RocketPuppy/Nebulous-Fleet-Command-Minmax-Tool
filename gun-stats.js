@@ -53,9 +53,9 @@ export const hehc100 = {
 };
 export const grapeshot100 = {
     name: "100mm Grapeshot Shell",
-    velocity: 900,
-    range: 5400,
-    armorPenetration: 10,
+    velocity: 1100,
+    range: 7997,
+    armorPenetration: 16,
     componentDamage: 25,
     caliber: caliber100,
 };
