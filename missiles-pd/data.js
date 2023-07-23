@@ -137,9 +137,9 @@ export const stonewall = new PointDefense(
     30,
     [flak_round],
     null,
-    0.25,
-    0.25,
-    100
+    1.5,
+    0.15,
+    16
 );
 
 const aurora_bursts = 5;
@@ -165,6 +165,42 @@ export const sarissa = new PointDefense(
     8,
     1,
     1
+);
+
+// pavise
+export const pavise = new PointDefense(
+    "P11 Pavise",
+    [new Accuracy(1, 5)],
+    100,
+    100,
+    [new Ammo("20mm Slug", 700, 3, 15, 1750)],
+    4800
+);
+// bastion
+
+export const bastion = new PointDefense(
+    "P20 Bastion",
+    [new Accuracy(1, 52)],
+    30,
+    30,
+    [flak_round],
+    null,
+    0.25,
+    0.25,
+    100
+);
+// grazer
+const grazer_bursts = 10;
+export const grazer = new PointDefense(
+    "P60 Grazer",
+    [new Accuracy(0.5, 1), new Accuracy(1, 1)],
+    100,
+    100,
+    [new Ammo("Grazer Laser", Infinity, 3, 8, 1500)],
+    null,
+    5,
+    1.0/grazer_bursts,
+    grazer_bursts
 );
 
 class Missile {
@@ -361,7 +397,10 @@ export const point_defense = {
     rebound,
     stonewall,
     aurora,
-    sarissa
+    sarissa,
+    pavise,
+    bastion,
+    grazer,
 };
 
 export const missiles = {
