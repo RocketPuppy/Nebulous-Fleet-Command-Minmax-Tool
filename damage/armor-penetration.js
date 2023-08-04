@@ -20,6 +20,7 @@ function linkSlider(input, slider) {
 }
 
 const hullInput = document.getElementById("armor-width");
+const manualArmorInput = document.getElementById("manual-armor-width");
 const armorVis = document.getElementById("armor-visualization");
 const armor = armorVis.getElementById("armor");
 const penetrator = armorVis.getElementById("penetrator");
@@ -51,6 +52,13 @@ function scalePenetration(penetration) {
 function scalePenetratorHeight(newHeight) {
   const initialHeight = initialPenBbox.height;
   return newHeight / initialHeight;
+}
+
+function updateManualInput() {
+  const selectedHull = hullStats.find((hull) => hull.name === hullInput.value);
+  if (selectedHull !== null) {
+    manualArmorInput.value = selectedHull.armor;
+  }
 }
 
 function updateArmor(width, angle) {
@@ -140,12 +148,18 @@ function showWeapon(weaponType) {
 export function refreshArmorPen() {
   const angle = armorAngleInput.value;
   const selectedHull = hullStats.find((hull) => hull.name === hullInput.value);
+  const manualArmor = manualArmorInput.value;
 
-  const effectiveArmor = selectedHull.armor / Math.cos(angle * Math.PI/180)
+  let armor = Boolean(selectedHull) ? selectedHull.armor : 0;
+  if (manualArmor !== armor) {
+    armor = manualArmor;
+  }
+
+  const effectiveArmor = armor / Math.cos(angle * Math.PI/180)
   const penetration = getWeapon() ? getWeapon().armorPenetration : 0;
 
   updateEffectiveArmor(effectiveArmor);
-  updateArmor(selectedHull.armor, angle);
+  updateArmor(armor, angle);
   updatePenetrator(penetration, effectiveArmor);
   showWeapon(getWeaponType());
 }
@@ -165,6 +179,11 @@ export function setupArmorPen() {
   hullInput.selectedIndex = 0;
 
   hullInput.addEventListener("change", function(e) {
+    updateManualInput();
+    refreshArmorPen();
+  });
+
+  manualArmorInput.addEventListener("change", function(e) {
     refreshArmorPen();
   });
 
