@@ -1,0 +1,20 @@
+svg {
+    width: 100%;
+    height: auto;
+}
+
+svg .socket.module, svg .socket.compartment, svg .socket.mount {
+    stroke: DarkOrange !important;
+}
+svg .socket.module:hover, svg .socket.compartment:hover, svg .socket.mount:hover {
+    stroke: Orange !important;
+}
+
+svg .socket.filled {
+    fill: DarkOrange !important;
+}
+
+#components {
+    margin-top: 100px;
+    color: white;
+}

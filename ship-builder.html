@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module" defer src="ship-builder/ui.js"></script>
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="ship-builder/ship-builder.css" />
+    </head>
+    <body>
+        <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
+        <h1>Ship Builder</h1>
+        <div>
+          <details open>
+            <summary>Controls</summary>
+            <form action="#" id="controls" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Select Hull</legend>
+                <select name="new-hull-select" required></select>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Create Ship</legend>
+                <button type="submit" >Submit</button>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Export Ship</legend>
+                <button type="button" name="export">Export</button>
+              </fieldset>
+            </form>
+          </details>
+          <details>
+            <summary>Ship Attributes</summary>
+            <form action="#" id="ship-attributes" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Name</legend>
+                <input type="text" name="ship-name" value="Loom of Karina" />
+              </fieldset>
+            </form>
+            <div>
+              <fieldset class="control-group">
+                <legend>Cost</legend>
+                <p id="ship-cost" />
+              </fieldset>
+            </div>
+          </details>
+        </div>
+        <div class="full-width" id="ship-layout"></div>
+        <div class="modal" id="component-selector">
+            <form action="#" id="components" class="inputs-form">
+              <fieldset class="control-group">
+                <legend>Select Component</legend>
+                <select name="component-select" required></select>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Insert Component</legend>
+                <button type="submit" >Submit</button>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Remove Component</legend>
+                <button type="button" name="remove" >Remove</button>
+              </fieldset>
+              <fieldset class="control-group">
+                <legend>Cancel Selection</legend>
+                <button type="button" name="cancel" >Cancel</button>
+              </fieldset>
+              <input type="hidden" name="socket-key"/>
+            </form>
+        </div>
+        <div>
+            <h2>How Do I Use This?</h2>
+            <p>
+              Click on the sockets outlined in orange to select components for them.
+              This view follows some conventions because it is not a three-dimensional representation.
+              When a ship has components that would be symmetric across its longitudinal axis (that is, they'd overlap in this view), then they are arranged such that the topmost or leftmost component is the one on the side closest to the viewer.
+              For example, the sprinter has two wing mounts that are displayed as rectangles touching and stacked on top of each other.
+              The topmost rectangle would be the <strong>right</strong> wing mount (when looking along the forward direction).
+            </p>
+        </div>
+    </body>
+</html>

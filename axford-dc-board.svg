@@ -3,8 +3,8 @@
 
 <svg
    width="131.16342mm"
-   height="60.323685mm"
-   viewBox="0 0 131.16342 60.323685"
+   height="60.5mm"
+   viewBox="0 0 131.16342 60.500001"
    version="1.1"
    id="svg5"
    class="axford-dc-board"
@@ -191,35 +191,55 @@
          width="13.943906"
          height="13.624348"
          x="337.84024"
-         y="77.145012" />
+         y="77.145012"
+         class="socket module"
+         data-length="12"
+         data-height="10"
+         data-width="8" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-lxkgmNwqjUua0sRee2pDJg"
          width="9.2459755"
          height="10.171608"
          x="354.35245"
-         y="73.711029" />
+         y="73.711029"
+         class="socket module"
+         data-length="6"
+         data-width="6"
+         data-height="6" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-_Aun-HW-DkOGytVmYSn5IQ"
          width="9.2459755"
          height="10.171608"
          x="354.35245"
-         y="84.429733" />
+         y="84.429733"
+         class="socket module"
+         data-length="6"
+         data-height="6"
+         data-width="6" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.548865;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-ba-3VQ-zGEmDCfU12uaqaA"
          width="3"
          height="3"
          x="366.85416"
-         y="82.778709" />
+         y="82.778709"
+         class="socket module"
+         data-length="3"
+         data-height="3"
+         data-width="3" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.548865;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-oyAxfnepkEG46VjtvQWXpw"
          width="3"
          height="3"
          x="370.2941"
-         y="82.778709" />
+         y="82.778709"
+         class="socket module"
+         data-length="3"
+         data-height="3"
+         data-width="3" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.665001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-ixVX_-v6JEyGqFpX8ygF2w"
@@ -233,28 +253,44 @@
          width="3"
          height="3"
          x="373.73511"
-         y="63.848301" />
+         y="63.848301"
+         class="socket module"
+         data-length="2"
+         data-height="2"
+         data-width="2" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.597736;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-eYp1IPfupUGVITrkVhgZJw"
          width="11.625994"
          height="1.9635242"
          x="376.69046"
-         y="60.908188" />
+         y="60.908188"
+         class="socket compartment"
+         data-width="6"
+         data-height="1"
+         data-length="8" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.297437;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-rXZhdtbK3EC8K_cu6-r_Xg"
          width="3"
          height="1"
          x="376.82736"
-         y="70.284782" />
+         y="70.284782"
+         class="socket mount"
+         data-width="2"
+         data-length="2"
+         data-height="2" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.297437;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-tyGXrucCjUe0FVyP1YDpUw"
          width="3"
          height="1"
          x="376.82736"
-         y="71.585579" />
+         y="71.585579"
+         class="socket mount"
+         data-width="2"
+         data-length="2"
+         data-height="2" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.460261;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-jI9z8dulI0es_we8PSmkYQ"
@@ -275,91 +311,143 @@
          width="5"
          height="2.5"
          x="375.62198"
-         y="81.41201" />
+         y="81.41201"
+         class="socket mount"
+         data-width="3"
+         data-length="3"
+         data-height="4" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.37256;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-9qreGP2Iw0KwuloNpNFTSg"
          width="5"
          height="2.5"
          x="375.62198"
-         y="84.424416" />
+         y="84.424416"
+         class="socket mount"
+         data-width="3"
+         data-length="3"
+         data-height="4" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.572523;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-hQ-Mzyns0UO4oMp7gG0d8A"
          width="3"
          height="3"
          x="382.81604"
-         y="82.778709" />
+         y="82.778709"
+         class="socket module"
+         data-length="3"
+         data-height="3"
+         data-width="3" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.572523;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-Yo9hPw6Mf060B3vqwSO4GA"
          width="3"
          height="3"
          x="386.12225"
-         y="82.778709" />
+         y="82.778709"
+         class="socket module"
+         data-length="3"
+         data-height="3"
+         data-width="3" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.541977;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-iHYg3DdYAUKS-uIBaRpNqA"
          width="15.874899"
          height="2.1019366"
          x="375.46094"
-         y="91.768356" />
+         y="91.768356"
+         class="socket compartment"
+         data-width="6"
+         data-height="1"
+         data-length="8" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.362206;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-rQWETsDGdE-AR8N3NPfwXg"
          width="3"
          height="3"
          x="386.77374"
-         y="63.848301" />
+         y="63.848301"
+         class="socket module"
+         data-length="2"
+         data-width="2"
+         data-height="2" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-A8e_Z_d8WU2qzo6HTQwCBA"
          width="8.5748672"
          height="2.2753029"
          x="383.10727"
-         y="69.447449" />
+         y="69.447449"
+         class="socket compartment"
+         data-width="6"
+         data-length="4"
+         data-height="1" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-cMs0g0g3WUeZJQASb7omew"
          width="16.600742"
          height="2.3211911"
          x="390.39529"
-         y="76.620956" />
+         y="76.620956"
+         class="socket compartment"
+         data-width="6"
+         data-height="1"
+         data-length="8" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-TX2TktZe7EWB9s-MqlDQgA"
          width="16.600742"
          height="2.3211911"
          x="390.39529"
-         y="81.139679" />
+         y="81.139679"
+         class="socket compartment"
+         data-width="6"
+         data-height="1"
+         data-length="8" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-ylUvmASKlEiyCtyCsNRKWg"
          width="16.600742"
          height="2.3211911"
          x="390.39529"
-         y="84.812279" />
+         y="84.812279"
+         class="socket compartment"
+         data-width="6"
+         data-height="1"
+         data-length="8" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-whDP9rtbukKsocnrqnqaLQ"
          width="11.109613"
          height="8.3968916"
          x="400.52698"
-         y="65.55407" />
+         y="65.55407"
+         class="socket mount"
+         data-length="6"
+         data-height="4"
+         data-width="6" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.205329;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-v9Sqa5DcCkibdi29AkakNg"
          width="4"
          height="2"
          x="408.34415"
-         y="81.91201" />
+         y="81.91201"
+         class="socket mount"
+         data-width="3"
+         data-height="4"
+         data-length="3" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.205328;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-lYEQo4jJvEGxRqJa2MB25A"
          width="4"
          height="2"
          x="408.34415"
-         y="84.424416" />
+         y="84.424416"
+         class="socket mount"
+         data-width="3"
+         data-height="4"
+         data-length="3" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.319604;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-zDX-4WEMdE2BbbdGqMzaAQ"
@@ -380,49 +468,77 @@
          width="15.070534"
          height="8.3834267"
          x="395.38031"
-         y="100.56255" />
+         y="100.56255"
+         class="socket mount"
+         data-length="8"
+         data-height="7"
+         data-width="8" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.432322;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-CgpRQa-660KEed1wTRL4vw"
          width="3"
          height="3"
          x="416.5607"
-         y="90.197571" />
+         y="90.197571"
+         class="socket module"
+         data-length="2"
+         data-width="2"
+         data-height="2" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.432322;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-awwdeDnNs0G-RceQF1TByA"
          width="3"
          height="3"
          x="420.37204"
-         y="90.197571" />
+         y="90.197571"
+         class="socket module"
+         data-length="2"
+         data-width="2"
+         data-height="2" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.432322;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-tnZD-B5Ls0qAyBtdz4yoTA"
          width="3"
          height="3"
          x="424.18338"
-         y="90.197571" />
+         y="90.197571"
+         class="socket module"
+         data-length="2"
+         data-width="2"
+         data-height="2" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.443168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-2xmOS4ns_EaMYjBXrrhhig"
          width="8.4101"
          height="1.8458987"
          x="424.6991"
-         y="73.438164" />
+         y="73.438164"
+         class="socket compartment"
+         data-width="6"
+         data-height="1"
+         data-length="4" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.443168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-y1xLixKUzUSKT7Nz7aUkLQ"
          width="8.4101"
          height="1.8458987"
          x="424.6991"
-         y="75.935707" />
+         y="75.935707"
+         class="socket compartment"
+         data-width="6"
+         data-height="1"
+         data-length="4" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.394269;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-RmUeePb-8EGbFaRgVjCXsA"
          width="12.76762"
          height="1.5323324"
          x="424.67465"
-         y="78.478821" />
+         y="78.478821"
+         class="socket compartment"
+         data-width="6"
+         data-height="1"
+         data-length="8" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.408474;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-RV86T_nrVEajYrSrwACy6w"
@@ -492,14 +608,22 @@
          width="4.0271997"
          height="3.4868653"
          x="447.37292"
-         y="70.351082" />
+         y="70.351082"
+         class="socket mount"
+         data-width="2"
+         data-length="2"
+         data-height="2" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-KxV0hkkGBE2AOUCo5axQbg"
          width="4.0271997"
          height="3.4868653"
          x="368.28946"
-         y="99.509766" />
+         y="99.509766"
+         class="socket mount"
+         data-width="2"
+         data-length="2"
+         data-height="2" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.293534;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-Ab62fg3KTE2On9vkZVTj0g"
@@ -527,21 +651,33 @@
          width="6.6877666"
          height="2.0209827"
          x="384.49884"
-         y="95.641106" />
+         y="95.641106"
+         class="socket compartment"
+         data-width="6"
+         data-height="1"
+         data-length="4" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-j2ST2yYfwk2_tBIayI3sQg"
          width="6.6877666"
          height="2.0209827"
          x="375.75696"
-         y="95.641106" />
+         y="95.641106"
+         class="socket compartment"
+         data-width="6"
+         data-height="1"
+         data-length="4" />
       <rect
          style="color:#000000;overflow:visible;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.622045;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="socket-8CtCKPLfZEOOFvm1DhV-oQ"
          width="11.301317"
          height="4.0712352"
          x="351.17661"
-         y="67.226402" />
+         y="67.226402"
+         class="socket mount"
+         data-width="6"
+         data-length="6"
+         data-height="4" />
     </g>
   </g>
 </svg>

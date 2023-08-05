@@ -70,3 +70,16 @@ h1 {
     align-content: center;
     column-gap: 2em;
 }
+
+.modal {
+    position: fixed;
+    display: none;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: #333e;
+}
+
+.modal.visible {
+    display: block;
+}
