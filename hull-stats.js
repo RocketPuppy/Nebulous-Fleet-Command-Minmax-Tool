@@ -15,6 +15,28 @@ export default [
 
 ]
 
+/*
+250
+    5km - 6.25
+    6km - 7.5
+    7km - 8.75
+    8km - 10
+450
+    5km - 6.67
+    6km - 8
+    7km - 9.33
+    8km - 10.67
+
+dx = v0*t + 0.5 * a * t^2
+a = 2*dx/t^2
+sprinter 3080 tonnes, 35 m/s, 5MN, 14m
+    range 6km
+raines 5095 tonnes, 22 m/s, 6MN, 17.5m
+keystone 8095 tonnes, 20 m/s, 9MN, 22.5m
+vauxhall 10140 tonnes, 26 m/s, 13MN, 30m
+axford 13140 tonnes, 18 m/s, 14MN, 35m
+solomon 21220 tonnes, 16 m/s, 18MN, 40m
+*/
 export const bulkerSegments = {
     bows: [
         {

@@ -418,7 +418,7 @@ export const missiles = {
     s3h_atlatl: {
         sprint: s3h_atlatl_sprint,
         cruise: s3h_atlatl_cruise
-    }
+    },
 };
 
 export class CustomizationDB {

@@ -109,3 +109,27 @@ export function movement_inputs() {
 }
 
 movement_inputs();
+
+/*
+thruster power
+one entry for each lateral direction (six directions)
+loop through all thrusters
+if thruster is functional it contributes 1 to its directional strength
+if thruster is functional it contributes its power to its directional power
+the number of thrusters per directional is counted
+
+for each direction
+if there are thrusters in that direction
+  then
+    the thruster strength in that direction is divided by the total number of thrusters in that direction, and clamped between 0.15 and 1.0
+    the thruster power in that direction is divided by the number of thrusters in that direction
+  else
+    the thruster strength in that direction is 0.15
+    the thruster power in that direction is 1.0
+
+Effective linear thrust
+The thruster power in a direction is equal to the thruster strength in that direction multiplied by the thruster power in that direction, with a minimum of 0.15
+If flanking and forward, the power is multiplied by 1.5
+
+The effective thrust is the thruster power multiplied by the ships linear motor force
+*/

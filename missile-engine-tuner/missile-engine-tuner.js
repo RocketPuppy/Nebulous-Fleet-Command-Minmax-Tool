@@ -390,7 +390,7 @@ function makeEngineFields(missile, speedEl, burnEl, maneuverEl, sizeEl, warheadS
   return [speedF, maneuverF, burnF, sizeF];
 }
 
-function makeEngineOutputs(missile) {
+function makeEngineOutputs(missile, includeTerminals) {
   const outputDiv = document.createElement("div");
   outputDiv.classList.add("engine-outputs");
 
@@ -427,6 +427,18 @@ function makeEngineOutputs(missile) {
   turnAccelerationF.appendChild(turnAccelerationL);
   turnAccelerationF.appendChild(turnAccelerationP);
 
+  let terminalGraph = null;
+  if (includeTerminals) {
+    terminalGraph = document.createElement('div');
+    terminalGraph.classList.add("terminal-graph");
+    const layout = {
+      margin: { t: 0 },
+      showlegend: false,
+      autosize: true
+    };
+    Plotly.newPlot(terminalGraph, [], layout, { responsive: true });
+  }
+
   const outputCB = ({ speed, burn, maneuver, size }) => {
     const acceleration = missile.acceleration(maneuver) / 9.8;
     const topSpeed = missile.topSpeed(speed);
@@ -437,12 +449,23 @@ function makeEngineOutputs(missile) {
     speedP.textContent = Intl.NumberFormat(undefined, { style: 'unit', unit: 'meter-per-second', maximumFractionDigits: 0 }).format(topSpeed);
     accelerationP.textContent = Intl.NumberFormat(undefined, { style: 'decimal', maximumFractionDigits: 1 }).format(acceleration) + " G";
     turnAccelerationP.textContent = Intl.NumberFormat(undefined, { style: 'decimal', maximumFractionDigits: 1 }).format(turnAcceleration) + " G";
+    if (includeTerminals && terminalGraph !== null) {
+      const layout = {
+        margin: { t: 0 },
+        showlegend: true,
+        autosize: true
+      };
+      Plotly.react(terminalGraph, missile.maneuverData(maxRange).concat(missile.projectedData(maxRange, topSpeed, maneuver)), layout, { responsive: true });
+    }
   };
 
   outputDiv.appendChild(rangeF);
   outputDiv.appendChild(speedF);
   outputDiv.appendChild(accelerationF);
   outputDiv.appendChild(turnAccelerationF);
+  if (includeTerminals && terminalGraph !== null) {
+    outputDiv.appendChild(terminalGraph);
+  }
   return [outputDiv, outputCB];
 }
 
@@ -451,7 +474,7 @@ const hekpKey = "Stock/HE Kinetic Penetrator";
 const fragKey = "Stock/Blast Fragmentation";
 const fragElKey = "Stock/Blast Fragmentation EL";
 
-function makeEngineUI(header, missile, doc, resolver) {
+function makeEngineUI(header, missile, includeTerminals, doc, resolver) {
   const engineSocket = doc.evaluate(`//MissileTemplate/Sockets/MissileSocket[position()=${missile.engineSocketIndex}]`, doc, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
   const engine = doc.evaluate(".//InstalledComponent", engineSocket, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
   let warheadSocket = null;
@@ -470,7 +493,7 @@ function makeEngineUI(header, missile, doc, resolver) {
 
   const engineDiv = makeEngineDiv();
   const engineHeader = makeEngineHeader(header);
-  const [outputs, outputCB] = makeEngineOutputs(missile);
+  const [outputs, outputCB] = makeEngineOutputs(missile, includeTerminals);
   const [speedF, maneuverF, burnF, sizeF] = makeEngineFields(missile, speedEl, durationEl, maneuverabilityEl, sizeEl, warheadSizeEl, outputCB);
 
   engineDiv.appendChild(engineHeader);
@@ -508,13 +531,13 @@ function makeMissileUI(doc, filename) {
   missileForm.appendChild(missileRemove);
 
   if (missile.sprintStage != null) {
-    const [sprintDiv, sprintOutputs] = makeEngineUI("Sprint Stage", missile.sprintStage, doc, resolver);
+    const [sprintDiv, sprintOutputs] = makeEngineUI("Sprint Stage", missile.sprintStage, true, doc, resolver);
 
     missileForm.appendChild(sprintDiv);
     missileForm.appendChild(sprintOutputs);
   }
 
-  const [cruiseDiv, cruiseOutputs] = makeEngineUI("Cruise Stage", missile, doc, resolver);
+  const [cruiseDiv, cruiseOutputs] = makeEngineUI("Cruise Stage", missile, missile.sprintStage == null, doc, resolver);
   missileForm.appendChild(cruiseDiv);
   missileForm.appendChild(cruiseOutputs);
 
