@@ -1642,6 +1642,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/VLS-2 Launcher",
+    "componentData": "CellLauncherData",
   },
   {
     "length": 3,
@@ -1656,6 +1657,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/VLS-3 Launcher",
+    "componentData": "CellLauncherData",
   },
   {
     "length": 3,
@@ -1670,6 +1672,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/CLS-3 Launcher",
+    "componentData": "CellLauncherData",
   },
   {
     "length": 2,
@@ -1750,6 +1753,7 @@ export default [
     "width": 6,
     "type": "mount",
     "factions": [ "OSP" ],
+    "componentData": "CellLauncherData",
   },
   {
     "length": 20,
@@ -1763,6 +1767,7 @@ export default [
     "width": 10,
     "type": "mount",
     "factions": [ "OSP" ],
+    "componentData": "CellLauncherData",
   },
   {
     "length": 2,
