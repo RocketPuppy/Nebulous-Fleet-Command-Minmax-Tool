@@ -9,7 +9,7 @@ function shipToXml(ship) {
   const shipNode = doc.children[0];
 
   const SaveID = doc.createElement("SaveID");
-  SaveID.setAttribute("xsi:nil", "true");
+  SaveID.setAttributeNS("http://www.w3.org/2001/XMLSchema-instance", "xsi:nil", "true");
   shipNode.append(SaveID);
 
   const Key = doc.createElement("Key");
@@ -62,7 +62,7 @@ function shipToXml(ship) {
 
     if(ship.sockets[socketId].componentData !== undefined) {
       const ComponentData = doc.createElement("ComponentData");
-      ComponentData.setAttributeNS("xsi", "xsi:type", ship.sockets[socketId].componentData);
+      ComponentData.setAttributeNS("http://www.w3.org/2001/XMLSchema-instance", "xsi:type", ship.sockets[socketId].componentData);
       HullSocket.append(ComponentData);
     }
   }
