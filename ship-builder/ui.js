@@ -231,9 +231,8 @@ function clickSocket(socket) {
     ((comp.type === "module" && isModule) ||
     (comp.type === "compartment" && isCompartment) ||
     (comp.type === "mount" && isMount)) &&
-    (comp.width <= socketWidth  &&
-      comp.height <= socketHeight &&
-      comp.length <= socketLength) &&
+    (((comp.width <= socketWidth  && comp.length <= socketLength) || (comp.width <= socketLength && comp.length <= socketWidth)) &&
+      comp.height <= socketHeight) &&
     comp.factions.some((f) => ship.factions.includes(f))
   );
 
