@@ -71,7 +71,7 @@ function shipToXml(ship) {
   shipNode.append(WeaponGroups);
 
   const xmlstr = new XMLSerializer().serializeToString(doc);
-  const blob = new Blob([xmlstr], { type: "application/xml" });
+  const blob = new Blob([xmlstr], { type: "application/ship+xml" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.style.display = 'none';
