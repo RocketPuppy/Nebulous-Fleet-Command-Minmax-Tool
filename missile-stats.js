@@ -702,10 +702,10 @@ export const s2 = new Missile({
 export const s3 = new Missile({
   name: "S3T Pilum",
   scalingFactor: 3,
-  speedBounds: new Bounds(125, 200),
+  speedBounds: new Bounds(175, 300),
   engineSocketBounds: new Bounds(1, 9),
-  thrustBounds: new Bounds(120, 180),
-  flightTimeBounds: new Bounds(3, 17),
+  thrustBounds: new Bounds(30, 50),
+  flightTimeBounds: new Bounds(1, 4.5),
   thrustAngleBounds: new Bounds(8, 30),
   warheadSocketIndex: 4,
   engineSocketIndex: 5,
