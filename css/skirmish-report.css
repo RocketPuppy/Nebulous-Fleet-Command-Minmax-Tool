@@ -514,18 +514,18 @@ h4 {
 }
 
 .missile-hits .hits {
-    background-image: url(missile-hits-icon.svg);
+    background-image: url(./../resources/mics/missile-hits-icon.svg);
 }
 .missile-hits .misses {
-    background-image: url(missile-misses-icon.svg);
+    background-image: url(./../resources/mics/missile-misses-icon.svg);
 }
 .missile-hits .softkill {
-    background-image: url(missile-softkill-icon.svg);
+    background-image: url(./../resources/mics/missile-softkill-icon.svg);
     background-repeat: no-repeat;
     background-position: center;
 }
 .missile-hits .hardkill {
-    background-image: url(missile-hardkill-icon.svg);
+    background-image: url(./../resources/mics/missile-hardkill-icon.svg);
     background-repeat: no-repeat;
     background-position: center;
 }

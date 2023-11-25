@@ -1,5 +1,5 @@
-import hullStats from "../hull-stats.js";
-import gunStats from "../gun-stats.js";
+import hullStats from "./../js/hull-stats.js";
+import gunStats from "../js/gun-stats.js";
 import Gun from "./gun.js";
 import Ship from "./ship.js";
 

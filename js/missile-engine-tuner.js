@@ -1,4 +1,4 @@
-import { missilesByBodyKey } from "../missile-stats.js";
+import { missilesByBodyKey } from "./missile-stats.js";
 
 function handleFileContent(content) {
   const parser = new DOMParser();
