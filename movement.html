@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="./js/plotly-2.14.0.min.js"></script>
-        <script type="module" defer src="./js/hull-stats.js"></script>
-        <script type="module" defer src="./js/gun-stats.js"></script>
-        <script type="module" defer src="movement/movement.js"></script>
-        <script type="module" defer src="movement/ship.js"></script>
-        <script type="module" defer src="movement/gun.js"></script>
-        <link rel="stylesheet" href="./css/index.css" />
-    </head>
-    <body>
-        <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
-        <h1>Movement Mechanics</h1>
-        <h2><a href="#dodge">Dodging Incoming Rounds</a></h2>
-        <p>
-            This chart will help inform you when you need to start dodging and by how much when you are taking incoming cannon fire.
-            Input your ship stats and select ammunition you want to compare against.
-            You can also view the chart if you are flanking.
-            The chart will show you the time you have to initiate a dodge along the shortest axis of the hull on the Y-axis, compared against the range at which the round is fired at.
-            The dodge should be directly perpendicular to the shot direction.
-            Where the line crosses the X-axis is the point at which you will be hit, so try to stay outside of that range.
-        </p>
-        <p>
-            This chart assumes the gunnery is aiming perfectly at your center of mass.
-            It displays three lines.
-            One with a 0% distance margin, one with a 25% distance margin, and one with a 50% distance margin.
-        </p>
-        <p>
-            There are three charts.
-            The first shows the maneuvering characteristics for your main engine.
-            The second shows the maneuvering characteristics for your lateral thrusters.
-            These are the thrusters that strafe the ship side to side.
-            The third shows the maneuvering characteristics for your braking thrusters.
-            These are the larger thrusters at the front of the ship.
-        </p>
-        <div class='full-width'>
-            <form id="ship-form" action="#" class="inputs-form">
-                <fieldset class="control-group">
-                    <legend>Select Hull</legend><select name="select-hull"></select>
-                </fieldset>
-                <fieldset class="control-group">
-                    <legend>Select Ammo</legend><select multiple name="select-ammo"></select>
-                </fieldset>
-                <fieldset class="control-group">
-                    <legend>Input Thrust (MN)</legend><input type="number" step="0.1" name="thrust" />
-                </fieldset>
-                <fieldset class="control-group">
-                    <legend>Input Top Speed (m/s)</legend><input type="number" step="0.1" name="top-speed" />
-                </fieldset>
-                <fieldset class="control-group">
-                    <legend>Input Mass (Tonne)</legend><input type="number" name="mass" />
-                </fieldset>
-                <fieldset class="control-group">
-                    <legend>Flank</legend><input type="checkbox" name="flank" />
-                </fieldset>
-                <div class="buttons control-group">
-                    <input type="submit" value="Update Graph" />
-                </div>
-            </form>
-            <h2>Main Engine</h2>
-            <div id="dodge-graph-main"></div>
-            <h2>Lateral Maneuvering Thrusters</h2>
-            <div id="dodge-graph-lateral"></div>
-            <h2>Braking Maneuvering Thrusters</h2>
-            <div id="dodge-graph-braking"></div>
-        </div>
-        <h2><a href="#thrust-power">Thruster Power</a></h2>
-        <p>
-            Here you can 
-        </p>
-    </body>
+<head>
+  <script src="./js/plotly-2.14.0.min.js"></script>
+  <script type="module" defer src="./js/hull-stats.js"></script>
+  <script type="module" defer src="./js/gun-stats.js"></script>
+  <script type="module" defer src="movement/movement.js"></script>
+  <script type="module" defer src="movement/ship.js"></script>
+  <script type="module" defer src="movement/gun.js"></script>
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+<body>
+  <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
+  <h1>Movement Mechanics</h1>
+  <h2><a href="#dodge">Dodging Incoming Rounds</a></h2>
+  <p>
+    This chart will help inform you when you need to start dodging and by how much when you are taking incoming cannon fire.
+    Input your ship stats and select ammunition you want to compare against.
+    You can also view the chart if you are flanking.
+    The chart will show you the time you have to initiate a dodge along the shortest axis of the hull on the Y-axis, compared against the range at which the round is fired at.
+    The dodge should be directly perpendicular to the shot direction.
+    Where the line crosses the X-axis is the point at which you will be hit, so try to stay outside of that range.
+  </p>
+  <p>
+    This chart assumes the gunnery is aiming perfectly at your center of mass.
+    It displays three lines.
+    One with a 0% distance margin, one with a 25% distance margin, and one with a 50% distance margin.
+  </p>
+  <p>
+    There are three charts.
+    The first shows the maneuvering characteristics for your main engine.
+    The second shows the maneuvering characteristics for your lateral thrusters.
+    These are the thrusters that strafe the ship side to side.
+    The third shows the maneuvering characteristics for your braking thrusters.
+    These are the larger thrusters at the front of the ship.
+  </p>
+  <div class='full-width'>
+    <form id="ship-form" action="#" class="inputs-form">
+      <fieldset class="control-group">
+        <legend>Select Hull</legend><select name="select-hull"></select>
+      </fieldset>
+      <fieldset class="control-group">
+        <legend>Select Ammo</legend><select multiple name="select-ammo"></select>
+      </fieldset>
+      <fieldset class="control-group">
+        <legend>Input Thrust (MN)</legend><input type="number" step="0.1" name="thrust" />
+      </fieldset>
+      <fieldset class="control-group">
+        <legend>Input Top Speed (m/s)</legend><input type="number" step="0.1" name="top-speed" />
+      </fieldset>
+      <fieldset class="control-group">
+        <legend>Input Mass (Tonne)</legend><input type="number" name="mass" />
+      </fieldset>
+      <fieldset class="control-group">
+        <legend>Flank</legend><input type="checkbox" name="flank" />
+      </fieldset>
+      <div class="buttons control-group">
+        <input type="submit" value="Update Graph" />
+      </div>
+    </form>
+    <h2>Main Engine</h2>
+    <div id="dodge-graph-main"></div>
+    <h2>Lateral Maneuvering Thrusters</h2>
+    <div id="dodge-graph-lateral"></div>
+    <h2>Braking Maneuvering Thrusters</h2>
+    <div id="dodge-graph-braking"></div>
+  </div>
+  <h2><a href="#thrust-power">Thruster Power</a></h2>
+  <p>
+    Here you can
+  </p>
+</body>
 </html>

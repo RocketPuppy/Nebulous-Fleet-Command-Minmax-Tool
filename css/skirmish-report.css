@@ -1,549 +1,549 @@
 #drag-target {
-    width: 500px;
-    height: 250px;
-    border: 1px solid skyblue;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 500px;
+  height: 250px;
+  border: 1px solid skyblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #drag-target.disabled {
-    background-color: lightslategray;
+  background-color: lightslategray;
 }
 
 #drag-target>p {
-    text-align: center;
-    font-size: 2em;
-    padding: 0 4em;
+  text-align: center;
+  font-size: 2em;
+  padding: 0 4em;
 }
 
 .dragging {
-    background-color: rgba(173, 216, 230, 150);
+  background-color: rgba(173, 216, 230, 150);
 }
 
 #report-frame {
-    width: 100%;
-    object-fit: fill;
-    color: white;
-    background: #00004f;
-    padding: 0;
-    margin: 4px;
-    font-family: sans-serif;
+  width: 100%;
+  object-fit: fill;
+  color: white;
+  background: #00004f;
+  padding: 0;
+  margin: 4px;
+  font-family: sans-serif;
 }
 
 #report-frame h1 {
-    text-transform: uppercase;
-    display: flex;
-    flex-direction: row;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
 }
 
 #report-frame h1 .battle-result {
-    background: grey;
-    border-top: 2px solid orangered;
-    margin: 2px;
-    flex-grow: 2;
-    text-align: left;
-    padding: 4px;
+  background: grey;
+  border-top: 2px solid orangered;
+  margin: 2px;
+  flex-grow: 2;
+  text-align: left;
+  padding: 4px;
 }
 
 #report-frame h1 .battle-time {
-    background: grey;
-    margin: 2px;
-    flex-grow: 0;
-    padding: 4px 20px;
-        
-    clip-path: polygon(
-        0 0,
-        85% 0,
-        100% 20%,
-        100% 100%,
-        0 100%
-    )
+  background: grey;
+  margin: 2px;
+  flex-grow: 0;
+  padding: 4px 20px;
+
+  clip-path: polygon(
+    0 0,
+    85% 0,
+    100% 20%,
+    100% 100%,
+    0 100%
+  )
 }
 
 .divider {
-    background-color: orangered;
-    width: 2px;
-    margin: 2px;
+  background-color: orangered;
+  width: 2px;
+  margin: 2px;
 }
 
 .divider-large {
-    background-color: orangered;
-    width: 6px;
-    margin: 0;
+  background-color: orangered;
+  width: 6px;
+  margin: 0;
 }
 
 #report {
-    border: 4px solid grey;
-    background: black;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  border: 4px solid grey;
+  background: black;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .ship.details {
-    flex-basis: 50%;
-    flex-grow: 1;
-    flex-shrink: 0;
+  flex-basis: 50%;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 #teams {
-    display: flex;
-    flex-direction: row;
-    flex-basis: 50%;
-    flex-shrink: 1;
-    flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
+  flex-shrink: 1;
+  flex-grow: 0;
 }
 
 .team {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .team + .team {
-    border-left: 4px solid grey;
+  border-left: 4px solid grey;
 }
 
 .colors {
-    width: 90px;
-    display: inline-block;
-    padding: 0 3px;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-    margin-right: 2em;
+  width: 90px;
+  display: inline-block;
+  padding: 0 3px;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  margin-right: 2em;
 }
 
 .stripe1 {
-    width: 10px;
-    display: inline-block;
+  width: 10px;
+  display: inline-block;
 }
 
 .stripe2 {
-    width: 10px;
-    display: inline-block;
+  width: 10px;
+  display: inline-block;
 }
 
 h3 {
-    background: orangered;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  background: orangered;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 h4 {
-    text-align: center;
-    border-bottom: 2px solid white;
+  text-align: center;
+  border-bottom: 2px solid white;
 }
 
 .fleet-prefix {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .elimination {
-    color: darkred;
-    margin: 0;
-    text-align: center;
+  color: darkred;
+  margin: 0;
+  text-align: center;
 }
 
 .ship {
-    border: 6px solid black;
+  border: 6px solid black;
 }
 
 .ship.selected {
-    border: 6px solid orangered;
+  border: 6px solid orangered;
 }
 
 .ship:not(.selected) {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .ship.details {
-    cursor: unset;
+  cursor: unset;
 }
 
 .ship .stats {
-    padding: 1em;
-    flex-basis: 50%;
-    flex-shrink: 1;
-    flex-grow: 0;
+  padding: 1em;
+  flex-basis: 50%;
+  flex-shrink: 1;
+  flex-grow: 0;
 }
 
 .ship .summary {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .stats dl {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .stat dt {
-    text-align: right;
-    margin-right: 0.5em;
-    display: inline;
-    flex-basis: 50%;
-    flex-shrink: 1;
-    flex-grow: 2;
+  text-align: right;
+  margin-right: 0.5em;
+  display: inline;
+  flex-basis: 50%;
+  flex-shrink: 1;
+  flex-grow: 2;
 }
 
 .stat dd {
-    display: inline;
-    flex-shrink: 1;
-    flex-basis: 20%;
-    margin: 0;
-    flex-grow: 1;
+  display: inline;
+  flex-shrink: 1;
+  flex-basis: 20%;
+  margin: 0;
+  flex-grow: 1;
 }
 
 .ship .summary .stat {
-    display: none;
-    flex-basis: 100%;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    font-size: medium;
+  display: none;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  font-size: medium;
 }
 
 .ship .summary .stat.crew-status {
-    order: 1;
-    display: flex;
+  order: 1;
+  display: flex;
 }
 .ship .summary .stat.damage-received {
-    order: 2;
-    display: flex;
+  order: 2;
+  display: flex;
 }
 .ship .summary .stat.damage-repaired {
-    order: 3;
-    display: flex;
+  order: 3;
+  display: flex;
 }
 .ship .summary .stat.damage-dealt {
-    order: 4;
-    display: flex;
+  order: 4;
+  display: flex;
 }
 
 
 .ship.details .summary {
-    gap: 3%;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+  gap: 3%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .ship.details .summary .stats dl.basic-stats {
-    gap: 3%;
+  gap: 3%;
 }
 
 .ship.details .summary .stat {
-    flex-basis: 30%;
-    display: block;
+  flex-basis: 30%;
+  display: block;
 }
 
 .ship.details .summary .stat dt {
-    font-size: small;
-    margin-top: 0.5em;
-    margin-right: 0;
-    display: block;
-    text-align: left;
+  font-size: small;
+  margin-top: 0.5em;
+  margin-right: 0;
+  display: block;
+  text-align: left;
 }
 .ship.details .summary .stat dd {
-    font-size: xx-large;
+  font-size: xx-large;
 }
 .ship.details .stats dt::after {
-    content: unset;
+  content: unset;
 }
 .ship.details .stats {
-    flex-basis: 60%;
-    flex-grow: 0;
-    flex-shrink: 0;
+  flex-basis: 60%;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .ship.details .summary .stat.crew-status {
-    order: 3;
+  order: 3;
 }
 .ship.details .summary .stat.damage-received {
-    order: 8;
+  order: 8;
 }
 .ship.details .summary .stat.damage-repaired {
-    order: 9;
+  order: 9;
 }
 .ship.details .summary .stat.damage-dealt {
-    order: 7;
+  order: 7;
 }
 .ship.details .summary .stat.combat-power {
-    order: 1;
+  order: 1;
 }
 .ship.details .summary .stat.distance-travelled {
-    order: 2;
+  order: 2;
 }
 .ship.details .summary .stat.ammo-spent {
-    order: 13;
+  order: 13;
 }
 .ship.details .summary .stat.time-in-contact {
-    order: 14;
+  order: 14;
 }
 
 .stats dt::after {
-    content: ':';
+  content: ':';
 }
 
 .dc-board {
-    flex-basis: 50%;
-    align-self: center;
+  flex-basis: 50%;
+  align-self: center;
 }
 
 .dc-board svg {
-    width: 100%;
-    height: auto;
-    overflow: visible;
+  width: 100%;
+  height: auto;
+  overflow: visible;
 }
 
 .ship.details .dc-board {
-    flex-basis: 33%;
-    flex-grow: 0;
-    flex-shrink: 1;
+  flex-basis: 33%;
+  flex-grow: 0;
+  flex-shrink: 1;
 }
 
 .ship.details .summary .efficiency-ratings {
-    column-gap: 10px;
+  column-gap: 10px;
 }
 .ship.details .summary .stats h4 {
-    border: none;
+  border: none;
 }
 
 .ship.details .summary .efficiency-ratings .stat {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100px;
-    flex-basis: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100px;
+  flex-basis: 100px;
 }
 .ship.details .summary .efficiency-ratings .stat dt {
-    flex-basis: unset;
-    text-align: center;
-    margin-bottom: 0.75em;
+  flex-basis: unset;
+  text-align: center;
+  margin-bottom: 0.75em;
 }
 .ship.details .summary .efficiency-ratings .rating {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    flex-basis: 100px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    line-height: 100px;
-    text-align: center;
-    font-weight: bolder;
-    font-size: xx-large;
-    display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  flex-basis: 100px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  line-height: 100px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: xx-large;
+  display: block;
 }
 
 .ship.details .summary .efficiency-ratings .stat.anti-ship {
-    order: 1;
+  order: 1;
 }
 .ship.details .summary .efficiency-ratings .stat.missile {
-    order: 2;
+  order: 2;
 }
 .ship.details .summary .efficiency-ratings .stat.sensors {
-    order: 3;
+  order: 3;
 }
 .ship.details .summary .efficiency-ratings .stat.missile-defense {
-    order: 4;
+  order: 4;
 }
 .ship.details .summary .efficiency-ratings .stat.engineering {
-    order: 5;
+  order: 5;
 }
 
 .ship.details > div + div {
-    border-top: solid 6px orangered;
-    margin: 0 6px;
-    margin-bottom: 1em;
+  border-top: solid 6px orangered;
+  margin: 0 6px;
+  margin-bottom: 1em;
 }
 
 .ship.details .engagement-history h2 {
-    text-align: left;
+  text-align: left;
 }
 
 .ship.details .engagement-history .engagement {
-    margin: 2px 0;
+  margin: 2px 0;
 }
 
 .ship.details .breakdown h2 {
-    text-align: left;
+  text-align: left;
 }
 
 .ship.details .breakdown .stats {
-    max-width: 50%;
-    padding: 0;
+  max-width: 50%;
+  padding: 0;
 }
 
 
 .ship.details .breakdown .stats dt::after {
-    content: ':';
+  content: ':';
 }
 
 .ship.details .engineering.breakdown .stats h5 {
-    font-size: medium;
-    font-weight: normal;
-    margin-bottom: 0;
+  font-size: medium;
+  font-weight: normal;
+  margin-bottom: 0;
 }
 
 .ship.details .breakdown .stats dl {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row;
-    margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 0;
 }
 
 .ship.details .breakdown .stats dl * {
-    margin: 0;
+  margin: 0;
 }
 
 .ship.details .breakdown .stats dl dt {
-    text-align: left;
-    flex-shrink: 1;
+  text-align: left;
+  flex-shrink: 1;
 }
 .ship.details .breakdown .stats dl dd {
-    text-align: center;
-    flex-grow: 1;
-    margin-left: 0.5em;
-    margin-right: 1em;
+  text-align: center;
+  flex-grow: 1;
+  margin-left: 0.5em;
+  margin-right: 1em;
 }
 
 .ship.details .breakdown .stats .own-line {
-    flex-basis: 100%;
-    display: flex;
+  flex-basis: 100%;
+  display: flex;
 }
 
 .ship.details .breakdown .stats dl .own-line dd {
-    flex-basis: 40%;
-    text-align: left;
+  flex-basis: 40%;
+  text-align: left;
 }
 
 .own-line dt {
-    flex-basis: 60%;
-    text-align: left;
+  flex-basis: 60%;
+  text-align: left;
 }
 
 .breakdown .weapons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .breakdown .weapon-report {
-    flex-basis: 46%;
-    flex-grow: 0;
-    flex-shrink: 0;
+  flex-basis: 46%;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .breakdown .weapon-report h3 {
-    font-weight: normal;
-    font-size: larger;
-    background: none;
-    margin-bottom: 0;
-    margin-top: 0;
+  font-weight: normal;
+  font-size: larger;
+  background: none;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .breakdown .weapons .weapon-report .stats {
-    max-width: 100%;
+  max-width: 100%;
 }
 .breakdown .weapons .weapon-report .stats dl {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 .breakdown .weapons .weapon-report .stats .half-line {
-    flex-basis: 50%;
-    display: flex;
+  flex-basis: 50%;
+  display: flex;
 }
 .breakdown .weapons .weapon-report .stats .own-line dt {
-    flex-basis: 50%;
+  flex-basis: 50%;
 }
 .breakdown .weapons .weapon-report .stats .own-line dd {
-    flex-basis: 50%;
-    margin-left: 0;
-    margin-right: 0;
+  flex-basis: 50%;
+  margin-left: 0;
+  margin-right: 0;
 }
 .breakdown .weapons .weapon-report .stats dl dd {
-    flex-grow: 0;
-    text-align: left;
+  flex-grow: 0;
+  text-align: left;
 }
 
 .breakdown .weapon-report .weapon-image {
-    float: left;
-    width: 80px;
-    height: 80px;
+  float: left;
+  width: 80px;
+  height: 80px;
 }
 
 .unused {
-    color: yellow;
-    text-align: center;
-    width: 100%;
-    margin-top: 1em;
+  color: yellow;
+  text-align: center;
+  width: 100%;
+  margin-top: 1em;
 }
 
 .stats dl {
-    font-size: smaller;
+  font-size: smaller;
 }
 
 .sensor.stats dl, .engineering .stats dl {
-    font-size: medium;
+  font-size: medium;
 }
 
 .missile .configuration {
-    text-align: right;
-    font-size: smaller;
+  text-align: right;
+  font-size: smaller;
 }
 
 .missile-hits dl {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
 }
 .missile-hits dl * {
-    display: inline;
+  display: inline;
 }
 .missile-hits dt {
-    background-size: contain;
-    color: transparent;
-    width: 20px;
-    height: 20px;
-    margin-left: 2em;
+  background-size: contain;
+  color: transparent;
+  width: 20px;
+  height: 20px;
+  margin-left: 2em;
 }
 .missile-hits dd {
-    margin: 0;
-    margin-left: 5px;
+  margin: 0;
+  margin-left: 5px;
 }
 
 .missile-hits .hits {
-    background-image: url(./../resources/mics/missile-hits-icon.svg);
+  background-image: url(./../resources/mics/missile-hits-icon.svg);
 }
 .missile-hits .misses {
-    background-image: url(./../resources/mics/missile-misses-icon.svg);
+  background-image: url(./../resources/mics/missile-misses-icon.svg);
 }
 .missile-hits .softkill {
-    background-image: url(./../resources/mics/missile-softkill-icon.svg);
-    background-repeat: no-repeat;
-    background-position: center;
+  background-image: url(./../resources/mics/missile-softkill-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .missile-hits .hardkill {
-    background-image: url(./../resources/mics/missile-hardkill-icon.svg);
-    background-repeat: no-repeat;
-    background-position: center;
+  background-image: url(./../resources/mics/missile-hardkill-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .anti-ship .weapon-image:not(.straight),
 .missile-warfare .weapon-image:not(.straight),
 .missile-defense .weapon-image:not(.straight) {
-    transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .weapon-image {
-    margin-right: 0.25em;
+  margin-right: 0.25em;
 }
 
 .ship.details.lineship .dc-board {
-    flex-basis: 100%;
+  flex-basis: 100%;
 }
 
 .ship.details.lineship .stats {
-    flex-basis: 45%;
+  flex-basis: 45%;
 }

@@ -2,7 +2,12 @@ import warheads, { NoFalloff, Warhead } from "./warhead-stats.js";
 import PID from './pid.js';
 
 class Missile {
-  constructor({ name, scalingFactor, sprintStage, speedBounds, engineSocketBounds, flightTimeBounds, thrustBounds, thrustAngleBounds, warheadSocketIndex, engineSocketIndex, mass, warhead, guidancePID }) {
+  constructor({
+    name, scalingFactor, sprintStage, speedBounds,
+    engineSocketBounds, flightTimeBounds, thrustBounds,
+    thrustAngleBounds, warheadSocketIndex, engineSocketIndex,
+    mass, warhead, guidancePID}
+  ) {
     this.name = name;
     this.scalingFactor = scalingFactor;
     this.sprintStage = sprintStage;
@@ -103,7 +108,7 @@ class Missile {
     const intoTurn = Quaternion.fromAxisAngle([0, 1, 0], this.maxOffAngleThrust(thrustDial) * Math.PI / 180).rotateVector([0, 0, 1]);
     const turnThrust = scaleVector(intoTurn, acceleration);
     const end = scaleVector(normalizeVector(addVector(start, turnThrust)), speed);
-    
+
     const toVector = vectorTo(start, end);
     const toMag = magVector(toVector);
     return toMag / 9.8;
@@ -113,18 +118,18 @@ class Missile {
   /*
   Describing terminal maneuvers
   1. Scaling by target distance
-  			targetDistance = Mathf.Clamp(targetDistance - this._baseDesc.EvasionEndDistance, 0f, float.MaxValue) * 10f;
-        float direction = this._evasionDirection ? 2f : -2f;
-        float magnitudeScaling = Mathf.Log((targetDistance + 100f) / 100f);
+    targetDistance = Mathf.Clamp(targetDistance - this._baseDesc.EvasionEndDistance, 0f, float.MaxValue) * 10f;
+    float direction = this._evasionDirection ? 2f : -2f;
+    float magnitudeScaling = Mathf.Log((targetDistance + 100f) / 100f);
 
-        evasion start/end distance is on the guidance module. It's 5000/250 for both right now.
+    evasion start/end distance is on the guidance module. It's 5000/250 for both right now.
   2. Weave
-        float magnitude = direction * magnitudeScaling * Mathf.Sin(targetDistance / 100f);
-        result = new Vector3?(this._evasionSpace.Value * (Vector3.right * magnitude));
+    float magnitude = direction * magnitudeScaling * Mathf.Sin(targetDistance / 100f);
+    result = new Vector3?(this._evasionSpace.Value * (Vector3.right * magnitude));
   3. Cork
-        float rightMag = direction * magnitudeScaling * Mathf.Sin(targetDistance / 100f);
-        float upMag = direction * magnitudeScaling * Mathf.Cos(targetDistance / 100f);
-        result = new Vector3?(this._evasionSpace.Value * (Vector3.right * rightMag) + this._evasionSpace.Value * (Vector3.up * upMag));
+    float rightMag = direction * magnitudeScaling * Mathf.Sin(targetDistance / 100f);
+    float upMag = direction * magnitudeScaling * Mathf.Cos(targetDistance / 100f);
+    result = new Vector3?(this._evasionSpace.Value * (Vector3.right * rightMag) + this._evasionSpace.Value * (Vector3.up * upMag));
   4. result added to flight line vector as "ideal"
   */
   maneuverData(range) {
@@ -185,8 +190,8 @@ class Missile {
 
   /*
   2. Weave
-        float magnitude = direction * magnitudeScaling * Mathf.Sin(targetDistance / 100f);
-        result = new Vector3?(this._evasionSpace.Value * (Vector3.right * magnitude));
+    float magnitude = direction * magnitudeScaling * Mathf.Sin(targetDistance / 100f);
+    result = new Vector3?(this._evasionSpace.Value * (Vector3.right * magnitude));
   */
   idealWeaveOffset(startPosition, targetPosition, distanceToTarget) {
     const evasionEnd = 250;
@@ -200,10 +205,9 @@ class Missile {
   }
 
   /*
-  
-        float rightMag = direction * magnitudeScaling * Mathf.Sin(targetDistance / 100f);
-        float upMag = direction * magnitudeScaling * Mathf.Cos(targetDistance / 100f);
-        result = new Vector3?(this._evasionSpace.Value * (Vector3.right * rightMag) + this._evasionSpace.Value * (Vector3.up * upMag));
+    float rightMag = direction * magnitudeScaling * Mathf.Sin(targetDistance / 100f);
+    float upMag = direction * magnitudeScaling * Mathf.Cos(targetDistance / 100f);
+    result = new Vector3?(this._evasionSpace.Value * (Vector3.right * rightMag) + this._evasionSpace.Value * (Vector3.up * upMag));
   */
   idealCorkscrewOffset(startPosition, targetPosition, distanceToTarget) {
     const evasionEnd = 250;
@@ -219,17 +223,17 @@ class Missile {
   }
 
   /*
-   1. Do we need to adjust our position?
-      Vector3 toTarget = (target - base.transform.position).normalized;
-			Vector3 thrustVector = toTarget;
-			Vector3 toTrack = (idealPoint - base.transform.position).normalized;
-			Vector3 velocityTowardsTarget = Vector3.Project(this._flight.Velocity, toTarget);
-			Vector3 velocityTowardsTrack = Vector3.Project(this._flight.Velocity, toTrack);
-			float trackError = Vector3.Distance(base.transform.position, idealPoint);
-			bool flag = trackError >= trackEpsilon && velocityTowardsTrack.magnitude * 2f < velocityTowardsTarget.magnitude;
+  1. Do we need to adjust our position?
+    Vector3 toTarget = (target - base.transform.position).normalized;
+    Vector3 thrustVector = toTarget;
+    Vector3 toTrack = (idealPoint - base.transform.position).normalized;
+    Vector3 velocityTowardsTarget = Vector3.Project(this._flight.Velocity, toTarget);
+    Vector3 velocityTowardsTrack = Vector3.Project(this._flight.Velocity, toTrack);
+    float trackError = Vector3.Distance(base.transform.position, idealPoint);
+    bool flag = trackError >= trackEpsilon && velocityTowardsTrack.magnitude * 2f < velocityTowardsTarget.magnitude;
 
-    Generally, yes we will need to do this for evasive maneuvers because trackEpsilon is 0.05
-    */
+  Generally, yes we will need to do this for evasive maneuvers because trackEpsilon is 0.05
+  */
   projectedData(range, speed, thrustDial) {
     const evasionEnd = 250;
     const maxEvasionStart = 5000;
@@ -285,19 +289,19 @@ class Missile {
       const idealError = vectorDistance(position, ideal);
 
       /*
-        2. Alter thrust vector
-              this._flight.Pid.ProcessVariable = -trackError;
-              Vector3 offAxisThrust = (toTrack * this._flight.Pid.ControlVariable(Time.fixedDeltaTime)).normalized;
-              thrustVector = Vector3.RotateTowards(toTarget, thrustVector + offAxisThrust, maxAngleOffLookAt * 0.0174532924f, float.MaxValue);
-              Vector3 leftoverVelocity = this._flight.Velocity - (velocityTowardsTarget + velocityTowardsTrack);
-              bool flag2 = leftoverVelocity.magnitude > 0f && this._flight.Velocity.magnitude > 0f;
-              if (flag2)
-              {
-                thrustVector -= leftoverVelocity.normalized * (leftoverVelocity.magnitude / this._flight.Velocity.magnitude);
-              }
+      2. Alter thrust vector
+        this._flight.Pid.ProcessVariable = -trackError;
+        Vector3 offAxisThrust = (toTrack * this._flight.Pid.ControlVariable(Time.fixedDeltaTime)).normalized;
+        thrustVector = Vector3.RotateTowards(toTarget, thrustVector + offAxisThrust, maxAngleOffLookAt * 0.0174532924f, float.MaxValue);
+        Vector3 leftoverVelocity = this._flight.Velocity - (velocityTowardsTarget + velocityTowardsTrack);
+        bool flag2 = leftoverVelocity.magnitude > 0f && this._flight.Velocity.magnitude > 0f;
+        if (flag2)
+        {
+          thrustVector -= leftoverVelocity.normalized * (leftoverVelocity.magnitude / this._flight.Velocity.magnitude);
+        }
 
-              thrustVector.Normalize()
-        */
+        thrustVector.Normalize()
+      */
       if (idealError >= epsilon && magVector(velToIdeal) * 2 < magVector(velToTarget)) {
         const pidOut = this.guidancePID.update(-idealError/10, delta);
         const offAxisThrust = normalizeVector(scaleVector(toIdeal, pidOut * 10));
@@ -362,38 +366,38 @@ class Missile {
       }
     }];
   }
- /*
+  /*
   Navigating to a point
   base.NavigateToPoint(projected, ideal, Vector3.up, new Vector3?(target), fromSeeker.MaxMissileSteering, false, 0.05f);
   Vector3 NavigateToPoint(Vector3 target, Vector3 idealPoint, Vector3 up, Vector3? lookAt, float maxAngleOffLookAt, bool useAvoider, float trackEpsilon = 2.5f)
 
   MaxMissileSteering is our maxOffAngleLookAt, and it's tied to the seeker FOV (infinity for command).
-  
+
 
   3. Thrust
 
-        base.Thrust(thrustVector, this._currentStage.EngineComp.Thrust, this._currentStage.EngineComp.Speed,
-           new float?(this._currentStage.EngineComp.MaxOffAngleThrust(this.InBoostPhase)));
+  base.Thrust(thrustVector, this._currentStage.EngineComp.Thrust, this._currentStage.EngineComp.Speed,
+    new float?(this._currentStage.EngineComp.MaxOffAngleThrust(this.InBoostPhase)));
 
-        Thrust is LERPd value for engine thrust
-        Speed is LERPd value for engine speed
-        MaxOffAngleThrust is LERPd value for max thrust angle
-        
-        # Thrust
-	      void Thrust(Vector3 thrustVector, float motor, float speedLimit, float? maxOffAngleThrust)
+    Thrust is LERPd value for engine thrust
+    Speed is LERPd value for engine speed
+    MaxOffAngleThrust is LERPd value for max thrust angle
 
-        bool flag = maxOffAngleThrust != null && thrustVector != Vector3.zero;
-        if (flag)
-        {
-          thrustVector = Quaternion.RotateTowards(base.transform.rotation, Quaternion.LookRotation(thrustVector), maxOffAngleThrust.Value) * Vector3.forward;
-        }
-        this._body.AddForce(thrustVector * motor * Time.fixedDeltaTime, ForceMode.Impulse);
-        bool flag2 = this._body.velocity.magnitude > speedLimit;
-        if (flag2)
-        {
-          this._body.velocity = this._body.velocity.normalized * speedLimit;
-        }
-  */
+    # Thrust
+    void Thrust(Vector3 thrustVector, float motor, float speedLimit, float? maxOffAngleThrust)
+
+    bool flag = maxOffAngleThrust != null && thrustVector != Vector3.zero;
+    if (flag)
+    {
+      thrustVector = Quaternion.RotateTowards(base.transform.rotation, Quaternion.LookRotation(thrustVector), maxOffAngleThrust.Value) * Vector3.forward;
+    }
+    this._body.AddForce(thrustVector * motor * Time.fixedDeltaTime, ForceMode.Impulse);
+    bool flag2 = this._body.velocity.magnitude > speedLimit;
+    if (flag2)
+    {
+      this._body.velocity = this._body.velocity.normalized * speedLimit;
+    }
+    */
 }
 
 const VECTOR_UP = [0, 0, 1];
@@ -441,7 +445,7 @@ function lookRotation(forward, up) {
   const x = forward;
   const y = crossVectors(up, x);
   const z = crossVectors(x, y);
-  
+
   return vectorsToQuat(x, y, z);
 }
 
@@ -450,26 +454,26 @@ function projectVector(v, onto) {
 }
 
 /*		public static Vector3 ClosestPointOnLine(this Vector3 p, Vector3 a, Vector3 b, out float U, bool cap = false)
-		{
-			bool flag = a == b;
-			Vector3 result;
-			if (flag)
-			{
-				U = 0f;
-				result = a;
-			}
-			else
-			{
-				U = ((p.x - a.x) * (b.x - a.x) + (p.y - a.y) * (b.y - a.y) + (p.z - a.z) * (b.z - a.z)) / (a - b).sqrMagnitude;
-				if (cap)
-				{
-					U = Mathf.Clamp(U, 0f, 1f);
-				}
-				Vector3 intersection = new Vector3(a.x + U * (b.x - a.x), a.y + U * (b.y - a.y), a.z + U * (b.z - a.z));
-				result = intersection;
-			}
-			return result;
-		}
+{
+  bool flag = a == b;
+  Vector3 result;
+  if (flag)
+  {
+    U = 0f;
+    result = a;
+  }
+  else
+  {
+    U = ((p.x - a.x) * (b.x - a.x) + (p.y - a.y) * (b.y - a.y) + (p.z - a.z) * (b.z - a.z)) / (a - b).sqrMagnitude;
+    if (cap)
+    {
+      U = Mathf.Clamp(U, 0f, 1f);
+    }
+    Vector3 intersection = new Vector3(a.x + U * (b.x - a.x), a.y + U * (b.y - a.y), a.z + U * (b.z - a.z));
+    result = intersection;
+  }
+  return result;
+}
 */
 
 function squareMagnitude(v) {
@@ -489,42 +493,42 @@ function vectorDistance(from, to) {
 
 function rotateQuat(from, to, angleLimit) {
   /*
-  		public static Quaternion RotateTowards(Quaternion from, Quaternion to, float maxDegreesDelta)
-		{
-			float angle = Quaternion.Angle(from, to);
-			bool flag = angle == 0f;
-			Quaternion result;
-			if (flag)
-			{
-				result = to;
-			}
-			else
-			{
-				result = Quaternion.SlerpUnclamped(from, to, Mathf.Min(1f, maxDegreesDelta / angle));
-			}
-			return result;
-		}
-    */
-    let fromN = from.normalize();
-    let toN = to.normalize();
-    const angle = angleBetweenQuats(fromN, toN);
-    if (angle === 0.0) {
-      return to;
-    } else {
-      return fromN.slerp(toN)(Math.min(1, angleLimit / angle)).normalize();
+  public static Quaternion RotateTowards(Quaternion from, Quaternion to, float maxDegreesDelta)
+  {
+    float angle = Quaternion.Angle(from, to);
+    bool flag = angle == 0f;
+    Quaternion result;
+    if (flag)
+    {
+      result = to;
     }
+    else
+    {
+      result = Quaternion.SlerpUnclamped(from, to, Mathf.Min(1f, maxDegreesDelta / angle));
+    }
+    return result;
+  }
+  */
+  let fromN = from.normalize();
+  let toN = to.normalize();
+  const angle = angleBetweenQuats(fromN, toN);
+  if (angle === 0.0) {
+    return to;
+  } else {
+    return fromN.slerp(toN)(Math.min(1, angleLimit / angle)).normalize();
+  }
 }
 
 function angleBetweenQuats(from, to) {
   /*
-  		public static float Angle(Quaternion a, Quaternion b)
-		{
-			float dot = Quaternion.Dot(a, b);
-			return Quaternion.IsEqualUsingDot(dot) ? 0f : (Mathf.Acos(Mathf.Min(Mathf.Abs(dot), 1f)) * 2f * 57.29578f);
-		}
-    */
-   const dot = from.dot(to);
-   return dot > 0.999999 ? 0.0 : Math.acos(Math.min(Math.abs(dot), 1)) * 2 * 57.29578;
+  public static float Angle(Quaternion a, Quaternion b)
+  {
+    float dot = Quaternion.Dot(a, b);
+    return Quaternion.IsEqualUsingDot(dot) ? 0f : (Mathf.Acos(Mathf.Min(Mathf.Abs(dot), 1f)) * 2f * 57.29578f);
+  }
+  */
+  const dot = from.dot(to);
+  return dot > 0.999999 ? 0.0 : Math.acos(Math.min(Math.abs(dot), 1)) * 2 * 57.29578;
 }
 
 function vectorsToQuat(x, y, z) {
@@ -557,7 +561,7 @@ function vectorsToQuat(x, y, z) {
     if ((1.0 + m00 - m11 - m22) <= 0) {
       return new Quaternion(NaN, NaN, NaN, NaN);
     }
-    S = Math.sqrt(1.0 + m00 - m11 - m22) * 2; // S=4*qx 
+    S = Math.sqrt(1.0 + m00 - m11 - m22) * 2; // S=4*qx
     qw = (m21 - m12) / S
     qx = 0.25 * S
     qy = (m01 + m10) / S

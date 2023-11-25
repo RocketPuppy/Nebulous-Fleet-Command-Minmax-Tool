@@ -30,25 +30,25 @@ function make_trace(fpa_count, range) {
 }
 
 function do_graph() {
-    const data = [];
-    for (var i = 0; i <= 8; i++) {
-      data.push(make_trace(i, 5000));
-      data.push(make_trace(i, 6000));
-    }
+  const data = [];
+  for (var i = 0; i <= 8; i++) {
+    data.push(make_trace(i, 5000));
+    data.push(make_trace(i, 6000));
+  }
 
-    const graph = document.getElementById('beam-graph');
-    const layout = {
-      margin: { t: 0 },
-      showlegend: true,
-      // legend: {
-      //   x: 0,
-      //   xanchor: 'left',
-      //   y: -0.4,
-      //   yanchor: 'top'
-      // },
-      autosize: true
-    };
-    Plotly.newPlot( graph, data, layout, { responsive: true });
+  const graph = document.getElementById('beam-graph');
+  const layout = {
+    margin: { t: 0 },
+    showlegend: true,
+    // legend: {
+    //   x: 0,
+    //   xanchor: 'left',
+    //   y: -0.4,
+    //   yanchor: 'top'
+    // },
+    autosize: true
+  };
+  Plotly.newPlot( graph, data, layout, { responsive: true });
 }
 
 do_graph()

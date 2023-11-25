@@ -8,20 +8,20 @@ let selectedWeapon = null;
 let selectedWeaponType = null;
 
 export function getWeapon() {
-    return selectedWeapon;
+  return selectedWeapon;
 }
 
 export function getWeaponType() {
-    return selectedWeaponType;
+  return selectedWeaponType;
 }
 
 function selectWeapon(type, weapon) {
-    selectedWeapon = weapon;
-    selectedWeaponType = type;
-    refreshArmorPen();
-    hideWeaponSelectWarnings();
-    fillWeaponSelected(weapon);
-    beamWeaponSelected();
+  selectedWeapon = weapon;
+  selectedWeaponType = type;
+  refreshArmorPen();
+  hideWeaponSelectWarnings();
+  fillWeaponSelected(weapon);
+  beamWeaponSelected();
 }
 
 function hideWeaponSelectWarnings() {

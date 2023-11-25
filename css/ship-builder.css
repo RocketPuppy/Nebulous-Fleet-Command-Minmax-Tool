@@ -1,21 +1,21 @@
 svg {
-    width: 100%;
-    height: auto;
-    overflow: visible;
+  width: 100%;
+  height: auto;
+  overflow: visible;
 }
 
 svg .socket.module, svg .socket.compartment, svg .socket.mount {
-    stroke: DarkOrange !important;
+  stroke: DarkOrange !important;
 }
 svg .socket.module:hover, svg .socket.compartment:hover, svg .socket.mount:hover {
-    stroke: Orange !important;
+  stroke: Orange !important;
 }
 
 svg .socket.filled {
-    fill: DarkOrange !important;
+  fill: DarkOrange !important;
 }
 
 #components {
-    margin-top: 100px;
-    color: white;
+  margin-top: 100px;
+  color: white;
 }
