@@ -12,7 +12,7 @@ export default [
       "lateralThrustModifier": 0.9,
       "brakingThrustModifier": 0.95,
       "buildable": true,
-      "edit-board": "sprinter-dc-board.svg",
+      "edit-board": "resources/ships/sprinter-dc-board.svg",
       "factions": [ "ANS" ],
       "key": "Stock/Sprinter Corvette",
       "id": "ed43cd19-e515-4ef1-8a44-9e18605ed091",
@@ -32,7 +32,7 @@ export default [
       "brakingThrustModifier": 0.9,
       "factions": [ "ANS" ],
       "buildable": true,
-      "edit-board": "raines-dc-board.svg",
+      "edit-board": "resources/ships/raines-dc-board.svg",
       "key": "Stock/Raines Frigate",
       "id": "4a9ad703-386b-42ee-8268-1e0c7bc67f8d",
       "cost": 125,
@@ -53,7 +53,7 @@ export default [
       "key": "Stock/Keystone Destroyer",
       "id": "3f99d36e-6794-4767-9b05-fb4cd69faeba",
       "buildable": true,
-      "edit-board": "keystone-dc-board.svg",
+      "edit-board": "resources/ships/keystone-dc-board.svg",
       "cost": 200,
     },
     {
@@ -72,7 +72,7 @@ export default [
       "key": "Stock/Vauxhall Light Cruiser",
       "id": "d8719423-ce15-45ad-b1e4-fd34904a6c56",
       "buildable": true,
-      "edit-board": "vauxhall-dc-board.svg",
+      "edit-board": "resources/ships/vauxhall-dc-board.svg",
       "cost": 350,
     },
     {
@@ -91,7 +91,7 @@ export default [
       "key": "Stock/Axford Heavy Cruiser",
       "id": "28cdfbbf-c6a7-48b6-be46-0a34f341a2d3",
       "buildable": true,
-      "edit-board": "axford-dc-board.svg",
+      "edit-board": "resources/ships/axford-dc-board.svg",
       "cost": 600,
     },
     {
@@ -110,7 +110,7 @@ export default [
       "id": "ca2a3583-8f48-4f2f-9643-ca9f29ea3681",
       "key": "Stock/Solomon Battleship",
       "buildable": true,
-      "edit-board": "solomon-dc-board.svg",
+      "edit-board": "resources/ships/solomon-dc-board.svg",
       "cost": 1000,
     },
     {
