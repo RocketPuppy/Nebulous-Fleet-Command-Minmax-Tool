@@ -1,0 +1,3 @@
+
+## Enforce text mode and CRLF line breaks
+* text=auto eol=crlf
