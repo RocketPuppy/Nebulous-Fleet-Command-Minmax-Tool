@@ -6,18 +6,18 @@
     version="2.0"
     exclude-result-prefixes="xs">
     <xsl:output method="xml" omit-xml-declaration="yes" indent="yes"/>
-    <xsl:include href="./sprinter-dc-board.xsl" />
-    <xsl:include href="./raines-dc-board.xsl" />
-    <xsl:include href="./keystone-dc-board.xsl" />
-    <xsl:include href="./vauxhall-dc-board.xsl" />
-    <xsl:include href="./axford-dc-board.xsl" />
-    <xsl:include href="./solomon-dc-board.xsl" />
-    <xsl:include href="./shuttle-dc-board.xsl" />
-    <xsl:include href="./ocello-dc-board.xsl" />
-    <xsl:include href="./tug-dc-board.xsl" />
-    <xsl:include href="./cargo-feeder-dc-board.xsl" />
-    <xsl:include href="./container-freighter-dc-board.xsl" />
-    <xsl:include href="./bulk-freighter-dc-board.xsl" />
+    <xsl:include href="./resources/ships/sprinter-dc-board.xsl" />
+    <xsl:include href="./resources/ships/raines-dc-board.xsl" />
+    <xsl:include href="./resources/ships/keystone-dc-board.xsl" />
+    <xsl:include href="./resources/ships/vauxhall-dc-board.xsl" />
+    <xsl:include href="./resources/ships/axford-dc-board.xsl" />
+    <xsl:include href="./resources/ships/solomon-dc-board.xsl" />
+    <xsl:include href="./resources/ships/shuttle-dc-board.xsl" />
+    <xsl:include href="./resources/ships/ocello-dc-board.xsl" />
+    <xsl:include href="./resources/ships/tug-dc-board.xsl" />
+    <xsl:include href="./resources/ships/cargo-feeder-dc-board.xsl" />
+    <xsl:include href="./resources/ships/container-freighter-dc-board.xsl" />
+    <xsl:include href="./resources/ships/bulk-freighter-dc-board.xsl" />
     <xsl:template match="/">
         <xsl:apply-templates select="FullAfterActionReport"/>
     </xsl:template>
@@ -1223,59 +1223,59 @@
         <img class="weapon-image">
             <xsl:attribute name="src">
                 <xsl:choose>
-                    <xsl:when test="$name = $e90">e90.svg</xsl:when>
-                    <xsl:when test="$name = $e70">e70.svg</xsl:when>
-                    <xsl:when test="$name = $e71">e71.svg</xsl:when>
-                    <xsl:when test="$name = $e55">e55.svg</xsl:when>
-                    <xsl:when test="$name = $e57">e57.svg</xsl:when>
-                    <xsl:when test="$name = $mk61">mk61.svg</xsl:when>
-                    <xsl:when test="$name = $mk62">mk62.svg</xsl:when>
-                    <xsl:when test="$name = $mk90">mk90.svg</xsl:when>
-                    <xsl:when test="$name = $mk20">mk20.svg</xsl:when>
-                    <xsl:when test="$name = $mk29">mk29.svg</xsl:when>
-                    <xsl:when test="$name = $mk25">mk25.svg</xsl:when>
-                    <xsl:when test="$name = $mk95">mk95.svg</xsl:when>
-                    <xsl:when test="$name = $mk64">mk64.svg</xsl:when>
-                    <xsl:when test="$name = $mk66">mk66.svg</xsl:when>
-                    <xsl:when test="$name = $mk81">mk81.svg</xsl:when>
-                    <xsl:when test="$name = $mk82">mk82.svg</xsl:when>
-                    <xsl:when test="$name = $sgm1">sgm1.svg</xsl:when>
-                    <xsl:when test="$name = $ea12">ea12.svg</xsl:when>
-                    <xsl:when test="$name = $ea20">ea20.svg</xsl:when>
-                    <xsl:when test="$name = $ea99">ea99.svg</xsl:when>
-                    <xsl:when test="$name = $sgmh3">sgm-h-3.svg</xsl:when>
-                    <xsl:when test="$name = $sgm3">sgm3.svg</xsl:when>
-                    <xsl:when test="$name = $sgm2">sgm2.svg</xsl:when>
-                    <xsl:when test="$name = $sgmh2">sgm-h-2.svg</xsl:when>
-                    <xsl:when test="$name = $mk68">mk68.svg</xsl:when>
-                    <xsl:when test="$name = $mk610">mk610.svg</xsl:when>
-                    <xsl:when test="$name = $mk600">mk600.svg</xsl:when>
-                    <xsl:when test="$name = $mk550">mk550.svg</xsl:when>
-                    <xsl:when test="$name = $e20">e20.svg</xsl:when>
-                    <xsl:when test="$name = $j360">j360.svg</xsl:when>
-                    <xsl:when test="$name = $l50">l50.svg</xsl:when>
-                    <xsl:when test="$name = $t81">t81.svg</xsl:when>
-                    <xsl:when test="$name = $c53">c53.svg</xsl:when>
-                    <xsl:when test="$name = $t20">t20.svg</xsl:when>
-                    <xsl:when test="$name = $p60">p60.svg</xsl:when>
-                    <xsl:when test="$name = $p11">p11.svg</xsl:when>
-                    <xsl:when test="$name = $c81">c81.svg</xsl:when>
-                    <xsl:when test="$name = $cm4d1">cm4d1.svg</xsl:when>
-                    <xsl:when test="$name = $cm4d2">cm4d2.svg</xsl:when>
-                    <xsl:when test="$name = $cm4r">cm4r.svg</xsl:when>
-                    <xsl:when test="$name = $cm4m">cm4m.svg</xsl:when>
-                    <xsl:when test="$name = $cm4">cm4.svg</xsl:when>
-                    <xsl:when test="$name = $m30">m30.svg</xsl:when>
-                    <xsl:when test="$name = $m30net">m30.svg</xsl:when>
-                    <xsl:when test="$name = $m30sprint">m30.svg</xsl:when>
-                    <xsl:when test="$name = $r2">r2.svg</xsl:when>
-                    <xsl:when test="$name = $p20">p20.svg</xsl:when>
-                    <xsl:when test="$name = $t30">t30.svg</xsl:when>
-                    <xsl:when test="$name = $te45">te45.svg</xsl:when>
-                    <xsl:when test="$name = $c60">c60.svg</xsl:when>
-                    <xsl:when test="$name = $c65">c65.svg</xsl:when>
-                    <xsl:when test="$name = $j15">j15.svg</xsl:when>
-                    <xsl:when test="$name = $mk65">mk65.svg</xsl:when>
+                    <xsl:when test="$name = $e90">resources/modules/e90.svg</xsl:when>
+                    <xsl:when test="$name = $e70">resources/modules/e70.svg</xsl:when>
+                    <xsl:when test="$name = $e71">resources/modules/e71.svg</xsl:when>
+                    <xsl:when test="$name = $e55">resources/modules/e55.svg</xsl:when>
+                    <xsl:when test="$name = $e57">resources/modules/e57.svg</xsl:when>
+                    <xsl:when test="$name = $mk61">resources/modules/mk61.svg</xsl:when>
+                    <xsl:when test="$name = $mk62">resources/modules/mk62.svg</xsl:when>
+                    <xsl:when test="$name = $mk90">resources/modules/mk90.svg</xsl:when>
+                    <xsl:when test="$name = $mk20">resources/modules/mk20.svg</xsl:when>
+                    <xsl:when test="$name = $mk29">resources/modules/mk29.svg</xsl:when>
+                    <xsl:when test="$name = $mk25">resources/modules/mk25.svg</xsl:when>
+                    <xsl:when test="$name = $mk95">resources/modules/mk95.svg</xsl:when>
+                    <xsl:when test="$name = $mk64">resources/modules/mk64.svg</xsl:when>
+                    <xsl:when test="$name = $mk66">resources/modules/mk66.svg</xsl:when>
+                    <xsl:when test="$name = $mk81">resources/modules/mk81.svg</xsl:when>
+                    <xsl:when test="$name = $mk82">resources/modules/mk82.svg</xsl:when>
+                    <xsl:when test="$name = $sgm1">resources/modules/sgm1.svg</xsl:when>
+                    <xsl:when test="$name = $ea12">resources/modules/ea12.svg</xsl:when>
+                    <xsl:when test="$name = $ea20">resources/modules/ea20.svg</xsl:when>
+                    <xsl:when test="$name = $ea99">resources/modules/ea99.svg</xsl:when>
+                    <xsl:when test="$name = $sgmh3">resources/modules/sgm-h-3.svg</xsl:when>
+                    <xsl:when test="$name = $sgm3">resources/modules/sgm3.svg</xsl:when>
+                    <xsl:when test="$name = $sgm2">resources/modules/sgm2.svg</xsl:when>
+                    <xsl:when test="$name = $sgmh2">resources/modules/sgm-h-2.svg</xsl:when>
+                    <xsl:when test="$name = $mk68">resources/modules/mk68.svg</xsl:when>
+                    <xsl:when test="$name = $mk610">resources/modules/mk610.svg</xsl:when>
+                    <xsl:when test="$name = $mk600">resources/modules/mk600.svg</xsl:when>
+                    <xsl:when test="$name = $mk550">resources/modules/mk550.svg</xsl:when>
+                    <xsl:when test="$name = $e20">resources/modules/e20.svg</xsl:when>
+                    <xsl:when test="$name = $j360">resources/modules/j360.svg</xsl:when>
+                    <xsl:when test="$name = $l50">resources/modules/l50.svg</xsl:when>
+                    <xsl:when test="$name = $t81">resources/modules/t81.svg</xsl:when>
+                    <xsl:when test="$name = $c53">resources/modules/c53.svg</xsl:when>
+                    <xsl:when test="$name = $t20">resources/modules/t20.svg</xsl:when>
+                    <xsl:when test="$name = $p60">resources/modules/p60.svg</xsl:when>
+                    <xsl:when test="$name = $p11">resources/modules/p11.svg</xsl:when>
+                    <xsl:when test="$name = $c81">resources/modules/c81.svg</xsl:when>
+                    <xsl:when test="$name = $cm4d1">resources/modules/cm4d1.svg</xsl:when>
+                    <xsl:when test="$name = $cm4d2">resources/modules/cm4d2.svg</xsl:when>
+                    <xsl:when test="$name = $cm4r">resources/modules/cm4r.svg</xsl:when>
+                    <xsl:when test="$name = $cm4m">resources/modules/cm4m.svg</xsl:when>
+                    <xsl:when test="$name = $cm4">resources/modules/cm4.svg</xsl:when>
+                    <xsl:when test="$name = $m30">resources/modules/m30.svg</xsl:when>
+                    <xsl:when test="$name = $m30net">resources/modules/m30.svg</xsl:when>
+                    <xsl:when test="$name = $m30sprint">resources/modules/m30.svg</xsl:when>
+                    <xsl:when test="$name = $r2">resources/modules/r2.svg</xsl:when>
+                    <xsl:when test="$name = $p20">resources/modules/p20.svg</xsl:when>
+                    <xsl:when test="$name = $t30">resources/modules/t30.svg</xsl:when>
+                    <xsl:when test="$name = $te45">resources/modules/te45.svg</xsl:when>
+                    <xsl:when test="$name = $c60">resources/modules/c60.svg</xsl:when>
+                    <xsl:when test="$name = $c65">resources/modules/c65.svg</xsl:when>
+                    <xsl:when test="$name = $j15">resources/modules/j15.svg</xsl:when>
+                    <xsl:when test="$name = $mk65">resources/modules/mk65.svg</xsl:when>
                     <xsl:otherwise></xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
