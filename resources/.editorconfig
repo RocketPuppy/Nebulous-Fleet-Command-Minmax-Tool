@@ -1,0 +1,4 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+[*.svg]
+indent_size = 3
