@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script defer src="./js/head.js"></script>
+  <script defer src="./js/self_inject/base_logic.js"></script>
+  <script defer src="./js/self_inject/head.js"></script>
 
   <title>Nebulous · Min-Max Tool · Movement Mechanics</title>
   <link rel="stylesheet" href="./css/index.css" />
 
-  <script src="./js/plotly-2.14.0.min.js"></script>
+  <script src="./js/3rd/plotly-2.14.0.min.js"></script>
   <script type="module" defer src="./js/gun-stats.js"></script>
   <script type="module" defer src="./js/hull-stats.js"></script>
   <script type="module" defer src="./movement/gun.js"></script>
@@ -14,7 +15,7 @@
   <script type="module" defer src="./movement/ship.js"></script>
 </head>
 <body>
-  <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
+  <script defer src="./js/self_inject/home.js"></script>
   <h1>Movement Mechanics</h1>
   <h2><a href="#dodge">Dodging Incoming Rounds</a></h2>
   <p>
