@@ -11,11 +11,11 @@ const fpa_boost = 0.25;
 
 export function fpa_modifier(count) {
   // IF(module_count=0, 0, SUM(MAP(MAKEARRAY(module_count,1,LAMBDA(row, col, row-1)), LAMBDA(iter, base_modifier * EXP(-POW(iter / 3.5, 2))))))
-  var sum = 0;
-  for(var i = 1; i <= count; i++) {
+  var sum = 1;
+  for(var i = 0; i < count; i++) {
     sum += fpa_boost * Math.exp(0 - Math.pow(i / 3.5, 2));
   }
-  return sum + 1;
+  return sum;
 }
 
 function make_trace(fpa_count, range, damageResistance) {
