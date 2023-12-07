@@ -1,7 +1,7 @@
 
 //import { getMyself } from './base_logic.js'; //* disabled bc of CORS
 
-const codeHome = '<nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>';
+const codeHome = '<nav><a href="./../index.html" target="_self">Home</a></nav>';
 
 function injectHome(code) {
   var scripts = document.getElementsByTagName('script');

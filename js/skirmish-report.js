@@ -1,10 +1,12 @@
 const xsltProcessor = new XSLTProcessor();
 const skirmishFrame = document.getElementById("report-frame");
+const skirmish_schema = "./../skirmish-report.xsl";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   // Load the xsl file using synchronous (third param is set to false) XMLHttpRequest
   const myXMLHTTPRequest = new XMLHttpRequest();
-  myXMLHTTPRequest.open("GET", "skirmish-report.xsl", false);
+  myXMLHTTPRequest.open("GET", skirmish_schema, false);
   myXMLHTTPRequest.send(null);
 
   const xslRef = myXMLHTTPRequest.responseXML;
@@ -16,17 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function handleFileContent(content) {
   const parser = new DOMParser();
-  const doc = parser.parseFromString(content, "text/xml");
-  const errorNode = doc.querySelector('parsererror');
-  if (errorNode) {
-    throw "Failed to parse missile file";
+  const xmlDoc = parser.parseFromString(content, "text/xml");
+  const errorNode = xmlDoc.querySelector('parsererror');
+  if (errorNode || !xmlDoc) {
+    throw "Failed to parse battle report file.";
   }
-  return doc;
+  return xmlDoc;
 }
 
 function handleFileUpload(file) {
   file.text().then(handleFileContent).catch(alert).then((xmlDoc) => {
     const fragment = xsltProcessor.transformToFragment(xmlDoc, document);
+    if (!fragment) {
+      console.debug('xmlDoc:', xmlDoc);
+      throw "Failed to parse battle report file.";
+    }
     skirmishFrame.textContent = '';
     skirmishFrame.appendChild(fragment);
     reportUi(fragment);

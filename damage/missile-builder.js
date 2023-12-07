@@ -1,5 +1,5 @@
 import missileStats from "./../js/missile-stats.js";
-import warheadStats from "./../js/warhead-stats.js";
+import warheadStats from "./../js/stats/warhead-stats.js";
 
 export const missilehekp = "missilehekp";
 export const missileheimpact = "missileheimpact";

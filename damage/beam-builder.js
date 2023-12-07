@@ -1,5 +1,5 @@
 import { base_damage, base_pen, period, fpa_modifier } from "./beam.js";
-import beamCurve from "./beam-curve.js";
+import beamCurve from "./../js/stats/beam-curve.js";
 
 export const beam = "beam";
 

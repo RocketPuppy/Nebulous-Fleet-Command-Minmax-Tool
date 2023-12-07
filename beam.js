@@ -1,4 +1,4 @@
-import beamCurve from "./beam-curve.js";
+import beamCurve from "./js/stats/beam-curve.js";
 
 const base_damage = 60;
 const base_pen = 36;

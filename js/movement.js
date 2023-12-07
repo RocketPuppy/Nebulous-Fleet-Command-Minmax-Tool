@@ -1,7 +1,7 @@
-import hullStats from "./../js/hull-stats.js";
-import gunStats from "../js/gun-stats.js";
-import Gun from "./gun.js";
-import Ship from "./ship.js";
+import hullStats from "./stats/hull-stats.js";
+import gunStats from "./stats/gun-stats.js";
+import Gun from "./structures/gun.js";
+import Ship from "./structures/ship.js";
 
 /*
 1. Assume gun has perfect tracking (you are locked)

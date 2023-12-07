@@ -1,4 +1,4 @@
-import hullStats from "./../js/hull-stats.js";
+import hullStats from "./../js/stats/hull-stats.js";
 import { missilehekp, missileheimpact } from "./missile-builder.js";
 import { cannon120, cannon250, cannon450, railgun } from "./gun-builder.js";
 import { beam } from "./beam-builder.js";

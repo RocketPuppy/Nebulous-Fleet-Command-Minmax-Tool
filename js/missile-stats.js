@@ -1,4 +1,4 @@
-import warheads, { NoFalloff, Warhead } from "./warhead-stats.js";
+import warheads, { NoFalloff, Warhead } from "./stats/warhead-stats.js";
 import PID from './pid.js';
 
 class Missile {

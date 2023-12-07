@@ -1,5 +1,5 @@
-import hullStats from "./hull-stats.js";
-import componentStats from "./component-stats.js";
+import hullStats from "./stats/hull-stats.js";
+import componentStats from "./stats/component-stats.js";
 
 let ship = null;
 let lastSubmittedComponent = null;

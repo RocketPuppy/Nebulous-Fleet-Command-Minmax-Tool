@@ -1,6 +1,6 @@
-import beamCurve from "./beam-curve.js";
-import hullStats from "./../js/hull-stats.js";
-import componentStats from "../js/component-stats.js";
+import beamCurve from "./../js/stats/beam-curve.js";
+import hullStats from "./../js/stats/hull-stats.js";
+import componentStats from "./../js/stats/component-stats.js";
 import { getWeapon, getWeaponType } from "./damage.js";
 import { beam } from "./beam-builder.js";
 

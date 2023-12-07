@@ -14,8 +14,7 @@ export default [
     "factions": [ "ANS" ],
     "key": "Stock/FM200 Drive",
     "cost": 10,
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": true,
     "name": "FM200R Drive",
@@ -29,8 +28,7 @@ export default [
     "factions": [ "ANS" ],
     "key": "Stock/FM200R Drive",
     "cost": 20,
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "FM230 'Whiplash' Drive",
@@ -43,8 +41,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FM230 'Whiplash' Drive",
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "FM240 'Dragonfly' Drive",
@@ -57,8 +54,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FM240 'Dragonfly' Drive",
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "FM280 'Raider' Drive",
@@ -71,8 +67,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FM280 'Raider' Drive",
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "FM30X 'Prowler' Drive",
@@ -85,8 +80,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FM30X 'Prowler' Drive",
-  },
-  {
+  }, {
     "length": 10,
     "isReinforced": false,
     "name": "FM500 Drive",
@@ -99,8 +93,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FM500 Drive",
-  },
-  {
+  }, {
     "length": 10,
     "isReinforced": true,
     "name": "FM500R Drive",
@@ -113,8 +106,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FM500R Drive",
-  },
-  {
+  }, {
     "length": 10,
     "isReinforced": false,
     "name": "FM530 'Whiplash' Drive",
@@ -127,8 +119,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FM530 'Whiplash' Drive",
-  },
-  {
+  }, {
     "length": 10,
     "isReinforced": false,
     "name": "FM540 'Dragonfly' Drive",
@@ -141,8 +132,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FM540 'Dragonfly' Drive",
-  },
-  {
+  }, {
     "length": 10,
     "isReinforced": false,
     "name": "FM580 'Raider' Drive",
@@ -155,8 +145,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FM580 'Raider' Drive",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Reinforced Thruster Nozzles",
@@ -169,8 +158,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Reinforced Thruster Nozzles",
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "BW800 Drive",
@@ -182,8 +170,7 @@ export default [
     "width": 5,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "BW800-R Drive",
@@ -195,8 +182,7 @@ export default [
     "width": 5,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 12,
     "isReinforced": false,
     "name": "BW1500 Drive",
@@ -208,8 +194,7 @@ export default [
     "width": 12,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 12,
     "isReinforced": false,
     "name": "BW1500-R Drive",
@@ -221,8 +206,7 @@ export default [
     "width": 12,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 12,
     "isReinforced": false,
     "name": "BW2000 Drive",
@@ -234,8 +218,7 @@ export default [
     "width": 12,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "Sundrive Racing Pro",
@@ -247,8 +230,7 @@ export default [
     "width": 5,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "CHI-777 Yard Drive",
@@ -261,8 +243,7 @@ export default [
     "type": "module",
     "factions": [ "OSP" ],
     "key": "Stock/CHI-777 Yard Drive",
-  },
-  {
+  }, {
     "length": 12,
     "isReinforced": false,
     "name": "CHI-7700 Drive",
@@ -274,8 +255,7 @@ export default [
     "width": 12,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 12,
     "isReinforced": false,
     "name": "CHI-9100 'Long Haul' Drive",
@@ -309,8 +289,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Basic CIC",
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": true,
     "name": "Reinforced CIC",
@@ -329,8 +308,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Reinforced CIC",
-  },
-  {
+  }, {
     "length": 8,
     "isReinforced": true,
     "name": "Citadel CIC",
@@ -346,8 +324,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Citadel CIC",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": true,
     "name": "Auxiliary Steering",
@@ -360,8 +337,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Auxiliary Steering",
-  },
-  {
+  }, {
     "length": 8,
     "isReinforced": false,
     "name": "Intelligence Center",
@@ -374,8 +350,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Intelligence Center",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Analysis Annex",
@@ -388,8 +363,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Analysis Annex",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "ES32 'Scryer' Missile ID System",
@@ -418,8 +392,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk61 Cannon",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Mk62 Cannon",
@@ -432,8 +405,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk62 Cannon",
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "Mk64 Cannon",
@@ -446,8 +418,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk64 Cannon",
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": false,
     "name": "Mk65 Cannon",
@@ -460,8 +431,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk65 Cannon",
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": false,
     "name": "Mk66 Cannon",
@@ -474,8 +444,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk66 Cannon",
-  },
-  {
+  }, {
     "length": 8,
     "isReinforced": false,
     "name": "Mk68 Cannon",
@@ -488,8 +457,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk68 Cannon",
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": false,
     "name": "Mk81 Railgun",
@@ -502,8 +470,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk81 Railgun",
-  },
-  {
+  }, {
     "length": 12,
     "isReinforced": false,
     "name": "Mk550 Mass Driver",
@@ -516,8 +483,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk550 Mass Driver",
-  },
-  {
+  }, {
     "length": 12,
     "isReinforced": false,
     "name": "Mk600 Beam Cannon",
@@ -530,8 +496,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk600 Beam Cannon",
-  },
-  {
+  }, {
     "length": 8,
     "isReinforced": false,
     "name": "Mk610 Beam Turret",
@@ -544,8 +509,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk610 Beam Turret",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Ammunition Elevators",
@@ -558,8 +522,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Ammunition Elevators",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Rapid-Cycle Cradle",
@@ -572,8 +535,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Rapid-Cycle Cradle",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Energy Regulator",
@@ -586,8 +548,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Energy Regulator",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Focused Particle Accelerator",
@@ -600,8 +561,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Focused Particle Accelerator",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Gun Plotting Center",
@@ -614,8 +574,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Gun Plotting Center",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Mount Gyros",
@@ -628,8 +587,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Mount Gyros",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Small Energy Regulator",
@@ -642,8 +600,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Small Energy Regulator",
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "C30 Cannon",
@@ -655,8 +612,7 @@ export default [
     "width": 2,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 4,
     "isReinforced": false,
     "name": "C53 Cannon",
@@ -668,8 +624,7 @@ export default [
     "width": 2,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "C60 Cannon",
@@ -681,8 +636,7 @@ export default [
     "width": 3,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 10,
     "isReinforced": false,
     "name": "C65 Cannon",
@@ -694,8 +648,7 @@ export default [
     "width": 6,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 10,
     "isReinforced": false,
     "name": "C81 Cannon",
@@ -707,8 +660,7 @@ export default [
     "width": 6,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 10,
     "isReinforced": false,
     "name": "TE45 Cannon",
@@ -720,8 +672,7 @@ export default [
     "width": 4,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "T20 Cannon",
@@ -733,8 +684,7 @@ export default [
     "width": 3,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": false,
     "name": "T30 Cannon",
@@ -746,8 +696,7 @@ export default [
     "width": 6,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": false,
     "name": "T81 Cannon",
@@ -775,8 +724,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FR4800 Reactor",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "FR3300 Micro Reactor",
@@ -789,8 +737,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/FR3300 Micro Reactor",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Small Reactor Booster",
@@ -803,8 +750,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Small Reactor Booster",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Plant Control Center",
@@ -817,8 +763,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Plant Control Center",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Redundant Reactor Failsafes",
@@ -831,8 +776,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Redundant Reactor Failsafes",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Light Civilian Reactor",
@@ -844,8 +788,7 @@ export default [
     "width": 3,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "Civilian Reactor",
@@ -857,8 +800,7 @@ export default [
     "width": 5,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "Boosted Reactor",
@@ -896,8 +838,7 @@ export default [
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Reinforced Magazine",
     "componentData": "BulkMagazineData",
-  },
-  {
+  }, {
     "length": 1,
     "isReinforced": false,
     "name": "Bulk Magazine",
@@ -919,8 +860,7 @@ export default [
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Bulk Magazine",
     "componentData": "BulkMagazineData",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Magazine Sprinklers",
@@ -949,8 +889,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/RS35 'Frontline' Radar",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "RS41 'Spyglass' Radar",
@@ -963,8 +902,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/RS41 'Spyglass' Radar",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "RM50 'Parallax' Radar",
@@ -977,8 +915,7 @@ export default [
     "type": "module",
     "factions": [ "ANS" ],
     "key": "Stock/RM50 'Parallax' Radar",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Adaptive Radar Receiver",
@@ -991,8 +928,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Adaptive Radar Receiver",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Track Correlator",
@@ -1005,8 +941,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Track Correlator",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Strobe Correlator",
@@ -1019,8 +954,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Strobe Correlator",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "ES22 'Pinard' Electronic Support Module",
@@ -1033,8 +967,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/ES22 'Pinard' Electronic Support Module",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "RF101 'Bullseye' Radar",
@@ -1047,8 +980,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/RF101 'Bullseye' Radar",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Ithaca Bridgemaster",
@@ -1060,8 +992,7 @@ export default [
     "width": 2,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Bulwark Huntress",
@@ -1073,8 +1004,7 @@ export default [
     "width": 2,
     "type": "module",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "R400 'Bloodhound' LRT Radar",
@@ -1087,8 +1017,7 @@ export default [
     "type": "mount",
     "factions": [ "OSP" ],
     "key": "Stock/R400 Radar",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "R550 Early Warning Radar",
@@ -1101,8 +1030,7 @@ export default [
     "type": "mount",
     "factions": [ "OSP" ],
     "key": "Stock/R550 Early Warning Radar",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "RF44 'Pinpoint' Radar",
@@ -1130,8 +1058,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Rapid DC Locker",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Small DC Locker",
@@ -1144,8 +1071,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Small DC Locker",
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": true,
     "name": "Reinforced DC Locker",
@@ -1158,8 +1084,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Reinforced DC Locker",
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": false,
     "name": "Large DC Locker",
@@ -1172,8 +1097,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Large DC Locker",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Damage Control Central",
@@ -1186,8 +1110,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Damage Control Central",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Small Workshop",
@@ -1200,8 +1123,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Small Workshop",
-  },
-  {
+  }, {
     "length": 1,
     "isReinforced": false,
     "name": "Berthing",
@@ -1222,8 +1144,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Berthing",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Battle Dressing Station",
@@ -1236,8 +1157,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Battle Dressing Station",
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": false,
     "name": "Large DC Storage",
@@ -1266,8 +1186,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/CR10 Antenna",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "CR70 Antenna",
@@ -1280,8 +1199,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/CR70 Antenna",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Supplementary Radio Amplifiers",
@@ -1310,8 +1228,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/E15 'Masquerade' Signature Booster",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "E55 'Spotlight' Illuminator",
@@ -1324,8 +1241,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/E55 'Spotlight' Illuminator",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "E57 'Floodlight' Illuminator",
@@ -1338,8 +1254,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/E57 'Floodlight' Illuminator",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "E70 'Interruption' Jammer",
@@ -1352,8 +1267,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/E70 'Interruption' Jammer",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "E71 'Hangup' Jammer",
@@ -1366,8 +1280,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/E71 'Hangup' Jammer",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "E90 'Blanket' Jammer",
@@ -1380,8 +1293,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/E90 'Blanket' Jammer",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Signature Scrambler",
@@ -1394,8 +1306,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Signature Scrambler",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Actively Cooled Amplifiers",
@@ -1408,8 +1319,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Actively Cooled Amplifiers",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "L50 'Blackjack' Lazer Dazzler",
@@ -1421,8 +1331,7 @@ export default [
     "width": 2,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "E20 'Lighthouse' Illuminator",
@@ -1434,8 +1343,7 @@ export default [
     "width": 2,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "J360 'Lyrebird' Jammer",
@@ -1447,8 +1355,7 @@ export default [
     "width": 3,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "J15 'Bellbird' Jammer",
@@ -1476,8 +1383,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk20 'Defender' PDT",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Mk25 'Rebound' PDT",
@@ -1489,8 +1395,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk25 'Rebound' PDT",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Mk29 'Stonewall' PDT",
@@ -1503,8 +1408,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk29 'Stonewall' PDT",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Mk90 'Aurora' PDT",
@@ -1517,8 +1421,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk90 'Aurora' PDT",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Mk95 'Sarissa' PDT",
@@ -1531,8 +1434,7 @@ export default [
     "type": "mount",
     "factions": [ "ANS" ],
     "key": "Stock/Mk95 'Sarissa' PDT",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "P11 'Pavise' PDT",
@@ -1544,8 +1446,7 @@ export default [
     "width": 2,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "P20 'Bastion' PDT",
@@ -1557,8 +1458,7 @@ export default [
     "width": 2,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "P60 'Grazer' PDT",
@@ -1585,8 +1485,7 @@ export default [
     "width": 2,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 5,
     "isReinforced": false,
     "name": "MLS-3 Launcher",
@@ -1598,8 +1497,7 @@ export default [
     "width": 2,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "VLS1-23 Launcher",
@@ -1613,8 +1511,7 @@ export default [
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/VLS-1-23 Launcher",
     "componentData": "CellLauncherData",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "VLS1-46 Launcher",
@@ -1628,8 +1525,7 @@ export default [
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/VLS-1-46 Launcher",
     "componentData": "CellLauncherData",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "VLS-2 Launcher",
@@ -1643,8 +1539,7 @@ export default [
     "factions": [ "ANS" ],
     "key": "Stock/VLS-2 Launcher",
     "componentData": "CellLauncherData",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "VLS-3 Launcher",
@@ -1658,8 +1553,7 @@ export default [
     "factions": [ "ANS" ],
     "key": "Stock/VLS-3 Launcher",
     "componentData": "CellLauncherData",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "CLS-3 Launcher",
@@ -1673,8 +1567,7 @@ export default [
     "factions": [ "ANS" ],
     "key": "Stock/CLS-3 Launcher",
     "componentData": "CellLauncherData",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Launcher Deluge System",
@@ -1687,8 +1580,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Launcher Deluge System",
-  },
-  {
+  }, {
     "length": 8,
     "isReinforced": false,
     "name": "Strike Planning Center",
@@ -1701,8 +1593,7 @@ export default [
     "type": "compartment",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Strike Planning Center",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "RL18 Launcher",
@@ -1714,8 +1605,7 @@ export default [
     "width": 3,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": false,
     "name": "RL36 Launcher",
@@ -1727,8 +1617,7 @@ export default [
     "width": 6,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "ML-9 Mine Launcher",
@@ -1740,8 +1629,7 @@ export default [
     "width": 3,
     "type": "mount",
     "factions": [ "OSP" ],
-  },
-  {
+  }, {
     "length": 6,
     "isReinforced": false,
     "name": "Container Stack Launcher",
@@ -1754,8 +1642,7 @@ export default [
     "type": "mount",
     "factions": [ "OSP" ],
     "componentData": "CellLauncherData",
-  },
-  {
+  }, {
     "length": 20,
     "isReinforced": false,
     "name": "Container Bank Launcher",
@@ -1768,8 +1655,7 @@ export default [
     "type": "mount",
     "factions": [ "OSP" ],
     "componentData": "CellLauncherData",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Missile Parallel Interface",
@@ -1782,8 +1668,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Missile Parallel Interface",
-  },
-  {
+  }, {
     "length": 2,
     "isReinforced": false,
     "name": "Missile Programming Bus",
@@ -1796,8 +1681,7 @@ export default [
     "type": "module",
     "factions": [ "ANS", "OSP" ],
     "key": "Stock/Missile Programming Bus",
-  },
-  {
+  }, {
     "length": 3,
     "isReinforced": false,
     "name": "Missile Programming Bus Array",
