@@ -1,4 +1,4 @@
-import gunstats from "../gun-stats.js";
+import gunstats from "./../js/stats/gun-stats.js";
 
 const { calibers, ammo } = gunstats;
 

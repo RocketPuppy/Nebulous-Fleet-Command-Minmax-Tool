@@ -1,71 +1,76 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="plotly-2.14.0.min.js"></script>
-        <script type="module" defer src="missiles-pd/index.js"></script>
-        <script type="module" defer src="missiles-pd/data.js"></script>
-        <script type="module" defer src="missiles-pd/stats.js"></script>
-        <script type="module" defer src="missiles-pd/ui.js"></script>
-        <script type="module" defer src="missiles-pd/graph.js"></script>
-        <link rel="stylesheet" href="missiles-pd/index.css" />
-        <link rel="stylesheet" href="index.css" />
-    </head>
-    <body>
-        <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
-        <h1>Missiles vs. PD</h1>
-        <div class="full-width">
-            <form id="graph-inputs" action="#" class="inputs-form">
-                <fieldset class="control-group">
-                    <legend>Select Missiles</legend><select name="missile"></select>
-                    <input name="add-missile" type="button" value="Add Missile"/>
-                </fieldset>
-                <fieldset class="control-group">
-                    <legend>Select Point Defense</legend><select name="pdt"></select>
-                    <input name="add-pdt" type="button" value="Add Point Defense"/>
-                </fieldset>
-                <fieldset class="control-group">
-                    <legend>Select Statistic</legend><select multiple name="stat"></select>
-                    <input name="add-stat" type="button" value="Select Statistics" />
-                </fieldset>
-                <div class="buttons control-group">
-                    <button type="button" name="reset">Reset</button>
-                </div>
-            </form>
-            <div id="missile-inputs" class="inputs">
-            </div>
-            <div id="pdt-inputs" class="inputs">
-            </div>
-            <div id="outputs">
-                <div id="graph"></div>
-            </div>
-        </div>
-        <div>
-            <h2>How Do I Use This?</h2>
-            <p>
-                Simple!
-                Add a missile and a point defense weapon from the dropdowns above.
-                You'll see two forms show up along with a graph.
-                In the forms you can change various missile parameters like acceleration, maximum speed, and health.
-                You can also tweak the encounter and evasion conditions to simulate anything from head-on, maximum evasive maneuvering to side-on, no evasion conditions.
-                In the point defense forms you can see how many hits the weapon needs to kill each missile.
-                You can also toggle the simulation to use the burst fire rate, which for Aurora's acts as battleshort toggle and for the other weapons is most effective in simulating instant first-shots.
-                See the Sarissa vs. an Atlatl for an example of what this does.
-            </p>
-            <p>
-                You can choose multiple statistics to graph from the menu above.
-                For the statistics with normal and an "ideal conditions" version, the ideal statistic assumes perfect shot accuracy.
-                All other statistics incorporate the hit probability calculation into their calculations.
-            </p>
-            <p>
-                The graph provides some facilities for zooming and panning.
-                You can also export the graph as an image for sharing with others.
-                You can hit the Reset button to remove all your missiles and point defense options and start again.
-            </p>
-            <h2>What Doesn't This Have?</h2>
-            <ul>
-                <li>Traverse or elevation tracking. All point defense turrets are assumed capable of tracking their targets. This is in general a safe assumption until missiles close to approximately 30% of the weapon's range. And of course that figure assumes the missile is pushing 100% of its maximum velocity transverse to the weapon which is rarely the case.</li>
-                <li>Input validation to ensure values match possible game values. You'll need to exercise some interpretation to ensure your input data is valid.</li>
-            </ul>
-        </div>
-    </body>
+<head>
+  <script defer src="./js/self_inject/base_logic.js"></script>
+  <script defer src="./js/self_inject/head.js"></script>
+
+  <title>Nebulous · Min-Max Tool · Missiles VS PD</title>
+  <link rel="stylesheet" href="./css/index.css" />
+
+  <link rel="stylesheet" href="./missiles-pd/index.css" />
+  <script src="./js/3rd/plotly-2.14.0.min.js"></script>
+  <script type="module" defer src="./missiles-pd/data.js"></script>
+  <script type="module" defer src="./missiles-pd/graph.js"></script>
+  <script type="module" defer src="./missiles-pd/index.js"></script>
+  <script type="module" defer src="./missiles-pd/stats.js"></script>
+  <script type="module" defer src="./missiles-pd/ui.js"></script>
+</head>
+<body>
+  <script defer src="./js/self_inject/home.js"></script>
+  <h1>Missiles VS PD</h1>
+  <div class="full-width">
+    <form id="graph-inputs" action="#" class="inputs-form">
+      <fieldset class="control-group">
+        <legend>Select Missiles</legend><select name="missile"></select>
+        <input name="add-missile" type="button" value="Add Missile"/>
+      </fieldset>
+      <fieldset class="control-group">
+        <legend>Select Point Defense</legend><select name="pdt"></select>
+        <input name="add-pdt" type="button" value="Add Point Defense"/>
+      </fieldset>
+      <fieldset class="control-group">
+        <legend>Select Statistic</legend><select multiple name="stat"></select>
+        <input name="add-stat" type="button" value="Select Statistics" />
+      </fieldset>
+      <div class="buttons control-group">
+        <button type="button" name="reset">Reset</button>
+      </div>
+    </form>
+    <div id="missile-inputs" class="inputs">
+    </div>
+    <div id="pdt-inputs" class="inputs">
+    </div>
+    <div id="outputs">
+      <div id="graph"></div>
+    </div>
+  </div>
+  <div>
+    <h2>How Do I Use This?</h2>
+    <p>
+      Simple!
+      Add a missile and a point defense weapon from the dropdowns above.
+      You'll see two forms show up along with a graph.
+      In the forms you can change various missile parameters like acceleration, maximum speed, and health.
+      You can also tweak the encounter and evasion conditions to simulate anything from head-on, maximum evasive maneuvering to side-on, no evasion conditions.
+      In the point defense forms you can see how many hits the weapon needs to kill each missile.
+      You can also toggle the simulation to use the burst fire rate, which for Aurora's acts as battleshort toggle and for the other weapons is most effective in simulating instant first-shots.
+      See the Sarissa vs. an Atlatl for an example of what this does.
+    </p>
+    <p>
+      You can choose multiple statistics to graph from the menu above.
+      For the statistics with normal and an "ideal conditions" version, the ideal statistic assumes perfect shot accuracy.
+      All other statistics incorporate the hit probability calculation into their calculations.
+    </p>
+    <p>
+      The graph provides some facilities for zooming and panning.
+      You can also export the graph as an image for sharing with others.
+      You can hit the Reset button to remove all your missiles and point defense options and start again.
+    </p>
+    <h2>What Doesn't This Have?</h2>
+    <ul>
+      <li>Traverse or elevation tracking. All point defense turrets are assumed capable of tracking their targets. This is in general a safe assumption until missiles close to approximately 30% of the weapon's range. And of course that figure assumes the missile is pushing 100% of its maximum velocity transverse to the weapon which is rarely the case.</li>
+      <li>Input validation to ensure values match possible game values. You'll need to exercise some interpretation to ensure your input data is valid.</li>
+    </ul>
+  </div>
+</body>
 </html>

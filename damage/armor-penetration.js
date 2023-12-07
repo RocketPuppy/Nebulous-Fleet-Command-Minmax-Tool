@@ -1,4 +1,4 @@
-import hullStats from "../hull-stats.js";
+import hullStats from "./../js/stats/hull-stats.js";
 import { missilehekp, missileheimpact } from "./missile-builder.js";
 import { cannon120, cannon250, cannon450, railgun } from "./gun-builder.js";
 import { beam } from "./beam-builder.js";
@@ -114,35 +114,35 @@ function updateEffectiveArmor(effectiveArmor) {
 }
 
 function showWeapon(weaponType) {
-    const weapons = armorVis.querySelectorAll(".weapon");
-    weapons.forEach((e) => {
-      e.classList.add("hidden");
-    });
-    switch(weaponType) {
-      case missilehekp:
-        armorVis.getElementById("missile-hekp").classList.remove("hidden");
-        break;
-      case missileheimpact:
-        armorVis.getElementById("missile-heimpact").classList.remove("hidden");
-        break;
-      case cannon120:
-        armorVis.getElementById("cannon-120").classList.remove("hidden");
-        break;
-      case cannon250:
-        armorVis.getElementById("cannon-250").classList.remove("hidden");
-        break;
-      case cannon450:
-        armorVis.getElementById("cannon-450").classList.remove("hidden");
-        break;
-      case railgun:
-        armorVis.getElementById("railgun").classList.remove("hidden");
-        break;
-      case beam:
-        armorVis.getElementById("beam").classList.remove("hidden");
-        break;
-      default:
-        break;
-    }
+  const weapons = armorVis.querySelectorAll(".weapon");
+  weapons.forEach((e) => {
+    e.classList.add("hidden");
+  });
+  switch(weaponType) {
+    case missilehekp:
+      armorVis.getElementById("missile-hekp").classList.remove("hidden");
+      break;
+    case missileheimpact:
+      armorVis.getElementById("missile-heimpact").classList.remove("hidden");
+      break;
+    case cannon120:
+      armorVis.getElementById("cannon-120").classList.remove("hidden");
+      break;
+    case cannon250:
+      armorVis.getElementById("cannon-250").classList.remove("hidden");
+      break;
+    case cannon450:
+      armorVis.getElementById("cannon-450").classList.remove("hidden");
+      break;
+    case railgun:
+      armorVis.getElementById("railgun").classList.remove("hidden");
+      break;
+    case beam:
+      armorVis.getElementById("beam").classList.remove("hidden");
+      break;
+    default:
+      break;
+  }
 }
 
 export function refreshArmorPen() {

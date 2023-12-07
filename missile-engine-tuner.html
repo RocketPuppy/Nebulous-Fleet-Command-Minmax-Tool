@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <script src="plotly-2.14.0.min.js"></script>
-        <link rel="stylesheet" href="index.css" />
-        <link rel="stylesheet" href="missile-engine-tuner/missile-engine-tuner.css" />
-        <script src="quaternion.min.js"></script>
-        <script type="module" defer src="missile-engine-tuner/missile-engine-tuner.js"></script>
-    </head>
-    <body>
-        <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
-        <h1>Missile Engine Tuner</h1>
-        <p>
-          Use this tool to precisely tune your missile engine performance.
-          First, upload a missile template.
-          The tool will show you the current performance values for your missile engine.
-          You can then adjust the values by moving the sliders or entering numbers directly.
-          You can hold a value constant so you can adjust the other two values without changing the held value.
-        </p>
-        <p>
-          Press Download to download the missile file.
-          You can overwrite your old template with it (make a backup if you are concerned about losing it).
-        </p>
-        <p>
-          Some values might be slightly off from their in game values.
-        </p>
-        <p><strong>
-          This tool is provided as-is.
-          It may generate corrupted missile templates.
-          If you want to keep your templates safe, make a backup before replacing them.
-        </strong></p>
-        <div class='full-width'>
-          <div class='inputs-form'>
-            <fieldset class="control-group">
-              <legend>Select Missile</legend>
-              <input type="file" id="missile-file" multiple accept=".missile" />
-              <div id='drag-target'><p>Drag and Drop Files to Load</p></div>
-            </fieldset>
-          </div>
-          <div class="inputs-form" id="engines-container">
-          </div>
-        </div>
-    </body>
+<head>
+  <script defer src="./js/self_inject/base_logic.js"></script>
+  <script defer src="./js/self_inject/head.js"></script>
+
+  <title>Nebulous · Min-Max Tool · Missile Engine Tuner</title>
+  <link rel="stylesheet" href="./css/index.css" />
+
+  <link rel="stylesheet" href="./css/missile-engine-tuner.css" />
+  <script src="./js/3rd/plotly-2.14.0.min.js"></script>
+  <script src="./js/3rd/quaternion-v1.4.5.min.js"></script>
+  <script type="module" defer src="./js/missile-engine-tuner.js"></script>
+</head>
+<body>
+  <script defer src="./js/self_inject/home.js"></script>
+  <h1>Missile Engine Tuner</h1>
+  <p>
+    Use this tool to precisely tune your missile engine performance.
+    First, upload a missile template.
+    The tool will show you the current performance values for your missile engine.
+    You can then adjust the values by moving the sliders or entering numbers directly.
+    You can hold a value constant so you can adjust the other two values without changing the held value.
+  </p>
+  <p>
+    Press Download to download the missile file.
+    You can overwrite your old template with it (make a backup if you are concerned about losing it).
+  </p>
+  <p>
+    Some values might be slightly off from their in game values.
+  </p>
+  <p><strong>
+    This tool is provided as-is.
+    It may generate corrupted missile templates.
+    If you want to keep your templates safe, make a backup before replacing them.
+  </strong></p>
+  <div class='full-width'>
+    <div class='inputs-form'>
+      <fieldset class="control-group">
+        <legend>Select Missile</legend>
+        <input type="file" id="missile-file" multiple accept=".missile" />
+        <div id='drag-target'><p>Drag and Drop Files to Load</p></div>
+      </fieldset>
+    </div>
+    <div class="inputs-form" id="engines-container">
+    </div>
+  </div>
+</body>
 </html>

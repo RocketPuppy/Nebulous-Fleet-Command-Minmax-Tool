@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script type="module" defer src="test-branch/armor-testing.js"></script>
-        <link rel="stylesheet" href="test-branch/test-branch.css" />
-        <link rel="stylesheet" href="index.css" />
-    </head>
-    <body>
-        <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
-        <h1>Test Branch Tools</h1>
-        <p>
-            These tools are for working with the public test branch.
-            They are only going to be useful during public test periods.
-        </p>
-        <h2>Cargo Feeder Armor Converter</h2>
-        <div class='full-width'>
-            <div class='inputs-form'>
-                <fieldset class="control-group">
-                <legend>Select Fleet</legend>
-                <input type="file" id="fleet-file" accept=".fleet" />
-                <div id='drag-target'><p>Drag and Drop File to Load</p></div>
-                </fieldset>
-            </div>
-            <div id="download-target">
+<head>
+  <script defer src="./js/self_inject/base_logic.js"></script>
+  <script defer src="./js/self_inject/head.js"></script>
 
-            </div>
-        </div>
-    </body>
+  <title>Nebulous · Min-Max Tool · Test Branch Tools</title>
+  <link rel="stylesheet" href="./css/index.css" />
+
+  <link rel="stylesheet" href="./css/test-branch.css" />
+  <script type="module" defer src="./js/armor-testing.js"></script>
+</head>
+<body>
+  <script defer src="./js/self_inject/home.js"></script>
+  <h1>Test Branch Tools</h1>
+  <p>
+    These tools are for working with the public test branch.
+    They are only going to be useful during public test periods.
+  </p>
+  <h2>Cargo Feeder Armor Converter</h2>
+  <div class='full-width'>
+    <div class='inputs-form'>
+      <fieldset class="control-group">
+        <legend>Select Fleet</legend>
+        <input type="file" id="fleet-file" accept=".fleet" />
+        <div id='drag-target'><p>Drag and Drop File to Load</p></div>
+      </fieldset>
+    </div>
+    <div id="download-target">
+
+    </div>
+  </div>
+</body>
 </html>

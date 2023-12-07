@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [{
+    "label": "Start live-server",
+    "type": "shell",
+    "command": "npx live-server --verbose",
+    "problemMatcher": [],
+    "group": {
+      "kind": "build",
+      "isDefault": true
+    }
+  }]
+}
+

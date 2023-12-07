@@ -1,6 +1,6 @@
-import beamCurve from "./beam-curve.js";
-import hullStats from "../hull-stats.js";
-import componentStats from "../component-stats.js";
+import beamCurve from "./../js/stats/beam-curve.js";
+import hullStats from "./../js/stats/hull-stats.js";
+import componentStats from "./../js/stats/component-stats.js";
 import { getWeapon, getWeaponType } from "./damage.js";
 import { beam } from "./beam-builder.js";
 
@@ -59,87 +59,87 @@ function make_dt_trace(dt, range) {
 }
 
 export function do_graph(range, hull, components) {
-    const data = [];
-    var filterState = {};
-    const damageThresholds = components.map((component) => component.damageThreshold).filter((dt) => !filterState[dt] && (filterState[dt] = true));
-    damageThresholds.forEach((dt, i) => {
-      const trace = make_dt_trace(dt, range);
-      if (i === 0) {
-        trace.showlegend = true;
-      }
-      data.push(trace);
-    });
-    for (var i = 0; i <= 8; i++) {
-      data.push(make_trace(i, range, hull.damageResistance));
+  const data = [];
+  var filterState = {};
+  const damageThresholds = components.map((component) => component.damageThreshold).filter((dt) => !filterState[dt] && (filterState[dt] = true));
+  damageThresholds.forEach((dt, i) => {
+    const trace = make_dt_trace(dt, range);
+    if (i === 0) {
+      trace.showlegend = true;
     }
+    data.push(trace);
+  });
+  for (var i = 0; i <= 8; i++) {
+    data.push(make_trace(i, range, hull.damageResistance));
+  }
 
-    const graph = document.getElementById('beam-graph');
-    const layout = {
-      margin: { t: 0 },
-      showlegend: true,
-      legend: { orientation: 'h', y: -0.2 },
-      xaxis: { title: "Range (m)" },
-      yaxis: { title: "Damage" },
-      autosize: true
-    };
-    Plotly.newPlot( graph, data, layout, { responsive: true });
+  const graph = document.getElementById('beam-graph');
+  const layout = {
+    margin: { t: 0 },
+    showlegend: true,
+    legend: { orientation: 'h', y: -0.2 },
+    xaxis: { title: "Range (m)" },
+    yaxis: { title: "Damage" },
+    autosize: true
+  };
+  Plotly.newPlot( graph, data, layout, { responsive: true });
 }
 
 export function setupBeam() {
-    const beamForm = document.getElementById("beam-form");
+  const beamForm = document.getElementById("beam-form");
 
-    const hullInput = beamForm.elements.namedItem("select-hull");
-    const componentsInput = beamForm.elements.namedItem("select-components");
+  const hullInput = beamForm.elements.namedItem("select-hull");
+  const componentsInput = beamForm.elements.namedItem("select-components");
 
-    for (const hull of hullStats) {
-      const o = new Option(hull.name, hull.name);
-      hullInput.add(o);
+  for (const hull of hullStats) {
+    const o = new Option(hull.name, hull.name);
+    hullInput.add(o);
+  }
+  hullInput.selectedIndex = 0;
+
+  const sortedComponentNames = componentStats.map((c) => c.name).sort();
+  for (const name of sortedComponentNames) {
+    const o = new Option(name, name);
+    componentsInput.add(o);
+  }
+  componentsInput.selectedIndex = 0;
+
+  beamForm.onsubmit = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    const weapon = getWeapon();
+    const weaponType = getWeaponType();
+
+    if (weaponType !== beam) {
+      return;
     }
-    hullInput.selectedIndex = 0;
 
-    const sortedComponentNames = componentStats.map((c) => c.name).sort(); 
-    for (const name of sortedComponentNames) {
-      const o = new Option(name, name);
-      componentsInput.add(o);
+    const selectedHull = hullStats.find((hull) => hull.name === hullInput.value);
+    const selectedRange = weapon.maxRange;
+    var selectedComponents = []
+    for(var i=0; i < componentsInput.selectedOptions.length; i++) {
+      const o = componentsInput.selectedOptions.item(i);
+      const component = componentStats.find((component) => component.name === o.value);
+      selectedComponents.push(component);
     }
-    componentsInput.selectedIndex = 0;
 
-    beamForm.onsubmit = (e) => {
-      e.stopPropagation();
-      e.preventDefault();
+    do_graph(selectedRange, selectedHull, selectedComponents);
+  };
 
-      const weapon = getWeapon();
-      const weaponType = getWeaponType();
+  beamForm.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
 
-      if (weaponType !== beam) {
-        return;
-      }
-
-      const selectedHull = hullStats.find((hull) => hull.name === hullInput.value);
-      const selectedRange = weapon.maxRange;
-      var selectedComponents = []
-      for(var i=0; i < componentsInput.selectedOptions.length; i++) {
-          const o = componentsInput.selectedOptions.item(i);
-          const component = componentStats.find((component) => component.name === o.value);
-          selectedComponents.push(component);
-      }
-
-      do_graph(selectedRange, selectedHull, selectedComponents);
-    };
-
+  return function () {
+    refresh()
     beamForm.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
-
-    return function () {
-      refresh()
-      beamForm.dispatchEvent(new SubmitEvent("submit", { cancelable: true }));
-      if (getWeapon().maxRange) {
-        const maxRangeOutput = document.getElementById("beam-damage-max-range-output");
-        maxRangeOutput.textContent = getWeapon().maxRange;
-      } else {
-        const maxRangeOutput = document.getElementById("beam-damage-max-range-output");
-        maxRangeOutput.textContent = "";
-      }
-    };
+    if (getWeapon().maxRange) {
+      const maxRangeOutput = document.getElementById("beam-damage-max-range-output");
+      maxRangeOutput.textContent = getWeapon().maxRange;
+    } else {
+      const maxRangeOutput = document.getElementById("beam-damage-max-range-output");
+      maxRangeOutput.textContent = "";
+    }
+  };
 }
 
 function refresh() {

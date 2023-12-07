@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script type="module" defer src="skirmish-report-stats/skirmish-report-stats.js"></script>
-        <link rel="stylesheet" href="skirmish-report-stats/skirmish-report-stats.css" />
-        <link rel="stylesheet" href="index.css" />
-    </head>
-    <body>
-        <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
-        <h1>Skirmish Report Stats</h1>
-        <p>
-            You can use this tool to view stats about your exported skirmish reports.
-        </p>
-        <div class='full-width'>
-            <div class='inputs-form'>
-              <fieldset class="control-group">
-                <legend>Select Reports</legend>
-                <input type="file" id="report-file" accept=".xml" multiple />
-                <div id='drag-target' class="disabled"><p>Drag and Drop Files to Load</p></div>
-              </fieldset>
-            </div>
-            <hr />
-            <div id="agg-stats">
-                <button id="agg-csv-download" type="button" disabled class="hidden">Download Tab-Separated Values File</button>
-                <table>
-                    <thead>
-                        <tr class="stat-head">
-                        </tr>
-                    </thead>
-                    <tbody class="stat-table">
-                    </tbody>
-                </table>
-            </div>
-            <div id="stats">
-                <button id="stats-csv-download" type="button" disabled class="hidden">Download Tab-Separated Values File</button>
-                <table>
-                    <thead>
-                        <tr class="stat-head">
-                        </tr>
-                    </thead>
-                    <tbody class="stat-table">
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </body>
+<head>
+  <script defer src="./js/self_inject/base_logic.js"></script>
+  <script defer src="./js/self_inject/head.js"></script>
+
+  <title>Nebulous · Min-Max Tool · Skirmish Report Stats</title>
+  <link rel="stylesheet" href="./css/index.css" />
+
+  <link rel="stylesheet" href="./css/skirmish-report-stats.css" />
+  <script type="module" defer src="./js/skirmish-report-stats.js"></script>
+</head>
+<body>
+  <script defer src="./js/self_inject/home.js"></script>
+  <h1>Skirmish Report Stats</h1>
+  <p>
+    You can use this tool to view stats about your exported skirmish reports.
+  </p>
+  <div class='full-width'>
+    <div class='inputs-form'>
+      <fieldset class="control-group">
+        <legend>Select Reports</legend>
+        <input type="file" id="report-file" accept=".xml" multiple />
+        <div id='drag-target' class="disabled"><p>Drag and Drop Files to Load</p></div>
+      </fieldset>
+    </div>
+    <hr />
+    <div id="agg-stats">
+      <button id="agg-csv-download" type="button" disabled class="hidden">Download Tab-Separated Values File</button>
+      <table>
+        <thead>
+          <tr class="stat-head">
+          </tr>
+        </thead>
+        <tbody class="stat-table">
+        </tbody>
+      </table>
+    </div>
+    <div id="stats">
+      <button id="stats-csv-download" type="button" disabled class="hidden">Download Tab-Separated Values File</button>
+      <table>
+        <thead>
+          <tr class="stat-head">
+          </tr>
+        </thead>
+        <tbody class="stat-table">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
 </html>
