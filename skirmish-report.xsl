@@ -1301,22 +1301,16 @@
     </xsl:template>
     <xsl:template name="timestamp-from-seconds">
         <xsl:param name="seconds" />
-        <xsl:variable name="hours" select="floor($seconds div 3600)" />
-        <xsl:variable name="seconds-left" select="$seconds - ($hours * 3600)" />
+        <xsl:if test="$seconds &lt; 0">-</xsl:if>
+        <xsl:variable name="abs-seconds" select="abs($seconds)" />
+        <xsl:variable name="hours" select="floor($abs-seconds div 3600)" />
+        <xsl:variable name="seconds-left" select="$abs-seconds - ($hours * 3600)" />
         <xsl:variable name="minutes" select="floor($seconds-left div 60)" />
         <xsl:variable name="seconds-left" select="$seconds-left - ($minutes* 60)" />
-        <xsl:if test="$hours != 0">
-            <xsl:value-of select="$hours" />
-        </xsl:if>
         <xsl:choose>
-            <xsl:when test="$hours != 0">:<xsl:value-of select="format-number($minutes, '00')" /></xsl:when>
-            <xsl:when test="$minutes = 0">0:</xsl:when>
+            <xsl:when test="$hours != 0"><xsl:value-of select="$hours" />:<xsl:value-of select="format-number($minutes, '00')" /></xsl:when>
             <xsl:otherwise><xsl:value-of select="$minutes" /></xsl:otherwise>
-        </xsl:choose>
-        <xsl:choose>
-            <xsl:when test="$minutes != 0">:<xsl:value-of select="format-number($seconds-left, '00')" /></xsl:when>
-            <xsl:otherwise><xsl:value-of select="format-number($seconds-left, '00')" /></xsl:otherwise>
-        </xsl:choose>
+        </xsl:choose>:<xsl:value-of select="format-number($seconds-left, '00')" />
     </xsl:template>
     <xsl:template name="missile-desc">
         <xsl:param name="desc" />
