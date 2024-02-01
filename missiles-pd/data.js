@@ -10,10 +10,11 @@ class PointDefense {
         this.recycle_time = recycle_time; // s
         this.ammo_capacity = ammo_capacity; // rounds
         this.use_burst_rof = false;
+        this.accuracy_modifier = 100;
     }
 
     get angular_diameter() {
-        return this.accuracies.concat().sort((a, b) => a.range - b.range).reverse()[0].angular_diameter;
+        return this.accuracies.concat().map((a) => { a.scale(this.accuracy_modifier); return a; }).sort((a, b) => a.range - b.range).reverse()[0].angular_diameter;
     }
 
     seconds_to_fire(shots) {
@@ -59,6 +60,10 @@ class PointDefense {
         return this.ammunition[0];
     }
 
+    set muzzle_velocity(v) {
+        this.primary_ammo.velocity = v;
+    }
+
     clone() {
         return new PointDefense(this.name, this.accuracies.map((a) => a.clone()), this.traverse, this.elevation, this.ammunition.map((a) => a.clone()), this._rof, this.reload_time, this.recycle_time, this.ammo_capacity);
     }
@@ -68,6 +73,11 @@ class Accuracy {
     constructor(distance, spread) {
         this.distance = distance; //km
         this.spread = spread;  // m
+        this.modifier = 1;
+    }
+
+    scale(percent) {
+        this.modifier = percent / 100.0;
     }
 
     clone() {
@@ -75,7 +85,7 @@ class Accuracy {
     }
 
     get angular_diameter() {
-        return 2.0 * Math.atan(this.spread / (2.0 * this.distance * 1000));
+        return 2.0 * Math.atan((this.spread * this.modifier) / (2.0 * this.distance * 1000));
     }
 }
 
