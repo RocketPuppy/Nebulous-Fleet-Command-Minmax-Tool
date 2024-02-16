@@ -139,7 +139,7 @@
        class="socket mount"
        data-height="3"
        data-width="4"
-       data-length="5" /><rect
+       data-length="3" /><rect
        style="fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:round;stroke-miterlimit:2.2;stroke-dashoffset:9.8;stroke-opacity:1"
        id="socket-PDKmGfvpykODc3XHDQ7WBw"
        width="7.5272655"
@@ -147,8 +147,8 @@
        x="92.773552"
        y="43.783596"
        class="socket mount"
-       data-width="4"
-       data-length="5"
+       data-width="3"
+       data-length="4"
        data-height="3" /><rect
        style="fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:round;stroke-miterlimit:2.2;stroke-dashoffset:9.8;stroke-opacity:1"
        id="socket-gkfIwYzn7kGhG6MW9uxBmw"
@@ -159,7 +159,7 @@
        class="socket mount"
        data-height="3"
        data-width="4"
-       data-length="3" /><rect
+       data-length="5" /><rect
        style="fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:round;stroke-miterlimit:2.2;stroke-dashoffset:9.8;stroke-opacity:1"
        id="socket-V42tXibIR0e4u6riIHYZOw"
        width="4.8927226"
@@ -219,7 +219,7 @@
        class="socket mount"
        data-height="3"
        data-width="4"
-       data-length="3" /><rect
+       data-length="5" /><rect
        style="fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:round;stroke-miterlimit:2.2;stroke-dashoffset:9.8;stroke-opacity:1"
        id="socket-O_Y-AJc7r0alOg36rvY6MQ"
        width="7.4018111"
