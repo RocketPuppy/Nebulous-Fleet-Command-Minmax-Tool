@@ -119,7 +119,7 @@
     <xsl:template match="ShipBattleReport">
         <div class="ship">
             <xsl:attribute name="data-ship-id">
-                <xsl:value-of select="../../AccountId"></xsl:value-of>-<xsl:value-of select="position()"></xsl:value-of>
+                <xsl:value-of select="../../PlayerID"></xsl:value-of>-<xsl:value-of select="position()"></xsl:value-of>
             </xsl:attribute>
             <h4>
                 <xsl:value-of select="HullString"></xsl:value-of>
@@ -201,7 +201,7 @@
     <xsl:template match="ShipBattleReport" mode="details">
         <div>
             <xsl:attribute name="data-ship-id">
-                <xsl:value-of select="../../AccountId"></xsl:value-of>-<xsl:value-of select="count(../ShipBattleReport[. = current()]/preceding-sibling::*)+1"></xsl:value-of>
+                <xsl:value-of select="../../PlayerID"></xsl:value-of>-<xsl:value-of select="count(../ShipBattleReport[. = current()]/preceding-sibling::*)+1"></xsl:value-of>
             </xsl:attribute>
             <xsl:attribute name="class">
                 ship details hidden <xsl:if test="./HullKey = 'Stock/Container Hauler'">lineship</xsl:if>
