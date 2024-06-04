@@ -164,8 +164,8 @@ h4 {
 .ship .stats {
     padding: 1em;
     flex-basis: 50%;
-    flex-shrink: 1;
-    flex-grow: 0;
+    flex-shrink: 0;
+    flex-grow: 1;
 }
 
 .ship .summary {
