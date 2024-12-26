@@ -61,6 +61,19 @@ function statDamageShips(doc, player) {
     return damage;
 }
 
+function statDamageTaken(doc, player) {
+    const resolver = doc.createNSResolver(doc);
+    const damageFromPlayer = doc.evaluate(`//AARPlayerReportOfShipBattleReportCraftBattleReport[.//PlayerName="${player}"]/Ships/ShipBattleReport/TotalDamageReceived`, doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+
+    let damage = 0;
+    let damageNode = null;
+    while(damageNode = damageFromPlayer.iterateNext()) {
+        damage += parseInt(damageNode.textContent, 10);
+    }
+
+    return damage;
+}
+
 function statDamageCraft(doc, player) {
     const resolver = doc.createNSResolver(doc);
     const damageFromPlayer = doc.evaluate(`//AARPlayerReportOfShipBattleReportCraftBattleReport[.//PlayerName="${player}"]/Craft/CraftBattleReport/TotalDamageDealt`, doc, resolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
@@ -82,6 +95,7 @@ const stats = {
     "Total Wins": statWins,
     "Total Losses": statLosses,
     "Total Damage Done": statDamageTotal,
+    "Total Damage Taken": statDamageTaken,
     "Damage Done With Craft": statDamageCraft
 };
 
@@ -89,6 +103,7 @@ const statAppenders = {
     "Total Wins": appendWins,
     "Total Losses": appendLosses,
     "Total Damage Done": appendDamage,
+    "Total Damage Taken": appendDamage,
     "Damage Done With Craft": appendDamage
 }
 
