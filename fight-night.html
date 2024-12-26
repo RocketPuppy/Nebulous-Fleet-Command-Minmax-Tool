@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module" defer src="fight-night/carrier-scramble.js"></script>
+        <link rel="stylesheet" href="fight-night/fight-night.css" />
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <nav><a href="https://rocketpuppy.github.io/Nebulous-Fleet-Command-Minmax-Tool/">Home</a></nav>
+        <h1>Fight Night Tools</h1>
+        <h2>Carrier Scramble Tally Taker</h2>
+        <p>
+            Upload AARs to get a tally of wins, losses, and damage done for each player. You will see both the total damage done as well as the damage done just by craft.
+        </p>
+        <div class='full-width'>
+            <div class='inputs-form'>
+                <fieldset class="control-group">
+                <legend>Select Reports</legend>
+                <input type="file" id="report-file" accept=".xml" multiple />
+                <div id='drag-target' class="disabled"><p>Drag and Drop Files to Load</p></div>
+                </fieldset>
+            </div>
+            <hr />
+            <div id="stats">
+                <table>
+                    <thead>
+                        <tr class="stat-head">
+                        </tr>
+                    </thead>
+                    <tbody class="stat-table">
+                    </tbody>
+                </table>
+            </div
+        </div>
+    </body>
+</html>
