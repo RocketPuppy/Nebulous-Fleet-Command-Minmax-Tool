@@ -1,0 +1,1150 @@
+<!-- Created with Inkscape (http://www.inkscape.org/) --><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                version="2.0"
+                exclude-result-prefixes="xs">
+   <xsl:output method="xml" omit-xml-declaration="yes" indent="yes"/>
+   <xsl:template name="ore-carrier-dc-board">
+      <xsl:param name="ship-report"/>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" version="1.1" id="svg1" width="377.95276" height="122.36858" viewBox="0 0 377.95276 122.36859" sodipodi:docname="ore-carrier-dc-board.svg" class="ore-carrier-dc-board" xml:space="preserve" inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)">
+  <defs id="defs1"/>
+  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:zoom="1.281631" inkscape:cx="-25.748441" inkscape:cy="-52.277137" inkscape:window-width="2226" inkscape:window-height="1179" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1" inkscape:current-layer="svg1"/>
+  <g id="layer2" inkscape:label="frame" transform="matrix(0.37182408,0,0,0.37182408,-21.101715,-47.538068)">
+    <path style="fill:#878787;fill-opacity:1;stroke-width:4.48291" d="M 438.62484,449.50906 424.4356,445.9271 407.39224,430.51905 390.34888,415.11101 h -3.64431 -3.64429 l -12.12027,17.55627 -12.12033,17.55627 H 237.92925 117.03881 l -1.84904,-5.31731 -1.84903,-5.31731 -13.413491,-0.16898 -13.41347,-0.16897 -1.37318,-25.23714 -1.37319,-25.23714 h -8.01326 -8.01325 l -5.49452,-5.26688 -5.4945,-5.26688 v -56.02566 -56.02565 l 8.01282,-4.11066 8.01283,-4.11068 4.57874,0.66446 4.57876,0.66447 1.43757,-21.83391 1.43757,-21.83389 4.93231,-5.69689 4.93231,-5.69687 8.125741,2.47218 8.12574,2.47215 2.94492,-4.56761 2.94494,-4.56757 h 120.9612 120.96117 l 7.50032,10.97267 7.50027,10.97267 h 4.05214 4.05217 l 0.10156,-5.48634 0.10172,-5.48633 8.95385,-10.97267 8.95389,-10.97267 0.10172,-18.65354 0.10157,-18.65354 h 13.46604 13.46605 l 2.82981,-4.38906 2.8298,-4.38907 h 11.32037 11.32039 l 2.62677,6.5617 2.62679,6.56174 17.44688,-2.67429 17.44682,-2.67431 1.53176,10.37703 1.53173,10.37707 12.07114,1.34064 12.07115,1.34069 3.17084,36.48816 3.17079,36.48815 37.41371,2.8249 37.41369,2.82489 222.06956,0.31908 222.0695,0.31909 12.5916,11.41996 12.5917,11.41999 -0.041,52.94493 -0.041,52.94492 -27.1237,16.75052 -27.1237,16.75054 -28.92598,3.94673 -28.926,3.94678 -120.99216,0.0395 -120.99213,0.0395 -4.69465,4.50013 -4.69225,4.4997 h -91.44281 -91.44347 l -8.37336,-7.26385 -8.37334,-7.26387 -8.01282,6.93977 -8.01282,6.93974 -18.1342,1.42136 -18.13414,1.4214 -2.47025,9.11455 -2.47019,9.1146 z m -75.4699,-22.8462 9.53095,-14.78251 v -12.37304 -12.37305 l 12.59157,11.17974 12.59157,11.17971 14.93307,6.09672 14.93305,6.09668 -2.2652,5.65856 -2.26525,5.65857 10.22595,3.68637 10.22592,3.68642 3.68186,-6.08416 3.68187,-6.08417 -2.80737,-4.35431 -2.80742,-4.35431 h 22.89378 22.89376 l 2.82981,-4.38907 2.82981,-4.38906 h 10.61601 10.61604 l 5.70003,6.5836 5.70005,6.5836 h 87.80927 87.80934 l 4.98117,-4.77482 4.98117,-4.77483 141.31,-0.79169 141.30997,-0.79171 12.59158,-8.10545 12.5916,-8.10547 v 2.91016 2.91017 l 20.6044,-13.5889 20.6044,-13.58891 v -47.19107 -47.19107 l -5.4944,-5.26689 -5.4947,-5.26688 h -14.8396 -14.8397 l -2.8298,-4.38906 -2.8298,-4.38906 h -66.12168 -66.12173 v 4.38906 4.38906 h -6.86813 -6.86813 v -4.38906 -4.38906 h -65.47617 -65.47618 l -5.4945,5.26687 -5.4945,5.26688 -5.49452,-5.26688 -5.4945,-5.26687 h -65.47618 -65.47617 v 4.38906 4.38906 h -6.30751 -6.30746 l -6.01764,-6.95043 -6.01767,-6.95044 -21.48819,1.4641 -21.48816,1.4641 -3.49113,-26.3344 -3.49111,-26.3344 0.0184,-12.06994 0.0184,-12.06993 h -14.93987 -14.93984 l 2.39473,-8.77813 2.39473,-8.77814 h -11.98088 -11.98302 v 8.77814 8.77813 h -6.86816 -6.86812 v -15.36174 -15.36173 h -6.86813 -6.86813 l -0.0367,14.26446 -0.0367,14.26448 -10.3849,4.60914 -10.38493,4.60913 1.76407,-14.48454 1.76405,-14.48453 h -5.07967 -5.07973 v 19.21336 19.21341 l -6.86812,5.46389 -6.86812,5.46391 v 7.87496 7.87495 l -3.73077,1.463 -3.73078,1.46305 -7.48016,17.55628 -7.48017,17.55627 -0.23582,-12.64917 -0.23579,-12.64916 -9.53097,-14.78251 -9.53093,-14.78251 H 240.01847 126.41294 l -2.605,6.50728 -2.605,6.50727 -13.91051,-2.66684 -13.910521,-2.66684 v 28.96785 28.96784 l -13.88202,-2.66141 -13.88202,-2.66139 1.29045,54.34266 1.29045,54.34267 12.59157,-1.41139 12.59157,-1.41134 v 28.56707 28.56712 l 16.025641,-2.49291 16.02563,-2.49286 v 7.15788 7.15791 h 114.09543 114.09537 z" id="path1"/>
+  </g>
+  <g id="sockets" inkscape:label="sockets" transform="matrix(0.37182408,0,0,0.37182408,-0.2948942,-33.23338)"><xsl:apply-templates select="$ship-report/PartStatus/PartDamage" mode="ore-carrier-dc-board"/></g>
+<xsl:apply-templates select="$ship-report//HullConfig/PrimaryStructure/SegmentConfiguration"/></svg>
+   </xsl:template>
+   <xsl:template match="PartDamage" mode="ore-carrier-dc-board">
+      <xsl:variable name="percent" select="HealthPercent"/>
+      <xsl:choose>
+         <xsl:when test="Key = '93WE26bAskWDbKPTXdLZJA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1"
+                  id="socket-93WE26bAskWDbKPTXdLZJA"
+                  width="77.241386"
+                  height="76.137939"
+                  x="12.137931"
+                  y="250.48276"
+                  ry="0"
+                  inkscape:label="socket-93WE26bAskWDbKPTXdLZJA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'od6wRvYbN0KfFRIl0EljoA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.673146"
+                  id="socket-od6wRvYbN0KfFRIl0EljoA"
+                  width="80.551727"
+                  height="20"
+                  x="36.724136"
+                  y="345"
+                  inkscape:label="socket-od6wRvYbN0KfFRIl0EljoA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.673146', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.673146</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'XE0DwgA4gk6CC-2cRWeU7g'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.673146"
+                  id="socket-XE0DwgA4gk6CC-2cRWeU7g"
+                  width="80.551727"
+                  height="20"
+                  x="36.724136"
+                  y="365"
+                  inkscape:label="socket-XE0DwgA4gk6CC-2cRWeU7g">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.673146', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.673146</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'O5f_mflyPEKi1lfh7sBXEQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.98075"
+                  id="socket-O5f_mflyPEKi1lfh7sBXEQ"
+                  width="65"
+                  height="40"
+                  x="140.68965"
+                  y="378.48276"
+                  inkscape:label="socket-O5f_mflyPEKi1lfh7sBXEQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.98075', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.98075</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'UAaselEnVECxHp9c4R1Izw'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.941638"
+                  id="socket-UAaselEnVECxHp9c4R1Izw"
+                  width="40"
+                  height="40"
+                  x="209.51723"
+                  y="352"
+                  inkscape:label="socket-UAaselEnVECxHp9c4R1Izw">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.941638', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.941638</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'fafk0RBeJUicFDn6OLLP4A'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.934328"
+                  id="socket-fafk0RBeJUicFDn6OLLP4A"
+                  width="50"
+                  height="50"
+                  x="253.79311"
+                  y="343.17239"
+                  inkscape:label="socket-fafk0RBeJUicFDn6OLLP4A">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.934328', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.934328</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '_UqBymnw70G2AZvAW49lOg'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1"
+                  id="socket-_UqBymnw70G2AZvAW49lOg"
+                  width="122.48276"
+                  height="101.51724"
+                  x="98.206894"
+                  y="236.13792"
+                  inkscape:label="socket-_UqBymnw70G2AZvAW49lOg">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'aVi5VRG__UukQdIrcAKhmQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.639165"
+                  id="socket-aVi5VRG__UukQdIrcAKhmQ"
+                  width="78.345001"
+                  height="20"
+                  x="37.827499"
+                  y="185.93105"
+                  inkscape:label="socket-aVi5VRG__UukQdIrcAKhmQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.639165', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.639165</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '3d7H9PPuZUOotIlIGDZSVw'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.639165"
+                  id="socket-3d7H9PPuZUOotIlIGDZSVw"
+                  width="78.345001"
+                  height="20"
+                  x="37.827499"
+                  y="206"
+                  inkscape:label="socket-3d7H9PPuZUOotIlIGDZSVw">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.639165', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.639165</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'fWU90hbxyEuxqx2u4Lipwg'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.307247"
+                  id="socket-fWU90hbxyEuxqx2u4Lipwg"
+                  width="10"
+                  height="10"
+                  x="123.72414"
+                  y="175"
+                  inkscape:label="socket-fWU90hbxyEuxqx2u4Lipwg">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.307247', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.307247</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'QyMDuQiz4kO__9VQkcYp3Q'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.307247"
+                  id="socket-QyMDuQiz4kO__9VQkcYp3Q"
+                  width="10"
+                  height="10"
+                  x="123.72414"
+                  y="187"
+                  inkscape:label="socket-QyMDuQiz4kO__9VQkcYp3Q">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.307247', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.307247</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'qfEBVY3HjUiyhpq9YQGAOQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.984301"
+                  id="socket-qfEBVY3HjUiyhpq9YQGAOQ"
+                  width="65"
+                  height="40"
+                  x="139.79312"
+                  y="155.58621"
+                  inkscape:label="socket-qfEBVY3HjUiyhpq9YQGAOQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.984301', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.984301</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'TtYHca1GZESvz0szdY3BMA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.942274"
+                  id="socket-TtYHca1GZESvz0szdY3BMA"
+                  width="40"
+                  height="40"
+                  x="208.41379"
+                  y="180.96552"
+                  inkscape:label="socket-TtYHca1GZESvz0szdY3BMA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.942274', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.942274</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'LCuzzD0pwEyDvYSCs_g2CA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.975874"
+                  id="socket-LCuzzD0pwEyDvYSCs_g2CA"
+                  width="50"
+                  height="50"
+                  x="252.68967"
+                  y="180.96552"
+                  inkscape:label="socket-LCuzzD0pwEyDvYSCs_g2CA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.975874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.975874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'lI4IkFx-REuV2AXbvC5iFg'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1"
+                  id="socket-lI4IkFx-REuV2AXbvC5iFg"
+                  width="86.068962"
+                  height="86.068962"
+                  x="228.41379"
+                  y="242.75862"
+                  inkscape:label="socket-lI4IkFx-REuV2AXbvC5iFg">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'zj9tWS4kP0qww93h23r_mQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.898614"
+                  id="socket-zj9tWS4kP0qww93h23r_mQ"
+                  width="63.999996"
+                  height="25.379311"
+                  x="323.31036"
+                  y="103.72415"
+                  inkscape:label="socket-zj9tWS4kP0qww93h23r_mQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.898614', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.898614</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '4dpVMvs8nUmd-5az35rT2Q'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1"
+                  id="socket-4dpVMvs8nUmd-5az35rT2Q"
+                  width="54.068966"
+                  height="39.724136"
+                  x="416"
+                  y="89.379311"
+                  inkscape:label="socket-4dpVMvs8nUmd-5az35rT2Q">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'DLNetkwH9kerkhRuQ4lIjQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1"
+                  id="socket-DLNetkwH9kerkhRuQ4lIjQ"
+                  width="119.17241"
+                  height="27.58621"
+                  x="327.72415"
+                  y="141.24138"
+                  inkscape:label="socket-DLNetkwH9kerkhRuQ4lIjQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '9EA-sLPvv0yedARGhtJv3Q'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1"
+                  id="socket-9EA-sLPvv0yedARGhtJv3Q"
+                  width="119.17241"
+                  height="27.58621"
+                  x="328.48276"
+                  y="175.79311"
+                  inkscape:label="socket-9EA-sLPvv0yedARGhtJv3Q">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'utS8omLdfUCo4DXRpR4Hyw'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.82477"
+                  id="socket-utS8omLdfUCo4DXRpR4Hyw"
+                  width="102.83437"
+                  height="29.793104"
+                  x="437.16565"
+                  y="207.44827"
+                  inkscape:label="socket-utS8omLdfUCo4DXRpR4Hyw">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.82477', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.82477</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'ZwILnhyKLkigJgek0cM9Lw'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.944252"
+                  id="socket-ZwILnhyKLkigJgek0cM9Lw"
+                  width="134.78703"
+                  height="29.793104"
+                  x="436.38538"
+                  y="245.68965"
+                  inkscape:label="socket-ZwILnhyKLkigJgek0cM9Lw">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.944252', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.944252</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '-F3V0WPprkWQ7ktL8CwXXg'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.945617"
+                  id="socket--F3V0WPprkWQ7ktL8CwXXg"
+                  width="135.17717"
+                  height="29.793104"
+                  x="435.99524"
+                  y="284.86206"
+                  inkscape:label="socket--F3V0WPprkWQ7ktL8CwXXg">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.945617', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.945617</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'tW4zUlc7-UagVFXCOGl63g'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:1.01535"
+                  id="socket-tW4zUlc7-UagVFXCOGl63g"
+                  width="91.00676"
+                  height="65.103447"
+                  x="333.38672"
+                  y="210.62474"
+                  inkscape:label="socket-tW4zUlc7-UagVFXCOGl63g">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:1.01535', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:1.01535</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'ckG-QkHACEmrYKcsMZf97g'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.498874"
+                  id="socket-ckG-QkHACEmrYKcsMZf97g"
+                  width="40"
+                  height="15"
+                  x="384.14807"
+                  y="283.51114"
+                  inkscape:label="socket-ckG-QkHACEmrYKcsMZf97g">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.498874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.498874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'aOYZeSpzK0yuutdu01VzEg'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.498874"
+                  id="socket-aOYZeSpzK0yuutdu01VzEg"
+                  width="40"
+                  height="15"
+                  x="384.14807"
+                  y="298.51114"
+                  inkscape:label="socket-aOYZeSpzK0yuutdu01VzEg">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.498874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.498874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'eYAmdstn_kCWN90dJwv0Bw'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.498874"
+                  id="socket-eYAmdstn_kCWN90dJwv0Bw"
+                  width="40"
+                  height="15"
+                  x="384.14807"
+                  y="313.51114"
+                  inkscape:label="socket-eYAmdstn_kCWN90dJwv0Bw">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.498874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.498874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'VWEKTa9GHkWE2pkMEcn_CQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.498874"
+                  id="socket-VWEKTa9GHkWE2pkMEcn_CQ"
+                  width="40"
+                  height="15"
+                  x="384.14807"
+                  y="328.51114"
+                  inkscape:label="socket-VWEKTa9GHkWE2pkMEcn_CQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.498874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.498874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'Qj6L1Wh5W0yllK-HyiBrsA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.498874"
+                  id="socket-Qj6L1Wh5W0yllK-HyiBrsA"
+                  width="40"
+                  height="15"
+                  x="384.14807"
+                  y="343.51114"
+                  inkscape:label="socket-Qj6L1Wh5W0yllK-HyiBrsA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.498874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.498874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'HpTFDMgVO0eQTjwm_j5lzQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.498874"
+                  id="socket-HpTFDMgVO0eQTjwm_j5lzQ"
+                  width="40"
+                  height="15"
+                  x="333.99197"
+                  y="283.17987"
+                  inkscape:label="socket-HpTFDMgVO0eQTjwm_j5lzQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.498874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.498874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '11Xhzrw3H0ysv8RzIVhhIA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.498874"
+                  id="socket-11Xhzrw3H0ysv8RzIVhhIA"
+                  width="40"
+                  height="15"
+                  x="333.99197"
+                  y="298.17987"
+                  inkscape:label="socket-11Xhzrw3H0ysv8RzIVhhIA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.498874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.498874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'wb0c3wioZkC_lDcOmZ8AyA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.498874"
+                  id="socket-wb0c3wioZkC_lDcOmZ8AyA"
+                  width="40"
+                  height="15"
+                  x="333.99197"
+                  y="313.17987"
+                  inkscape:label="socket-wb0c3wioZkC_lDcOmZ8AyA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.498874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.498874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'XArhQu-rqUaUsaCtQCx5_w'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.498874"
+                  id="socket-XArhQu-rqUaUsaCtQCx5_w"
+                  width="40"
+                  height="15"
+                  x="333.99197"
+                  y="328.17987"
+                  inkscape:label="socket-XArhQu-rqUaUsaCtQCx5_w">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.498874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.498874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'oc22EC3fIkGOuJHR31qwlg'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.498874"
+                  id="socket-oc22EC3fIkGOuJHR31qwlg"
+                  width="40"
+                  height="15"
+                  x="333.99197"
+                  y="343.17987"
+                  inkscape:label="socket-oc22EC3fIkGOuJHR31qwlg">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.498874', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.498874</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'wgLiLSBRVUS0KoWi83D4gA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.888695"
+                  id="socket-wgLiLSBRVUS0KoWi83D4gA"
+                  width="54.068966"
+                  height="32.244774"
+                  x="361.93103"
+                  y="367.20352"
+                  inkscape:label="socket-wgLiLSBRVUS0KoWi83D4gA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.888695', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.888695</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'gi0EFXIps0q_499wfJPBVA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:1.01263"
+                  id="socket-gi0EFXIps0q_499wfJPBVA"
+                  width="133.51724"
+                  height="50.758621"
+                  x="435.86206"
+                  y="327.72415"
+                  inkscape:label="socket-gi0EFXIps0q_499wfJPBVA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:1.01263', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:1.01263</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'koUKkPX4e0Cb90WzU95tCQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.707107"
+                  id="socket-koUKkPX4e0Cb90WzU95tCQ"
+                  width="60"
+                  height="50"
+                  x="587.03448"
+                  y="230"
+                  inkscape:label="socket-koUKkPX4e0Cb90WzU95tCQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.707107', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.707107</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '_z6ySEVsb0GaZUUsMFD0Ug'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.707107"
+                  id="socket-_z6ySEVsb0GaZUUsMFD0Ug"
+                  width="60"
+                  height="50"
+                  x="649.96552"
+                  y="229.93103"
+                  inkscape:label="socket-_z6ySEVsb0GaZUUsMFD0Ug">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.707107', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.707107</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'r8eG7fWs5UednMT2SZulcQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1"
+                  id="socket-r8eG7fWs5UednMT2SZulcQ"
+                  width="120"
+                  height="50"
+                  x="717.20691"
+                  y="230"
+                  inkscape:label="socket-r8eG7fWs5UednMT2SZulcQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'laghpeKnXE-_d502yQ4Icg'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1"
+                  id="socket-laghpeKnXE-_d502yQ4Icg"
+                  width="120"
+                  height="50"
+                  x="845.75861"
+                  y="230"
+                  inkscape:label="socket-laghpeKnXE-_d502yQ4Icg">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '8FSEH_EpRUasipRoRQz8GA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1"
+                  id="socket-8FSEH_EpRUasipRoRQz8GA"
+                  width="180"
+                  height="60"
+                  x="591.4483"
+                  y="310"
+                  inkscape:label="socket-8FSEH_EpRUasipRoRQz8GA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'ezH8FOVSDEOrs8eyc1KSLQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1"
+                  id="socket-ezH8FOVSDEOrs8eyc1KSLQ"
+                  width="180"
+                  height="60"
+                  x="779.24139"
+                  y="310"
+                  inkscape:label="socket-ezH8FOVSDEOrs8eyc1KSLQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '4xw1cpOipU2qfpB8x1CpSQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.307247"
+                  id="socket-4xw1cpOipU2qfpB8x1CpSQ"
+                  width="10"
+                  height="10"
+                  x="123.72414"
+                  y="199"
+                  inkscape:label="socket-4xw1cpOipU2qfpB8x1CpSQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.307247', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.307247</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'DKC_kKg810me_PH3KhTBuQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.307247"
+                  id="socket-DKC_kKg810me_PH3KhTBuQ"
+                  width="10"
+                  height="10"
+                  x="123.72414"
+                  y="211"
+                  inkscape:label="socket-DKC_kKg810me_PH3KhTBuQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.307247', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.307247</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'FsDJugpt6EmI0Qctrqn6EQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.307247"
+                  id="socket-FsDJugpt6EmI0Qctrqn6EQ"
+                  width="10"
+                  height="10"
+                  x="124"
+                  y="350.31036"
+                  inkscape:label="socket-FsDJugpt6EmI0Qctrqn6EQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.307247', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.307247</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = 'OjMGxK4PV0GAbrl9uH1sAA'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.307247"
+                  id="socket-OjMGxK4PV0GAbrl9uH1sAA"
+                  width="10"
+                  height="10"
+                  x="124"
+                  y="362.31036"
+                  inkscape:label="socket-OjMGxK4PV0GAbrl9uH1sAA">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.307247', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.307247</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '9Drujmjky0ST3--sSMkueQ'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.307247"
+                  id="socket-9Drujmjky0ST3--sSMkueQ"
+                  width="10"
+                  height="10"
+                  x="124"
+                  y="374.31036"
+                  inkscape:label="socket-9Drujmjky0ST3--sSMkueQ">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.307247', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.307247</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+         <xsl:when test="Key = '14TFmwnpjESihpedH_irkg'">
+            <rect xmlns="http://www.w3.org/2000/svg"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:svg="http://www.w3.org/2000/svg"
+                  style="fill:#bababa;fill-opacity:1;stroke-width:0.307247"
+                  id="socket-14TFmwnpjESihpedH_irkg"
+                  width="10"
+                  height="10"
+                  x="124"
+                  y="386.31036"
+                  inkscape:label="socket-14TFmwnpjESihpedH_irkg">
+               <xsl:attribute name="style">
+                  <xsl:choose>
+                     <xsl:when test="IsDestroyed = 'false'">
+                        <xsl:value-of select="concat('fill:#bababa;fill-opacity:1;stroke-width:0.307247', '; fill: hsl(calc(', $percent, ' * 100 * 1.2), 100%, 50%);')"/>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>fill:#bababa;fill-opacity:1;stroke-width:0.307247</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+            </rect>
+         </xsl:when>
+      </xsl:choose>
+   </xsl:template>
+</xsl:stylesheet>

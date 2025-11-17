@@ -85,6 +85,8 @@ function ui() {
 
 function reportUi() {
     const ships = document.querySelectorAll(".ship:not(.details)");
+    console.log(ships);
+
 
     ships.forEach((ship) => {
         ship.addEventListener("click", (e) => {
@@ -102,6 +104,6 @@ function reportUi() {
 
         });
     });
-    
+
     ships.item(0).dispatchEvent(new Event("click"));
 }

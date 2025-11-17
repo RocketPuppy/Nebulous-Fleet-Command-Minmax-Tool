@@ -1,7 +1,7 @@
 #drag-target {
     width: 500px;
     height: 250px;
-    border: 1px solid skyblue;
+    border: 1px solid rgb(135, 206, 235);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,6 +69,12 @@
 
 .divider-large {
     background-color: orangered;
+    width: 6px;
+    margin: 0;
+}
+
+.divider-craft {
+    background-color: grey;
     width: 6px;
     margin: 0;
 }
@@ -216,11 +222,22 @@ h4 {
     order: 3;
     display: flex;
 }
-.ship .summary .stat.damage-dealt {
+.ship .summary .stat.carried {
     order: 4;
     display: flex;
 }
-
+.ship .summary .stat.lost {
+    order: 5;
+    display: flex;
+}
+.ship .summary .stat.damage-dealt {
+    order: 6;
+    display: flex;
+}
+.ship .summary .stat.sorties-flown {
+    order: 7;
+    display: flex;
+}
 
 .ship.details .summary {
     gap: 3%;
@@ -257,28 +274,40 @@ h4 {
 }
 
 .ship.details .summary .stat.crew-status {
-    order: 3;
-}
-.ship.details .summary .stat.damage-received {
-    order: 8;
-}
-.ship.details .summary .stat.damage-repaired {
     order: 9;
 }
+.ship.details .summary .stat.damage-received {
+    order: 11;
+}
+.ship.details .summary .stat.damage-repaired {
+    order: 12;
+}
 .ship.details .summary .stat.damage-dealt {
-    order: 7;
+    order: 10;
 }
 .ship.details .summary .stat.combat-power {
-    order: 1;
+    order: 7;
 }
 .ship.details .summary .stat.distance-travelled {
-    order: 2;
+    order: 8;
 }
 .ship.details .summary .stat.ammo-spent {
     order: 13;
 }
 .ship.details .summary .stat.time-in-contact {
     order: 14;
+}
+.ship.details .summary .stat.carried {
+    order: 1;
+}
+.ship.details .summary .stat.lost {
+    order: 2;
+}
+.ship.details .summary .stat.sorties-flown {
+    order: 4;
+}
+.ship.details .summary .stat.survival-rate {
+    order: 3;
 }
 
 .stats dt::after {
@@ -295,6 +324,15 @@ h4 {
     height: auto;
     overflow: visible;
 }
+
+.craft img {
+    width: 40%;
+    height: auto;
+    overflow: visible;
+    margin-left: 25%;
+
+}
+
 
 .ship.details .dc-board {
     flex-basis: 33%;
@@ -489,13 +527,13 @@ h4 {
 }
 
 .missile .configuration {
-    text-align: right;
+    text-align: center;
     font-size: smaller;
 }
 
 .missile-hits dl {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     flex-direction: row;
 }
 .missile-hits dl * {
@@ -532,7 +570,9 @@ h4 {
 
 .anti-ship .weapon-image:not(.straight),
 .missile-warfare .weapon-image:not(.straight),
-.missile-defense .weapon-image:not(.straight) {
+.missile-defense .weapon-image:not(.straight),
+.strike-warfare .weapon-image:not(.straight),
+.void-superiority .weapon-image:not(.straight) {
     transform: rotate(-45deg);
 }
 
@@ -547,3 +587,34 @@ h4 {
 .ship.details.lineship .stats {
     flex-basis: 45%;
 }
+
+.participants {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+
+}
+
+.craft-group {
+    width:45%;
+}
+
+
+
+.craft-engagement {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+
+}
+
+
+.craft-stats {
+    flex-direction: column;    
+    width: fit-content;        
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+    white-space: nowrap;
+}
+
